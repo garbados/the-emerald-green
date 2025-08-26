@@ -29,12 +29,12 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'microsoft'
-          java-version: '17'
+          java-version: '21.0.8'
 
       - name: Install clojure tools
-        uses: DeLaGuardo/setup-clojure@12.1
+        uses: DeLaGuardo/setup-clojure@13.4
         with:
-          lein: 2.9.1
+          lein: 2.10.0
 
       - name: Install NodeJS
         uses: dcodeIO/setup-node-nvm@master
