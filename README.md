@@ -1,22 +1,5 @@
-# splash-interview-project
+# The Emerald Green: A TTRPG
 
-A Clojure library designed to ... well, that part is up to you.
+*The Emerald Green* is a d13 tabletop roleplaying game. *d13* means you use a standard deck of 52 playing cards instead of a d20 or other polyhedral die. Players take on the role of characters who have encountered a fae entity, and received its binding blessing, willingly or otherwise. As characters gain experience, players will have the opportunity to edit their deck to favor their character's playing strategy. However, as all suits and ranks are useful somehow, this specialization leaves them imbalanced, aloof to the mortal world both personally and mechanically. *The Emerald Green* aka **TEG** draws inspiration from [Deadlands](https://en.wikipedia.org/wiki/Deadlands) and [Changeling](https://en.wikipedia.org/wiki/Changeling:_The_Lost).
 
-## Usage
-
-FIXME
-
-## License
-
-Copyright © 2025 FIXME
-
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+This repository contains the rules and documentation of the game alongside the code that builds its public website, where you can create and manage characters much like [Pathbuilder 2e](https://pathbuilder2e.com/) but without a paywall. If you'd like the support the author, check out her [Patreon](https://www.patreon.com/c/garbados)!

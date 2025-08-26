@@ -4,4 +4,4 @@
  :builds
  {:web
   {:target :browser
-   :modules {:main {:entries [splash-interview-project.web]}}}}}
+   :modules {:main {:entries [the-emerald-green.web]}}}}}

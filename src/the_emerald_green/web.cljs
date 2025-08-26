@@ -1,4 +1,4 @@
-(ns splash-interview-project.web
+(ns the-emerald-green.web
   (:require ["html-alchemist" :refer [snag listento profane] :as alchemy]
             [shadow.cljs.modern :refer (defclass)]
             [clojure.string :refer [ends-with?]]))

@@ -1,4 +1,4 @@
-(ns splash-interview-project.test-utils
+(ns the-emerald-green.test-utils
   (:require [clojure.test :refer [is testing]]
             [clojure.spec.test.alpha :as stest]))
 

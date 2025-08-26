@@ -1,4 +1,4 @@
-(ns splash-interview-project.utils)
+(ns the-emerald-green.utils)
 
 ;; macros run in clj, during compilation
 ;; so cljs can use slurp
