@@ -3,7 +3,9 @@
     "scripts": {
         "start": "shadow-cljs compile web",
         "dev": "shadow-cljs watch web",
-        "release": "shadow-cljs release web"
+        "release": "shadow-cljs release web",
+        "test": "lein test",
+        "cov": "lein cloverage"
     },
     "devDependencies": {
         "html-alchemist": "^2.0.1",

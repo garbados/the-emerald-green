@@ -1,3 +1,3 @@
-# Introduction to the-emerald-green
+# Introduction to "The Emerald Green"
 
-TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)
+TODO
