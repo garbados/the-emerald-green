@@ -82,7 +82,8 @@ Effective ranks range from 2 to 6:
 - 5, 6, 7: +3
 - 8, 9, 10: +4
 - Page, Knight, Queen: +5
-- Ace, Major Arcana: +6
+- King, Ace: +6
+- Major Arcana: +7
 
 You may *gamble* by increasing the effective difficulty of a check by 2. This causes your success to be more significant, and your failure more dire. You may deal more damage, or pick the lock quickly and quietly; you may fumble the attack and hurt yourself, or break the lock with a conspicuous *thunk*.
 
