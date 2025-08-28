@@ -167,7 +167,7 @@ During a character's turn, they may spend up to three action points. Different a
 
 - Step (1pt): Carefully move one space. This may not be prevented or reduced in range, and will not trigger reactions.
 - Run (1pt): Travel up to 5 spaces minus your effective inertia.
-- Sprint (2pt): Travel up to 10 spaces minus twice your effective inertia.
+- Sprint (2pt): Travel up to 15 spaces minus twice your effective inertia.
 - Attack (2pt): Strike an opponent within range.
 - Focus (1pt): Ready yourself. Gain 1 Will; you may spend it immediately.
 - Analyze (0pt): Spend 1 Will. May only do this once per turn, despite costing no actions.
@@ -175,3 +175,9 @@ During a character's turn, they may spend up to three action points. Different a
 Traits may grant other tactical abilities.
 
 Characters may also take cover behind features of the environment. Ranged attacks against targets behind cover are at disadvantage, and may be considered impossible if the cover is total (such as a wall). You don't need to take a special action to take cover as long as it's between you and the attacker or effect source.
+
+#### Attacking
+
+When you attack something with an offensive ability, make a difficulty 7 check using the attack's skill and relevant attribute (melee, ranged: body; arcana: mind; sorcery: spirit; etc.). If you exceed the check, you hit. Inflict damage, minus the target's relevant resistances, and apply any of the attack's other on-hit effects.
+
+Defenders may choose to make an *active defense*, which means applying a card to a check whose difficulty is equal to the attack's effective rank. The skill and relevant attribute of this defense are the same as the attack's, unless a trait allows otherwise.
