@@ -124,7 +124,7 @@ The weapons, armor, tools, consumables, and other items carried and used by char
 
 *Weapons* are used in martial conflicts, and include melee and ranged arms.
 
-- Type: The skill used when attacking with this weapon, specifically Melee, Ranged, Arcana, Sorcery, or Theurgy.
+- Skill: The skill used when attacking with this weapon, specifically Melee, Ranged, Arcana, Sorcery, or Theurgy.
 - Damage: The health you subtract on a successful attack, minus the defender's resistance to the damage type. If you gamble successfully on an attack, inflict double damage and bypass resistances.
 - Element: The type of damage the weapon inflicts, which indicates the relevant resistance. These include *physical*, *fire*, *frost*, *radiant*, and *shadow*.
 - Range: The effective distance of the weapon's attacks, specifically close (requiring adjacency), near (5 spaces), far (10 spaces), distant (20 spaces). Aside from *close* weapons, you may attack at double a weapon's effective range by attacking at disadvantage.
