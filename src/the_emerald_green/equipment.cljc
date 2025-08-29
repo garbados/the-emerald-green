@@ -34,13 +34,13 @@
                    ::rarity]))
 
 (s/def ::skill #{:melee :ranged :arcana :sorcery :theurgy})
-(s/def ::damage (s/int-in 2 5))
+(s/def ::heft #{:light :medium :heavy})
 (s/def ::element elements)
 (s/def ::weapon
   (s/and
    ::equipment*
    (s/keys :req-un [::skill
-                    ::damage
+                    ::heft
                     ::element
                     ::range])))
 

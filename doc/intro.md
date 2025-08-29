@@ -85,11 +85,30 @@ Effective ranks range from 2 to 6:
 - King, Ace: +6
 - Major Arcana: +7
 
+#### Called Challenges
+
+Checks may call for a particular quality in the response, based on context. Attacking and defending, and other physical feats, generally call for *swords*. Answering the call in kind provides a +2 to your applied card's effective rank.
+
+Call examples:
+- Combat, feats of body: swords
+- Wisdom, reasoning, recall: wands
+- Enchantment, defiance, influence: cups
+- A matter of pure chance: pentacles
+- Social activities: court ranks (page, knight, etc.)
+- Divine mysteries: major arcana
+- ???: odds
+- ???: evens
+- ???: primes (2, 3, 5, 7)
+
+#### Gambling
+
 You may *gamble* by increasing the effective difficulty of a check by 2. This causes your success to be more significant, and your failure more dire. You may deal more damage, or pick the lock quickly and quietly; you may fumble the attack and hurt yourself, or break the lock with a conspicuous *thunk*.
+
+#### Assisting
 
 When appropriate, characters may *assist* each other on checks. This may include helping to push an object, or giving relevant advice. To do this, the assisting character reveals a card from their hand, which must beat the target difficult minus two. That is, a check of difficulty 7 can be assisted by beating a difficulty of 5. A successful assist lowers the check's difficulty by 1.
 
-**Check difficulty guide**:
+#### Difficulty Guide
 
 - 3 or less: Trivial; probably not a check. Narratively, ask yourself: why force a character to apply a card to something so easy?
 - 4-5: Simple, but significant and possible to fail.
@@ -125,7 +144,7 @@ The weapons, armor, tools, consumables, and other items carried and used by char
 *Weapons* are used in martial conflicts, and include melee and ranged arms.
 
 - Skill: The skill used when attacking with this weapon, specifically Melee, Ranged, Arcana, Sorcery, or Theurgy.
-- Damage: The health you subtract on a successful attack, minus the defender's resistance to the damage type. If you gamble successfully on an attack, inflict double damage and bypass resistances.
+- Heft: The mass and balance of a weapon, either *light*, *medium*, or *heavy*. Light weapons attack faster for less damage; heavy weapons attack more slowly for more damage.
 - Element: The type of damage the weapon inflicts, which indicates the relevant resistance. These include *physical*, *fire*, *frost*, *radiant*, and *shadow*.
 - Range: The effective distance of the weapon's attacks, specifically close (requiring adjacency), near (5 spaces), far (10 spaces), distant (20 spaces). Aside from *close* weapons, you may attack at double a weapon's effective range by attacking at disadvantage.
 

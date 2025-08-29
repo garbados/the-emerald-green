@@ -16,6 +16,7 @@
 (s/def ::biography string?)
 (s/def ::sanctified (s/coll-of ::deck/card :distinct true :count 2))
 (s/def ::absences (s/coll-of ::deck/card :distinct true :min-count 3))
+(s/def ::wealth nat-int?)
 
 ;; a version of a character that can be safely persisted to disk
 (s/def ::persistent-character
@@ -23,7 +24,8 @@
                    ::biography
                    ::sanctified
                    ::absences
-                   ::equipment/equipment]))
+                   ::equipment/equipment
+                   ::wealth]))
 
 (s/def ::attributes (s/map-of attributes pos-int?))
 (s/def ::skills (s/map-of skills boolean?))
@@ -44,3 +46,10 @@
                     ::skills
                     ::talents
                     ::abilities])))
+
+(defn hydrate-character [persistent-character]
+  'todo)
+
+(s/fdef hydrate-character
+  :args (s/cat :persistent-character ::persistent-character)
+  :ret ::character)
