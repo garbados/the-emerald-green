@@ -8,7 +8,6 @@
   ([syms opts]
    (doseq [sym syms]
      (testing (str sym)
-       (println (str "Testing: " sym))
        (let [{:keys [failure] :as check}
              (->> (stest/check sym {:clojure.spec.test.check/opts opts})
                   (map stest/abbrev-result)

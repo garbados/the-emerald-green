@@ -1,4 +1,4 @@
-[{:name "Strong of Form"
+[{:name "Strength of Form"
   :description "Increases Body by 1 for each matching absence."
   :requires [:or
              [:even :wands]
@@ -24,5 +24,6 @@
   :requires [:or
              [:even :cups]
              [:odd :swords]
-             [:court :wands]]
+             [:court :wands]
+             [:court :pentacles]]
   :effect {:attributes {:spirit 1}}}]

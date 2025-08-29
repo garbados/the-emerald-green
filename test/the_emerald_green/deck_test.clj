@@ -14,4 +14,5 @@
 (deftest base-deck-valid
   (doseq [card deck/base-deck]
     (testing (str "Valid? " (:name card))
-      (is (s/valid? ::deck/card* card) (s/explain-str ::deck/card* card)))))
+      (is (s/valid? ::deck/card* card)
+          (s/explain-str ::deck/card* card)))))

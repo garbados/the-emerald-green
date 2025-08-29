@@ -1,0 +1,117 @@
+# Absences
+
+## Major Arcana
+
+- "The Fool"
+    - > Protagonist. It's you. Innocence. Originality. Idealism. Foolishness. Youth. Spontaneity.
+    - The bard.
+    - Social aspect, diplomacy.
+    - Luck aspect.
+    - Aspects of shadow magic; the shadow lingering, lurking, unseen and not understood.
+- "The Magician"
+    - Doesn't grant spells, but makes you better at magic.
+- "The High Priestess"
+    - The Thaumaturge casts arcane and divine spells.
+- "The Empress"
+    - Healing, plant spells
+- "The Emperor"
+    - Reliability, authority; earth magic
+    - Shapeshifting...?
+- "The Hierophant"
+    - > "Standards and practices, motherfucker"; alms, the clergy
+    - > Commitment, conformity, conventions; traditional values and institutions
+    - The lawful cleric.
+- "The Lovers"
+    - > Unions, partnerships, connections, kindred, reliance (solidarity?)
+    - Social skills? Diplomat aspect?
+- "The Chariot"
+    - > Success, overcoming, control, willpower, self-discipline, hard work and focus. Victory!
+    - Crafter aspect.
+    - Hero aspect. Crusader? Fighter?
+- "Strength"
+    - > Courage, bravery, taming, self-control
+    - Hunter aspect, ranger aspect, warrior aspect
+- "The Hermit"
+    - Monk stuff.
+    - Monk warrior pair.
+    - Spiritual enlightenment.
+    - Bodily mastery.
+- "Wheel of Fortune"
+    - > Lucky!
+    - > Destiny, change, karma. The fruits of travails of fate...
+    - Gives you more things to do with fortune. Makes fortune a "more interesting" fungible.
+- "Justice"
+    - > Justice. Cause and effect. Boomerang. Consequences. Comeuppance; equal and opposite. The balance.
+    - Paladin aspect, retribution aspect.
+    - Lawful warrior. Executioner.
+    - Monk aspect...?
+- "The Hanged Man"
+    - > Uncertainty. Lack of direction. Ambiguity, acceptance, committing. Condemnation. Peace made, karma kept.
+    - Luck aspect.
+    - > "An important point on the fool's journey."
+- "Death"
+    - Death is change.
+    - Entropy magic. Decay magic.
+    - "No. It's not Death. It's something not quite."
+- "Temperance"
+    - > Tranquility. Harmony. Inner calm. Moderation. Peace. Patience. Discipline.
+    - Healing magic. Abjuration, protection.
+    - Buffs.
+- "The Devil"
+    - > Disharmony, depression, addiction, secrecy, powerlessness, violence, wrath.
+    - Cruelty. Chaotic evil tendencies.
+    - The Bad Guy. Blackguard.
+    - Social aspect. Deception and intimidation.
+- "The Tower"
+    - > A great challenge. To construct the tower of Babel. Disaster, violence, pain, confusion, unexpected change.
+    - Shadow magic.
+    - Chaos aspect.
+- "The Star"
+    - > Positivity. Hopefulness. Longing. Spirituality.
+    - > To look upon a faraway thing and want it like missing.
+    - Divine magic. Good archetype domain. Radiant.
+- "The Moon"
+    - > Intuition, dreams, illusions, vagueness, misconception, intuition.
+    - Frost magic.
+    - Neutral domain.
+    - Illusion magic. *Light*.
+- "The Sun"
+    - > Positivity, optimism, enthusiasm.
+    - > "Tidus? Kinda, yeah."
+    - Fire magic.
+    - Party buffs.
+- "Judgement"
+    - > Awakening. Forgiveness. Renewal. Judgment. Resolution. The end of the story.
+    - Time magic.
+    - The sharp edge of neutrality.
+    - Shivan decay/renewal aspect; transformation.
+- "The World"
+    - > The epilogue. Wholeness. Belonging. Completion. But what happens after that? Anything. Everything.
+    - Community, healing, earth aspect; worldliness.
+
+## Court Personalities
+
+- Swords
+    - Page: Resilience
+    - Knight: Athletics
+    - Queen: Intimidation
+    - King: Ranged
+    - Ace: Melee
+- Wands
+    - Page: Insight
+    - Knight: Craft
+    - Queen: Medicine
+    - King: Diplomacy
+    - Ace: Arcana
+- Cups
+    - Page: Resolve
+    - Knight: Awareness
+    - Queen: Deception
+    - King: Stealth
+    - Ace: Sorcery
+- Pentacles
+    - Page
+    - Knight
+    - Queen
+    - King
+    - Ace: Theurgy

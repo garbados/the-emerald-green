@@ -27,13 +27,15 @@
 (def minor-arcana
   (for [suit suits
         rank (drop 2 (range 16))
-        :let [arcana-name (str "The " (minor-arcana-rank-names rank) " of " (string/capitalize (name suit)))]]
+        :let [arcana-name (str "The " (minor-arcana-rank-names rank) " of " (string/capitalize (name suit)))
+              arcana-kw (arcana-name->keyword arcana-name)]]
     {:name arcana-name
+     :id arcana-kw
      :rank rank
      :tags
      #{suit
+       arcana-kw
        :minor-arcana
-       (arcana-name->keyword arcana-name)
        (cond
          (< 10 rank 15) :court
          (zero? (mod rank 2)) :even
@@ -62,21 +64,25 @@
          "The Moon"
          "The Sun"
          "Judgement"
-         "The World"]]
+         "The World"]
+         :let [arcana-kw (arcana-name->keyword arcana-name)]]
     {:name arcana-name
+     :id arcana-kw
      :rank 16
-     :tags #{:major-arcana (arcana-name->keyword arcana-name)}}))
+     :tags #{:major-arcana arcana-kw}}))
 
 (def base-deck (concat minor-arcana major-arcana))
 (def gen-deck (constantly base-deck))
 
 (s/def ::name (set (map :name base-deck)))
+(s/def ::id (set (map :id base-deck)))
 (s/def ::rank (s/int-in 2 17))
 (s/def ::tag (reduce into #{} (map :tags base-deck)))
 (s/def ::tags (s/coll-of ::tag :kind set?))
 
 (s/def ::card*
   (s/keys :req-un [::name
+                   ::id
                    ::rank
                    ::tags]))
 

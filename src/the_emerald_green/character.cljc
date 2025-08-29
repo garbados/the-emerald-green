@@ -27,6 +27,15 @@
 
 (s/def ::attributes (s/map-of attributes pos-int?))
 (s/def ::skills (s/map-of skills boolean?))
+(s/def ::talent
+  (s/keys :req-un [::name
+                   ::description]))
+(s/def ::talents (s/coll-of ::talent))
+(s/def ::ability
+  (s/keys :req-un [::name
+                   ::description
+                   ::actions]))
+(s/def ::abilities (s/coll-of ::ability))
 ;; "hydrated" character datastructure
 (s/def ::character
   (s/and

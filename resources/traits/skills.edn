@@ -1,0 +1,64 @@
+[{:name "TODO"
+  :description "TODO"
+  :requires [:the-page-of-swords]
+  :effect {:skills {:resilience true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-knight-of-swords]
+  :effect {:skills {:athletics true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-queen-of-swords]
+  :effect {:skills {:intimidation true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-king-of-swords]
+  :effect {:skills {:ranged true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-ace-of-swords]
+  :effect {:skills {:melee true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-page-of-wands]
+  :effect {:skills {:insight true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-knight-of-wands]
+  :effect {:skills {:craft true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-queen-of-wands]
+  :effect {:skills {:medicine true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-king-of-wands]
+  :effect {:skills {:diplomacy true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-ace-of-wands]
+  :effect {:skills {:arcana true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-page-of-cups]
+  :effect {:skills {:resolve true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-knight-of-cups]
+  :effect {:skills {:awareness true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-queen-of-cups]
+  :effect {:skills {:deception true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-king-of-cups]
+  :effect {:skills {:stealth true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-ace-of-cups]
+  :effect {:skills {:sorcery true}}}
+ {:name "TODO"
+  :description "TODO"
+  :requires [:the-ace-of-pentacles]
+  :effect {:skills {:theurgy true}}}]
