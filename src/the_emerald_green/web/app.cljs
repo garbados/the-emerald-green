@@ -2,12 +2,11 @@
   (:require
    ["html-alchemist" :refer [profane snag] :as alchemy]
    ["marked" :as marked]
-   [clojure.string :refer [ends-with?]]
+   [clojure.string :as string]
    [shadow.cljs.modern :refer (defclass)]
    [the-emerald-green.traits :as traits]
    [the-emerald-green.utils :refer-macros [inline-slurp]]
-   [the-emerald-green.deck :as deck]
-   [clojure.string :as string]))
+   [the-emerald-green.deck :as deck]))
 
 ;; PREAMBLE
 
@@ -19,13 +18,16 @@
 ;; ROUTING
 
 (def route->hash
-  {:landing       "#/introduction"
-   :player-guide  "#/guides/player"
-   :trait-guide   "#/guides/traits"
-   :new-character "#/characters/new"
-   :characters    "#/characters"
-   :campaigns     "#/campaigns"
-   :search        "#/search"})
+  {:landing         "#/introduction"
+   :player-guide    "#/guides/player"
+   :trait-guide     "#/guides/traits"
+   :equipment-guide "#/guides/equipment"
+   :setting-guide   "#/guides/setting"
+   :gm-guide        "#/guides/gm"
+   :new-character   "#/characters/new"
+   :characters      "#/characters"
+   :campaigns       "#/campaigns"
+   :search          "#/search"})
 
 (def default-route "#/introduction") ; put a 404 here someday?
 
@@ -45,7 +47,8 @@
    (goto-str (get route->hash route default-route))))
 
 (defn handle-route [routes node hash default-route]
-  (let [matched (first (filter #(re-find (re-pattern %) hash) (keys routes)))]
+  ;; using hash fragments as regex, get the most specific match
+  (let [matched (last (sort (filter #(re-find (re-pattern %) hash) (keys routes))))]
     (if-let [handler (get routes matched)]
       (handler node hash)
       (goto default-route))))
@@ -101,12 +104,13 @@
   [:aside.menu
    [:ul.menu-list
     [:li [:a (route->href :landing) "📖 Introduction"]]]
-   [:p.menu-label "The Guides"]
+   [:p.menu-label "Guides"]
    [:ul.menu-list
     [:li [:a (route->href :player-guide) "📕 Player Guide"]]
     [:li [:a (route->href :trait-guide) "📗 Trait Guide"]]
-    #_[:li [:a {:href (route->hash :setting-guide)} "📙 Setting Guide"]]
-    #_[:li [:a {:href (route->hash :gm-guide)} "📘 GM Guide"]]]
+    [:li [:a (route->href :equipment-guide) "📘 Equipment Guide"]]
+    [:li [:a (route->href :setting-guide) "📙 Setting Guide"]]
+    [:li [:a (route->href :gm-guide) "📓 GM Guide"]]]
    [:p.menu-label "Game Tools"]
    [:ul.menu-list
     [:li [:a (route->href :new-character) "🐣 New Character"]]
@@ -121,7 +125,7 @@
      [:div.columns
       [:div.column.is-narrow (menu-bar)]
       [:div.column
-       [:div#main]]]]]])
+       [:div.box#main]]]]]])
 
 (def introduction-text (inline-slurp "doc/introduction.md"))
 (def introduction-md (marked/parse introduction-text))
@@ -154,6 +158,8 @@
 
 (defn trait-guide []
   [:div.content
+   [:h1 "Trait Guide"]
+   [:p "Here are documented all the fae traits you may... develop."]
    (for [{trait-name :name
           requirements :requires
           :keys [description]} traits/all-traits]
@@ -162,31 +168,75 @@
        [:h3 trait-name]
        (profane "p" (marked/parse description))
        [:p "Requires:"]
-       (print-reqs requirements)
-       ]])])
+       (print-reqs requirements)]])])
+
+(defn equipment-guide []
+  [:div.content
+   [:h1 "Equipment Guide"]
+   [:p "TODO"]])
+
+(def setting-guide-text (inline-slurp "doc/setting_guide.md"))
+(def setting-guide-md (marked/parse setting-guide-text))
+(defn setting-guide []
+  [:div.content
+   (profane "p" setting-guide-md)])
+
+(def gm-guide-text (inline-slurp "doc/gm_guide.md"))
+(def gm-guide-md (marked/parse gm-guide-text))
+(defn gm-guide []
+  [:div.content
+   (profane "p" gm-guide-md)])
+
+(defn new-character []
+  [:div.content
+   [:h1 "New Character"]
+   [:p "TODO"]])
+
+(defn characters []
+  [:div.content
+   [:h1 "Characters"]
+   [:p "TODO"]])
+
+(defn campaigns []
+  [:div.content
+   [:h1 "Campaigns"]
+   [:p "TODO"]])
+
+(defn search [query]
+  [:div.content
+   [:h1 (str "Search: " query)]
+   [:p "TODO"]])
 
 ;; VIEWS
 
-(defn introduction-view [node _hash]
-  (.replaceChildren node (alchemize (introduction))))
+(defn view-factory [template]
+  (fn [node _hash]
+    (.replaceChildren node (alchemize (template)))))
 
-(defn player-guide-view [node _hash]
-  (.replaceChildren node (alchemize (player-guide))))
-
-(defn trait-guide-view [node _hash]
-  (.replaceChildren node (alchemize (trait-guide))))
+(def introduction-view (view-factory introduction))
+(def player-guide-view (view-factory player-guide))
+(def trait-guide-view (view-factory trait-guide))
+(def equipment-guide-view (view-factory equipment-guide))
+(def setting-guide-view (view-factory setting-guide))
+(def gm-guide-view (view-factory gm-guide))
+(def new-character-view (view-factory new-character))
+(def characters-view (view-factory characters))
+(def campaigns-view (view-factory campaigns))
+(def search-view (view-factory search))
 
 ;; MAIN
 
 (def route->view
-  {:landing       introduction-view
-   :player-guide  player-guide-view
-   :trait-guide   trait-guide-view
-   ;:new-character new-character-view
-   ;:characters    characters-view
-   ;:campaigns     campaigns-view
-   ;:search        search-view
-   })
+  {:landing         introduction-view
+   :player-guide    player-guide-view
+   :trait-guide     trait-guide-view
+   :equipment-guide equipment-guide-view
+   :setting-guide   setting-guide-view
+   :gm-guide        gm-guide-view
+   :new-character   new-character-view
+   :characters      characters-view
+   :campaigns       campaigns-view
+   :search          search-view})
 
 (def ROUTES
   (reduce
@@ -196,14 +246,15 @@
    route->view))
 
 (defn setup []
-  #_(db/setup-db)
-  (js/Promise.resolve))
+  #_(db/setup-db))
 
 (defn start-app [node]
   (.appendChild node (alchemize (container)))
   (let [refresh (partial handle-refresh ROUTES "main" :landing)]
     (js/window.addEventListener "popstate" refresh)
-    (.then (setup) #(refresh))))
+    (.then
+     (js/Promise.resolve (setup))
+     #(refresh))))
 
 ;; COMPONENTS
 
@@ -228,6 +279,6 @@
     ;; redefining custom elements is impossible
     ;; so if webcomponents complains about dev trying to do so, reload
     ;; but otherwise, just print the error
-    (if (ends-with? (ex-message e) "has already been defined as a custom element")
+    (if (string/ends-with? (ex-message e) "has already been defined as a custom element")
       (js/window.location.reload)
       (js/console.log e))))

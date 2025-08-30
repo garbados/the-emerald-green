@@ -1,6 +1,6 @@
-## Player Guide
+# Player Guide
 
-### Character Creation
+## Character Creation
 
 - Begin with a full tarot deck.
 - Then, remove three cards. Gain all traits which would trigger from them being absent.
@@ -49,7 +49,7 @@ That's it! This determines various qualities of your character:
 
 The [character builder](#TODO) manages this process automatically. Simply choose what cards to remove from your deck, and which to sanctify. The system will calculate the rest.
 
-### Resolving Checks
+## Resolving Checks
 
 *Checks* are challenges that include making or defending against an attack, picking a lock, casting a spell, or other challenges that endanger you or that you might fail. Checks have a *difficulty* that is an effective number you must beat. When you apply a card, calculate its effective rank plus the relevant attribute. If this number meets or exceeds the difficulty, you pass the check. A check's difficulty is generally secret!
 
@@ -64,7 +64,7 @@ Effective ranks range from 2 to 6:
 - King, Ace: +6
 - Major Arcana: +7
 
-#### Called Challenges
+### Called Challenges
 
 Checks may call for a particular quality in the response, based on context. Attacking and defending, and other physical feats, generally call for *swords*. Answering the call in kind provides a +2 to your applied card's effective rank.
 
@@ -79,15 +79,15 @@ Call examples:
 - ???: evens
 - ???: primes (2, 3, 5, 7)
 
-#### Gambling
+### Gambling
 
 You may *gamble* by increasing the effective difficulty of a check by 2. This causes your success to be more significant, and your failure more dire. You may deal more damage, or pick the lock quickly and quietly; you may fumble the attack and hurt yourself, or break the lock with a conspicuous *thunk*.
 
-#### Assisting
+### Assisting
 
 When appropriate, characters may *assist* each other on checks. This may include helping to push an object, or giving relevant advice. To do this, the assisting character reveals a card from their hand, which must beat the target difficult minus two. That is, a check of difficulty 7 can be assisted by beating a difficulty of 5. A successful assist lowers the check's difficulty by 1.
 
-#### Difficulty Guide
+### Difficulty Guide
 
 - 3 or less: Trivial; probably not a check. Narratively, ask yourself: why force a character to apply a card to something so easy?
 - 4-5: Simple, but significant and possible to fail.
@@ -95,7 +95,7 @@ When appropriate, characters may *assist* each other on checks. This may include
 - 8-9: Complex, requiring a significant degree of mastery.
 - 10+: Impossible, requiring almost superhuman prowess.
 
-### Traits
+## Traits
 
 Traits include a variety of effects, some repeatable, some unique, which provide attributes, skills, passive effects and active abilities. They all have a schema like this:
 
@@ -106,7 +106,7 @@ Traits include a variety of effects, some repeatable, some unique, which provide
 
 Traits are listed in game data, and can be reviewed in the [compendium](#TODO).
 
-### Equipment
+## Equipment
 
 The weapons, armor, tools, consumables, and other items carried and used by characters. These are bought with and sold for metal currency (gold, silver, copper). All equipment have some properties, while others are type-specific.
 
@@ -140,7 +140,7 @@ The weapons, armor, tools, consumables, and other items carried and used by char
 
 - Effect: The enumerated mechanical consequences of expending the object, if they are enumerable. Non-enumerable effects are detailed in the object's description. May include damage, healing, an element type, etc.
 
-### Conditions
+## Conditions
 
 Many physical and elemental factors may impact your character. Although abilities may describe the specific conditions they apply, there are some common and general ones:
 
@@ -154,7 +154,7 @@ Many physical and elemental factors may impact your character. Although abilitie
 - Frozen: Stiff limbs from cold. Reduces the range of *running* by 2 and *sprinting* by 4. Resolves with warmth, or fire damage.
 - Maimed: A major impairment, such as a massive wound, or a migraine. All checks are made at -2. Resolves when you gain health.
 
-### Tactical Encounters
+## Tactical Encounters
 
 When facing off against danger in a moment-to-moment conflict in a physical (or pseudo-physical) space, characters enter a *tactical encounter* in which they take turns taking actions that move them around the *theater* or affect other characters, such as casting spells or making attacks.
 
@@ -175,7 +175,7 @@ Traits may grant other tactical abilities.
 
 Characters may also take cover behind features of the environment. Ranged attacks against targets behind cover are at disadvantage, and may be considered impossible if the cover is total (such as a wall). You don't need to take a special action to take cover as long as it's between you and the attacker or effect source.
 
-#### Attacking
+### Attacking
 
 When you attack something with an offensive ability, make a difficulty 7 check using the attack's skill and relevant attribute (melee, ranged: body; arcana: mind; sorcery: spirit; etc.). If you exceed the check, you hit. Inflict damage, minus the target's relevant resistances, and apply any of the attack's other on-hit effects.
 

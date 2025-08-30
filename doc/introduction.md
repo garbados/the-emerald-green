@@ -1,3 +1,5 @@
+# Introduction
+
 > **You had never dreamed so furiously. So... shimmering emerald.**
 >
 > You stepped from nowhere into the Fae Queen's Court, where an endless foyer sprawled. White marble columns adorned with ivy trellises, and arching dome ceilings pocked with stained glass went on and on. Peering through different skylights revealed very, very different skies. Masked nobility moved in eerie unity to a tune you could only hear as if recalling it. Their formal dress and proper fits delayed your realization that there were no faces behind their masks.
