@@ -8,6 +8,7 @@
         "cov": "lein cloverage"
     },
     "devDependencies": {
+        "events": "^3.3.0",
         "html-alchemist": "^2.0.1",
         "marked": "^16.2.1",
         "pouchdb": "^9.0.0",

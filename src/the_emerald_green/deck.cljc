@@ -11,6 +11,15 @@
 (defn arcana-keyword->name [arcana-kw]
   (string/join " " (map string/capitalize (string/split (name arcana-kw) "-"))))
 
+(defn rank->mod [rank]
+  (cond
+    (<= 2 rank 4) 2
+    (<= 5 rank 7) 3
+    (<= 8 rank 10) 4
+    (<= 11 rank 13) 5
+    (<= 14 rank 15) 6
+    :else 7))
+
 (def minor-arcana-rank-names
   {2 "Two"
    3 "Three"
