@@ -38,6 +38,7 @@
                    ::description
                    ::actions]))
 (s/def ::abilities (s/coll-of ::ability))
+
 ;; "hydrated" character datastructure
 (s/def ::character
   (s/and

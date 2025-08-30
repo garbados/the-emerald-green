@@ -1,10 +1,13 @@
 (ns the-emerald-green.web.app
   (:require
-   ["html-alchemist" :refer [snag profane] :as alchemy]
+   ["html-alchemist" :refer [profane snag] :as alchemy]
    ["marked" :as marked]
    [clojure.string :refer [ends-with?]]
    [shadow.cljs.modern :refer (defclass)]
-   [the-emerald-green.utils :refer-macros [inline-slurp]]))
+   [the-emerald-green.traits :as traits]
+   [the-emerald-green.utils :refer-macros [inline-slurp]]
+   [the-emerald-green.deck :as deck]
+   [clojure.string :as string]))
 
 ;; PREAMBLE
 
@@ -16,12 +19,15 @@
 ;; ROUTING
 
 (def route->hash
-  {:landing       "#/"
+  {:landing       "#/introduction"
    :player-guide  "#/guides/player"
+   :trait-guide   "#/guides/traits"
    :new-character "#/characters/new"
    :characters    "#/characters"
    :campaigns     "#/campaigns"
    :search        "#/search"})
+
+(def default-route "#/introduction") ; put a 404 here someday?
 
 (defn route->href [route]
   {:href (route->hash route)})
@@ -34,13 +40,13 @@
 
 (defn goto
   ([route]
-   (goto route "#/"))
+   (goto route default-route))
   ([route default-route]
    (goto-str (get route->hash route default-route))))
 
 (defn handle-route [routes node hash default-route]
-  (let [matched (filter #(re-find (re-pattern %) hash) (keys routes))]
-    (if-let [handler (get routes (first matched))]
+  (let [matched (first (filter #(re-find (re-pattern %) hash) (keys routes)))]
+    (if-let [handler (get routes matched)]
       (handler node hash)
       (goto default-route))))
 
@@ -123,16 +129,59 @@
   [:div.content
    (profane "p" introduction-md)])
 
+(def player-guide-text (inline-slurp "doc/player_guide.md"))
+(def player-guide-md (marked/parse player-guide-text))
+(defn player-guide []
+  [:div.content
+   (profane "p" player-guide-md)])
+
+(defn print-reqs [rule]
+  (cond
+    (#{:and :or} (first rule))
+    [:ul>li
+     [:p (string/capitalize (name (first rule)))]
+     (print-reqs (rest rule))]
+    (= :count (first rule))
+    [:ul>li
+     [:p (str "Needs " (second rule))]
+     (print-reqs (drop 2 rule))]
+    :else
+    [:ul
+     (for [subrule rule]
+       (if (sequential? subrule)
+         [:li (string/join ", " (map deck/arcana-keyword->name subrule))]
+         [:li (deck/arcana-keyword->name subrule)]))]))
+
+(defn trait-guide []
+  [:div.content
+   (for [{trait-name :name
+          requirements :requires
+          :keys [description]} traits/all-traits]
+     [:div.card
+      [:div.card-content>div.content
+       [:h3 trait-name]
+       (profane "p" (marked/parse description))
+       [:p "Requires:"]
+       (print-reqs requirements)
+       ]])])
+
 ;; VIEWS
 
-(defn readme-view [node _hash]
+(defn introduction-view [node _hash]
   (.replaceChildren node (alchemize (introduction))))
+
+(defn player-guide-view [node _hash]
+  (.replaceChildren node (alchemize (player-guide))))
+
+(defn trait-guide-view [node _hash]
+  (.replaceChildren node (alchemize (trait-guide))))
 
 ;; MAIN
 
 (def route->view
-  {:landing       readme-view
-   ;:player-guide  player-guide-view
+  {:landing       introduction-view
+   :player-guide  player-guide-view
+   :trait-guide   trait-guide-view
    ;:new-character new-character-view
    ;:characters    characters-view
    ;:campaigns     campaigns-view

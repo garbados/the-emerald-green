@@ -3,7 +3,10 @@
    [clojure.set :as set]
    [clojure.spec.alpha :as s]
    [the-emerald-green.deck :as deck]
-   [the-emerald-green.utils :refer [slurp-edn]]))
+   #?(:clj
+      [the-emerald-green.utils :refer [slurp-edn]]
+      :cljs
+      [the-emerald-green.utils :refer-macros [slurp-edn]])))
 
 (def all-traits
   (->>
@@ -44,16 +47,18 @@
 
 (s/def ::trait (set all-traits))
 
-(defn rule-matches-card? [rule {tags :tags :as card}]
+(defn rule-matches-card?* [rule {tags :tags :as card}]
   (cond
     (keyword? rule)
     (contains? (:tags card) rule)
     (= :or (first rule))
-    (true? (some #(rule-matches-card? % card) (rest rule)))
+    (true? (some #(rule-matches-card?* % card) (rest rule)))
     (= :and (first rule))
-    (every? #(rule-matches-card? % card) (rest rule))
+    (every? #(rule-matches-card?* % card) (rest rule))
     (seq rule)
     (empty? (set/difference (set rule) tags))))
+
+(def rule-matches-card? (memoize rule-matches-card?*))
 
 (s/fdef rule-matches-card?
   :args (s/cat :rule ::requires
@@ -66,9 +71,9 @@
     (every? #(rule-matches-deck? % cards) (rest rule))
     (and (sequential? rule) (= :count (first rule)))
     (>= (second rule)
-        (count (filter #(rule-matches-card? (nth rule 2) %) cards)))
+        (count (filter #(rule-matches-card?* (nth rule 2) %) cards)))
     :else
-    (> 0 (count (filter #(rule-matches-card? rule %) cards)))))
+    (> 0 (count (filter #(rule-matches-card?* rule %) cards)))))
 
 (s/fdef rule-matches-deck?
   :args (s/cat :rule ::requires

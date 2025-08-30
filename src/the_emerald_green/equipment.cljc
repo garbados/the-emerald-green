@@ -1,7 +1,10 @@
-(ns the-emerald-green.equipment 
+(ns the-emerald-green.equipment
   (:require
    [clojure.spec.alpha :as s]
-   [the-emerald-green.utils :refer [slurp-edn]]))
+   #?(:clj
+      [the-emerald-green.utils :refer [slurp-edn]]
+      :cljs
+      [the-emerald-green.utils :refer-macros [slurp-edn]])))
 
 (def enchantments (slurp-edn "resources/equipment/enchantments.edn"))
 (def equipment

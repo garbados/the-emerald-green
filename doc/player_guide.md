@@ -1,17 +1,5 @@
 ## Player Guide
 
-> **You had never dreamed so furiously. So... shimmering emerald.**
->
-> You stepped from nowhere into the Fae Queen's Court, where an endless foyer sprawled. White marble columns adorned with ivy trellises, and arching dome ceilings pocked with stained glass went on and on. Peering through different skylights revealed very, very different skies. Masked nobility moved in eerie unity to a tune you could only hear as if recalling it. Their formal dress and proper fits delayed your realization that there were no faces behind their masks.
->
-> Then She found you. Her eminence, Her elegance, Her rapturous, indescribable visage. She offered a green-gloved hand, and said without moving Her mouth, "Dance with me." You took Her grasp before you could so much as consider it. She whirled you into Her arms and back out into Her excited tempo, back and forth, back and forth, for hours, days, weeks, months, years and years and years and years. Your feet grew so weary, but then they were so far away you could not remember having them; your hand clammed from Her touch, but then your hand was made of wood; your lips trembled at Her kiss, and then your lips parted no more, no matter how much you screamed.
->
-> It was your first Dancing Dream. You awakened to the same world as you fell asleep to, but something had come between you, as though your home reality lay on the other side of a thin, almost imperceptible veil. You snapped your fingers, just to prove you still had any, and sparks burst from their tips!
->
-> First you asked yourself in alarm, "What did She do to me?" But the question faded, as though it had been sucked down into bog-muck. Another query took its place, wriggling to the front of your thoughts like a worm protruding from an apple:
->
-> ***What shall you do with My blessing?***
-
 ### Character Creation
 
 - Begin with a full tarot deck.

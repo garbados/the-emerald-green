@@ -8,6 +8,9 @@
 (defn arcana-name->keyword [arcana-name]
   (keyword (string/lower-case (string/replace arcana-name " " "-"))))
 
+(defn arcana-keyword->name [arcana-kw]
+  (string/join " " (map string/capitalize (string/split (name arcana-kw) "-"))))
+
 (def minor-arcana-rank-names
   {2 "Two"
    3 "Three"
