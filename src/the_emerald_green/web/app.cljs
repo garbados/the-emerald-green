@@ -79,6 +79,7 @@
   (db/setup-db db))
 
 (defn main-view [node]
+  ;; FIXME: put this in a test suite lol
   (if-let [route-errors (seq (sanity-check-routes))]
     (->> [:div.content
           [:h1 "Error!"]
