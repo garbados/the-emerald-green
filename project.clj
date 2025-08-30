@@ -10,7 +10,4 @@
   {:dev {:dependencies [[org.clojure/test.check "1.1.1"]]}
    :cljs
    {:source-paths ["src" "test"]
-    :dependencies [[thheller/shadow-cljs "3.2.0"]
-                   [metosin/reitit "0.9.1"]
-                   [metosin/reitit-spec "0.9.1"]
-                   [metosin/reitit-frontend "0.9.1"]]}})
+    :dependencies [[thheller/shadow-cljs "3.2.0"]]}})

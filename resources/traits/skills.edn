@@ -1,64 +1,64 @@
-[{:name "TODO"
+[{:name "The Squire"
   :description "TODO"
   :requires [:the-page-of-swords]
   :effect {:skills {:resilience true}}}
- {:name "TODO"
+ {:name "The Soldier"
   :description "TODO"
   :requires [:the-knight-of-swords]
   :effect {:skills {:athletics true}}}
- {:name "TODO"
+ {:name "The Commander"
   :description "TODO"
   :requires [:the-queen-of-swords]
   :effect {:skills {:intimidation true}}}
- {:name "TODO"
+ {:name "The Arrow"
   :description "TODO"
   :requires [:the-king-of-swords]
   :effect {:skills {:ranged true}}}
- {:name "TODO"
+ {:name "The Sword"
   :description "TODO"
   :requires [:the-ace-of-swords]
   :effect {:skills {:melee true}}}
- {:name "TODO"
+ {:name "The Apprentice"
   :description "TODO"
   :requires [:the-page-of-wands]
   :effect {:skills {:insight true}}}
- {:name "TODO"
+ {:name "The Smith"
   :description "TODO"
   :requires [:the-knight-of-wands]
   :effect {:skills {:craft true}}}
- {:name "TODO"
+ {:name "The Apothecary"
   :description "TODO"
   :requires [:the-queen-of-wands]
   :effect {:skills {:medicine true}}}
- {:name "TODO"
+ {:name "The Diplomat"
   :description "TODO"
   :requires [:the-king-of-wands]
   :effect {:skills {:diplomacy true}}}
- {:name "TODO"
+ {:name "The Wand"
   :description "TODO"
   :requires [:the-ace-of-wands]
   :effect {:skills {:arcana true}}}
- {:name "TODO"
+ {:name "The Survivor"
   :description "TODO"
   :requires [:the-page-of-cups]
   :effect {:skills {:resolve true}}}
- {:name "TODO"
+ {:name "The Scout"
   :description "TODO"
   :requires [:the-knight-of-cups]
   :effect {:skills {:awareness true}}}
- {:name "TODO"
+ {:name "The Rogue"
   :description "TODO"
   :requires [:the-queen-of-cups]
   :effect {:skills {:deception true}}}
- {:name "TODO"
+ {:name "The Shadow"
   :description "TODO"
   :requires [:the-king-of-cups]
   :effect {:skills {:stealth true}}}
- {:name "TODO"
+ {:name "The Chalice"
   :description "TODO"
   :requires [:the-ace-of-cups]
   :effect {:skills {:sorcery true}}}
- {:name "TODO"
+ {:name "The Coin"
   :description "TODO"
   :requires [:the-ace-of-pentacles]
   :effect {:skills {:theurgy true}}}]

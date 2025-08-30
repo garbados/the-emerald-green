@@ -9,6 +9,7 @@
     },
     "devDependencies": {
         "html-alchemist": "^2.0.1",
+        "marked": "^16.2.1",
         "pouchdb": "^9.0.0",
         "shadow-cljs": "^3.2.0"
     }

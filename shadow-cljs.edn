@@ -4,4 +4,4 @@
  :builds
  {:web
   {:target :browser
-   :modules {:main {:entries [the-emerald-green.web]}}}}}
+   :modules {:main {:entries [the-emerald-green.web.app]}}}}}

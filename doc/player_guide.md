@@ -1,12 +1,3 @@
-# Introduction to "The Emerald Green"
-
-*The Emerald Green* is a high fantasy tabletop roleplaying game in which you play as a Chosen of a Fae, acting as their unwitting agent, bound to some alien pact. The game is played with a Tarot deck, and you build your character by removing cards from it.
-
-Highlights:
-- You play with a hand of cards. Choose how you respond to challenges by applying one or more cards, discarding them from your hand.
-- Challenges may demand responses of a certain sort. Specific suits, odds or evens, major or minor arcana, etc.; failure to respond in kind can be punishing.
-- Your character's traits are derived from what cards are absent from your deck. Each time you level up, you discard another card, which bequeaths every trait which then matches the cards missing from your deck.
-
 ## Player Guide
 
 > **You had never dreamed so furiously. So... shimmering emerald.**
