@@ -3,5 +3,6 @@
  :dev-http {3000 "public"}
  :builds
  {:web
-  {:target :browser
+  {:compiler-options {:source-map true}
+   :target :browser
    :modules {:main {:entries [the-emerald-green.web.app]}}}}}
