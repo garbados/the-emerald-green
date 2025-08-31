@@ -7,4 +7,5 @@
 (defn alchemize
   "Clojure-friendly wrapper around Alchemist's alchemize function."
   [expr]
+  (println expr)
   (alchemy/alchemize (clj->js expr)))
