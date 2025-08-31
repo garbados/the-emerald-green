@@ -135,7 +135,7 @@
                       (empty?
                        (filter (partial re-find (re-pattern @-query))
                                (map name (:tags card)))))))
-           deck/ordered-base-deck)
+           deck/base-deck)
           :on-exile (on-exile)
           :on-sanctify (on-sanctify))
         list-sanctified
@@ -153,15 +153,19 @@
                       :empty-msg
                       "Unburden yourself...")
         list-traits
-        #(->> {:sanctified (set (map :id @-sanctified))
-               :exiled (set (map :id @-exiled))}
-              (c/determine-traits)
-              (group-by identity)
-              (map (juxt first (comp count second)))
-              (sort-by (comp :name first))
-              (map
-               (fn [[trait n]]
-                 (guides/print-trait trait n))))
+        #(let [traits
+               (->> {:sanctified (set (map :id @-sanctified))
+                     :exiled (set (map :id @-exiled))}
+                    (c/determine-traits)
+                    (group-by identity)
+                    (map (juxt first (comp count second)))
+                    (sort-by (comp :name first))
+                    (map
+                     (fn [[trait n]]
+                       (guides/print-trait trait n))))]
+           [:div
+            {:style "overflow: scroll; max-height: 300px;"}
+            traits])
         list-stats
         #(let [{:keys [attributes skills] :as stats}
                (->> {:sanctified (set (map :id @-sanctified))

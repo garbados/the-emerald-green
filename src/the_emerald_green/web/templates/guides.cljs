@@ -60,7 +60,7 @@
   [:div.content
    [:h1 "Trait Guide"]
    [:p "Here are documented all the fae traits you may... develop."]
-   (map print-trait traits/all-traits)])
+   (map print-trait traits/traits)])
 
 (def equipment-guide
   [:div.content

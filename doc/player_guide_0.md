@@ -1,5 +1,7 @@
 # Player Guide
 
+*OUTDATED - DFB Aug 31 2025*
+
 ## Character Creation
 
 - Begin with a full tarot deck.

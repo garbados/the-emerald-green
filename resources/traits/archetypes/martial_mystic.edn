@@ -1,0 +1,17 @@
+[{:name "Martial Mystic"
+  :description "Magic flows through your muscles. Channeling it is second nature."
+  :unique true
+  :requires [:or
+             [:and [:the-hermit] [:the-ace-of-swords]]
+             [:and [:strength] [:the-ace-of-cups]]]
+  :effect {:attributes {:body 1 :spirit 1}
+           :talents
+           [{:name "Flurry of Blows"
+             :description
+             "Once per turn, you may designate an attack to be a Flurry,
+              which decreases its action cost by 1."}]}}
+ {:name "Wholeness of Body"
+  :description "Close your wounds through force of will."
+  :with [:martial-mystic]
+  :requires []
+  :effect {}}]

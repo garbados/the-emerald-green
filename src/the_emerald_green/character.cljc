@@ -2,65 +2,26 @@
   (:require
    [clojure.spec.alpha :as s]
    [clojure.string :as string]
+   [the-emerald-green.core :as core]
    [the-emerald-green.deck :as deck]
    [the-emerald-green.equipment :as equipment]
+   [the-emerald-green.money :as money]
    [the-emerald-green.traits :as traits]))
-
-(def attribute->skills
-  {:body   [:athletics :melee :ranged :resilience :intimidation]
-   :mind   [:arcana :craft :diplomacy :insight :medicine]
-   :spirit [:awareness :deception :sorcery :stealth :resolve]
-   :luck   [:theurgy]})
-(def attributes (set (keys attribute->skills)))
-(def skills (reduce into #{} (vals attribute->skills)))
-(def fungibles #{:health :draw :will :fortune :madness})
 
 (s/def ::name string?)
 (s/def ::biography string?)
 (s/def ::level (s/int-in 1 20))
 (s/def ::sanctified (s/coll-of ::deck/card :kind set?))
 (s/def ::exiled (s/coll-of ::deck/card :kind set?))
-(s/def ::wealth nat-int?)
-
-(def x-copper 1)
-(def x-silver 100)
-(def x-gold (* x-silver 100))
-(def x-platinum (* x-gold 100))
-
-(def gold-expr #"^(\d+p)?(\d+g)?(\d+s)?(\d+c)?$")
-
-(defn wealth-to-gold [wealth]
-  (cond-> ""
-    (>= wealth x-platinum) (str (int (/ wealth x-platinum)) "p")
-    (> (rem wealth x-platinum) x-gold) (str (int (/ (rem wealth x-platinum) x-gold)) "g")
-    (> (rem wealth x-gold) x-silver) (str (int (/ (rem wealth x-gold) x-silver)) "s")
-    (pos-int? (rem wealth x-silver)) (str (int (rem wealth x-silver)) "c")))
-
-(s/fdef wealth-to-gold
-  :args (s/cat :wealth ::wealth)
-  :ret (partial re-matches gold-expr))
-
-(defn gold-to-wealth [gold-ish]
-  (when-let [match (re-matches gold-expr gold-ish)]
-    (->> (for [[coin weight] (map vector (rest match) [x-platinum x-gold x-silver x-copper])
-               :when coin
-               :let [wealth ((comp
-                              #?(:cljs js/parseInt
-                                 :clj Integer/parseInt)
-                              second
-                              (partial re-matches #"^(\d+)[pgsc]$"))
-                             coin)]]
-           (* wealth weight))
-         (reduce + 0))))
 
 (s/def ::media-type keyword?) ; enumerated elsewhere TODO eventually
 (s/def ::src string?)
+(s/def ::description string?)
 (s/def ::media
   (s/coll-of
    (s/keys :req-un [::media-type
                     ::src]
-           :opt-un [::description])
-   :kind vector?))
+           :opt-un [::description])))
 
 ;; a version of a character that can be safely persisted to disk
 (s/def ::persistent-character
@@ -88,17 +49,7 @@
 (defn determine-traits
   ([{:keys [sanctified exiled]}] (determine-traits sanctified exiled))
   ([sanctified exiled]
-   (flatten
-    (for [{rules :requires unique? :unique :as trait} traits/all-traits
-          :let [absences (set (map deck/id->card (into sanctified exiled)))
-                matches
-                (if unique?
-                  (traits/rule-matches-deck? rules absences)
-                  (seq (filter (partial traits/rule-matches-card? rules) absences)))]
-          :when matches]
-      (if unique?
-        trait
-        (repeat (count matches) trait))))))
+   (traits/determine-traits (into sanctified exiled))))
 
 (s/fdef determine-traits
   :args (s/or
@@ -108,30 +59,17 @@
          :character
          (s/cat :character (s/keys :req-un [::sanctified ::exiled])))
   :ret (s/coll-of ::traits/trait))
-
-(s/def ::attributes (s/map-of attributes pos-int?))
-(s/def ::skills (s/map-of skills boolean?))
-(s/def ::talent
-  (s/keys :req-un [::name
-                   ::description]))
-(s/def ::talents (s/coll-of ::talent :kind set?))
-(s/def ::ability
-  (s/keys :req-un [::name
-                   ::description
-                   ::actions]))
-(s/def ::abilities (s/coll-of ::ability :kind set?))
-
 (s/def ::stats
-  (s/keys :req-un [::attributes
-                   ::skills
-                   ::talents
-                   ::abilities]))
+  (s/keys :req-un [::core/attributes
+                   ::core/skills
+                   ::core/talents
+                   ::core/abilities]))
 
 (def base-attribute 2)
 
 (def base-stats
-  {:attributes (into {} (map #(vec [% base-attribute]) attributes))
-   :skills (into {} (map #(vec [% false]) skills))
+  {:attributes (into {} (map #(vec [% base-attribute]) core/attributes))
+   :skills (into {} (map #(vec [% false]) core/skills))
    :talents #{}
    :abilities #{}})
 
@@ -165,20 +103,31 @@
                    ::fortune
                    ::madness]))
 
-(def base-fungibles (into {} (map #(vec [% 0]) fungibles)))
+(def base-fungibles (into {} (map #(vec [% 0]) core/fungibles)))
 
 (def base-health 3)
+(def base-draw 3)
+(def base-will 2)
+(def base-fortune 2)
 
 (defn reset-fungibles [{:keys [attributes skills level]}]
-  {:health (+ (:body attributes)
-              (if (:resilience skills) level 0)
-              level
-              base-health)
-   :hand (+ (:mind attributes)
-            (if (:insight skills) level 0))
-   :will (+ (:spirit attributes)
-            (if (:resolve skills) level 0))
-   :fortune (:luck attributes)
+  {:health
+   (+ (:body attributes)
+      (if (:resilience skills) level 0)
+      level
+      base-health)
+   :draw
+   (+ (:mind attributes)
+      (if (:insight skills) 2 0)
+      base-draw)
+   :will
+   (+ (:spirit attributes)
+      (if (:resolve skills) 2 0)
+      base-will)
+   :fortune
+   (+ (:luck attributes)
+      (if (:theurgy skills) 2 0)
+      base-fortune)
    :madness 0})
 
 (s/fdef reset-fungibles
@@ -245,7 +194,7 @@
                   (#{:sanctified :exiled} prop)
                   (string/join ", " (map deck/arcana-keyword->name prop-value*))
                   (= :wealth prop)
-                  (wealth-to-gold prop-value*)
+                  (money/wealth-to-gold prop-value*)
                   :else
                   prop-value*)]
           :when (if (vector? prop-value)
@@ -254,7 +203,7 @@
     (println prop-name ":" prop-value))
   (when (some (partial contains? character) (keys base-stats))
     (println "-- ATTRIBUTES")
-    (doseq [attribute attributes
+    (doseq [attribute core/attributes
             :let [value (get-in character [:attributes attribute])]
             :when value]
       (println (string/capitalize (name attribute)) ":" value))
@@ -267,7 +216,7 @@
       (doseq [[prop value] (select-keys character [:talents :abilities])
               :when (seq value)]
         (println (string/capitalize (name prop)) ":" (string/join "," (map :name value))))))
-  (when (some (partial contains? character) fungibles)
+  (when (some (partial contains? character) core/fungibles)
     (println "-- FUNGIBLES")
     (doseq [prop (keys base-fungibles)
             :when (get character prop)]

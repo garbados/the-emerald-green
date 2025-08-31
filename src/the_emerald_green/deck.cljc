@@ -83,8 +83,8 @@
      :rank 16
      :tags #{:major-arcana arcana-kw}}))
 
-(def ordered-base-deck (concat minor-arcana major-arcana))
-(def base-deck (set ordered-base-deck))
+(def base-deck (concat minor-arcana major-arcana))
+(def base-deck-set (set base-deck))
 (def gen-deck (constantly base-deck))
 (def id->card (into {} (map (juxt :id identity) base-deck)))
 
@@ -100,9 +100,10 @@
                    ::rank
                    ::tags]))
 
-(s/def ::card base-deck)
-(s/def ::deck (s/coll-of ::card :kind set? :max-count 78))
-(s/def ::shuffled (s/coll-of ::card :distinct true))
+(s/def ::card base-deck-set)
+(s/def ::cards (s/coll-of ::id :distinct true))
+(s/def ::deck (s/coll-of ::id :kind set? :max-count 78))
+(s/def ::shuffled (s/coll-of ::id :distinct true))
 
 (s/fdef gen-deck
   :args (s/cat)
@@ -112,25 +113,25 @@
   :args (s/cat :name (set (map :name base-deck)))
   :ret ::tag)
 
-(defn remove-card [deck card]
-  (remove (partial = card) deck))
+(defn remove-card [cards card]
+  (remove (partial = card) cards))
 
 (s/fdef remove-card
-  :args (s/cat :deck ::deck
-               :card ::card)
+  :args (s/cat :cards ::cards
+               :card ::id)
   :ret ::shuffled)
 
-(defn remove-cards-by-tag [deck tag]
-  (remove #(contains? (:tags %) tag) deck))
+(defn remove-cards-by-tag [cards tag]
+  (remove #(contains? (-> % id->card (:tags #{})) tag) cards))
 
 (s/fdef remove-cards-by-tag
-  :args (s/cat :deck ::deck
-               :card ::card)
+  :args (s/cat :cards ::cards
+               :card ::id)
   :ret ::shuffled)
 
-(defn list-missing-cards [deck]
-  (set/difference (set base-deck) (set deck)))
+(defn list-missing-cards [cards]
+  (set/difference base-deck-set (->> cards (map id->card) set)))
 
 (s/fdef list-missing-cards
-  :args (s/cat :deck ::deck)
+  :args (s/cat :cards ::cards)
   :ret ::deck)
