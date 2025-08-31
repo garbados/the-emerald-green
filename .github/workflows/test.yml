@@ -26,14 +26,16 @@ jobs:
 
       - run: npm i
           
-      - name: Cache dependencies
+      - name: Cache clojure dependencies
         uses: actions/cache@v3
         with:
           path: |
             ~/.m2/repository
             ~/.gitlibs
-            **/node_modules
-          key: cljdeps-${{ hashFiles('package.json') }}-${{ hashFiles('project.clj') }}
+            ~/.deps.clj
+            .cpcache
+          # List all files containing dependencies:
+          key: cljdeps-${{ hashFiles('project.clj') }}
           restore-keys: cljdeps-
 
       - name: Run tests
