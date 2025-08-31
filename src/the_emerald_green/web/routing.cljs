@@ -1,5 +1,5 @@
 (ns the-emerald-green.web.routing
-  (:require ["html-alchemist" :refer [snag]]))
+  (:require [the-emerald-green.web.alchemy :refer [snag]]))
 
 (def route->hash
   {:landing         "#/introduction"

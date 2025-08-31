@@ -3,7 +3,7 @@
             [clojure.spec.alpha :as s]
             [clojure.set :as set]))
 
-(def suits #{:swords :wands :cups :pentacles})
+(def suits [:wands :cups :swords :pentacles])
 
 (defn arcana-name->keyword [arcana-name]
   (keyword (string/lower-case (string/replace arcana-name " " "-"))))
@@ -83,7 +83,8 @@
      :rank 16
      :tags #{:major-arcana arcana-kw}}))
 
-(def base-deck (set (concat minor-arcana major-arcana)))
+(def ordered-base-deck (concat minor-arcana major-arcana))
+(def base-deck (set ordered-base-deck))
 (def gen-deck (constantly base-deck))
 (def id->card (into {} (map (juxt :id identity) base-deck)))
 

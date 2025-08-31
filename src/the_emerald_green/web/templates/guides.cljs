@@ -1,6 +1,6 @@
 (ns the-emerald-green.web.templates.guides
   (:require
-   ["html-alchemist" :refer [profane]]
+   [the-emerald-green.web.alchemy :refer [profane]]
    ["marked" :as marked]
    [clojure.string :as string]
    [the-emerald-green.utils :refer-macros [inline-slurp]]
@@ -48,19 +48,23 @@
          [:li (string/join ", " (map deck/arcana-keyword->name subrule))]
          [:li (deck/arcana-keyword->name subrule)]))]))
 
+(defn print-trait
+  ([{trait-name :name
+     requirements :requires
+     :keys [description]}
+    & [n]]
+   [:div.card
+    [:div.card-content>div.content
+     [:p.subtitle trait-name (when (< 1 n) (str " (x " n ")"))]
+     (profane "p" (marked/parse description))
+     [:p "Requires:"]
+     (print-reqs requirements)]]))
+
 (def trait-guide
   [:div.content
    [:h1 "Trait Guide"]
    [:p "Here are documented all the fae traits you may... develop."]
-   (for [{trait-name :name
-          requirements :requires
-          :keys [description]} traits/all-traits]
-     [:div.card
-      [:div.card-content>div.content
-       [:h3 trait-name]
-       (profane "p" (marked/parse description))
-       [:p "Requires:"]
-       (print-reqs requirements)]])])
+   (map print-trait traits/all-traits)])
 
 (def equipment-guide
   [:div.content

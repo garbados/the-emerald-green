@@ -1,6 +1,6 @@
 (ns the-emerald-green.web.app
   (:require
-   ["html-alchemist" :as alchemy]
+   [the-emerald-green.web.alchemy :refer [alchemize]]
    [clojure.string :refer [ends-with?]]
    [shadow.cljs.modern :refer (defclass)]
    [the-emerald-green.web.db :as db]
@@ -8,13 +8,6 @@
    [the-emerald-green.web.templates.layout :refer [container]]
    [the-emerald-green.web.templates.guides :as guides]
    [the-emerald-green.web.templates.tools :as tools]))
-
-;; PREAMBLE
-
-(defn alchemize
-  "Clojure-friendly wrapper around Alchemist's alchemize function."
-  [expr]
-  (alchemy/alchemize (clj->js expr)))
 
 ;; VIEWS
 
