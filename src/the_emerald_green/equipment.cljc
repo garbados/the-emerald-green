@@ -7,6 +7,7 @@
       [the-emerald-green.utils :refer-macros [slurp-edn]])))
 
 (def enchantments (slurp-edn "resources/equipment/enchantments.edn"))
+(def items (slurp-edn "resources/equipment/items.edn"))
 (def equipment
   (->>
    [(slurp-edn "resources/equipment/weapons.edn")
@@ -54,3 +55,17 @@
         :consumable ::consumable))
 
 (s/def ::equipment (set equipment))
+(s/def ::equipped ())
+
+(s/def ::item*
+  (s/or
+   :unequipped ::equipment
+   :misc
+   (s/keys :req-un [::name
+                    ::description]
+           :opt-un [::cost
+                    ::rarity])))
+
+(s/def ::item (set items))
+
+(s/def ::inventory (s/coll-of ::item :kind vector?))

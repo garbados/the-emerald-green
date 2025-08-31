@@ -50,13 +50,15 @@
 (defn rule-matches-card?* [rule {tags :tags :as card}]
   (cond
     (keyword? rule)
-    (contains? (:tags card) rule)
+    (contains? tags rule)
     (= :or (first rule))
     (true? (some #(rule-matches-card?* % card) (rest rule)))
+    (set? rule)
+    (empty? (set/difference rule tags))
     (= :and (first rule))
     (every? #(rule-matches-card?* % card) (rest rule))
-    (seq rule)
-    (empty? (set/difference (set rule) tags))))
+    (sequential? rule)
+    (every? #(rule-matches-card?* % card) rule)))
 
 (def rule-matches-card? (memoize rule-matches-card?*))
 
@@ -71,9 +73,12 @@
     (every? #(rule-matches-deck? % cards) (rest rule))
     (and (sequential? rule) (= :count (first rule)))
     (>= (second rule)
-        (count (filter #(rule-matches-card?* (nth rule 2) %) cards)))
+        (count (filter #(rule-matches-card? (nth rule 2) %) cards)))
     :else
-    (> 0 (count (filter #(rule-matches-card?* rule %) cards)))))
+    (-> (partial rule-matches-card? rule)
+        (filter cards)
+        count
+        pos-int?)))
 
 (s/fdef rule-matches-deck?
   :args (s/cat :rule ::requires
