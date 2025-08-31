@@ -272,11 +272,12 @@
 ;; EXAMPLE CHARACTERS
 
 (def dhutlo
-  (merge
-   base-character
-   {:name "Dhutlo K'smani"
-    :biography "The *last* and *first* of Clan Quxot'l and G'xbenmi Fen."
-    :sanctified #{:the-hermit :the-ace-of-swords}
-    :exiled #{:the-two-of-wands :the-three-of-wands :the-four-of-wands}}))
+  (hydrate-character
+   (merge
+    base-character
+    {:name "Dhutlo K'smani"
+     :biography "The *last* and *first* of Clan Quxot'l and G'xbenmi Fen."
+     :sanctified #{:the-hermit :the-ace-of-swords}
+     :exiled #{:the-two-of-wands :the-three-of-wands :the-four-of-wands}})))
 
 (def examples [dhutlo])
