@@ -102,7 +102,7 @@
 
 (s/def ::card base-deck)
 (s/def ::deck (s/coll-of ::card :kind set? :max-count 78))
-(s/def ::shuffled (s/coll-of ::card :distinct true :kind vector?))
+(s/def ::shuffled (s/coll-of ::card :distinct true))
 
 (s/fdef gen-deck
   :args (s/cat)
@@ -118,7 +118,7 @@
 (s/fdef remove-card
   :args (s/cat :deck ::deck
                :card ::card)
-  :ret ::deck)
+  :ret ::shuffled)
 
 (defn remove-cards-by-tag [deck tag]
   (remove #(contains? (:tags %) tag) deck))
@@ -126,7 +126,7 @@
 (s/fdef remove-cards-by-tag
   :args (s/cat :deck ::deck
                :card ::card)
-  :ret ::deck)
+  :ret ::shuffled)
 
 (defn list-missing-cards [deck]
   (set/difference (set base-deck) (set deck)))
