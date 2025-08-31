@@ -9,25 +9,21 @@
 
 ;; STATIC GUIDES
 
+(defn guide-text [text]
+  [:div.content
+   (profane "span" (marked/parse text))])
+
 (let [text (inline-slurp "doc/introduction.md")]
-  (def introduction
-    [:div.content
-     (profane "p" (marked/parse text))]))
+  (def introduction (guide-text text)))
 
 (let [text (inline-slurp "doc/player_guide.md")]
-  (def player-guide
-    [:div.content
-     (profane "p" (marked/parse text))]))
+  (def player-guide (guide-text text)))
 
 (let [text (inline-slurp "doc/setting_guide.md")]
-  (def setting-guide
-    [:div.content
-     (profane "p" (marked/parse text))]))
+  (def setting-guide (guide-text text)))
 
 (let [text (inline-slurp "doc/gm_guide.md")]
-  (def gm-guide
-    [:div.content
-     (profane "p" (marked/parse text))]))
+  (def gm-guide (guide-text text)))
 
 ;; DYNAMIC GUIDES
 

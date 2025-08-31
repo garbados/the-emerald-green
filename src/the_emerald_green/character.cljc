@@ -13,7 +13,7 @@
    :luck   [:theurgy]})
 (def attributes (set (keys attribute->skills)))
 (def skills (reduce into #{} (vals attribute->skills)))
-(def fungibles #{:health :will :fortune :madness})
+(def fungibles #{:health :draw :will :fortune :madness})
 
 (s/def ::name string?)
 (s/def ::biography string?)
@@ -154,11 +154,13 @@
   (merge character (determine-stats (determine-traits character))))
 
 (s/def ::health nat-int?)
+(s/def ::draw nat-int?)
 (s/def ::will nat-int?)
 (s/def ::fortune nat-int?)
 (s/def ::madness nat-int?)
 (s/def ::fungibles
   (s/keys :req-un [::health
+                   ::draw
                    ::will
                    ::fortune
                    ::madness]))
@@ -172,6 +174,8 @@
               (if (:resilience skills) level 0)
               level
               base-health)
+   :hand (+ (:mind attributes)
+            (if (:insight skills) level 0))
    :will (+ (:spirit attributes)
             (if (:resolve skills) level 0))
    :fortune (:luck attributes)
