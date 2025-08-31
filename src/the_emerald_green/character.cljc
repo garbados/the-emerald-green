@@ -172,8 +172,8 @@
               (if (:resilience skills) level 0)
               level
               base-health)
-   :will (+ (:mind attributes)
-            (if (:insight skills) level 0))
+   :will (+ (:spirit attributes)
+            (if (:resolve skills) level 0))
    :fortune (:luck attributes)
    :madness 0})
 

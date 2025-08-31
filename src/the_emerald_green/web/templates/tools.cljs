@@ -50,6 +50,59 @@
                     "Restore!"]]]))]
     [:p "None. " [:em empty-msg]]))
 
+(defn list-stats [{:keys [attributes skills talents abilities]} fungibles]
+  [[:p.subtitle "Attributes"]
+   [:table.table.is-fullwidth
+    [:thead
+     [:tr
+      [:th "Body"]
+      [:th "Mind"]
+      [:th "Spirit"]
+      [:th "Luck"]]]
+    [:tbody
+     [:tr
+      [:td (:body attributes)]
+      [:td (:mind attributes)]
+      [:td (:spirit attributes)]
+      [:td (:luck attributes)]]]]
+   [:p.subtitle "Fungibles"]
+   [:table.table.is-fullwidth
+    [:thead
+     [:tr
+      [:th "Health"]
+      [:th "Will"]
+      [:th "Fortune"]
+      [:th "Madness"]]]
+    [:tbody
+     [:tr
+      [:td (:health fungibles)]
+      [:td (:will fungibles)]
+      [:td (:fortune fungibles)]
+      [:td (:madness fungibles)]]]]
+   (when-let [known-skills (seq (map first (filter second skills)))]
+     [:div
+      [:hr]
+      [:p.subtitle "Skills"]
+      (cons :ul
+            (for [skill known-skills]
+              [:li (string/capitalize (name skill))]))])
+   (when (seq talents)
+     [:div
+      [:hr]
+      [:p.subtitle "Talents"]
+      (cons :ul
+            (for [talent talents]
+              [:li (print-str talent)]))])
+   (when (seq abilities)
+     [:div
+      [:hr]
+      [:p.subtitle "Abilities"]
+      (if (seq abilities)
+        (cons :ul
+              (for [ability abilities]
+                [:li (print-str ability)]))
+        [:p "No abilities..."])])])
+
 (defn edit-character [& {:keys [character on-save on-cancel]}]
   (let [{charname :name
          :keys [biography sanctified exiled level]
@@ -64,15 +117,15 @@
         -exiled (atom exiled)
         -query (atom "")
         on-sanctify
-        (when (> 2 (count @-sanctified))
-          (fn [card]
-            (when (js/confirm (str (:name card) "... Will you hold it sacred?"))
-              (swap! -sanctified conj card))))
+        #(when (> 2 (count @-sanctified))
+           (fn [card]
+             (when (js/confirm (str (:name card) "... Will you hold it sacred?"))
+               (swap! -sanctified conj card))))
         on-exile
-        (when (> 3 (count @-exiled))
-          (fn [card]
-            (when (js/confirm (str (:name card) "... Will you banish it?"))
-              (swap! -exiled conj card))))
+        #(when (> 3 (count @-exiled))
+           (fn [card]
+             (when (js/confirm (str (:name card) "... Will you banish it?"))
+               (swap! -exiled conj card))))
         list-deck
         #(list-cards
           (remove
@@ -83,8 +136,8 @@
                        (filter (partial re-find (re-pattern @-query))
                                (map name (:tags card)))))))
            deck/ordered-base-deck)
-          :on-exile on-exile
-          :on-sanctify on-sanctify)
+          :on-exile (on-exile)
+          :on-sanctify (on-sanctify))
         list-sanctified
         #(list-chosen @-sanctified
                       :on-restore
@@ -110,7 +163,7 @@
                (fn [[trait n]]
                  (guides/print-trait trait n))))
         list-stats
-        #(let [{:keys [attributes skills talents abilities]}
+        #(let [{:keys [attributes skills] :as stats}
                (->> {:sanctified (set (map :id @-sanctified))
                      :exiled (set (map :id @-exiled))}
                     (c/determine-traits)
@@ -119,57 +172,7 @@
                (c/reset-fungibles {:attributes attributes
                                    :skills skills
                                    :level level})]
-           [[:p.subtitle "Attributes"]
-            [:table.table.is-fullwidth
-             [:thead
-              [:tr
-               [:th "Body"]
-               [:th "Mind"]
-               [:th "Spirit"]
-               [:th "Luck"]]]
-             [:tbody
-              [:tr
-               [:td (:body attributes)]
-               [:td (:mind attributes)]
-               [:td (:spirit attributes)]
-               [:td (:luck attributes)]]]]
-            [:p.subtitle "Fungibles"]
-            [:table.table.is-fullwidth
-             [:thead
-              [:tr
-               [:th "Health"]
-               [:th "Will"]
-               [:th "Fortune"]
-               [:th "Madness"]]]
-             [:tbody
-              [:tr
-               [:td (:health fungibles)]
-               [:td (:will fungibles)]
-               [:td (:fortune fungibles)]
-               [:td (:madness fungibles)]]]]
-            (when-let [known-skills (seq (map first (filter second skills)))]
-              [:div
-               [:hr]
-               [:p.subtitle "Skills"]
-               (cons :ul
-                     (for [skill known-skills]
-                       [:li (string/capitalize (name skill))]))])
-            (when (seq talents)
-              [:div
-               [:hr]
-               [:p.subtitle "Talents"]
-               (cons :ul
-                     (for [talent talents]
-                       [:li (print-str talent)]))])
-            (when (seq abilities)
-              [:div
-               [:hr]
-               [:p.subtitle "Abilities"]
-               (if (seq abilities)
-                 (cons :ul
-                       (for [ability abilities]
-                         [:li (print-str ability)]))
-                 [:p "No abilities..."])])])
+           (list-stats stats fungibles))
         refresh-node
         (fn [node-id template-fn]
           (.replaceChildren (snag node-id)
