@@ -1,15 +1,11 @@
 (ns the-emerald-green.deck
-  (:require [clojure.string :as string]
-            [clojure.spec.alpha :as s]
-            [clojure.set :as set]))
+  (:require
+   [clojure.set :as set]
+   [clojure.spec.alpha :as s]
+   [clojure.string :as string]
+   [the-emerald-green.utils :as utils]))
 
 (def suits [:wands :cups :swords :pentacles])
-
-(defn arcana-name->keyword [arcana-name]
-  (keyword (string/lower-case (string/replace arcana-name " " "-"))))
-
-(defn arcana-keyword->name [arcana-kw]
-  (string/join " " (map string/capitalize (string/split (name arcana-kw) #"-"))))
 
 (defn rank->mod [rank]
   (cond
@@ -40,7 +36,7 @@
   (for [suit suits
         rank (drop 2 (range 16))
         :let [arcana-name (str "The " (minor-arcana-rank-names rank) " of " (string/capitalize (name suit)))
-              arcana-kw (arcana-name->keyword arcana-name)]]
+              arcana-kw (utils/name->keyword arcana-name)]]
     {:name arcana-name
      :id arcana-kw
      :rank rank
@@ -77,7 +73,7 @@
          "The Sun"
          "Judgement"
          "The World"]
-         :let [arcana-kw (arcana-name->keyword arcana-name)]]
+         :let [arcana-kw (utils/name->keyword arcana-name)]]
     {:name arcana-name
      :id arcana-kw
      :rank 16
@@ -101,23 +97,20 @@
                    ::tags]))
 
 (s/def ::card base-deck-set)
-(s/def ::cards (s/coll-of ::id :distinct true))
+(s/def ::card-ids (s/coll-of ::id :distinct true))
+(s/def ::cards (s/coll-of ::card :distinct true))
 (s/def ::deck (s/coll-of ::id :kind set? :max-count 78))
 (s/def ::shuffled (s/coll-of ::id :distinct true))
 
 (s/fdef gen-deck
   :args (s/cat)
-  :ret ::deck)
-
-(s/fdef arcana-name->keyword
-  :args (s/cat :name (set (map :name base-deck)))
-  :ret ::tag)
+  :ret ::cards)
 
 (defn remove-card [cards card]
   (remove (partial = card) cards))
 
 (s/fdef remove-card
-  :args (s/cat :cards ::cards
+  :args (s/cat :cards ::card-ids
                :card ::id)
   :ret ::shuffled)
 
@@ -125,13 +118,13 @@
   (remove #(contains? (-> % id->card (:tags #{})) tag) cards))
 
 (s/fdef remove-cards-by-tag
-  :args (s/cat :cards ::cards
+  :args (s/cat :cards ::card-ids
                :card ::id)
   :ret ::shuffled)
 
 (defn list-missing-cards [cards]
-  (set/difference base-deck-set (->> cards (map id->card) set)))
+  (set/difference (set (map :id base-deck-set)) (set cards)))
 
 (s/fdef list-missing-cards
-  :args (s/cat :cards ::cards)
+  :args (s/cat :cards ::card-ids)
   :ret ::deck)

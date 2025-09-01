@@ -6,7 +6,6 @@
 
 (deftest fspec-test
   (stest-symbols! [`deck/gen-deck
-                   `deck/arcana-name->keyword
                    `deck/remove-card
                    `deck/remove-cards-by-tag
                    `deck/list-missing-cards]))

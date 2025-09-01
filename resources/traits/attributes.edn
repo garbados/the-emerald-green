@@ -1,22 +1,22 @@
 [{:name "Strength of Form"
   :description "Increases Body by 1 for each matching absence."
-  :requires [:or
-             [:even :wands]
-             [:odd :cups]]
+  :card [:or
+         [:even :wands]
+         [:odd :cups]]
   :effect {:attributes {:body 1}}}
  {:name "Keen Cleverness"
   :description "Increases Mind by 1 for each matching absence."
-  :requires [:or
-             [:odd :swords]
-             [:even :cups]]
+  :card [:or
+         [:odd :swords]
+         [:even :cups]]
   :effect {:attributes {:mind 1}}}
  {:name "Tireless Resolve"
   :description "Increases Spirit by 1 for each matching absence."
-  :requires [:or
-             [:even :swords]
-             [:odd :wands]]
+  :card [:or
+         [:even :swords]
+         [:odd :wands]]
   :effect {:attributes {:spirit 1}}}
  {:name "Kind Fates"
   :description "Increases Luck by 1 for each matching absence."
-  :requires [:pentacles]
+  :card [:pentacles]
   :effect {:attributes {:spirit 1}}}]

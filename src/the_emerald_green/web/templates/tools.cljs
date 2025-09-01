@@ -1,16 +1,17 @@
 (ns the-emerald-green.web.templates.tools
   (:require
-   [the-emerald-green.web.alchemy :refer [snag alchemize]]
-   [the-emerald-green.deck :as deck]
-   [the-emerald-green.web.prompts :as prompts]
+   [clojure.string :as string]
    [the-emerald-green.character :as c]
-   [the-emerald-green.web.templates.guides :as guides]
-   [clojure.string :as string]))
+   [the-emerald-green.deck :as deck]
+   [the-emerald-green.traits :as traits]
+   [the-emerald-green.web.alchemy :refer [alchemize snag]]
+   [the-emerald-green.web.prompts :as prompts]
+   [the-emerald-green.web.templates.guides :as guides]))
 
 (defn list-cards [cards & {:keys [on-exile on-sanctify height]
                            :or {height "300px"}}]
   [:div
-   {:style (str "overflow: scroll; height: " height ";")}
+   {:style (str "overflow: scroll; max-height: " height ";")}
    [:table.table.is-hoverable.is-fullwidth
     [:thead
      [:tr
@@ -115,6 +116,7 @@
         -biography (atom biography)
         -sanctified (atom sanctified)
         -exiled (atom exiled)
+        -traits (atom nil)
         -query (atom "")
         on-sanctify
         #(when (> 2 (count @-sanctified))
@@ -153,25 +155,13 @@
                       :empty-msg
                       "Unburden yourself...")
         list-traits
-        #(let [traits
-               (->> {:sanctified (set (map :id @-sanctified))
-                     :exiled (set (map :id @-exiled))}
-                    (c/determine-traits)
-                    (group-by identity)
-                    (map (juxt first (comp count second)))
-                    (sort-by (comp :name first))
-                    (map
-                     (fn [[trait n]]
-                       (guides/print-trait trait n))))]
+        #(let [traits (map (fn [[trait n]] (guides/print-trait trait n)) @-traits)]
            [:div
             {:style "overflow: scroll; max-height: 300px;"}
             traits])
         list-stats
         #(let [{:keys [attributes skills] :as stats}
-               (->> {:sanctified (set (map :id @-sanctified))
-                     :exiled (set (map :id @-exiled))}
-                    (c/determine-traits)
-                    (c/determine-stats))
+               (c/determine-stats @-traits)
                fungibles
                (c/reset-fungibles {:attributes attributes
                                    :skills skills
@@ -182,20 +172,24 @@
           (.replaceChildren (snag node-id)
                             (alchemize (template-fn))))
         refresh-deck #(refresh-node "deck" list-deck)
+        reset-traits #(reset! -traits (traits/determine-traits
+                                       (into (set (map :id @-exiled))
+                                             (set (map :id @-sanctified)))))
         refresh-traits #(refresh-node "traits" list-traits)
         refresh-stats #(refresh-node "stats" list-stats)
         refresh-sanctified
         #(do (refresh-deck)
-             (refresh-traits)
+             (reset-traits)
              (refresh-stats)
              (refresh-node "sanctified" list-sanctified))
         refresh-exiled
         #(do (refresh-deck)
-             (refresh-traits)
-             (refresh-stats)
+             (reset-traits)
              (refresh-node "exiled" list-exiled))]
     (add-watch -sanctified :sanctify refresh-sanctified)
     (add-watch -exiled :exiled refresh-exiled)
+    (add-watch -traits :traits #(do (refresh-traits)
+                                    (refresh-stats)))
     (add-watch -query :query refresh-deck)
     [:div.content
      [:h1 (if character "Edit Character" "New Character")]

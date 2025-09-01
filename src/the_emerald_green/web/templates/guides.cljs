@@ -1,11 +1,11 @@
 (ns the-emerald-green.web.templates.guides
   (:require
-   [the-emerald-green.web.alchemy :refer [profane]]
    ["marked" :as marked]
    [clojure.string :as string]
-   [the-emerald-green.utils :refer-macros [inline-slurp]]
+   [the-emerald-green.macros :refer-macros [inline-slurp]]
    [the-emerald-green.traits :as traits]
-   [the-emerald-green.deck :as deck]))
+   [the-emerald-green.utils :as utils]
+   [the-emerald-green.web.alchemy :refer [profane]]))
 
 ;; STATIC GUIDES
 
@@ -41,8 +41,8 @@
     [:ul
      (for [subrule rule]
        (if (sequential? subrule)
-         [:li (string/join ", " (map deck/arcana-keyword->name subrule))]
-         [:li (deck/arcana-keyword->name subrule)]))]))
+         [:li (string/join ", " (map utils/keyword->name subrule))]
+         [:li (utils/keyword->name subrule)]))]))
 
 (defn print-trait
   ([{trait-name :name

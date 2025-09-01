@@ -1,4 +1,4 @@
-(ns the-emerald-green.character 
+(ns the-emerald-green.character
   (:require
    [clojure.spec.alpha :as s]
    [clojure.string :as string]
@@ -6,7 +6,8 @@
    [the-emerald-green.deck :as deck]
    [the-emerald-green.equipment :as equipment]
    [the-emerald-green.money :as money]
-   [the-emerald-green.traits :as traits]))
+   [the-emerald-green.traits :as traits]
+   [the-emerald-green.utils :as utils]))
 
 (s/def ::name string?)
 (s/def ::biography string?)
@@ -46,19 +47,6 @@
    :media []
    :wealth 1000})
 
-(defn determine-traits
-  ([{:keys [sanctified exiled]}] (determine-traits sanctified exiled))
-  ([sanctified exiled]
-   (traits/determine-traits (into sanctified exiled))))
-
-(s/fdef determine-traits
-  :args (s/or
-         :explicit
-         (s/cat :sanctified ::sanctified
-                :exiled ::exiled)
-         :character
-         (s/cat :character (s/keys :req-un [::sanctified ::exiled])))
-  :ret (s/coll-of ::traits/trait))
 (s/def ::stats
   (s/keys :req-un [::core/attributes
                    ::core/skills
@@ -70,26 +58,33 @@
 (def base-stats
   {:attributes (into {} (map #(vec [% base-attribute]) core/attributes))
    :skills (into {} (map #(vec [% false]) core/skills))
-   :talents #{}
+   :talents {}
    :abilities #{}})
 
 (defn determine-stats [traits]
-  (->> (map :effect traits)
+  (->> (map (comp :effect traits/id->trait) traits)
        (filter identity)
-       (reduce (fn [acc {:keys [attributes skills talents abilities]}]
-                 (cond-> acc
-                   attributes (update :attributes (partial merge-with +) attributes)
-                   skills (update :skills merge skills)
-                   talents (update :talents concat talents)
-                   abilities (update :abilities concat abilities)))
-               base-stats)))
+       (reduce
+        (fn [stats {:keys [attributes skills talents abilities]}]
+          (cond-> stats
+            attributes (update :attributes (partial merge-with +) attributes)
+            skills (update :skills merge skills)
+            talents (update :talents
+                            #(reduce
+                              (fn [acc talent] (update acc (:id talent talent) (fnil inc 0)))
+                              % talents))
+            abilities (update :abilities into (map #(:id % %) abilities))))
+        base-stats)))
 
 (s/fdef determine-stats
-  :args (s/coll-of (s/keys :req-un [::traits/effect]))
+  :args (s/coll-of ::traits/id)
   :ret ::stats)
 
-(defn merge-stats [character]
-  (merge character (determine-stats (determine-traits character))))
+(defn merge-stats [{:keys [sanctified exiled] :as character}]
+  (->> (into sanctified exiled)
+       traits/determine-traits
+       determine-stats
+       (merge character)))
 
 (s/def ::health nat-int?)
 (s/def ::draw nat-int?)
@@ -192,7 +187,7 @@
                 prop-value
                 (cond
                   (#{:sanctified :exiled} prop)
-                  (string/join ", " (map deck/arcana-keyword->name prop-value*))
+                  (string/join ", " (map utils/keyword->name prop-value*))
                   (= :wealth prop)
                   (money/wealth-to-gold prop-value*)
                   :else
