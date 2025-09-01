@@ -2,9 +2,9 @@
   (:require
    [clojure.spec.alpha :as s]
    #?(:clj
-      [the-emerald-green.utils :refer [slurp-edn]]
+      [the-emerald-green.macros :refer [slurp-edn]]
       :cljs
-      [the-emerald-green.utils :refer-macros [slurp-edn]])))
+      [the-emerald-green.macros :refer-macros [slurp-edn]])))
 
 (def enchantments (slurp-edn "resources/equipment/enchantments.edn"))
 (def items (slurp-edn "resources/equipment/items.edn"))
