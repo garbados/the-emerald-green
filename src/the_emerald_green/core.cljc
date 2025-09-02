@@ -22,13 +22,13 @@
   (s/keys :req-un [::name
                    ::description]))
 (s/def ::talents (s/coll-of ::talent))
-(s/def :ability/actions (s/int-in 1 4))
+(s/def :ability/actions (s/int-in 0 4))
 (s/def :ability/phase #{:encounter :exploration :downtime})
 (s/def :ability/tags (s/coll-of keyword?))
 (s/def ::ability
   (s/keys :req-un [::name
                    ::description
                    :ability/actions
-                   :ability/phase
-                   :ability/tags]))
+                   :ability/phase]
+          :opt-un [:ability/tags]))
 (s/def ::abilities (s/coll-of ::ability :kind set?))

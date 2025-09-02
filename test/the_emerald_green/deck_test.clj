@@ -5,7 +5,7 @@
             [clojure.spec.alpha :as s]))
 
 (deftest fspec-test
-  (stest-symbols! [`deck/gen-deck
+  (stest-symbols! [`deck/rank->mod
                    `deck/remove-card
                    `deck/remove-cards-by-tag
                    `deck/list-missing-cards]))

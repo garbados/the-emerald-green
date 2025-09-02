@@ -1,4 +1,4 @@
-(ns the-emerald-green.utils 
+(ns the-emerald-green.utils
   (:require
    [clojure.spec.alpha :as s]
    [clojure.string :as string]))
@@ -17,17 +17,18 @@
   :args (s/cat :kw keyword?)
   :ret string?)
 
-(defn idify [{id :id :as thing}]
-  (cond
-    (keyword? thing) thing
-    (nil? id) (assoc thing :id (-> thing :name name->keyword))
-    :else thing))
+(defn idify [thing]
+  (if (and (map? thing) (nil? (:id thing)))
+    (assoc thing :id (-> thing :name name->keyword))
+    thing))
 
 (defn merge-by-id [acc {id :id :as thing}]
   (assoc acc id thing))
 
-(defn uniq-defs [f coll]
-  (->> (map f coll)
+(defn all-defs [coll]
+  (->> coll
        (filter some?)
-       flatten
-       (filter map?)))
+       flatten))
+
+(defn uniq-defs [coll]
+  (filter map? (all-defs coll)))

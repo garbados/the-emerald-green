@@ -5,6 +5,7 @@
       :cljs
       [the-emerald-green.macros :refer-macros [slurp-edn slurp-dir-edn]])
    [clojure.spec.alpha :as s]
+   [the-emerald-green.core :as core]
    [the-emerald-green.money :as money]
    [the-emerald-green.utils :as utils]))
 
@@ -58,6 +59,18 @@
    ::base-equipment
    (s/keys :opt-un [::resistances
                     ::inertia])))
+
+(s/def ::tool
+  (s/and
+   ::base-equipment
+   (s/keys :opt-un [::core/skill])))
+
+(s/def ::effect (s/or :basic string?
+                      :ability ::core/ability))
+(s/def ::consumable
+  (s/and
+   ::base-equipment
+   (s/keys :opt-un [::effect])))
 
 (s/def ::equipment*
   (s/or :weapon ::weapon

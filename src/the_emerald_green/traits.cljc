@@ -25,10 +25,10 @@
             trait)))))
 (def id->trait (reduce utils/merge-by-id {} traits))
 
-(def talents (utils/uniq-defs #(get-in % [:effect :talents]) traits))
+(def talents (utils/uniq-defs (map #(get-in % [:effect :talents]) traits)))
 (def id->talent (reduce utils/merge-by-id {} talents))
 
-(def abilities (utils/uniq-defs #(get-in % [:effect :abilities]) traits))
+(def abilities (utils/uniq-defs (map #(get-in % [:effect :abilities]) traits)))
 (def id->ability (reduce utils/merge-by-id {} abilities))
 
 (s/def ::name string?)

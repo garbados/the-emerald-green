@@ -7,15 +7,6 @@
 
 (def suits [:wands :cups :swords :pentacles])
 
-(defn rank->mod [rank]
-  (cond
-    (<= 2 rank 4) 2
-    (<= 5 rank 7) 3
-    (<= 8 rank 10) 4
-    (<= 11 rank 13) 5
-    (<= 14 rank 15) 6
-    :else 7))
-
 (def minor-arcana-rank-names
   {2 "Two"
    3 "Three"
@@ -102,9 +93,20 @@
 (s/def ::deck (s/coll-of ::id :kind set? :max-count 78))
 (s/def ::shuffled (s/coll-of ::id :distinct true))
 
-(s/fdef gen-deck
-  :args (s/cat)
-  :ret ::cards)
+(s/def ::effective-rank (s/int-in 2 8))
+
+(defn rank->mod [rank]
+  (cond
+    (<= 2 rank 4) 2
+    (<= 5 rank 7) 3
+    (<= 8 rank 10) 4
+    (<= 11 rank 13) 5
+    (<= 14 rank 15) 6
+    :else 7))
+
+(s/fdef rand->mod
+  :args (s/cat :rank ::rank)
+  :ret ::effective-rank)
 
 (defn remove-card [cards card]
   (remove (partial = card) cards))
@@ -123,7 +125,7 @@
   :ret ::shuffled)
 
 (defn list-missing-cards [cards]
-  (set/difference (set (map :id base-deck-set)) (set cards)))
+  (set/difference (set (map :id base-deck)) (set cards)))
 
 (s/fdef list-missing-cards
   :args (s/cat :cards ::card-ids)
