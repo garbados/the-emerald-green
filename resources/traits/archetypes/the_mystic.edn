@@ -1,5 +1,5 @@
-[{:name "Martial Mystic"
-  :id :martial-mystic
+[{:name "The Mystic"
+  :id :the-mystic
   :description "Magic flows through your muscles. Channeling it is second nature."
   :deck [:or
          [:and :the-hermit [:or :the-ace-of-swords [:court :swords]]]
@@ -15,7 +15,7 @@
              :tags #{:flourish}}]}}
  {:name "Wholeness of Body"
   :description "Your wounds close as though through force of will."
-  :traits :martial-mystic
+  :traits :the-mystic
   :deck [:count 2 :wands]
   :effect {:abilities
            [{:name "Wholeness of Body"
@@ -25,7 +25,7 @@
              :madness 1}]}}
  {:name "Purity of Mind"
   :description "Unwelcome spirits slide from your form like rain on stone."
-  :traits :martial-mystic
+  :traits :the-mystic
   :deck [:count 4 :wands]
   :effect {:abilities
            [{:name "Purity of Mind"
@@ -37,28 +37,28 @@
              :madness 2}]}}
  {:name "Unity of Being"
   :description "The universe does not wish to harm you. It does not wish to harm itself."
-  :traits :martial-mystic
+  :traits :the-mystic
   :deck [:count 6 :wands]
   :effect {:talents
            [{:name "Unbreakable Essence"
              :description "All damage against you is reduced by 1, on top of any other resistances."}]}}
  {:name "Slow Fall"
   :description "The earth does not rush to meet the sky."
-  :traits :martial-mystic
+  :traits :the-mystic
   :deck [:count 2 :cups]
   :effect {:talents
            [{:name "Slow Fall"
              :description "So long as you can touch a surface slanted even remotely toward the ground, you can always descend at a safe speed."}]}}
  {:name "Abundant Step"
   :description "Here you are. There you go. The distance between all things is an illusion."
-  :traits :martial-mystic
+  :traits :the-mystic
   :deck [:count 4 :cups]
   :effect {:talents
            [{:name "Abundant Step"
              :description "Your *Step* abilities may move an additional space."}]}}
  {:name "Approaching the Formless"
   :description "The wise cannot plan against what they cannot perceive. The mighty cannot strike what cannot be found."
-  :traits :martial-mystic
+  :traits :the-mystic
   :deck [:count 6 :cups]
   :effect {:abilities
            [{:name "No Body"
@@ -69,7 +69,7 @@
              :tags #{:reaction :flourish}}]}}
  {:name "Ki Strike"
   :description "The body transmutes the divine to the kinetic."
-  :traits :martial-mystic
+  :traits :the-mystic
   :deck [:count 2 :swords]
   :effect {:abilities
            [{:name "Ghost Stance"
@@ -80,7 +80,7 @@
              :tags #{:stance}}]}}
  {:name "Stunning Force"
   :description "Words fail. Truth exceeds language. Wits shy from the real's blinding light, squinting at the edges."
-  :traits :martial-mystic
+  :traits :the-mystic
   :deck [:count 4 :swords]
   :effect {:abilities
            [{:name "Stunning Strike"
@@ -91,7 +91,7 @@
              :tags #{:flourish}}]}}
  {:name "Sacred Touch"
   :description "Life is not the body. It departs freely and driven alike."
-  :traits :martial-mystic
+  :traits :the-mystic
   :deck [:count 6 :swords]
   :effect {:abilities
            [{:name "Quivering Palm"

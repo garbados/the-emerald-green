@@ -22,4 +22,4 @@
  {:name "Fate"
   :description "Increases Luck by 1."
   :card [:pentacles]
-  :effect {:attributes {:spirit 1}}}]
+  :effect {:attributes {:luck 1}}}]

@@ -1,52 +1,63 @@
 (ns the-emerald-green.equipment
   (:require
-   [clojure.spec.alpha :as s]
    #?(:clj
-      [the-emerald-green.macros :refer [slurp-edn]]
+      [the-emerald-green.macros :refer [slurp-dir-edn slurp-edn]]
       :cljs
-      [the-emerald-green.macros :refer-macros [slurp-edn]])))
+      [the-emerald-green.macros :refer-macros [slurp-edn slurp-dir-edn]])
+   [clojure.spec.alpha :as s]
+   [the-emerald-green.money :as money]
+   [the-emerald-green.utils :as utils]))
 
-(def enchantments (slurp-edn "resources/equipment/enchantments.edn"))
-(def items (slurp-edn "resources/equipment/items.edn"))
-(def equipment
-  (->>
-   [(slurp-edn "resources/equipment/weapons.edn")
-    (slurp-edn "resources/equipment/armor.edn")
-    (slurp-edn "resources/equipment/tools.edn")
-    (slurp-edn "resources/equipment/consumables.edn")]
-   (reduce concat [])))
+(def enchantments (slurp-edn "resources/enchantments.edn"))
+(def items (slurp-edn "resources/items.edn"))
+(def equipment (map utils/idify (slurp-dir-edn "resources/equipment")))
 
 (def elements #{:physical :fire :frost :radiant :shadow})
 
 (s/def ::name string?)
+(s/def ::id keyword?)
 (s/def ::description string?)
+(s/def ::tag keyword?) ; FIXME actual set
+(s/def ::tags (s/coll-of ::tag :kind set?))
+(s/def ::extends ::id)
 (s/def ::type #{:weapon :armor :tool :consumable})
-
 (s/def ::enchantments
   (s/coll-of
    (s/or :string string?
          :ref (keys enchantments))))
-(s/def ::cost pos-int?)
 (def rarities #{:common :uncommon :rare :mythic})
 (s/def ::rarity rarities)
-(s/def ::equipment*
+(s/def ::base-equipment
   (s/keys :req-un [::name
-                   ::description
+                   ::description]
+          :opt-un [::id
+                   ::extends
                    ::type
                    ::enchantments
-                   ::cost
-                   ::rarity]))
+                   ::money/cost
+                   ::rarity
+                   ::tags]))
 
 (s/def ::skill #{:melee :ranged :arcana :sorcery :theurgy})
 (s/def ::heft #{:light :medium :heavy})
 (s/def ::element elements)
+(s/def ::range #{:close :short :medium :long :extreme})
 (s/def ::weapon
   (s/and
-   ::equipment*
-   (s/keys :req-un [::skill
+   ::base-equipment
+   (s/keys :opt-un [::skill
                     ::heft
                     ::element
                     ::range])))
+
+
+(s/def ::resistances (s/map-of ::element int?))
+(s/def ::inertia nat-int?)
+(s/def ::armor
+  (s/and
+   ::base-equipment
+   (s/keys :opt-un [::resistances
+                    ::inertia])))
 
 (s/def ::equipment*
   (s/or :weapon ::weapon
@@ -55,7 +66,7 @@
         :consumable ::consumable))
 
 (s/def ::equipment (set equipment))
-(s/def ::equipped ())
+(s/def ::equipped (s/coll-of ::equipment))
 
 (s/def ::item*
   (s/or

@@ -1,1 +1,58 @@
-[]
+[{:name "Basic Weapon"
+  :id :common-weapon
+  :description "An essential template for other weapons."
+  :type :weapon
+  :enchantments []
+  :rarity :common
+  :element :physical
+  :cost "5s"
+  :tags #{:abstract}}
+ {:name "Exotic Weapon"
+  :id :uncommon-weapon
+  :description "An unusual weapon, to some."
+  :extends :common-weapon
+  :rarity :uncommon
+  :cost "10s"}
+ {:name "Rare Weapon"
+  :description "Few alive know what this is."
+  :extends :common-weapon
+  :rarity :rare
+  :cost "10g"}
+ {:name "Mythic Weapon"
+  :description "Legends only hint at it...!"
+  :extends :common-weapon
+  :rarity :mythic
+  :cost "10,000p"}
+ {:name "Light Melee Weapon"
+  :id :light-melee-weapon
+  :description "Daggers, punchknives, katars, fistwraps, etc."
+  :extends :common-weapon
+  :skill :melee
+  :heft :light
+  :range :close}
+ {:name "Medium Melee Weapon"
+  :description "Short and long swords, war axes, morningstars, etc."
+  :extends :light-melee-weapon
+  :heft :medium}
+ {:name "Heavy Melee Weapon"
+  :description "Claymores, greataxes, mauls, halberds, etc."
+  :extends :light-melee-weapon
+  :heft :heavy}
+ {:name "Light Ranged Weapon"
+  :id :light-ranged-weapon
+  :description "Blowgun, throwing knives, hand-crossbow, etc."
+  :extends :common-weapon
+  :skill :ranged
+  :heft :light
+  :range :short
+  :tags #{:reload}}
+ {:name "Medium Ranged Weapon"
+  :description "Shortbow, javelin, atl-atl, etc."
+  :extends :light-ranged-weapon
+  :heft :medium
+  :range :medium}
+ {:name "Heavy Ranged Weapon"
+  :description "Heavy crossbow, longbow, yumi, etc."
+  :extends :light-ranged-weapon
+  :heft :heavy
+  :range :long}]

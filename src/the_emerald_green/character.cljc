@@ -182,11 +182,7 @@
   :ret ::persistent-character)
 
 (defn format [s & args]
-  (reduce
-   (fn [s arg]
-     (string/replace-first s #"%s" arg))
-   s
-   args))
+  (reduce #(string/replace-first %1 #"%s" (str %2)) s args))
 
 (defn print-character [character]
   (println "#" (:name character) "<" (:level character) ">")
