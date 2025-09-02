@@ -1,64 +1,64 @@
 [{:name "The Squire"
-  :description "Gain proficiency in the Resilience skill."
+  :description "Gain proficiency in Resilience."
   :deck [:the-page-of-swords]
   :effect {:skills {:resilience true}}}
  {:name "The Soldier"
-  :description "Gain proficiency in the Athletics skill."
+  :description "Gain proficiency in Athletics."
   :deck [:the-knight-of-swords]
   :effect {:skills {:athletics true}}}
  {:name "The Commander"
-  :description "Gain proficiency in the Intimidation skill."
+  :description "Gain proficiency in Intimidation."
   :deck [:the-queen-of-swords]
   :effect {:skills {:intimidation true}}}
  {:name "The Arrow"
-  :description "Gain proficiency in the Ranged skill."
+  :description "Gain proficiency in Ranged."
   :deck [:the-king-of-swords]
   :effect {:skills {:ranged true}}}
  {:name "The Sword"
-  :description "Gain proficiency in the Melee skill."
+  :description "Gain proficiency in Melee."
   :deck [:the-ace-of-swords]
   :effect {:skills {:melee true}}}
  {:name "The Apprentice"
-  :description "Gain proficiency in the Insight skill."
+  :description "Gain proficiency in Insight."
   :deck [:the-page-of-wands]
   :effect {:skills {:insight true}}}
  {:name "The Smith"
-  :description "Gain proficiency in the Craft skill."
+  :description "Gain proficiency in Craft."
   :deck [:the-knight-of-wands]
   :effect {:skills {:craft true}}}
  {:name "The Apothecary"
-  :description "Gain proficiency in the Medicine skill."
+  :description "Gain proficiency in Medicine."
   :deck [:the-queen-of-wands]
   :effect {:skills {:medicine true}}}
  {:name "The Diplomat"
-  :description "Gain proficiency in the Diplomacy skill."
+  :description "Gain proficiency in Diplomacy."
   :deck [:the-king-of-wands]
   :effect {:skills {:diplomacy true}}}
  {:name "The Wand"
-  :description "Gain proficiency in the Arcana skill."
+  :description "Gain proficiency in Arcana."
   :deck [:the-ace-of-wands]
   :effect {:skills {:arcana true}}}
  {:name "The Survivor"
-  :description "Gain proficiency in the Resolve skill."
+  :description "Gain proficiency in Resolve."
   :deck [:the-page-of-cups]
   :effect {:skills {:resolve true}}}
  {:name "The Scout"
-  :description "Gain proficiency in the Awareness skill."
+  :description "Gain proficiency in Awareness."
   :deck [:the-knight-of-cups]
   :effect {:skills {:awareness true}}}
  {:name "The Rogue"
-  :description "Gain proficiency in the Deception skill."
+  :description "Gain proficiency in Deception."
   :deck [:the-queen-of-cups]
   :effect {:skills {:deception true}}}
  {:name "The Shadow"
-  :description "Gain proficiency in the Stealth skill."
+  :description "Gain proficiency in Stealth."
   :deck [:the-king-of-cups]
   :effect {:skills {:stealth true}}}
  {:name "The Chalice"
-  :description "Gain proficiency in the Sorcery skill."
+  :description "Gain proficiency in Sorcery."
   :deck [:the-ace-of-cups]
   :effect {:skills {:sorcery true}}}
  {:name "The Coin"
-  :description "Gain proficiency in the Theurgy skill."
+  :description "Gain proficiency in Theurgy."
   :deck [:the-ace-of-pentacles]
   :effect {:skills {:theurgy true}}}]

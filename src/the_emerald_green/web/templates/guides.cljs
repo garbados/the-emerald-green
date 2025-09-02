@@ -46,7 +46,9 @@
 
 (defn print-trait
   ([{trait-name :name
-     requirements :requires
+     trait-reqs :traits
+     deck-reqs :deck
+     card-reqs :card
      :keys [description]}
     & [n]]
    [:div.card
@@ -54,7 +56,15 @@
      [:p.subtitle trait-name (when (< 1 n) (str " (x " n ")"))]
      (profane "p" (marked/parse description))
      [:p "Requires:"]
-     (print-reqs requirements)]]))
+     [:ul
+      (for [[reqs title] [[trait-reqs "Traits"]
+                          [deck-reqs "Deck"]
+                          [card-reqs "Card"]]
+            :when reqs]
+        [:li
+         [:div.level
+          [:div.level-item [:p title]]
+          [:div.level-item [:pre>code (print-str reqs)]]]])]]]))
 
 (def trait-guide
   [:div.content

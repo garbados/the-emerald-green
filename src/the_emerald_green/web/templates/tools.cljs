@@ -155,7 +155,7 @@
                       :empty-msg
                       "Unburden yourself...")
         list-traits
-        #(let [traits (map (fn [[trait n]] (guides/print-trait trait n)) @-traits)]
+        #(let [traits (map (fn [[trait-id n]] (-> trait-id traits/id->trait (guides/print-trait n))) @-traits)]
            [:div
             {:style "overflow: scroll; max-height: 300px;"}
             traits])

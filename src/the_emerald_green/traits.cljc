@@ -86,10 +86,14 @@
 
 (defn rule-matches-cards? [rule cards]
   (cond
-    (and (sequential? rule) (= :and (first rule)))
+    (keyword? rule)
+    (some? (some (partial rule-matches-card? rule) cards))
+    (= :or (first rule))
+    (some? (some #(rule-matches-cards? % cards) (rest rule)))
+    (= :and (first rule))
     (every? #(rule-matches-cards? % cards) (rest rule))
-    (and (sequential? rule) (= :count (first rule)))
-    (>= (second rule)
+    (= :count (first rule))
+    (<= (second rule)
         (count (filter #(rule-matches-card? (nth rule 2) %) cards)))
     :else
     (-> (filter (partial rule-matches-card? rule) cards)
@@ -126,7 +130,7 @@
         card-matches
         (->> (for [{rule :card id :id} traits
                    :when rule]
-               [id (count (map (partial rule-matches-card? rule) cards))])
+               [id (count (filter (partial rule-matches-card? rule) cards))])
              (filter (comp pos-int? second))
              (into {}))
         traits-so-far
@@ -139,9 +143,12 @@
                :when (and rule (rule-matches-traits? rule traits-so-far))]
            id))]
     (->>
-     (for [{id :id :as trait} traits
+     (for [id (-> deck-matches
+                  (into (keys card-matches))
+                  (into trait-matches))
+           :let [trait (id->trait id)]
            :when (and
-                  (if (:cards trait) (contains? deck-matches id) true)
+                  (if (:deck trait) (contains? deck-matches id) true)
                   (if (:card trait) (contains? card-matches id) true)
                   (if (:traits trait) (contains? trait-matches id) true))]
        [id (if (:card trait) (get card-matches id) 1)])

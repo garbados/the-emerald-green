@@ -1,21 +1,102 @@
 [{:name "Martial Mystic"
+  :id :martial-mystic
   :description "Magic flows through your muscles. Channeling it is second nature."
   :deck [:or
-         [:and [:the-hermit] [:the-ace-of-swords]]
-         [:and [:strength] [:the-ace-of-cups]]]
+         [:and :the-hermit [:or :the-ace-of-swords [:court :swords]]]
+         [:and :strength [:or :the-ace-of-cups [:court :cups]]]]
   :effect {:attributes {:body 1 :spirit 1}
            :abilities
            [{:name "Flurry of Blows"
              :description
              "Once per turn, you may designate an attack to be a Flurry,
-              which decreases its action cost by 1."
+              which decreases its action cost by 1, to a minimum of zero."
+             :phase :encounter
              :actions 0
              :tags #{:flourish}}]}}
  {:name "Wholeness of Body"
-  :description "Close your wounds through force of will."
-  :traits [:martial-mystic]
-  :deck [:count 1 :wands]
+  :description "Your wounds close as though through force of will."
+  :traits :martial-mystic
+  :deck [:count 2 :wands]
   :effect {:abilities
            [{:name "Wholeness of Body"
              :description "Restore health equal to your level plus one, up to your maximum."
-             :actions 2}]}}]
+             :phase :encounter
+             :actions 2
+             :madness 1}]}}
+ {:name "Purity of Mind"
+  :description "Unwelcome spirits slide from your form like rain on stone."
+  :traits :martial-mystic
+  :deck [:count 4 :wands]
+  :effect {:abilities
+           [{:name "Purity of Mind"
+             :description
+             "Dispel any number of magical effects from yourself,
+              including ones you don't know about."
+             :phase :encounter
+             :actions 2
+             :madness 2}]}}
+ {:name "Unity of Being"
+  :description "The universe does not wish to harm you. It does not wish to harm itself."
+  :traits :martial-mystic
+  :deck [:count 6 :wands]
+  :effect {:talents
+           [{:name "Unbreakable Essence"
+             :description "All damage against you is reduced by 1, on top of any other resistances."}]}}
+ {:name "Slow Fall"
+  :description "The earth does not rush to meet the sky."
+  :traits :martial-mystic
+  :deck [:count 2 :cups]
+  :effect {:talents
+           [{:name "Slow Fall"
+             :description "So long as you can touch a surface slanted even remotely toward the ground, you can always descend at a safe speed."}]}}
+ {:name "Abundant Step"
+  :description "Here you are. There you go. The distance between all things is an illusion."
+  :traits :martial-mystic
+  :deck [:count 4 :cups]
+  :effect {:talents
+           [{:name "Abundant Step"
+             :description "Your *Step* abilities may move an additional space."}]}}
+ {:name "Approaching the Formless"
+  :description "The wise cannot plan against what they cannot perceive. The mighty cannot strike what cannot be found."
+  :traits :martial-mystic
+  :deck [:count 6 :cups]
+  :effect {:abilities
+           [{:name "No Body"
+             :description "Once per turn, as a reaction, you may automatically evade a source of damage."
+             :phase :encounter
+             :actions 0
+             :madness 1
+             :tags #{:reaction :flourish}}]}}
+ {:name "Ki Strike"
+  :description "The body transmutes the divine to the kinetic."
+  :traits :martial-mystic
+  :deck [:count 2 :swords]
+  :effect {:abilities
+           [{:name "Ghost Stance"
+             :description "While in this stance, add 1 radiant damage to your attacks."
+             :phase :encounter
+             :actions 1
+             :madness 1
+             :tags #{:stance}}]}}
+ {:name "Stunning Force"
+  :description "Words fail. Truth exceeds language. Wits shy from the real's blinding light, squinting at the edges."
+  :traits :martial-mystic
+  :deck [:count 4 :swords]
+  :effect {:abilities
+           [{:name "Stunning Strike"
+             :description "Your next attack, if it hits, reduces the target's action points on their turn by 1, to a minimum of 0."
+             :phase :encounter
+             :actions 0
+             :madness 1
+             :tags #{:flourish}}]}}
+ {:name "Sacred Touch"
+  :description "Life is not the body. It departs freely and driven alike."
+  :traits :martial-mystic
+  :deck [:count 6 :swords]
+  :effect {:abilities
+           [{:name "Quivering Palm"
+             :description "Your next attack, if it hits, pierces all resistances."
+             :phase :encounter
+             :actions 0
+             :madness 2
+             :tags #{:flourish}}]}}]

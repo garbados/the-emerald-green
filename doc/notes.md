@@ -115,3 +115,14 @@
     - Queen
     - King
     - Ace: Theurgy
+
+## Trait Design Notes
+
+- A given attribute may be increased by discarding from either of another suit (except for luck).
+- This means a build that relies on those attributes must choose other suits to remove.
+    - However, suit courts confer skill proficiency.
+    - There exists a case in which a character maximizes proficiencies in {swords}
+    and by doing so neglects growing {body}, self-sabotaging.
+- So maybe just associate each attribute with one suit?
+    - Leave the clever shit to the hybrid classes?
+- Or just get really fucking freaky and make suit courts give to their attribute.

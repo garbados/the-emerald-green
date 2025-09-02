@@ -47,8 +47,10 @@
    :media []
    :wealth 1000})
 
+(s/def ::traits (s/coll-of ::traits/trait))
 (s/def ::stats
-  (s/keys :req-un [::core/attributes
+  (s/keys :req-un [::traits
+                   ::core/attributes
                    ::core/skills
                    ::core/talents
                    ::core/abilities]))
@@ -62,7 +64,10 @@
    :abilities #{}})
 
 (defn determine-stats [traits]
-  (->> (map (comp :effect traits/id->trait) traits)
+  (->> (for [[trait-id n] traits
+             :let [{effect :effect} (traits/id->trait trait-id)]]
+         (repeat n effect))
+       (reduce concat [])
        (filter identity)
        (reduce
         (fn [stats {:keys [attributes skills talents abilities]}]
@@ -81,10 +86,10 @@
   :ret ::stats)
 
 (defn merge-stats [{:keys [sanctified exiled] :as character}]
-  (->> (into sanctified exiled)
-       traits/determine-traits
-       determine-stats
-       (merge character)))
+  (let [absences (into sanctified exiled)
+        traits (traits/determine-traits absences)
+        stats (determine-stats traits)]
+    (merge character stats {:traits traits})))
 
 (s/def ::health nat-int?)
 (s/def ::draw nat-int?)
@@ -176,6 +181,13 @@
   :args (s/cat :character ::character)
   :ret ::persistent-character)
 
+(defn format [s & args]
+  (reduce
+   (fn [s arg]
+     (string/replace-first s #"%s" arg))
+   s
+   args))
+
 (defn print-character [character]
   (println "#" (:name character) "<" (:level character) ">")
   (println "--")
@@ -198,24 +210,45 @@
     (println prop-name ":" prop-value))
   (when (some (partial contains? character) (keys base-stats))
     (println "-- ATTRIBUTES")
-    (doseq [attribute core/attributes
+    (doseq [attribute [:body :mind :spirit :luck]
             :let [value (get-in character [:attributes attribute])]
             :when value]
-      (println (string/capitalize (name attribute)) ":" value))
+      (println (str (string/capitalize (name attribute)) ": " value)))
     (println "-- SKILLS")
-    (doseq [[skill skilled?] (:skills character)
+    (doseq [[skill skilled?] (sort-by (comp name first) (:skills character))
             :when skilled?]
       (println (string/capitalize (name skill))))
-    (when (seq (filter (comp seq second) (select-keys character [:talents :abilities])))
-      (println "-- STATS")
-      (doseq [[prop value] (select-keys character [:talents :abilities])
-              :when (seq value)]
-        (println (string/capitalize (name prop)) ":" (string/join "," (map :name value))))))
+    (when (-> character :talents seq)
+      (println "-- TALENTS")
+      (doseq [[talent-id n] (:talents character)
+              :let [{talent-name :name :keys [description tags]} (traits/id->talent talent-id)]]
+        (println (str talent-name
+                      (if (< 1 n) (str " (x" n ")") "")
+                      (if (seq tags) (str " {" (string/join ", " (map name tags)) "}") "")))
+        (println "->" (string/replace description #"\n[\t ]+" "\n   "))))
+    (println "-- ABILITIES")
+    (doseq [ability-id (:abilities character)
+            :let [{ability-name :name :keys [description phase actions madness tags]} (traits/id->ability ability-id)]]
+      (println (str ability-name
+                    " [" (name phase) ": " actions
+                    (if (and madness (< 0 madness))
+                      (format " (%s!)" madness)
+                      "")
+                    "]"
+                    (if (seq tags) (str " {" (string/join ", " (map name tags)) "}") "")))
+      (println "->" (string/replace description #"\n[\t ]+" "\n   "))))
   (when (some (partial contains? character) core/fungibles)
     (println "-- FUNGIBLES")
-    (doseq [prop (keys base-fungibles)
-            :when (get character prop)]
-      (println (string/capitalize (name prop)) ":" (get character prop)))))
+    (doseq [prop [:health :draw :will :fortune :madness]
+            :let [value (get character prop)]
+            :when value]
+      (println (str (string/capitalize (name prop)) ": " value))))
+  (println "-- TRAITS")
+  (doseq [[trait-id n] (sort-by (comp name first) (:traits character))
+          :let [{trait-name :name :keys [description]} (traits/id->trait trait-id)]]
+    (println (str trait-name
+                  (if (< 1 n) (str " (x" n ")") "")
+                  ": " description))))
 
 ;; EXAMPLE CHARACTERS
 
@@ -226,6 +259,6 @@
     {:name "Dhutlo K'smani"
      :biography "The *last* and *first* of Clan Quxot'l and G'xbenmi Fen."
      :sanctified #{:the-hermit :the-ace-of-swords}
-     :exiled #{:the-two-of-wands :the-three-of-wands :the-four-of-wands}})))
+     :exiled #{:the-page-of-swords :the-knight-of-cups :the-two-of-wands}})))
 
 (def examples [dhutlo])

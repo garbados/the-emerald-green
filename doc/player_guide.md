@@ -31,7 +31,7 @@ All your character's secondary characteristics -- *stats* and *fungibles* -- are
 
 - **Attributes**: General qualities. These are represented as a number that contributes to overcoming *challenges*.
     - **Mind**: Mental acuity. *Associated with the suit of Wands.*
-    - **Grit**: Creative resolve. *Associated with the suit of Cups.*
+    - **Spirit**: Creative resolve. *Associated with the suit of Cups.*
     - **Body**: Physical prowess. *Associated with the suit of Swords.*
     - **Luck**: Divine favor. *Associated with the suit of Pentacles.*
 - **Skills**: Specialized aptitudes, in which one is *proficient* or not. Each skill has an associated *attribute*. Challenges that call on a proficient skill are much easier.
