@@ -1,7 +1,7 @@
 (ns the-emerald-green.web.templates.tools
   (:require
    [clojure.string :as string]
-   [the-emerald-green.character :as c]
+   [the-emerald-green.characters :as c]
    [the-emerald-green.deck :as deck]
    [the-emerald-green.traits :as traits]
    [the-emerald-green.web.alchemy :refer [alchemize snag]]

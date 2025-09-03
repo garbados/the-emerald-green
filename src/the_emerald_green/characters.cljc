@@ -1,4 +1,4 @@
-(ns the-emerald-green.character
+(ns the-emerald-green.characters
   (:require
    [clojure.spec.alpha :as s]
    [clojure.string :as string]
@@ -47,10 +47,9 @@
    :media []
    :wealth 1000})
 
-(s/def ::traits (s/coll-of ::traits/trait))
+(s/def ::traits (s/map-of ::traits/trait pos-int?))
 (s/def ::stats
-  (s/keys :req-un [::traits
-                   ::core/attributes
+  (s/keys :req-un [::core/attributes
                    ::core/skills
                    ::core/talents
                    ::core/abilities]))
@@ -76,13 +75,14 @@
             skills (update :skills merge skills)
             talents (update :talents
                             #(reduce
-                              (fn [acc talent] (update acc (:id talent talent) (fnil inc 0)))
+                              (fn [acc [talent-id n]]
+                                (update acc talent-id (fnil (partial + n) 0)))
                               % talents))
             abilities (update :abilities into (map #(:id % %) abilities))))
         base-stats)))
 
 (s/fdef determine-stats
-  :args (s/coll-of ::traits/id)
+  :args (s/cat :traits (s/map-of ::traits/id (s/int-in 1 100)))
   :ret ::stats)
 
 (defn merge-stats [{:keys [sanctified exiled] :as character}]
@@ -131,13 +131,16 @@
    :madness 0})
 
 (s/fdef reset-fungibles
-  :args (s/cat :character (s/keys :req-un [::attributes ::skills ::level]))
+  :args (s/cat :character (s/keys :req-un [::core/attributes
+                                           ::core/skills
+                                           ::level]))
   :ret ::fungibles)
 
 ;; "hydrated" character datastructure
 (s/def ::character
   (s/and
    ::persistent-character
+   ::traits
    ::stats
    ::fungibles))
 
@@ -156,7 +159,9 @@
   :args (s/cat :character (s/and ::persistent-character
                                  ::stats)
                :fungibles (s/? ::fungibles))
-  :ret ::character)
+  :ret (s/and ::persistent-character
+              ::stats
+              ::fungibles))
 
 (defn ceil-fungibles [character]
   (merge-with max character base-fungibles))
@@ -181,8 +186,7 @@
   :args (s/cat :character ::character)
   :ret ::persistent-character)
 
-(defn format [s & args]
-  (reduce #(string/replace-first %1 #"%s" (str %2)) s args))
+;; REPL BUDDIES
 
 (defn print-character [character]
   (println "#" (:name character) "<" (:level character) ">")
@@ -228,7 +232,7 @@
       (println (str ability-name
                     " [" (name phase) ": " actions
                     (if (and madness (< 0 madness))
-                      (format " (%s!)" madness)
+                      (str " (" madness "!)")
                       "")
                     "]"
                     (if (seq tags) (str " {" (string/join ", " (map name tags)) "}") "")))

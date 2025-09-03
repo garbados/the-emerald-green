@@ -4,8 +4,7 @@
    [clojure.test :refer [deftest is testing]]
    [the-emerald-green.core :as core]
    [the-emerald-green.test-utils :refer [stest-symbols!]]
-   [the-emerald-green.traits :as traits]
-   [the-emerald-green.utils :as utils]))
+   [the-emerald-green.traits :as traits]))
 
 (deftest fspec-test
   (stest-symbols! [`traits/rule-matches-card?
@@ -19,15 +18,14 @@
       (is (s/valid? ::traits/trait* trait)
           (s/explain-str ::traits/trait* trait)))))
 
+(deftest all-talents-valid
+  (doseq [{talent-name :name :as talent} traits/abilities]
+    (testing (str "Valid? " talent-name)
+      (is (s/valid? ::core/talent talent)
+          (s/explain-str ::core/talent talent)))))
+
 (deftest all-abilities-valid
-  (doseq [ability* traits/abilities
-          :let [{ability-name :name :as ability}
-                (if (keyword? ability*)
-                  (get traits/id->ability ability* {})
-                  ability*)]]
+  (doseq [{ability-name :name :as ability} traits/abilities]
     (testing (str "Valid? " ability-name)
-      (is (some? ability-name)
-          (when (nil? ability-name)
-           (str (utils/keyword->name ability*) " is not defined anywhere!")))
       (is (s/valid? ::core/ability ability)
           (s/explain-str ::core/ability ability)))))

@@ -1,16 +1,30 @@
 (ns the-emerald-green.money 
   (:require [clojure.spec.alpha :as s]
+            [clojure.spec.gen.alpha :as g]
             [clojure.string :as string]))
-
-(s/def ::wealth nat-int?)
-
-(def gold-expr #"^(\d+p)?(\d+g)?(\d+s)?(\d+c)?$")
-(s/def ::gold-ish (s/and string? (partial re-matches gold-expr)))
 
 (def x-copper   1)
 (def x-silver   (* 100 x-copper))
 (def x-gold     (* 100 x-silver))
 (def x-platinum (* 100 x-gold))
+
+(def reasonable-coinage 10000)
+(s/def ::wealth (s/int-in 0 (* x-platinum reasonable-coinage)))
+
+(def gold-expr #"^(\d+p)?(\d+g)?(\d+s)?(\d+c)?$")
+(s/def ::gold-ish
+  (s/with-gen
+    (s/and string? (partial re-matches gold-expr))
+    #(g/fmap
+      (fn [[p g s c]]
+        (str (when p (str p "p"))
+             (when g (str g "g"))
+             (when s (str s "s"))
+             (when c (str c "c"))))
+      (s/gen (s/tuple (s/nilable (s/int-in 0 (inc reasonable-coinage)))
+                      (s/nilable (s/int-in 0 reasonable-coinage))
+                      (s/nilable (s/int-in 0 reasonable-coinage))
+                      (s/nilable (s/int-in 0 reasonable-coinage)))))))
 
 (defn wealth-to-gold [wealth]
   (cond-> ""
