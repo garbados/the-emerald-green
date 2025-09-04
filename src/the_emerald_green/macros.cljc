@@ -4,7 +4,7 @@
 ;; so cljs can use slurp
 ;; so long as it uses it at compilation
 
-#_(defmacro inline-slurp [path]
+(defmacro inline-slurp [path]
   (clojure.core/slurp path))
 
 (defmacro slurp-edn [path]

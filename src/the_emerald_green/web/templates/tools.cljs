@@ -6,7 +6,7 @@
    [the-emerald-green.traits :as traits]
    [the-emerald-green.web.alchemy :refer [alchemize snag]]
    [the-emerald-green.web.prompts :as prompts]
-   [the-emerald-green.web.templates.guides :as guides]))
+   [the-emerald-green.web.templates.characters :as ct]))
 
 (defn list-cards [cards & {:keys [on-exile on-sanctify height]
                            :or {height "300px"}}]
@@ -155,7 +155,7 @@
                       :empty-msg
                       "Unburden yourself...")
         list-traits
-        #(let [traits (map (fn [[trait-id n]] (-> trait-id traits/id->trait (guides/print-trait n))) @-traits)]
+        #(let [traits (map (fn [[trait-id n]] (-> trait-id traits/id->trait (ct/print-trait n))) @-traits)]
            [:div
             {:style "overflow: scroll; max-height: 300px;"}
             traits])
