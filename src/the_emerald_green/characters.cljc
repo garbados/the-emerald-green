@@ -1,6 +1,7 @@
 (ns the-emerald-green.characters
   (:require
    [clojure.spec.alpha :as s]
+   [clojure.spec.gen.alpha :as g]
    [clojure.string :as string]
    [the-emerald-green.core :as core]
    [the-emerald-green.deck :as deck]
@@ -9,11 +10,13 @@
    [the-emerald-green.traits :as traits]
    [the-emerald-green.utils :as utils]))
 
+(def max-level 20)
+
 (s/def ::name string?)
 (s/def ::biography string?)
-(s/def ::level (s/int-in 1 20))
-(s/def ::sanctified (s/coll-of ::deck/card :kind set?))
-(s/def ::exiled (s/coll-of ::deck/card :kind set?))
+(s/def ::level (s/int-in 1 (inc max-level)))
+(s/def ::sanctified (s/coll-of ::deck/id :kind set?))
+(s/def ::exiled (s/coll-of ::deck/id :kind set?))
 
 (s/def ::media-type keyword?) ; enumerated elsewhere TODO eventually
 (s/def ::src string?)
@@ -31,10 +34,10 @@
                    ::level
                    ::sanctified
                    ::exiled
-                   ::equipment/equipment
-                   ::equipment/inventory
+                   ::equipment/equipped
+                  ;;  ::equipment/inventory
                    ::media
-                   ::wealth]))
+                   ::money/wealth]))
 
 (def base-character
   {:name ""
@@ -42,17 +45,19 @@
    :level 1
    :sanctified #{}
    :exiled #{}
-   :equipment []
+   :equipped []
    :inventory []
    :media []
    :wealth 1000})
 
-(s/def ::traits (s/map-of ::traits/trait pos-int?))
+(s/def ::talents (s/map-of ::traits/talent-id pos-int?))
+(s/def ::abilities (s/coll-of ::traits/ability-id :kind set?))
+(s/def ::traits (s/map-of ::traits/id pos-int?))
 (s/def ::stats
   (s/keys :req-un [::core/attributes
                    ::core/skills
-                   ::core/talents
-                   ::core/abilities]))
+                   ::talents
+                   ::abilities]))
 
 (def base-attribute 2)
 
@@ -75,8 +80,8 @@
             skills (update :skills merge skills)
             talents (update :talents
                             #(reduce
-                              (fn [acc [talent-id n]]
-                                (update acc talent-id (fnil (partial + n) 0)))
+                              (fn [acc talent]
+                                (update acc (:id talent talent) (fnil inc 0)))
                               % talents))
             abilities (update :abilities into (map #(:id % %) abilities))))
         base-stats)))
@@ -112,20 +117,20 @@
 
 (defn reset-fungibles [{:keys [attributes skills level]}]
   {:health
-   (+ (:body attributes)
+   (+ (:body attributes 0)
       (if (:resilience skills) level 0)
       level
       base-health)
    :draw
-   (+ (:mind attributes)
+   (+ (:mind attributes 0)
       (if (:insight skills) 2 0)
       base-draw)
    :will
-   (+ (:spirit attributes)
+   (+ (:spirit attributes 0)
       (if (:resolve skills) 2 0)
       base-will)
    :fortune
-   (+ (:luck attributes)
+   (+ (:luck attributes 0)
       (if (:theurgy skills) 2 0)
       base-fortune)
    :madness 0})
@@ -138,11 +143,19 @@
 
 ;; "hydrated" character datastructure
 (s/def ::character
-  (s/and
-   ::persistent-character
-   ::traits
-   ::stats
-   ::fungibles))
+  (s/with-gen
+    (s/and
+     ::persistent-character
+     ::stats
+     ::fungibles
+     (s/keys :req-un [::traits]))
+    #(g/fmap
+      (fn [[pchar traits stats fungibles]]
+        (merge pchar
+               {:traits traits}
+               stats
+               fungibles))
+      (s/gen (s/tuple ::persistent-character ::traits ::stats ::fungibles)))))
 
 (def hydrated-character
   (merge base-character
@@ -156,8 +169,10 @@
    (merge character fungibles)))
 
 (s/fdef merge-fungibles
-  :args (s/cat :character (s/and ::persistent-character
-                                 ::stats)
+  :args (s/cat :character (s/with-gen
+                            (s/and ::persistent-character
+                                   ::stats)
+                            #(g/fmap (partial apply merge) (s/gen (s/tuple ::persistent-character ::stats))))
                :fungibles (s/? ::fungibles))
   :ret (s/and ::persistent-character
               ::stats
@@ -192,7 +207,7 @@
   (println "#" (:name character) "<" (:level character) ">")
   (println "--")
   (doseq [prop [:biography :sanctified :exiled
-                :equipment :wealth :inventory
+                :equipped :wealth :inventory
                 :media]
           :let [prop-name (string/capitalize (name prop))
                 prop-value* (get character prop)

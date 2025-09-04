@@ -38,21 +38,23 @@
   :ret ::gold-ish)
 
 (defn gold-to-wealth [gold-ish]
-  (when-let [match (re-matches gold-expr (string/replace gold-ish #"," ""))]
-    (->> (for [[coin weight] (map vector (rest match) [x-platinum x-gold x-silver x-copper])
-               :when coin
-               :let [wealth ((comp
-                              #?(:cljs js/parseInt
-                                 :clj Integer/parseInt)
-                              second
-                              (partial re-matches #"^(\d+)[pgsc]$"))
-                             coin)]]
-           (* wealth weight))
-         (reduce + 0))))
+  (if (seq gold-ish)
+    (when-let [match (re-matches gold-expr (string/replace gold-ish #"," ""))]
+      (->> (for [[coin weight] (map vector (rest match) [x-platinum x-gold x-silver x-copper])
+                 :when coin
+                 :let [wealth ((comp
+                                #?(:cljs js/parseInt
+                                   :clj Integer/parseInt)
+                                second
+                                (partial re-matches #"^(\d+)[pgsc]$"))
+                               coin)]]
+             (* wealth weight))
+           (reduce + 0)))
+    0))
 
 (s/fdef gold-to-wealth
   :args (s/cat :gold-ish ::gold-ish)
-  :ret ::wealth)
+  :ret nat-int?)
 
 (defn ->cost [x]
   (if (string? x)

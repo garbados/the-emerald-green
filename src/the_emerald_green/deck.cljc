@@ -72,7 +72,6 @@
 
 (def base-deck (concat minor-arcana major-arcana))
 (def base-deck-set (set base-deck))
-(def gen-deck (constantly base-deck))
 (def id->card (into {} (map (juxt :id identity) base-deck)))
 
 (s/def ::name (set (map :name base-deck)))
@@ -104,7 +103,7 @@
     (<= 14 rank 15) 6
     :else 7))
 
-(s/fdef rand->mod
+(s/fdef rank->mod
   :args (s/cat :rank ::rank)
   :ret ::effective-rank)
 

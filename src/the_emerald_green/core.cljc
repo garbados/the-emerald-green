@@ -11,7 +11,7 @@
 (def skills (reduce into #{} (vals attribute->skills)))
 (s/def ::attribute attributes)
 (s/def ::skill skills)
-(s/def ::attributes (s/map-of ::attribute integer?))
+(s/def ::attributes (s/map-of ::attribute nat-int?))
 (s/def ::skills (s/map-of ::skill boolean?))
 
 (def fungibles #{:health :draw :will :fortune :madness})

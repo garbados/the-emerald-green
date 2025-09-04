@@ -91,5 +91,4 @@
                     ::rarity])))
 
 (s/def ::item (set items))
-
 (s/def ::inventory (s/coll-of ::item :kind vector?))
