@@ -72,10 +72,6 @@
        (contains? tags rule)
        (= :or (first rule))
        (true? (some #(rule-matches-card? % card) (rest rule)))
-       (set? rule)
-       (empty? (set/difference rule tags))
-       (= :and (first rule))
-       (every? #(rule-matches-card? % card) (rest rule))
        (sequential? rule)
        (every? #(rule-matches-card? % card) rule)))))
 
