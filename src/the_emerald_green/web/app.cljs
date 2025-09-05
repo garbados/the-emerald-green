@@ -1,19 +1,17 @@
 (ns the-emerald-green.web.app
   (:require
-   [the-emerald-green.web.alchemy :refer [alchemize]]
    [clojure.string :refer [ends-with?]]
    [shadow.cljs.modern :refer (defclass)]
+   [the-emerald-green.web.alchemy :refer [alchemize]]
    [the-emerald-green.web.db :as db]
    [the-emerald-green.web.routing :refer [handle-refresh route->hash]]
-   [the-emerald-green.web.templates.layout :refer [container]]
    [the-emerald-green.web.templates.guides :as guides]
-   [the-emerald-green.web.templates.tools :as tools]))
+   [the-emerald-green.web.templates.layout :refer [container]]
+   [the-emerald-green.web.templates.tools :as tools]
+   [the-emerald-green.web.templates.traits :refer [traits-guide]]
+   [the-emerald-green.web.utils :refer [refresh-node static-view]]))
 
 ;; VIEWS
-
-(defn static-view [template]
-  (fn [node _hash]
-    (.replaceChildren node (alchemize template))))
 
 (def db (db/init-db "the-emerald-green"))
 
@@ -33,9 +31,9 @@
 ;; pairing routes to views
 
 (def route->view
-  {:landing         (static-view guides/introduction)
+  {:introduction    (static-view guides/introduction)
    :player-guide    (static-view guides/player-guide)
-   :trait-guide     (static-view guides/trait-guide)
+   :trait-guide     #(refresh-node "main" traits-guide)
    :equipment-guide (static-view guides/equipment-guide)
    :setting-guide   (static-view guides/setting-guide)
    :gm-guide        (static-view guides/gm-guide)
@@ -83,7 +81,7 @@
          (.replaceChildren node))
     (do
       (.appendChild node (alchemize container))
-      (let [refresh (partial handle-refresh hash->view "main" :landing)]
+      (let [refresh (partial handle-refresh hash->view "main" :introduction)]
         (js/window.addEventListener "popstate" refresh)
         (.then
          (js/Promise.resolve (setup))

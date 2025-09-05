@@ -2,7 +2,7 @@
   (:require [the-emerald-green.web.alchemy :refer [snag]]))
 
 (def route->hash
-  {:landing         "#/introduction"
+  {:introduction    "#/introduction"
    :player-guide    "#/guides/player"
    :trait-guide     "#/guides/traits"
    :equipment-guide "#/guides/equipment"
@@ -13,7 +13,7 @@
    :campaigns       "#/campaigns"
    :search          "#/search"})
 
-(def default-route "#/introduction") ; put a 404 here someday?
+(def default-route :introduction) ; put a 404 here someday?
 
 (defn route->href [route]
   {:href (route->hash route)})

@@ -4,7 +4,7 @@
    [the-emerald-green.macros :refer-macros [inline-slurp]]
    [the-emerald-green.traits :as traits]
    [the-emerald-green.web.alchemy :refer [profane]]
-   [the-emerald-green.web.templates.characters :refer [print-trait]]))
+   [the-emerald-green.web.templates.traits :refer [print-trait]]))
 
 ;; STATIC GUIDES
 

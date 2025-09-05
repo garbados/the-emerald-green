@@ -27,7 +27,7 @@
 (def menu-bar
   [:aside.menu
    [:ul.menu-list
-    [:li [:a (route->href :landing) "📖 Introduction"]]]
+    [:li [:a (route->href :introduction) "📖 Introduction"]]]
    [:p.menu-label "Guides"]
    [:ul.menu-list
     [:li [:a (route->href :player-guide) "📕 Player Guide"]]

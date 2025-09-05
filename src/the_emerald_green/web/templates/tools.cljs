@@ -6,7 +6,7 @@
    [the-emerald-green.traits :as traits]
    [the-emerald-green.web.alchemy :refer [alchemize snag]]
    [the-emerald-green.web.prompts :as prompts]
-   [the-emerald-green.web.templates.characters :as ct]))
+   [the-emerald-green.web.templates.traits :as ct]))
 
 (defn list-cards [cards & {:keys [on-exile on-sanctify height]
                            :or {height "300px"}}]
@@ -206,7 +206,7 @@
        [:div.box
         [:p.title "Deck"]
         (prompts/text -query
-                      :placeholder "Filter cards by name or tag")
+                      :placeholder "🔍 Filter cards by name or tag.")
         [:hr]
         [:div#deck (list-deck)]]]
       [:div.column.is-6
