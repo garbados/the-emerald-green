@@ -4,17 +4,7 @@
    [clojure.test :refer [deftest is testing]]
    [clojure.test.check.clojure-test :refer [defspec]]
    [clojure.test.check.properties :as properties]
-   [the-emerald-green.characters :as characters]
-   [the-emerald-green.test-utils :refer [stest-symbols!]]))
-
-(deftest fspec-test
-  (stest-symbols! [`characters/determine-stats
-                   `characters/merge-stats
-                   `characters/merge-fungibles
-                   `characters/reset-fungibles
-                   `characters/ceil-fungibles
-                   `characters/hydrate-character
-                   `characters/dehydrate-character]))
+   [the-emerald-green.characters :as characters]))
 
 (defspec test-print-character 100
   (properties/for-all [character (s/gen ::characters/character)]

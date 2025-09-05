@@ -31,6 +31,8 @@
         ;;  using hljs to highlight edn -- like 300kb deps for some vaguely readable colored text. consider it? i guess?
          #_[:p [:pre (profane "code" (.-value (js/hljs.highlight "clojure" (with-out-str (pprint/pprint reqs)))))]]])]]]))
 
+(def describe-a-trait (memoize #(describe-trait %)))
+
 (defn join-reqs [reqs]
   (if (keyword? reqs)
     (name reqs)
@@ -67,8 +69,8 @@
         (->> sorted
              (filter #(trait-matches? % re))
              (sort-by :name)
-             (map describe-trait))
-        (map describe-trait sorted))])))
+             (map describe-a-trait))
+        (map describe-a-trait sorted))])))
 
 (defn traits-guide []
   (let [-query (atom "")

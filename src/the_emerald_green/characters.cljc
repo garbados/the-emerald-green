@@ -96,6 +96,11 @@
         stats (determine-stats traits)]
     (merge character stats {:traits traits})))
 
+(s/fdef merge-stats
+  :args (s/cat :character (s/keys :req-un [::sanctified
+                                           ::exiled]))
+  :ret (s/and ::stats (s/keys :req-un [::traits])))
+
 (s/def ::health nat-int?)
 (s/def ::draw nat-int?)
 (s/def ::will nat-int?)
@@ -203,7 +208,7 @@
 
 ;; REPL BUDDIES
 
-(defn print-character [character]
+(defn ^:no-stest print-character [character]
   (println "#" (:name character) "<" (:level character) ">")
   (println "--")
   (doseq [prop [:biography :sanctified :exiled

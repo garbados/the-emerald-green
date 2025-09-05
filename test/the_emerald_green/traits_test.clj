@@ -3,14 +3,7 @@
    [clojure.spec.alpha :as s]
    [clojure.test :refer [deftest is testing]]
    [the-emerald-green.core :as core]
-   [the-emerald-green.test-utils :refer [stest-symbols!]]
    [the-emerald-green.traits :as traits]))
-
-(deftest fspec-test
-  (stest-symbols! [`traits/rule-matches-card?
-                   `traits/rule-matches-cards?
-                   `traits/rule-matches-traits?
-                   `traits/determine-traits]))
 
 (deftest all-traits-valid
   (doseq [trait traits/traits]

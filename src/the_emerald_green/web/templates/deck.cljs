@@ -14,36 +14,38 @@
    :the-two-of-cups
    :the-two-of-pentacles])
 
-(defn describe-card [{card-id :id
-                      card-name :name
-                      :keys [tags]
-                      :as card}]
-  [:div.box
-   [:h3 card-name]
-   [:p (-> card-id deck/card-metadata :description)]
-   [:p "Tags:"]
-   [:pre>code (with-out-str (println tags))]
-   (when-let [traits
-              (->> traits/traits
-                   (filter #(let [{card-req :card
-                                   deck-req :deck} %]
-                              (or (if (keyword? card-req)
-                                    (contains? tags card-req)
-                                    (contains? (set (flatten card-req)) card-id))
-                                  (if (keyword? deck-req)
-                                    (contains? tags deck-req)
-                                    (contains? (set (flatten deck-req)) card-id))
-                                  (when card-req
-                                    (traits/rule-matches-card? card-req card))
-                                  (when deck-req
-                                    (traits/rule-matches-cards? deck-req #{card})))))
-                   (sort-by :name))]
-     [:div
-      [:p "Found in these traits:"]
-      [:ul
-       (for [{trait-name :name
-              :keys [description]} traits]
-         [:li [:strong trait-name] ": " description])]])])
+(def describe-card
+  (memoize
+   (fn [{card-id :id
+         card-name :name
+         :keys [tags]
+         :as card}]
+     [:div.box
+      [:h3 card-name]
+      [:p (-> card-id deck/card-metadata :description)]
+      [:p "Tags:"]
+      [:pre>code (with-out-str (println tags))]
+      (when-let [traits
+                 (->> traits/traits
+                      (filter #(let [{card-req :card
+                                      deck-req :deck} %]
+                                 (or (if (keyword? card-req)
+                                       (contains? tags card-req)
+                                       (contains? (set (flatten card-req)) card-id))
+                                     (if (keyword? deck-req)
+                                       (contains? tags deck-req)
+                                       (contains? (set (flatten deck-req)) card-id))
+                                     (when card-req
+                                       (traits/rule-matches-card? card-req card))
+                                     (when deck-req
+                                       (traits/rule-matches-cards? deck-req #{card})))))
+                      (sort-by :name))]
+        [:div
+         [:p "Found in these traits:"]
+         [:ul
+          (for [{trait-name :name
+                 :keys [description]} traits]
+            [:li [:strong trait-name] ": " description])]])])))
 
 (defn card-matches?
   [{card-name :name

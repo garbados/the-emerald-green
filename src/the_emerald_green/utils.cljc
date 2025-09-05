@@ -22,13 +22,41 @@
     (assoc thing :id (-> thing :name name->keyword))
     thing))
 
+
+(s/def :thing/id keyword?)
+(s/def :thing/name string?)
+(s/def ::thing
+  (s/keys :req-un [:thing/name]
+          :opt-un [:thing/id]))
+(s/def ::thing-with-id
+  (s/keys :req-un [:thing/name
+                   :thing/id]))
+(s/fdef idify
+  :args (s/cat :thing ::thing)
+  :ret ::thing-with-id)
+
 (defn merge-by-id [acc {id :id :as thing}]
   (assoc acc id thing))
+
+(s/fdef merge-by-id
+  :args (s/cat :acc map?
+               :thing (s/keys :req-un [:thing/id]))
+  :ret map?)
 
 (defn all-defs [coll]
   (->> coll
        (filter some?)
        flatten))
 
+(s/def ::coll (s/coll-of any?))
+
+(s/fdef all-defs
+  :args (s/cat :coll ::coll)
+  :ret (s/coll-of some?))
+
 (defn uniq-defs [coll]
   (filter map? (all-defs coll)))
+
+(s/fdef uniq-defs
+  :args (s/cat :coll ::coll)
+  :ret (s/coll-of map?))
