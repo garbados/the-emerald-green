@@ -40,3 +40,6 @@ jobs:
 
       - name: Run tests
         run: lein test
+
+      - name: Report coverage
+        run: lein cloverage --coveralls
