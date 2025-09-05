@@ -8,7 +8,7 @@
    [the-emerald-green.web.prompts :as prompts]
    [the-emerald-green.web.utils :refer [refresh-node]]))
 
-(defn print-trait
+(defn describe-trait
   ([{trait-name :name
      trait-reqs :traits
      deck-reqs :deck
@@ -34,23 +34,41 @@
 (defn join-reqs [reqs]
   (if (keyword? reqs)
     (name reqs)
-    (->> reqs flatten set (filter keyword?) (map name) sort (string/join ", "))))
+    (->> reqs
+         flatten
+         set
+         (filter keyword?)
+         (map name)
+         (map #(string/split % #"-"))
+         flatten
+         set
+         (string/join " "))))
+
+(defn trait-matches? [trait re]
+  (let [{card-reqs :card
+         deck-reqs :deck
+         trait-reqs :traits
+         trait-name :name
+         :keys [description]} trait]
+    (or (when card-reqs (re-find re (join-reqs card-reqs)))
+        (when deck-reqs (re-find re (join-reqs deck-reqs)))
+        (when trait-reqs (re-find re (join-reqs trait-reqs)))
+        (re-find re (string/lower-case trait-name))
+        (re-find re (string/lower-case description)))))
 
 (defn list-traits
   ([] (list-traits ""))
   ([query] (list-traits query traits/traits))
   ([query traits]
-   (let [re (re-pattern query)]
+   (let [sorted (sort-by :name traits)
+         re (re-pattern query)]
      [:div
       (if (seq query)
-        (->> traits
-             (filter #(or (when (:card %) (re-find re (join-reqs (:card %))))
-                          (when (:deck %) (re-find re (join-reqs (:deck %))))
-                          (when (:traits %) (re-find re (join-reqs (:traits %))))
-                          (re-find re (string/lower-case (:name %)))
-                          (re-find re (string/lower-case (:description %)))))
-             (map print-trait))
-        (map print-trait traits))])))
+        (->> sorted
+             (filter #(trait-matches? % re))
+             (sort-by :name)
+             (map describe-trait))
+        (map describe-trait sorted))])))
 
 (defn traits-guide []
   (let [-query (atom "")

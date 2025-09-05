@@ -4,6 +4,7 @@
 (def route->hash
   {:introduction    "#/introduction"
    :player-guide    "#/guides/player"
+   :card-guide      "#/guides/cards"
    :trait-guide     "#/guides/traits"
    :equipment-guide "#/guides/equipment"
    :setting-guide   "#/guides/setting"

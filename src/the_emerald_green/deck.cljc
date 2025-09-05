@@ -1,9 +1,15 @@
 (ns the-emerald-green.deck
   (:require
+   #?(:clj
+      [the-emerald-green.macros :refer [slurp-edn]]
+      :cljs
+      [the-emerald-green.macros :refer-macros [slurp-edn]])
    [clojure.set :as set]
    [clojure.spec.alpha :as s]
    [clojure.string :as string]
    [the-emerald-green.utils :as utils]))
+
+(def card-metadata (slurp-edn "resources/cards.edn"))
 
 (def suits [:wands :cups :swords :pentacles])
 
@@ -27,8 +33,10 @@
   (for [suit suits
         rank (drop 2 (range 16))
         :let [arcana-name (str "The " (minor-arcana-rank-names rank) " of " (string/capitalize (name suit)))
-              arcana-kw (utils/name->keyword arcana-name)]]
+              arcana-kw (utils/name->keyword arcana-name)
+              {:keys [description]} (card-metadata arcana-kw)]]
     {:name arcana-name
+     :description description
      :id arcana-kw
      :rank rank
      :tags
@@ -64,8 +72,10 @@
          "The Sun"
          "Judgement"
          "The World"]
-         :let [arcana-kw (utils/name->keyword arcana-name)]]
+         :let [arcana-kw (utils/name->keyword arcana-name)
+               {:keys [description]} (card-metadata arcana-kw)]]
     {:name arcana-name
+     :description description
      :id arcana-kw
      :rank 16
      :tags #{:major-arcana arcana-kw}}))

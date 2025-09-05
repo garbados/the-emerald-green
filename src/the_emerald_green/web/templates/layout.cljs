@@ -31,6 +31,7 @@
    [:p.menu-label "Guides"]
    [:ul.menu-list
     [:li [:a (route->href :player-guide) "📕 Player Guide"]]
+    [:li [:a (route->href :card-guide) "🃏 Card Guide"]]
     [:li [:a (route->href :trait-guide) "📗 Trait Guide"]]
     [:li [:a (route->href :equipment-guide) "📘 Equipment Guide"]]
     [:li [:a (route->href :setting-guide) "📙 Setting Guide"]]

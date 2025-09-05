@@ -5,42 +5,35 @@
    [the-emerald-green.web.alchemy :refer [alchemize]]
    [the-emerald-green.web.db :as db]
    [the-emerald-green.web.routing :refer [handle-refresh route->hash]]
+   [the-emerald-green.web.templates.deck :refer [card-guide]]
+   [the-emerald-green.web.templates.equipment :refer [equipment-guide]]
    [the-emerald-green.web.templates.guides :as guides]
    [the-emerald-green.web.templates.layout :refer [container]]
    [the-emerald-green.web.templates.tools :as tools]
    [the-emerald-green.web.templates.traits :refer [traits-guide]]
    [the-emerald-green.web.utils :refer [refresh-node static-view]]))
 
-;; VIEWS
+;; CONSTANTS
 
+(def main-id "main") ; contained in layout.cljs, see `container`
 (def db (db/init-db "the-emerald-green"))
 
-(defn new-character-view [node _hash]
-  (.replaceChildren node (alchemize (tools/new-character))))
+;; VIEWS
 
-(defn characters-view [node _hash]
-  (.replaceChildren node (alchemize (tools/characters))))
-
-(defn campaigns-view [node _hash]
-  (.replaceChildren node (alchemize (tools/campaigns))))
-
-(defn search-view [node _hash]
-  (let [query js/document.location.hash]
-    (.replaceChildren node (alchemize (tools/search query)))))
-
-;; pairing routes to views
+(def make-view #(partial refresh-node main-id %))
 
 (def route->view
   {:introduction    (static-view guides/introduction)
    :player-guide    (static-view guides/player-guide)
-   :trait-guide     #(refresh-node "main" traits-guide)
-   :equipment-guide (static-view guides/equipment-guide)
    :setting-guide   (static-view guides/setting-guide)
    :gm-guide        (static-view guides/gm-guide)
-   :new-character   new-character-view
-   :characters      characters-view
-   :campaigns       campaigns-view
-   :search          search-view})
+   :card-guide      (make-view card-guide)
+   :trait-guide     (make-view traits-guide)
+   :equipment-guide (make-view equipment-guide)
+   :new-character   (make-view tools/new-character)
+   :characters      (make-view tools/characters)
+   :campaigns       (make-view tools/campaigns)
+   :search          (make-view #(tools/search js/document.location.hash))})
 
 (defn sanity-check-routes
   "Report routes that are:
@@ -81,7 +74,7 @@
          (.replaceChildren node))
     (do
       (.appendChild node (alchemize container))
-      (let [refresh (partial handle-refresh hash->view "main" :introduction)]
+      (let [refresh (partial handle-refresh hash->view main-id :introduction)]
         (js/window.addEventListener "popstate" refresh)
         (.then
          (js/Promise.resolve (setup))
