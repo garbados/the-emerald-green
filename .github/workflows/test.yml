@@ -41,5 +41,10 @@ jobs:
       - name: Run tests
         run: lein test
 
-      - name: Report coverage
-        run: lein cloverage --coveralls
+      - name: Generate coverage
+        run: lein cloverage --coveralls --no-html
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
+        with:
+          file: target/coverage/coveralls.json
