@@ -40,7 +40,10 @@ jobs:
 
       - name: Run tests
         run: lein test
-
+  coverage:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
       - name: Generate coverage
         run: lein cloverage --coveralls --no-html
 
