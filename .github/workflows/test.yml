@@ -7,7 +7,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
 
       - name: Prepare java
         uses: actions/setup-java@v3
@@ -20,11 +20,11 @@ jobs:
         with:
           lein: 2.10.0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           cache: 'npm'
 
-      - run: npm i
+      - run: npm ci
           
       - name: Cache clojure dependencies
         uses: actions/cache@v3
