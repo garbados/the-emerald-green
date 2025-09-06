@@ -23,20 +23,20 @@
       [:th.is-fullwidth "Name"]
       [:th.is-narrow "Exile?"]
       [:th.is-narrow "Sanctify?"]]]
-    (cons :tbody
-          (for [card cards]
-            [:tr
-             [:td (:name card)]
-             [:td [:button.button.is-small.is-danger
-                   (if on-exile
-                     {:onclick (partial on-exile card)}
-                     {:disabled true})
-                   "Exile!"]]
-             [:td [:button.button.is-small.is-info
-                   (if on-sanctify
-                     {:onclick (partial on-sanctify card)}
-                     {:disabled true})
-                   "Sanctify!"]]]))]])
+    [:tbody
+     (for [card cards]
+       [:tr
+        [:td (:name card)]
+        [:td [:button.button.is-small.is-danger
+              (if on-exile
+                {:onclick (partial on-exile card)}
+                {:disabled true})
+              "Exile!"]]
+        [:td [:button.button.is-small.is-info
+              (if on-sanctify
+                {:onclick (partial on-sanctify card)}
+                {:disabled true})
+              "Sanctify!"]]])]]])
 
 (defn list-chosen [cards & {:keys [on-restore empty-msg]}]
   (if (seq cards)
@@ -45,15 +45,15 @@
       [:tr
        [:th.is-fullwidth "Name"]
        [:th.is-narrow "Restore?"]]]
-     (cons :tbody
-           (for [card cards]
-             [:tr
-              [:td (:name card)]
-              [:td [:button.button.is-small.is-dark
-                    (if on-restore
-                      {:onclick (partial on-restore card)}
-                      {:disabled true})
-                    "Restore!"]]]))]
+     [:tbody
+      (for [card cards]
+        [:tr
+         [:td (:name card)]
+         [:td [:button.button.is-small.is-dark
+               (if on-restore
+                 {:onclick (partial on-restore card)}
+                 {:disabled true})
+               "Restore!"]]])]]
     [:p "None. " [:em empty-msg]]))
 
 (defn list-stats
@@ -93,24 +93,24 @@
      [:div
       [:hr]
       [:p.subtitle "Skills"]
-      (cons :ul
-            (for [skill known-skills]
-              [:li (string/capitalize (name skill))]))])
+      [:ul
+       (for [skill known-skills]
+         [:li (string/capitalize (name skill))])]])
    (when (seq talents)
      [:div
       [:hr]
       [:p.subtitle "Talents"]
-      (cons :ul
-            (for [talent talents]
-              [:li (print-str talent)]))])
+      [:ul
+       (for [talent talents]
+         [:li (print-str talent)])]])
    (when (seq abilities)
      [:div
       [:hr]
       [:p.subtitle "Abilities"]
       (if (seq abilities)
-        (cons :ul
-              (for [ability abilities]
-                [:li (print-str ability)]))
+        [:ul
+         (for [ability abilities]
+           [:li (print-str ability)])]
         [:p "No abilities..."])])])
 
 (defn list-traits [traits & {:keys [height]
