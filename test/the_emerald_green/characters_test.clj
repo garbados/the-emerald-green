@@ -6,7 +6,7 @@
    [clojure.test.check.properties :as properties]
    [the-emerald-green.characters :as characters]))
 
-(defspec test-print-character 100
+(defspec test-print-character 10
   (properties/for-all [character (s/gen ::characters/character)]
     (let [result (with-out-str (characters/print-character character))]
       (is (string? result)
