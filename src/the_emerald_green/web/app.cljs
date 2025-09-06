@@ -30,32 +30,18 @@
     (tools/search query)))
 
 (def route->view
-  {:introduction    (static-view guides/introduction)
-   :player-guide    (static-view guides/player-guide)
-   :setting-guide   (static-view guides/setting-guide)
-   :gm-guide        (static-view guides/gm-guide)
-   :card-guide      (make-view card-guide)
-   :trait-guide     (make-view traits-guide)
-   :equipment-guide (make-view equipment-guide)
-   :new-character   (make-view #(new-character))
-   :characters      (make-view #(list-characters))
-   :campaigns       (make-view tools/campaigns)
-   :search          (make-view search-view)})
-
-(defn sanity-check-routes
-  "Report routes that are:
-   - Orphaned (views without a hash)
-   - Unimplemented (hashes without a view)"
-  []
-  (concat
-   (for [route (keys route->view)
-         :let [url-hash (route->hash route)]
-         :when (nil? url-hash)]
-     (str "Orphan route: " route))
-   (for [route (keys route->hash)
-         :let [view (route->view route)]
-         :when (nil? view)]
-     (str "Unimplemented route: " route))))
+  (merge
+   {:card-guide      (make-view card-guide)
+    :trait-guide     (make-view traits-guide)
+    :equipment-guide (make-view equipment-guide)
+    :new-character   (make-view #(new-character))
+    :characters      (make-view #(list-characters))
+    :campaigns       (make-view tools/campaigns)
+    :search          (make-view search-view)}
+   (reduce
+    (fn [acc [route template]] (assoc acc route (static-view template)))
+    {}
+    guides/guides)))
 
 (def hash->view
   (reduce
@@ -70,22 +56,12 @@
   (db/setup-db db))
 
 (defn main-view [node]
-  ;; FIXME: put this in a test suite lol
-  (if-let [route-errors (seq (sanity-check-routes))]
-    (->> [:div.content
-          [:h1 "Error!"]
-          [:ul
-           (for [error-msg route-errors]
-             [:li error-msg])]]
-         (alchemize)
-         (.replaceChildren node))
-    (do
-      (.appendChild node (alchemize container))
-      (let [refresh (partial handle-refresh hash->view main-id :introduction)]
-        (js/window.addEventListener "popstate" refresh)
-        (.then
-         (js/Promise.resolve (setup))
-         #(refresh))))))
+  (.appendChild node (alchemize container))
+  (let [refresh (partial handle-refresh hash->view main-id :introduction)]
+    (js/window.addEventListener "popstate" refresh)
+    (.then
+     (js/Promise.resolve (setup))
+     #(refresh))))
 
 ;; webcomponents
 
@@ -100,7 +76,8 @@
 
 ;; main
 
-(defn start-app []
+(def already-defined? "has already been defined as a custom element")
+(defn- start-app []
   (try
     (doseq [[component-kw component] components]
       (js/customElements.define (name component-kw) component))
@@ -108,7 +85,7 @@
       ;; redefining custom elements is impossible
       ;; so if webcomponents complains about dev trying to do so, reload
       ;; but otherwise, just print the error
-      (if (string/ends-with? (ex-message e) "has already been defined as a custom element")
+      (if (string/ends-with? (ex-message e) already-defined?)
         (js/window.location.reload)
         (js/console.log e)))))
 

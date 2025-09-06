@@ -1,6 +1,7 @@
 (ns the-emerald-green.web.alchemy
   (:require ["html-alchemist" :as alchemy]))
 
+(def refresh alchemy/refresh)
 (def snag alchemy/snag)
 (def profane alchemy/profane)
 

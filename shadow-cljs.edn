@@ -5,4 +5,7 @@
  {:web
   {:compiler-options {:source-map true}
    :target :browser
-   :modules {:main {:entries [the-emerald-green.web.app]}}}}}
+   :modules {:main {:entries [the-emerald-green.web.app]}}}
+  :test
+  {:target :karma
+   :output-to  "target/test.js"}}}

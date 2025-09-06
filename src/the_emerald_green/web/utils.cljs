@@ -1,10 +1,8 @@
 (ns the-emerald-green.web.utils 
   (:require
-   [the-emerald-green.web.alchemy :refer [alchemize snag]]))
+   [the-emerald-green.web.alchemy :refer [alchemize refresh]]))
 
-(defn refresh-node [node-id template-fn]
-  (.replaceChildren (snag node-id)
-                    (alchemize (template-fn))))
+(def refresh-node refresh)
 
 (defn static-view [template]
   (fn [node _hash]

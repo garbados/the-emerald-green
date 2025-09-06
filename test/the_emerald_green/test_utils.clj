@@ -21,10 +21,11 @@
    (stest-ns! ns-name -default-opts))
   ([ns-name opts]
    (doseq [[sym var-ref] (ns-publics ns-name)
-           :let [spec (s/get-spec var-ref)]
+           :let [spec (s/get-spec var-ref)
+                 {no-stest? :no-stest} (meta var-ref)]
            :when (and (fn? @var-ref)
-                      (nil? (:no-stest (meta var-ref))))]
-     (testing (str ns-name)
+                      (not no-stest?))]
+     (testing (str ns-name "/" sym)
        (if spec
          (stest-symbol! (symbol var-ref) opts)
          (is (some? spec) (str sym " has no spec!")))))))

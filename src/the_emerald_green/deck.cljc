@@ -92,10 +92,9 @@
 
 (def id->metadata (slurp-edn "resources/cards.edn"))
 
-(defn clean-description [description]
-  (string/replace description #"\n +" "\n"))
+(def ^:no-stest clean-description #(string/replace % #"\n\s+" "\n"))
 
-(def suits [:wands :cups :swords :pentacles])
+(def suits [:swords :wands :cups :pentacles])
 
 (def minor-arcana-rank-names
   {2 "Two"

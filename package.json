@@ -4,14 +4,20 @@
         "start": "shadow-cljs compile web",
         "dev": "shadow-cljs watch web",
         "release": "shadow-cljs release web",
-        "test": "lein test",
+        "test": "npm run test:clj && npm run test:cljs",
+        "test:clj": "lein test",
+        "test:cljs": "shadow-cljs compile test && karma start --single-run",
         "cov": "lein cloverage"
     },
     "devDependencies": {
         "events": "^3.3.0",
         "html-alchemist": "^3.2.1",
+        "karma": "^6.4.4",
+        "karma-chrome-launcher": "^3.2.0",
+        "karma-cljs-test": "^0.1.0",
         "marked": "^16.2.1",
         "pouchdb": "^9.0.0",
+        "puppeteer": "^24.19.0",
         "shadow-cljs": "^3.2.0"
     }
 }
