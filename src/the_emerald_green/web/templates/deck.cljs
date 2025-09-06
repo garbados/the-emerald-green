@@ -123,7 +123,9 @@
          (when (seq media-src)
            [:div.column.is-3
             [:figure.image
-             [:img {:alt media-description :src media-src}]]])
+             [:img {:alt media-description
+                    :title media-description
+                    :src media-src}]]])
          [:div.column
           [:h3 card-name]
           (when (seq description)
