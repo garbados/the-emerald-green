@@ -1,5 +1,9 @@
 (ns the-emerald-green.guides
-  (:require [the-emerald-green.macros :refer-macros [inline-slurp]]))
+  (:require
+   #?(:clj
+      [the-emerald-green.macros :refer [inline-slurp]]
+      :cljs
+      [the-emerald-green.macros :refer-macros [inline-slurp]])))
 
 (def guides
   {:introduction  (inline-slurp "doc/introduction.md")
