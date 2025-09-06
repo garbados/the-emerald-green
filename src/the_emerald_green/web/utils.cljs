@@ -1,10 +1,12 @@
 (ns the-emerald-green.web.utils 
   (:require
-   [the-emerald-green.web.alchemy :refer [alchemize refresh]]))
+   [the-emerald-green.web.alchemy :refer [refresh]]))
 
-(def refresh-node refresh)
+(defn refresh-node [node-ish expr]
+  (refresh node-ish (clj->js (expr))))
+
+(defn dynamic-view [expr]
+  #(refresh %1 (clj->js (expr))))
 
 (defn static-view [template]
-  (fn [node _hash]
-    (.replaceChildren node
-                      (alchemize template))))
+  #(refresh %1 (clj->js template)))

@@ -7,7 +7,9 @@
   ([name opts]
    (new pouchdb name opts)))
 
-(defn setup-db [db]
+(def db (init-db "the-emerald-green"))
+
+(defn setup-db []
   (-> (js/Promise.all
        (clj->js
         []))

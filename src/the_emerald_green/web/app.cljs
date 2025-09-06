@@ -13,51 +13,42 @@
    [the-emerald-green.web.templates.layout :refer [container]]
    [the-emerald-green.web.templates.tools :as tools]
    [the-emerald-green.web.templates.traits :refer [traits-guide]]
-   [the-emerald-green.web.utils :refer [refresh-node static-view]]))
+   [the-emerald-green.web.utils :refer [dynamic-view static-view]]))
 
 ;; CONSTANTS
 
 (def main-id "main") ; contained in layout.cljs, see `container`
-(def db (db/init-db "the-emerald-green"))
 
 ;; VIEWS
 
-(def make-view #(partial refresh-node main-id %))
-
-(def search-re (re-pattern (str (route->hash :search) "/")))
-(defn search-view []
-  (let [query (string/replace-first js/document.location.hash search-re "")]
-    (tools/search query)))
-
 (def route->view
   (merge
-   {:card-guide      (make-view card-guide)
-    :trait-guide     (make-view traits-guide)
-    :equipment-guide (make-view equipment-guide)
-    :new-character   (make-view #(new-character))
-    :characters      (make-view #(list-characters))
-    :campaigns       (make-view tools/campaigns)
-    :search          (make-view search-view)}
+   (reduce
+    (fn [acc [route view]] (assoc acc route (dynamic-view view)))
+    {}
+    {:card-guide      card-guide
+     :trait-guide     traits-guide
+     :equipment-guide  equipment-guide
+     :new-character   #(new-character)
+     :characters      #(list-characters)
+     :campaigns       tools/campaigns
+     :search          tools/search})
    (reduce
     (fn [acc [route template]] (assoc acc route (static-view template)))
     {}
     guides/guides)))
 
 (def hash->view
-  (reduce
-   (fn [acc [route view]]
-     (assoc acc (route->hash route) view))
-   {}
-   route->view))
+  (zipmap (map route->hash (keys route->view)) (vals route->view)))
 
 ;; prepare main view
 
 (defn setup []
-  (db/setup-db db))
+  (db/setup-db))
 
 (defn main-view [node]
   (.appendChild node (alchemize container))
-  (let [refresh (partial handle-refresh hash->view main-id :introduction)]
+  (let [refresh (partial handle-refresh hash->view main-id)]
     (js/window.addEventListener "popstate" refresh)
     (.then
      (js/Promise.resolve (setup))

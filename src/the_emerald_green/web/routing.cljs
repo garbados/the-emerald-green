@@ -1,6 +1,8 @@
 (ns the-emerald-green.web.routing
   (:require [the-emerald-green.web.alchemy :refer [snag]]))
 
+(def default-route :introduction)
+
 (def route->hash
   {:introduction    "#/introduction"
    :player-guide    "#/guides/player"
@@ -14,8 +16,6 @@
    :campaigns       "#/campaigns"
    :search          "#/search"})
 
-(def default-route :introduction) ; put a 404 here someday?
-
 (defn route->href [route]
   {:href (route->hash route)})
 
@@ -25,18 +25,16 @@
 (defn goto-search [query]
   (goto-str (str (route->hash :search) "/" query)))
 
-(defn goto
-  ([route]
-   (goto route default-route))
-  ([route default-route]
-   (goto-str (get route->hash route default-route))))
+(defn goto [route] (goto-str (get route->hash route)))
 
-(defn handle-route [routes node hash default-route]
-  ;; using hash fragments as regex, get the most specific match
-  (let [matched (last (sort (filter #(re-find (re-pattern %) hash) (keys routes))))]
-    (if-let [handler (get routes matched)]
-      (handler node hash)
-      (goto default-route))))
+(defn find-view [route->view url-hash]
+  (->> (keys route->view)
+       (filter #(re-find (re-pattern %) url-hash))
+       sort
+       last
+       route->view))
 
-(defn handle-refresh [routes main-id default-route]
-  (handle-route routes (snag main-id) js/document.location.hash default-route))
+(defn handle-refresh [route->view main-id]
+  (if-let [view (find-view route->view js/document.location.hash)]
+    (view (snag main-id))
+    (goto default-route)))
