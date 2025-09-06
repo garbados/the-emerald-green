@@ -11,12 +11,27 @@
    [the-emerald-green.utils :as utils]))
 
 (def max-level 20)
+(def default-sanctify-threshold 4) ; how often you sanctify a card on level-up rather than exile it
 
 (s/def ::name string?)
 (s/def ::biography string?)
 (s/def ::level (s/int-in 1 (inc max-level)))
 (s/def ::sanctified (s/coll-of ::deck/id :kind set?))
 (s/def ::exiled (s/coll-of ::deck/id :kind set?))
+
+(defn max-exiled [level]
+  (- (+ 2 level) (quot level default-sanctify-threshold)))
+
+(s/fdef max-exiled
+  :args (s/cat :level ::level)
+  :ret (s/int-in 3 (inc (max-exiled max-level))))
+
+(defn max-sanctified [level]
+  (+ 2 (quot level default-sanctify-threshold)))
+
+(s/fdef max-sanctified
+  :args (s/cat :level ::level)
+  :ret (s/int-in 2 (inc (max-sanctified max-level))))
 
 (s/def ::media-type keyword?) ; enumerated elsewhere TODO eventually
 (s/def ::src string?)

@@ -1,10 +1,12 @@
 (ns the-emerald-green.web.app
   (:require
-   [clojure.string :refer [ends-with?]]
+   [clojure.string :as string]
    [shadow.cljs.modern :refer (defclass)]
    [the-emerald-green.web.alchemy :refer [alchemize]]
    [the-emerald-green.web.db :as db]
    [the-emerald-green.web.routing :refer [handle-refresh route->hash]]
+   [the-emerald-green.web.templates.characters :refer [list-characters
+                                                       new-character]]
    [the-emerald-green.web.templates.deck :refer [card-guide]]
    [the-emerald-green.web.templates.equipment :refer [equipment-guide]]
    [the-emerald-green.web.templates.guides :as guides]
@@ -22,6 +24,11 @@
 
 (def make-view #(partial refresh-node main-id %))
 
+(def search-re (re-pattern (str (route->hash :search) "/")))
+(defn search-view []
+  (let [query (string/replace-first js/document.location.hash search-re "")]
+    (tools/search query)))
+
 (def route->view
   {:introduction    (static-view guides/introduction)
    :player-guide    (static-view guides/player-guide)
@@ -30,10 +37,10 @@
    :card-guide      (make-view card-guide)
    :trait-guide     (make-view traits-guide)
    :equipment-guide (make-view equipment-guide)
-   :new-character   (make-view tools/new-character)
-   :characters      (make-view tools/characters)
+   :new-character   (make-view #(new-character))
+   :characters      (make-view #(list-characters))
    :campaigns       (make-view tools/campaigns)
-   :search          (make-view #(tools/search js/document.location.hash))})
+   :search          (make-view search-view)})
 
 (defn sanity-check-routes
   "Report routes that are:
@@ -101,7 +108,7 @@
       ;; redefining custom elements is impossible
       ;; so if webcomponents complains about dev trying to do so, reload
       ;; but otherwise, just print the error
-      (if (ends-with? (ex-message e) "has already been defined as a custom element")
+      (if (string/ends-with? (ex-message e) "has already been defined as a custom element")
         (js/window.location.reload)
         (js/console.log e)))))
 

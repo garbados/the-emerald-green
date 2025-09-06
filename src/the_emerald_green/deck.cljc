@@ -9,7 +9,91 @@
    [clojure.string :as string]
    [the-emerald-green.utils :as utils]))
 
-(def card-metadata (slurp-edn "resources/cards.edn"))
+;; an obsessive little quest
+(def the-order-of-things
+  [:the-fool
+   :the-two-of-swords
+   :the-two-of-wands
+   :the-two-of-cups
+   :the-two-of-pentacles
+   :the-magician
+   :the-high-priestess
+   :the-three-of-swords
+   :the-three-of-wands
+   :the-three-of-cups
+   :the-three-of-pentacles
+   :the-empress
+   :the-emperor
+   :the-four-of-swords
+   :the-four-of-wands
+   :the-four-of-cups
+   :the-four-of-pentacles
+   :the-hierophant
+   :the-five-of-swords
+   :the-five-of-wands
+   :the-five-of-cups
+   :the-five-of-pentacles
+   :the-lovers
+   :the-six-of-swords
+   :the-six-of-wands
+   :the-six-of-cups
+   :the-six-of-pentacles
+   :the-chariot
+   :strength
+   :the-seven-of-swords
+   :the-seven-of-wands
+   :the-seven-of-cups
+   :the-seven-of-pentacles
+   :the-hermit
+   :the-eight-of-wands
+   :the-eight-of-cups
+   :the-eight-of-swords
+   :the-eight-of-pentacles
+   :the-hanged-man
+   :death
+   :the-nine-of-wands
+   :the-nine-of-cups
+   :the-nine-of-swords
+   :the-nine-of-pentacles
+   :temperance
+   :the-ten-of-swords
+   :the-ten-of-wands
+   :the-ten-of-cups
+   :the-ten-of-pentacles
+   :the-devil
+   :the-tower
+   :the-page-of-swords
+   :the-page-of-wands
+   :the-page-of-cups
+   :the-page-of-pentacles
+   :wheel-of-fortune
+   :the-knight-of-swords
+   :the-knight-of-wands
+   :the-knight-of-cups
+   :the-knight-of-pentacles
+   :justice
+   :the-star
+   :the-queen-of-swords
+   :the-queen-of-wands
+   :the-queen-of-cups
+   :the-queen-of-pentacles
+   :the-moon
+   :the-king-of-swords
+   :the-king-of-wands
+   :the-king-of-cups
+   :the-king-of-pentacles
+   :the-sun
+   :judgement
+   :the-ace-of-swords
+   :the-ace-of-wands
+   :the-ace-of-cups
+   :the-ace-of-pentacles
+   :the-world])
+
+(def id->metadata (slurp-edn "resources/cards.edn"))
+
+(defn clean-description [description]
+  (string/replace description #"\n +" "\n"))
 
 (def suits [:wands :cups :swords :pentacles])
 
@@ -34,9 +118,9 @@
         rank (drop 2 (range 16))
         :let [arcana-name (str "The " (minor-arcana-rank-names rank) " of " (string/capitalize (name suit)))
               arcana-kw (utils/name->keyword arcana-name)
-              {:keys [description]} (card-metadata arcana-kw)]]
+              {:keys [description]} (id->metadata arcana-kw)]]
     {:name arcana-name
-     :description description
+     :description (clean-description description)
      :id arcana-kw
      :rank rank
      :tags
@@ -72,10 +156,10 @@
          "The Sun"
          "Judgement"
          "The World"]
-         :let [arcana-kw (utils/name->keyword arcana-name)
-               {:keys [description]} (card-metadata arcana-kw)]]
+        :let [arcana-kw (utils/name->keyword arcana-name)
+              {:keys [description]} (id->metadata arcana-kw)]]
     {:name arcana-name
-     :description description
+     :description (clean-description description)
      :id arcana-kw
      :rank 16
      :tags #{:major-arcana arcana-kw}}))
@@ -83,6 +167,7 @@
 (def base-deck (concat minor-arcana major-arcana))
 (def base-deck-set (set base-deck))
 (def id->card (into {} (map (juxt :id identity) base-deck)))
+(def the-ordered-deck (vec (map id->card the-order-of-things)))
 
 (s/def ::name (set (map :name base-deck)))
 (s/def ::id (set (map :id base-deck)))

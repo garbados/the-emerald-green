@@ -8,87 +8,6 @@
    [the-emerald-green.web.prompts :as prompts]
    [the-emerald-green.web.utils :refer [refresh-node]]))
 
-;; an obsessive little quest
-(def the-order-of-things
-  [:the-fool
-   :the-two-of-swords
-   :the-two-of-wands
-   :the-two-of-cups
-   :the-two-of-pentacles
-   :the-magician
-   :the-high-priestess
-   :the-three-of-swords
-   :the-three-of-wands
-   :the-three-of-cups
-   :the-three-of-pentacles
-   :the-empress
-   :the-emperor
-   :the-four-of-swords
-   :the-four-of-wands
-   :the-four-of-cups
-   :the-four-of-pentacles
-   :the-hierophant
-   :the-five-of-swords
-   :the-five-of-wands
-   :the-five-of-cups
-   :the-five-of-pentacles
-   :the-lovers
-   :the-six-of-swords
-   :the-six-of-wands
-   :the-six-of-cups
-   :the-six-of-pentacles
-   :the-chariot
-   :strength
-   :the-seven-of-swords
-   :the-seven-of-wands
-   :the-seven-of-cups
-   :the-seven-of-pentacles
-   :the-hermit
-   :the-eight-of-wands
-   :the-eight-of-cups
-   :the-eight-of-swords
-   :the-eight-of-pentacles
-   :the-hanged-man
-   :death
-   :the-nine-of-wands
-   :the-nine-of-cups
-   :the-nine-of-swords
-   :the-nine-of-pentacles
-   :temperance
-   :the-ten-of-swords
-   :the-ten-of-wands
-   :the-ten-of-cups
-   :the-ten-of-pentacles
-   :the-devil
-   :the-tower
-   :the-page-of-swords
-   :the-page-of-wands
-   :the-page-of-cups
-   :the-page-of-pentacles
-   :wheel-of-fortune
-   :the-knight-of-swords
-   :the-knight-of-wands
-   :the-knight-of-cups
-   :the-knight-of-pentacles
-   :justice
-   :the-star
-   :the-queen-of-swords
-   :the-queen-of-wands
-   :the-queen-of-cups
-   :the-queen-of-pentacles
-   :the-moon
-   :the-king-of-swords
-   :the-king-of-wands
-   :the-king-of-cups
-   :the-king-of-pentacles
-   :the-sun
-   :judgement
-   :the-ace-of-swords
-   :the-ace-of-wands
-   :the-ace-of-cups
-   :the-ace-of-pentacles
-   :the-world])
-
 (defn trait-mentions-card?
   [{card-id :id :keys [tags] :as card}
    {card-req :card deck-req :deck}]
@@ -117,7 +36,7 @@
    (fn [{card-id :id
          card-name :name
          :keys [tags]}]
-     (let [{:keys [description media-description media-src]} (deck/card-metadata card-id)]
+     (let [{:keys [description media-description media-src]} (deck/id->metadata card-id)]
        [:div.box
         [:div.columns
          (when (seq media-src)
@@ -151,7 +70,7 @@
       (re-find re (string/join ", " tags))))
 
 (defn list-cards [query]
-  (for [card-id the-order-of-things
+  (for [card-id deck/the-order-of-things
         :let [card (deck/id->card card-id)
               re (re-pattern query)]
         :when (card-matches-re? card re)]

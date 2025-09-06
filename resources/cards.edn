@@ -7,7 +7,7 @@
    The difference from outside.
    The beginning you don't realize
    has already, already begun.
-   
+
    Could it be you, Enkidu?"}
  :the-two-of-swords
  {:media-src "https://upload.wikimedia.org/wikipedia/commons/9/9e/Swords02.jpg"
@@ -45,227 +45,295 @@
  {:media-src ""
   :media-description ""
   :description ""}
- :the-nine-of-cups
+ :the-magician
  {:media-src ""
+  :media-description ""
   :description ""}
- :the-nine-of-swords
- {:media-src ""
-  :description ""}
- :the-six-of-pentacles
- {:media-src ""
-  :description ""}
- :the-hermit
- {:media-src ""
-  :description ""}
- :the-six-of-cups
- {:media-src ""
-  :description ""}
- :the-four-of-cups
- {:media-src ""
-  :description ""}
- :the-seven-of-swords
- {:media-src ""
-  :description ""}
-
- :the-six-of-wands
- {:media-src ""
-  :description ""}
- :the-six-of-swords
- {:media-src ""
-  :description ""}
- :the-seven-of-wands
- {:media-src ""
-  :description ""}
- :the-page-of-swords
- {:media-src ""
-  :description ""}
- :the-ten-of-swords
- {:media-src ""
-  :description ""}
- :the-queen-of-cups
- {:media-src ""
-  :description ""}
- :the-king-of-cups
- {:media-src ""
-  :description ""}
- :the-nine-of-pentacles
- {:media-src ""
-  :description ""}
- 
- :the-four-of-swords
- {:media-src ""
-  :description ""}
- :temperance
- {:media-src ""
-  :description ""}
- :the-world
- {:media-src ""
-  :description ""}
- :the-ten-of-pentacles
- {:media-src ""
-  :description ""}
- :the-ten-of-wands
- {:media-src ""
-  :description ""}
- :the-sun
- {:media-src ""
-  :description ""}
- :the-five-of-pentacles
- {:media-src ""
-  :description ""}
- :judgement
- {:media-src ""
-  :description ""}
- :justice
- {:media-src ""
-  :description ""}
- :the-knight-of-swords
- {:media-src ""
-  :description ""}
- :the-devil
- {:media-src ""
-  :description ""}
- :the-three-of-wands
- {:media-src ""
-  :description ""}
- :the-knight-of-pentacles
- {:media-src ""
-  :description ""}
- :the-emperor
- {:media-src ""
-  :description ""}
- :the-nine-of-wands
- {:media-src ""
-  :description ""}
- :the-four-of-pentacles
- {:media-src ""
-  :description ""}
- :the-king-of-pentacles
- {:media-src ""
-  :description ""}
- :the-king-of-wands
- {:media-src ""
-  :description ""}
- :the-knight-of-cups
- {:media-src ""
-  :description ""}
- :the-king-of-swords
- {:media-src ""
-  :description ""}
- :the-ace-of-pentacles
- {:media-src ""
-  :description ""}
- :the-eight-of-swords
- {:media-src ""
-  :description ""}
- :wheel-of-fortune
- {:media-src ""
-  :description ""}
- :the-knight-of-wands
- {:media-src ""
-  :description ""}
- 
  :the-high-priestess
  {:media-src ""
+  :media-description ""
   :description ""}
  :the-three-of-swords
  {:media-src ""
+  :media-description ""
   :description ""}
- :the-ace-of-cups
+ :the-three-of-wands
  {:media-src ""
-  :description ""}
- :the-ten-of-cups
- {:media-src ""
-  :description ""}
- :strength
- {:media-src ""
-  :description ""}
- :the-page-of-pentacles
- {:media-src ""
-  :description ""}
- :the-lovers
- {:media-src ""
-  :description ""}
- :the-eight-of-cups
- {:media-src ""
-  :description ""}
- 
- :the-tower
- {:media-src ""
-  :description ""}
- :the-five-of-swords
- {:media-src ""
-  :description ""}
- :the-chariot
- {:media-src ""
-  :description ""}
- :the-seven-of-cups
- {:media-src ""
-  :description ""}
- :the-five-of-wands
- {:media-src ""
-  :description ""}
- :the-hanged-man
- {:media-src ""
-  :description ""}
- :the-star
- {:media-src ""
-  :description ""}
- :the-magician
- {:media-src ""
-  :description ""}
- :the-three-of-pentacles
- {:media-src ""
-  :description ""}
- :the-eight-of-pentacles
- {:media-src ""
-  :description ""}
- :the-five-of-cups
- {:media-src ""
-  :description ""}
- :the-seven-of-pentacles
- {:media-src ""
-  :description ""}
- :the-queen-of-pentacles
- {:media-src ""
-  :description ""}
- :the-four-of-wands
- {:media-src ""
-  :description ""}
- :the-page-of-cups
- {:media-src ""
-  :description ""}
- :the-queen-of-swords
- {:media-src ""
-  :description ""}
-
- :the-page-of-wands
- {:media-src ""
-  :description ""}
- :death
- {:media-src ""
-  :description ""}
- :the-queen-of-wands
- {:media-src ""
-  :description ""}
- :the-eight-of-wands
- {:media-src ""
+  :media-description ""
   :description ""}
  :the-three-of-cups
  {:media-src ""
+  :media-description ""
   :description ""}
- :the-hierophant
+ :the-three-of-pentacles
  {:media-src ""
-  :description ""}
- :the-ace-of-wands
- {:media-src ""
+  :media-description ""
   :description ""}
  :the-empress
  {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-emperor
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-four-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-four-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-four-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-four-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-hierophant
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-five-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-five-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-five-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-five-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-lovers
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-six-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-six-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-six-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-six-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-chariot
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :strength
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-seven-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-seven-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-seven-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-seven-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-hermit
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-eight-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-eight-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-eight-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-eight-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-hanged-man
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :death
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-nine-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-nine-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-nine-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-nine-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :temperance
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-ten-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-ten-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-ten-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-ten-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-devil
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-tower
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-page-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-page-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-page-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-page-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :wheel-of-fortune
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-knight-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-knight-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-knight-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-knight-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :justice
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-star
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-queen-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-queen-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-queen-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-queen-of-pentacles
+ {:media-src ""
+  :media-description ""
   :description ""}
  :the-moon
  {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-king-of-swords
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-king-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-king-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-king-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-sun
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :judgement
+ {:media-src ""
+  :media-description ""
   :description ""}
  :the-ace-of-swords
  {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-ace-of-wands
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-ace-of-cups
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-ace-of-pentacles
+ {:media-src ""
+  :media-description ""
+  :description ""}
+ :the-world
+ {:media-src ""
+  :media-description ""
   :description ""}}

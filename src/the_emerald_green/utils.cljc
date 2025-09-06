@@ -60,3 +60,18 @@
 (s/fdef uniq-defs
   :args (s/cat :coll ::coll)
   :ret (s/coll-of map?))
+
+(defn s-format
+  "Replace `%s` indicators with string arguments"
+  [s arg & args]
+  (reduce
+   #(string/replace-first %1 #"%s" (str %2))
+   s
+   (cons arg args)))
+
+(s/fdef s-format
+  :args (s/cat :s string?
+               :args
+               (s/+ (s/or :s string?
+                          :n number?)))
+  :ret string?)
