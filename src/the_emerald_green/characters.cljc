@@ -90,17 +90,6 @@
   :args (s/cat :traits (s/map-of ::traits/id (s/int-in 1 100)))
   :ret ::stats)
 
-(defn merge-stats [{:keys [sanctified exiled] :as character}]
-  (let [absences (into sanctified exiled)
-        traits (traits/determine-traits absences)
-        stats (determine-stats traits)]
-    (merge character stats {:traits traits})))
-
-(s/fdef merge-stats
-  :args (s/cat :character (s/keys :req-un [::sanctified
-                                           ::exiled]))
-  :ret (s/and ::stats (s/keys :req-un [::traits])))
-
 (s/def ::health nat-int?)
 (s/def ::draw nat-int?)
 (s/def ::will nat-int?)
@@ -146,32 +135,48 @@
                                            ::level]))
   :ret ::fungibles)
 
+(defn merge-stats [{:keys [sanctified exiled level] :as character}]
+  (let [absences (into sanctified exiled)
+        traits (traits/determine-traits absences)
+        stats (determine-stats traits)
+        fungibles (reset-fungibles (merge stats {:level level}))]
+    (merge {:fungibles fungibles}
+           character ; let saved character override fungibles
+           stats
+           {:traits traits})))
+
+(s/fdef merge-stats
+  :args (s/cat :character (s/keys :req-un [::sanctified
+                                           ::exiled
+                                           ::level]))
+  :ret (s/and ::stats (s/keys :req-un [::traits])))
+
 ;; "hydrated" character datastructure
 (s/def ::character
   (s/with-gen
     (s/and
      ::persistent-character
      ::stats
-     ::fungibles
-     (s/keys :req-un [::traits]))
+     (s/keys :req-un [::fungibles
+                      ::traits]))
     #(g/fmap
       (fn [[pchar traits stats fungibles]]
         (merge pchar
                {:traits traits}
                stats
-               fungibles))
+               {:fungibles fungibles}))
       (s/gen (s/tuple ::persistent-character ::traits ::stats ::fungibles)))))
 
 (def hydrated-character
   (merge base-character
          base-stats
-         base-fungibles))
+         {:traits {}}
+         {:fungibles base-fungibles}))
 
 (defn merge-fungibles
-  ([character+stats]
-   (merge-fungibles character+stats (reset-fungibles character+stats)))
-  ([character fungibles]
-   (merge character fungibles)))
+  [character+stats & [fungibles]]
+  (merge character+stats
+         {:fungibles (or fungibles (reset-fungibles character+stats))}))
 
 (s/fdef merge-fungibles
   :args (s/cat :character (s/with-gen
@@ -181,7 +186,7 @@
                :fungibles (s/? ::fungibles))
   :ret (s/and ::persistent-character
               ::stats
-              ::fungibles))
+              (s/keys :req-un [::fungibles])))
 
 (defn ceil-fungibles [character]
   (merge-with max character base-fungibles))
@@ -200,7 +205,7 @@
   :ret ::character)
 
 (defn dehydrate-character [character]
-  (reduce dissoc character (concat (keys base-stats) (keys base-fungibles))))
+  (reduce dissoc character (keys base-stats)))
 
 (s/fdef dehydrate-character
   :args (s/cat :character ::character)
@@ -257,10 +262,10 @@
                     "]"
                     (if (seq tags) (str " {" (string/join ", " (map name tags)) "}") "")))
       (println "->" (string/replace description #"\n[\t ]+" "\n   "))))
-  (when (some (partial contains? character) core/fungibles)
+  (when (:fungibles character)
     (println "-- FUNGIBLES")
     (doseq [prop [:health :draw :will :fortune :madness]
-            :let [value (get character prop)]
+            :let [value (get-in character [:fungibles prop])]
             :when value]
       (println (str (string/capitalize (name prop)) ": " value))))
   (println "-- TRAITS")

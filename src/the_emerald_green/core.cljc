@@ -18,6 +18,8 @@
 (s/def ::fungible fungibles)
 (s/def ::fungibles (s/map-of ::fungible nat-int?))
 
+(s/def ::name string?)
+(s/def ::description string?)
 (s/def ::talent
   (s/keys :req-un [::name
                    ::description]))

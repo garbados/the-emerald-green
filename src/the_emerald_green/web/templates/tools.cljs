@@ -51,7 +51,9 @@
                     "Restore!"]]]))]
     [:p "None. " [:em empty-msg]]))
 
-(defn list-stats [{:keys [attributes skills talents abilities]} fungibles]
+(defn list-stats
+  [{:keys [attributes skills talents abilities]}
+   fungibles]
   [[:p.subtitle "Attributes"]
    [:table.table.is-fullwidth
     [:thead
@@ -71,12 +73,14 @@
     [:thead
      [:tr
       [:th "Health"]
+      [:th "Draw"]
       [:th "Will"]
       [:th "Fortune"]
       [:th "Madness"]]]
     [:tbody
      [:tr
       [:td (:health fungibles)]
+      [:td (:draw fungibles)]
       [:td (:will fungibles)]
       [:td (:fortune fungibles)]
       [:td (:madness fungibles)]]]]

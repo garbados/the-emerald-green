@@ -1,5 +1,5 @@
 (ns the-emerald-green.test-utils
-  (:require [clojure.test :refer [is testing deftest]]
+  (:require [clojure.test :refer [is testing]]
             [clojure.spec.test.alpha :as stest]
             [clojure.spec.alpha :as s]))
 

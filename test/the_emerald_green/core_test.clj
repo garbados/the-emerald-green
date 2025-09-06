@@ -2,7 +2,8 @@
   (:require
    [clojure.string :as string]
    [clojure.test :refer [deftest]]
-   [the-emerald-green.test-utils :refer [stest-ns!]]))
+   [the-emerald-green.test-utils :refer [stest-ns!]]
+   [the-emerald-green.challenges]))
 
 (def except-ns #{'the-emerald-green.macros
                  'the-emerald-green.test-utils})
