@@ -3,6 +3,7 @@
    [clojure.string :as string]
    [clojure.test :refer [deftest]]
    [the-emerald-green.test-utils :refer [stest-ns!]]
+  ;;  namespaces that aren't imported elsewhere, for inclusion in testing
    [the-emerald-green.challenges]))
 
 (def except-ns #{'the-emerald-green.macros
