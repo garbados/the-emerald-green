@@ -27,7 +27,7 @@ jobs:
       - run: npm ci
 
       - name: Run tests
-        run: lein test
+        run: npm test
 
       - name: Generate coverage
         run: lein cloverage --coveralls --no-html
