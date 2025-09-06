@@ -2,7 +2,17 @@ process.env.CHROME_BIN = require('puppeteer').executablePath()
 
 module.exports = function (config) {
   config.set({
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessInsecure'],
+    customLaunchers: {
+      ChromeHeadlessInsecure: {
+        base: 'ChromeHeadless',
+        flags: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-gpu'
+        ],
+      },
+    },
     // The directory where the output file lives
     basePath: 'target',
     // The file itself
