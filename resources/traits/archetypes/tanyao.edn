@@ -1,0 +1,22 @@
+[{:name "The Dandy"
+  :description "Stumble upon good things."
+  :deck [:not
+         [:or
+          :the-ace-of-swords
+          :the-ace-of-wands
+          :the-ace-of-cups
+          :the-ace-of-pentacles
+          :court]]
+  :effect {:fungibles {:fortune 3}}}
+ {:name "The Cultist"
+  :description "The unknowable calls, and you listen."
+  :deck [:not :minor-arcana]
+  :effect {:fungibles {:health 2 :draw 2 :will 2 :fortune 2}}}
+ {:name "The Courtier"
+  :description "Grace and poise open subtle doors."
+  :deck [:not [:or :even :odd]]
+  :effect {:fungibles {:draw 3}}}
+ {:name "The Troubadour"
+  :description "The show must go on."
+  :deck [:not :major-arcana]
+  :effect {:fungibles {:will 3}}}]

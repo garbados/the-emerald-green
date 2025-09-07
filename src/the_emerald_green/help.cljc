@@ -33,7 +33,7 @@
      (and (string? thing)
           (seq thing)) thing
      (map? thing)
-     (->> ((juxt :id :description :type) thing)
+     (->> ((juxt :id :description :biography :type) thing)
           (filter some?)
           (map #(get-help % tag->tip))
           (filter some?)

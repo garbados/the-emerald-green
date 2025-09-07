@@ -16,7 +16,7 @@
  {:name "Wholeness of Body"
   :description "Your wounds close as though through force of will."
   :traits :the-mystic
-  :deck [:count 2 :wands]
+  :deck [:gte 2 :wands]
   :effect {:abilities
            [{:name "Wholeness of Body"
              :description "Restore health equal to your level plus one, up to your maximum."
@@ -26,9 +26,9 @@
  {:name "Purity of Mind"
   :description "Unwelcome spirits slide from your form like rain on stone."
   :traits :the-mystic
-  :deck [:count 4 :wands]
+  :deck [:gte 4 :wands]
   :effect {:abilities
-           [{:name "Purity of Mind"
+           [{:name "Cleanse Thoughts"
              :description
              "Dispel any number of magical effects from yourself,
               including ones you don't know about."
@@ -38,28 +38,28 @@
  {:name "Unity of Being"
   :description "The universe does not wish to harm you. It does not wish to harm itself."
   :traits :the-mystic
-  :deck [:count 6 :wands]
+  :deck [:gte 6 :wands]
   :effect {:talents
            [{:name "Unbreakable Essence"
              :description "All damage against you is reduced by 1, on top of any other resistances."}]}}
  {:name "Slow Fall"
   :description "The earth does not rush to meet the sky."
   :traits :the-mystic
-  :deck [:count 2 :cups]
+  :deck [:gte 2 :cups]
   :effect {:talents
            [{:name "Slow Fall"
              :description "So long as you can touch a surface slanted even remotely toward the ground, you can always descend at a safe speed."}]}}
  {:name "Abundant Step"
   :description "Here you are. There you go. The distance between all things is an illusion."
   :traits :the-mystic
-  :deck [:count 4 :cups]
+  :deck [:gte 4 :cups]
   :effect {:talents
            [{:name "Abundant Step"
              :description "Your *Step* abilities may move an additional space."}]}}
  {:name "Approaching the Formless"
   :description "The wise cannot plan against what they cannot perceive. The mighty cannot strike what cannot be found."
   :traits :the-mystic
-  :deck [:count 6 :cups]
+  :deck [:gte 6 :cups]
   :effect {:abilities
            [{:name "No Body"
              :description "Once per turn, as a reaction, you may automatically evade a source of damage."
@@ -67,10 +67,10 @@
              :actions 0
              :madness 1
              :tags #{:reaction :flourish}}]}}
- {:name "Ki Strike"
+ {:name "Chi Adept"
   :description "The body transmutes the divine to the kinetic."
   :traits :the-mystic
-  :deck [:count 2 :swords]
+  :deck [:gte 2 :swords]
   :effect {:abilities
            [{:name "Ghost Stance"
              :description "While in this stance, add 1 radiant damage to your attacks."
@@ -81,7 +81,7 @@
  {:name "Stunning Force"
   :description "Words fail. Truth exceeds language. Wits shy from the real's blinding light, squinting at the edges."
   :traits :the-mystic
-  :deck [:count 4 :swords]
+  :deck [:gte 4 :swords]
   :effect {:abilities
            [{:name "Stunning Strike"
              :description "Your next attack, if it hits, reduces the target's action points on their turn by 1, to a minimum of 0."
@@ -92,7 +92,7 @@
  {:name "Sacred Touch"
   :description "Life is not the body. It departs freely and driven alike."
   :traits :the-mystic
-  :deck [:count 6 :swords]
+  :deck [:gte 6 :swords]
   :effect {:abilities
            [{:name "Quivering Palm"
              :description "Your next attack, if it hits, pierces all resistances."

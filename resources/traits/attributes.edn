@@ -1,25 +1,45 @@
 [{:name "Prowess"
+  :id :prowess
   :description "Increases Body by 1."
   :card [:or
          [:even :wands]
          [:odd :cups]
          [:court :swords]]
   :effect {:attributes {:body 1}}}
+ {:name "Brawn"
+  :description "Increases Health by 3."
+  :traits [:gt 3 :prowess]
+  :effect {:fungibles {:health 3}}}
  {:name "Reason"
+  :id :reason
   :description "Increases Mind by 1."
   :card [:or
          [:odd :swords]
          [:even :cups]
          [:court :wands]]
   :effect {:attributes {:mind 1}}}
+ {:name "Brains"
+  :description "Increases Draw by 3"
+  :traits [:gt 3 :reason]
+  :effect {:fungibles {:draw 3}}}
  {:name "Grit"
+  :id :grit
   :description "Increases Spirit by 1."
   :card [:or
          [:even :swords]
          [:odd :wands]
          [:court :cups]]
   :effect {:attributes {:spirit 1}}}
+ {:name "Courage"
+  :description "Increases Will by 3"
+  :traits [:gt 3 :grit]
+  :effect {:fungibles {:will 3}}}
  {:name "Fate"
+  :id :fate
   :description "Increases Luck by 1."
   :card :pentacles
-  :effect {:attributes {:luck 1}}}]
+  :effect {:attributes {:luck 1}}}
+ {:name "Serendipity"
+  :description "Increases Fortune by 3"
+  :traits [:gt 3 :fate]
+  :effect {:fungibles {:fortune 3}}}]

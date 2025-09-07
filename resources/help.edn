@@ -1,15 +1,61 @@
-{
-;;  attributes
+{; attributes
+ :attributes "Numeric modifiers that increase your response's effective rank during relevant challenges."
  :body "Strength and prowess."
  :mind "Reason and recall."
- :spirit "Force of will."
- :luck "Destiny's love."
-;;  fungibles
+ :spirit "Will and determination."
+ :luck "Serendipity and destiny."
+ ; suits
+ :skills "Proficiencies that allow you to ignore challenge demands, and pass trivial expertise checks. Draw a card if you meet a challenge's demand anyway."
+ :swords "Force. Associated with Body."
+ :wands "Intellect. Associated with Mind."
+ :cups "Heart. Associated with Spirit."
+ :pentacles "Chance. Associated with Luck."
+ ; fungibles
+ :fungibles "Tokens that you gain, lose, and spend during play."
  :health "You might die when this runs out."
  :draw "Number of cards you start each day with."
  :will "Expend to power abilities or draw cards."
  :fortune "Expend to gain advantage."
  :madness "Mills your deck during challenges."
-;;  skills
+ ; skills
+ :resilience "Strength of constitution."
+ :athletics "Balancing, tumbling, climbing, swimming, etc."
+ :intimidation "Forceful persuasion."
+ :ranged "Sharpshooting, marksmanship."
  :melee "Close-quarters personal combat."
- }
+ :insight "Putting the clues together."
+ :craft "Making things."
+ :medicine "Physiology and healing."
+ :diplomacy "Amiable persuasion."
+ :arcana "Academic knowledge of magic and magical things."
+ :resolve "Will to power."
+ :awareness "Acuteness of senses."
+ :deception "Illusory persuasion."
+ :stealth "Sneaking, hiding, inconspicuousness."
+ :sorcery "Command of the eldritch."
+ :theurgy "Divine favor, religious knowledge."
+ ; cards
+ :deck "Requirements match your pact as a whole."
+ :traits "Requirements match your character's traits."
+ :card "Requirements match against each card in your pact."
+ :minor-arcana "Cards with suits. Not the Major Arcana."
+ :major-arcana "Cards without suits. Not the Minor Arcana."
+ :even "Minor arcana with an even rank. Ex: 2, 4, 6, 8, 10"
+ :odd "Minor arcana with an odd rank. Ex: 1, 3, 5, 7, 9"
+ :prime "Minor arcana with a prime rank. Ex: 2, 3, 5, 7"
+ ; requirement keywords
+ :not "Matches if sub-requirements do not match."
+ :and "Matches if all sub-requirements do match."
+ :or "Matches if any sub-requirements do match."
+ ; ability tags
+ :stance "A stance you may hold during an encounter. May only have one stance active at a time."
+ :flourish "Only one flourish can be used in a turn, and only once."
+ :reaction "Reactions may be used when it isn't your turn, but only once per turn."
+ ; ability phases
+ :phase "The context appropriate to the time-scale of this ability."
+ :encounter "A tactical encounter, such as combat."
+ :exploration "An exploration sequence, like wandering a forest."
+ :downtime "A period of downtime, like spending a day in camp or town."
+ ; ability etc
+ :actions "The number of action points the ability consumes when used. Each turn in a phase provides 3 action points."
+ :ability-madness "The amount of madness accrued when you use this ability."}

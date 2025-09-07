@@ -30,15 +30,3 @@
        (map clojure.core/slurp)
        (map clojure.edn/read-string)
        (reduce into [])))
-
-(defmacro sdef-match-syntax [reqspec idspec]
-  `(s/def ~reqspec
-     (s/or :and-or
-           (s/cat :pred #{:or :and}
-                  :expr (s/+ ~reqspec))
-           :count
-           (s/cat :pred #{:count}
-                  :n pos-int?
-                  :expr (s/+ ~reqspec))
-           :expr (s/coll-of ~idspec :kind vector?)
-           :solo ~idspec)))

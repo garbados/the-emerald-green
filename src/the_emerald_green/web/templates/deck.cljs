@@ -4,23 +4,32 @@
    [clojure.string :as string]
    [the-emerald-green.deck :as deck]
    [the-emerald-green.traits :as traits]
+   [the-emerald-green.utils :refer [keyword->name]]
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.prompts :as prompts]
-   [the-emerald-green.web.utils :refer [pprint refresh-node]]))
+   [the-emerald-green.web.utils :refer [pprint refresh-node]]
+   [the-emerald-green.help :as help]))
 
 (defn trait-mentions-card?
   [{card-id :id :keys [tags] :as card}
-   {card-req :card deck-req :deck}]
-  (or (if (keyword? card-req)
-        (contains? tags card-req)
-        (contains? (set (flatten card-req)) card-id))
-      (if (keyword? deck-req)
-        (contains? tags deck-req)
-        (contains? (set (flatten deck-req)) card-id))
-      (when card-req
-        (traits/rule-matches-card? card-req card))
-      (when deck-req
-        (traits/rule-matches-cards? deck-req #{card}))))
+   {card-reqs :card deck-reqs :deck}]
+  (and
+   ; ignore traits that use "not" because it's complicated
+   (nil?
+    (->> [card-reqs deck-reqs]
+         (map #(if (keyword? %) % (first %)))
+         (filter (partial = :not))
+         seq))
+   (or (if (keyword? card-reqs)
+         (contains? tags card-reqs)
+         (contains? (set (flatten card-reqs)) card-id))
+       (if (keyword? deck-reqs)
+         (contains? tags deck-reqs)
+         (contains? (set (flatten deck-reqs)) card-id))
+       (when card-reqs
+         (traits/rule-matches-card? card-reqs card))
+       (when deck-reqs
+         (traits/rule-matches-cards? deck-reqs #{card})))))
 
 (def card->traits
   (reduce
@@ -51,8 +60,12 @@
             (let [lines (string/split description #"\n")
                   poem (str "> " (string/join "  \n> " lines))]
               (profane "p" (marked/parse poem))))
-          [:p "Tags:"]
-          [:pre>code (with-out-str (pprint tags))]
+          [:p "Tags: "
+           (interpose
+            ", "
+            (for [tag (sort-by name tags)
+                  :let [tag-name (keyword->name tag)]]
+              [:span (help/tag->title tag) tag-name]))]
           (when-let [traits (seq (card->traits card-id))]
             [:div
              [:p "Found in these traits:"]

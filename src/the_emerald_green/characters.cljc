@@ -13,9 +13,6 @@
 (def max-level 20)
 (def default-sanctify-threshold 4) ; how often you sanctify a card on level-up rather than exile it
 
-(def attr-order [:body :mind :spirit :luck])
-(def fung-order [:health :draw :will :fortune :madness])
-
 (s/def ::name string?)
 (s/def ::biography string?)
 (s/def ::level (s/int-in 1 (inc max-level)))

@@ -1,9 +1,9 @@
 (ns the-emerald-green.traits
   (:require
    #?(:clj
-      [the-emerald-green.macros :refer [sdef-match-syntax slurp-dir-edn]]
+      [the-emerald-green.macros :refer [slurp-dir-edn]]
       :cljs
-      [the-emerald-green.macros :refer-macros [slurp-dir-edn sdef-match-syntax]])
+      [the-emerald-green.macros :refer-macros [slurp-dir-edn]])
    [clojure.set :as set]
    [clojure.spec.alpha :as s]
    [the-emerald-green.core :as core]
@@ -34,12 +34,58 @@
 (s/def ::name string?)
 (s/def ::description string?)
 (s/def ::id (set (keys id->trait)))
+
+(def not-req #{:not})
+(def bool-reqs #{:and :or})
+(def comp-reqs #{:gte :gt :lt :lte})
+
+(defn ^:no-stest req->bool-fn [bool-kw match-fn]
+  (cond
+    (= :and bool-kw)
+    (fn [rule coll]
+      (every? #(match-fn % coll) rule))
+    (= :or bool-kw)
+    (fn [rule coll]
+      (true? (some #(match-fn % coll) rule)))))
+
+(def req->comp
+  {:gte <=
+   :gt <
+   :lte >=
+   :lt >})
+
+(def req->help
+  {:not "Not"
+   :or "Or"
+   :and "And"
+   :gte "Needs at least"
+   :gt "Needs more than"
+   :lte "Needs at most"
+   :lt "Needs less than"})
+
+(defn ^:no-stest sdef-match-syntax [reqspec idspec]
+  (s/def reqspec
+    (s/or :not-req
+          (s/cat :pred not-req
+                 :expr (s/+ reqspec))
+          :bool-req
+          (s/cat :pred bool-reqs
+                 :expr (s/+ reqspec))
+          :comp-req
+          (s/cat :pred comp-reqs
+                 :n pos-int?
+                 :expr (s/+ reqspec))
+          :expr (s/coll-of idspec :kind vector?)
+          :solo idspec)))
+
 (sdef-match-syntax :match*/deck ::deck/tag)
 (sdef-match-syntax :match*/card ::deck/tag)
 (sdef-match-syntax :match*/traits ::id)
+
 (s/def :match/deck (->> traits (map :deck) (filter some?) set))
 (s/def :match/card (->> traits (map :card) (filter some?) set))
 (s/def :match/traits (->> traits (map :traits) (filter some?) set))
+
 (s/def ::talent-id (set (keys id->talent)))
 (s/def ::talent
   (s/or :def (set talents)
@@ -53,6 +99,7 @@
 (s/def ::effect
   (s/keys :opt-un [::core/attributes
                    ::core/skills
+                   ::core/fungibles
                    ::talents
                    ::abilities]))
 (s/def ::trait*
@@ -70,8 +117,12 @@
      (cond
        (keyword? rule)
        (contains? tags rule)
-       (= :or (first rule))
-       (true? (some #(rule-matches-card? % card) (rest rule)))
+       (contains? not-req (first rule))
+       (not (rule-matches-card? (rest rule) card))
+       (contains? bool-reqs (first rule))
+       (let [[bool-kw & subrule] rule
+             bool-fn (req->bool-fn bool-kw rule-matches-card?)]
+         (bool-fn subrule card))
        (sequential? rule)
        (every? #(rule-matches-card? % card) rule)))))
 
@@ -83,18 +134,20 @@
 (defn rule-matches-cards? [rule cards]
   (cond
     (keyword? rule)
-    (some? (some (partial rule-matches-card? rule) cards))
-    (= :or (first rule))
-    (some? (some #(rule-matches-cards? % cards) (rest rule)))
-    (= :and (first rule))
-    (every? #(rule-matches-cards? % cards) (rest rule))
-    (= :count (first rule))
-    (<= (second rule)
-        (count (filter #(rule-matches-card? (nth rule 2) %) cards)))
-    :else
-    (-> (filter (partial rule-matches-card? rule) cards)
-        count
-        pos-int?)))
+    (true? (some (partial rule-matches-card? rule) cards))
+    (contains? not-req (first rule))
+    (not (rule-matches-cards? (rest rule) cards))
+    (bool-reqs (first rule))
+    (let [[bool-kw & subrule] rule
+          bool-fn (req->bool-fn bool-kw rule-matches-cards?)]
+      (bool-fn subrule cards))
+    (comp-reqs (first rule))
+    (let [[comp-req boundary & rest-rule] rule]
+      ((req->comp comp-req)
+       boundary
+       (count (filter #(rule-matches-card? rest-rule %) cards))))
+    (sequential? rule)
+    (every? #(rule-matches-cards? % cards) rule)))
 
 (s/fdef rule-matches-cards?
   :args (s/cat :rule :match/deck
@@ -103,13 +156,23 @@
 
 (defn rule-matches-traits? [rule traits]
   (cond
-    (keyword? rule) (contains? (set traits) rule)
-    (= :and (first rule)) (every? #(rule-matches-traits? % traits) (rest rule))
-    (= :or (first rule)) (some #(rule-matches-traits? % traits) (rest rule))
-    (= :count (first rule))
-    (<= (second rule)
-        (count (filter #(rule-matches-traits? (drop 2 rule) [%]) traits)))
-    (sequential? rule) (some? (seq (set/difference (set rule) (set traits))))))
+    (keyword? rule)
+    (if (keyword? traits)
+      (= rule traits)
+      (contains? (set traits) rule))
+    (contains? not-req (first rule))
+    (not (rule-matches-traits? (rest rule) traits))
+    (bool-reqs (first rule))
+    (let [[bool-kw & subrule] rule
+          bool-fn (req->bool-fn bool-kw rule-matches-traits?)]
+      (bool-fn subrule traits))
+    (comp-reqs (first rule))
+    (let [[comp-req boundary & rest-rule] rule]
+      ((req->comp comp-req)
+       boundary
+       (count (filter #(rule-matches-traits? rest-rule %) traits))))
+    (sequential? rule)
+    (every? #(rule-matches-traits? % traits) rule)))
 
 (s/fdef rule-matches-traits?
   :args (s/cat :rule :match/traits

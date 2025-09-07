@@ -22,3 +22,15 @@
     (testing (str "Valid? " ability-name)
       (is (s/valid? ::core/ability ability)
           (s/explain-str ::core/ability ability)))))
+
+(deftest req-help-test
+  (doseq [req-kw (into traits/bool-reqs traits/comp-reqs)]
+    (testing (str "Requirement keyword: " (name req-kw))
+      (is (contains? traits/req->help req-kw)
+          (str (name req-kw) " has no help description!")))))
+
+(deftest req-comp-test
+  (doseq [req-kw traits/comp-reqs]
+    (testing (str "Comparator keyword: " (name req-kw))
+      (is (contains? traits/req->comp req-kw)
+          (str (name req-kw) " has no associated function!")))))

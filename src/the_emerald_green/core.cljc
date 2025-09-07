@@ -8,7 +8,10 @@
    :spirit [:awareness :deception :sorcery :stealth :resolve]
    :luck   [:theurgy]})
 (def attributes (set (keys attribute->skills)))
-(def skills (reduce into #{} (vals attribute->skills)))
+(def ordered-skills (reduce concat [] (vals attribute->skills)))
+(def skills (into #{} ordered-skills))
+(def attr-order [:body :mind :spirit :luck])
+(def fung-order [:health :draw :will :fortune :madness])
 (s/def ::attribute attributes)
 (s/def ::skill skills)
 (s/def ::attributes (s/map-of ::attribute nat-int?))
@@ -27,10 +30,12 @@
 (s/def :ability/actions (s/int-in 0 4))
 (s/def :ability/phase #{:encounter :exploration :downtime})
 (s/def :ability/tags (s/coll-of keyword?))
+(s/def :ability/madness nat-int?)
 (s/def ::ability
   (s/keys :req-un [::name
                    ::description
                    :ability/actions
                    :ability/phase]
-          :opt-un [:ability/tags]))
+          :opt-un [:ability/tags
+                   :ability/madness]))
 (s/def ::abilities (s/coll-of ::ability :kind set?))

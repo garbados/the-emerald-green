@@ -3,6 +3,7 @@
    ["marked" :as marked]
    [clojure.string :as string]
    [the-emerald-green.characters :as c]
+   [the-emerald-green.core :as core]
    [the-emerald-green.deck :as deck]
    [the-emerald-green.help :as help :refer [markdown-tip]]
    [the-emerald-green.traits :as traits]
@@ -10,7 +11,8 @@
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.prompts :as prompts]
    [the-emerald-green.web.routing :refer [route->href]]
-   [the-emerald-green.web.templates.traits :as ct]))
+   [the-emerald-green.web.templates.traits :as ct :refer [describe-ability
+                                                          describe-talent]]))
 
 (def default-height 500)
 
@@ -40,7 +42,7 @@
               (if on-sanctify
                 {:onclick (partial on-sanctify card-id)}
                 {:disabled true
-                 :title "You hold too much dear..."})
+                 :title "You cherish too much..."})
               "Sanctify!"]]])]]])
 
 (defn list-chosen [cards & {:keys [on-restore empty-msg]}]
@@ -70,22 +72,22 @@
    [:table.table.is-fullwidth
     [:thead
      [:tr
-      (for [attr c/attr-order]
+      (for [attr core/attr-order]
         [:th (help/tag->title attr) (keyword->name attr)])]]
     [:tbody
      [:tr
-      (for [tag c/attr-order]
+      (for [tag core/attr-order]
         [:td (get attributes tag)])]]]
    [:p.subtitle "Fungibles"]
    [:table.table.is-fullwidth
     [:thead
      [:tr
-      (for [attr c/fung-order]
-        [:th (help/tag->title attr) (keyword->name attr)])]]
+      (for [fung core/fung-order]
+        [:th (help/tag->title fung) (keyword->name fung)])]]
     [:tbody
      [:tr
-      (for [tag c/fung-order]
-        [:td (get fungibles tag)])]]]
+      (for [fung core/fung-order]
+        [:td (get fungibles fung)])]]]
    (when-let [known-skills (seq (map first (filter second skills)))]
      [:div
       [:hr]
@@ -99,7 +101,7 @@
     (if (seq talents)
       [:ul
        (for [talent talents]
-         [:li (print-str talent)])]
+         [:li (describe-talent talent)])]
       [:p "No talents..."])]
    [:div
     [:hr]
@@ -107,7 +109,7 @@
     (if (seq abilities)
       [:ul
        (for [ability-id abilities]
-         [:li (print-str ability-id)])]
+         [:li (describe-ability ability-id)])]
       [:p "No abilities..."])]])
 
 (defn list-stats-from-traits [level traits]
@@ -124,9 +126,11 @@
   [:div
    {:style (str "overflow: scroll; max-height: " height "px;")}
    (if (seq traits)
-     (for [[trait-id n] traits
+     (for [[trait-id n] (sort-by (comp name first) traits)
            :let [trait (traits/id->trait trait-id)]]
-       (ct/describe-trait trait n))
+       (if (< 1 n)
+         (ct/describe-trait trait n)
+         (ct/describe-a-trait trait)))
      [:p "No traits..."])])
 
 (defn filter-deck [filter-fn & args]
@@ -139,54 +143,53 @@
    -shop-query
    & {:keys [new? on-save on-cancel
              deck traits sanctified exiled stats
-             weapons armor tools consumables items]}]
+             equipment]}]
   [:div.content
-   [:h1 (if new? "New Character" "Edit Character")]
-   [:div.field
-    [:label.label "Name"]
-    [:div.control (prompts/text -name)]
-    [:p.help "What do you call yourself? What would you have others call you?"]]
-   [:div.field
-    [:label.label "Biography"]
-    [:div.control (prompts/textarea -biography)]
-    [:p.help "What's your story? " markdown-tip]]
-   [:h2 "The Pact"]
-   [:div.columns
-    [:div.column.is-6
-     [:div.box
-      [:p.subtitle "Deck"]
-      (prompts/text -deck-query :placeholder "🔍 Filter cards by name or tag.")
-      [:hr]
-      [:div#deck deck]]
-     [:div.box
-      [:p.subtitle "Traits"]
-      [:div#traits traits]]]
-    [:div.column.is-6
-     [:div.box
-      [:p.subtitle "Sanctified"]
-      [:div#sanctified sanctified]
-      [:hr]
-      [:p.subtitle "Exiled"]
-      [:div#exiled exiled]]
-     [:div.box
-      [:p.subtitle "Stats"]
-      [:div#stats stats]]]]
-   [:h2 "The Livery"]
-   [:div.columns
-    [:div.column.is-6
-     [:div.box
-      [:p.subtitle "Shopping"]
-      (prompts/text -shop-query :placeholder "🔍 Filter stuff by name or attributes.")
-      [:div#weapons weapons]
-      [:div#armor armor]
-      [:div#consumables consumables]
-      [:div#tools tools]
-      [:div#items items]]]
-    [:div.column.is-6
-     [:div.box
-      [:p.subtitle "Equipment"]]
-     [:div.box
-      [:p.subtitle "Inventory"]]]]
+   [:h1.title (if new? "New Character" "Edit Character")]
+   [:div.block
+    [:div.field
+     [:label.label "Name"]
+     [:div.control (prompts/text -name)]
+     [:p.help "What do you call yourself? What would you have others call you?"]]
+    [:div.field
+     [:label.label "Biography"]
+     [:div.control (prompts/textarea -biography)]
+     [:p.help "What's your story? " markdown-tip]]]
+   [:div.block
+    [:h2.subtitle "The Pact"]
+    [:div.columns
+     [:div.column.is-6
+      [:div.box
+       [:p.subtitle "Deck"]
+       (prompts/text -deck-query :placeholder "🔍 Filter cards by name or tag.")
+       [:hr]
+       [:div#deck deck]]
+      [:div.box
+       [:p.subtitle "Traits"]
+       [:div#traits traits]]]
+     [:div.column.is-6
+      [:div.box
+       [:p.subtitle "Sanctified"]
+       [:div#sanctified sanctified]
+       [:hr]
+       [:p.subtitle "Exiled"]
+       [:div#exiled exiled]]
+      [:div.box
+       [:p.subtitle "Stats"]
+       [:div#stats stats]]]]]
+   [:div.block
+    [:h2.subtitle "The Livery"]
+    [:div.columns
+     [:div.column.is-6
+      [:div.box
+       [:p.subtitle "Shopping"]
+       (prompts/text -shop-query :placeholder "🔍 Filter stuff by name or attributes.")
+       [:div#equipment equipment]]]
+     [:div.column.is-6
+      [:div.box
+       [:p.subtitle "Equipment"]]
+      [:div.box
+       [:p.subtitle "Inventory"]]]]]
    (when (or on-save on-cancel)
      [:div.buttons
       (when on-save

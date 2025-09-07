@@ -13,10 +13,10 @@
   #(refresh %1 (clj->js template)))
 
 (defn pprint [thing]
-  (binding [pprint/*print-right-margin* 50]
+  (binding [pprint/*print-right-margin* 30]
     (pprint/pprint thing)))
 
-(def lolraw #(vec [:pre>code (with-out-str (pprint %))]))
+(def lolraw #(vec [:pre>code {:style "white-space: pre-wrap;"} (with-out-str (pprint %))]))
 
 (def default-wait-ms 300)
 
