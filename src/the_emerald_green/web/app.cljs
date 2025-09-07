@@ -13,7 +13,9 @@
    [the-emerald-green.web.templates.tools :as tools]
    [the-emerald-green.web.templates.traits :refer [traits-guide]]
    [the-emerald-green.web.utils :refer [dynamic-view static-view]]
-   [the-emerald-green.web.views.characters :refer [edit-character]]))
+   [the-emerald-green.web.views.characters :refer [edit-character]]
+   [the-emerald-green.web.views.equipment :refer [design-equipment
+                                                  edit-equipment from-template]]))
 
 ;; CONSTANTS
 
@@ -32,7 +34,10 @@
      :new-character   #(edit-character)
      :characters      #(list-characters)
      :campaigns       tools/campaigns
-     :search          tools/search})
+     :search          tools/search
+     :template-stuff  from-template
+     :invent-stuff    design-equipment
+     :edit-stuff      edit-equipment})
    (reduce
     (fn [acc [route template]] (assoc acc route (static-view template)))
     {}

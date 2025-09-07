@@ -1,5 +1,7 @@
 (ns the-emerald-green.web.routing
-  (:require [the-emerald-green.web.alchemy :refer [snag]]))
+  (:require
+   [clojure.string :as string]
+   [the-emerald-green.web.alchemy :refer [snag]]))
 
 (def default-route :introduction)
 
@@ -11,13 +13,19 @@
    :equipment-guide "#/guides/equipment"
    :setting-guide   "#/guides/setting"
    :gm-guide        "#/guides/gm"
+   :template-stuff  "#/equipment/new-from"
+   :invent-stuff    "#/equipment/new"
+   :edit-stuff      "#/equipment/edit"
    :new-character   "#/characters/new"
    :characters      "#/characters"
    :campaigns       "#/campaigns"
    :search          "#/search"})
 
-(defn route->href [route]
-  {:href (route->hash route)})
+(defn route->href [route & args]
+  {:href (string/join "/" (cons (route->hash route) args))})
+
+(defn route-pattern [route]
+  (string/replace-first js/document.location.hash (re-pattern (str (route->hash route) "/")) ""))
 
 (defn goto-str [s]
   (set! js/window.location s))

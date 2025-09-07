@@ -1,12 +1,12 @@
 [{:name "Basic Weapon"
   :id :common-weapon
+  :abstract true
   :description "An essential template for other weapons."
   :type :weapon
   :enchantments []
   :rarity :common
   :element :physical
-  :cost "5s"
-  :tags #{:abstract}}
+  :cost "5s"}
  {:name "Exotic Weapon"
   :id :uncommon-weapon
   :description "An unusual weapon, to some."

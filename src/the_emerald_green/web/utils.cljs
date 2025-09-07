@@ -16,6 +16,8 @@
   (binding [pprint/*print-right-margin* 50]
     (pprint/pprint thing)))
 
+(def lolraw #(vec [:pre>code (with-out-str (pprint %))]))
+
 (def default-wait-ms 300)
 
 (defn now-ms [] (js/Date.now))
