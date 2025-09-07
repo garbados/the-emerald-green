@@ -7,25 +7,34 @@
    [clojure.spec.alpha :as s]
    [the-emerald-green.core :as core]
    [the-emerald-green.money :as money]
-   [the-emerald-green.utils :as utils]))
+   [the-emerald-green.utils :refer [idify refine-extensions]]))
 
-(def enchantments (slurp-edn "resources/enchantments.edn"))
-(def items (slurp-edn "resources/items.edn"))
-(def equipment (map utils/idify (slurp-dir-edn "resources/equipment")))
+(def enchantments (map idify (slurp-edn "resources/enchantments.edn")))
+(def items (map idify (slurp-edn "resources/items.edn")))
+(def *equipment (map idify (slurp-dir-edn "resources/equipment")))
+(def *id->equipment (zipmap (map :id *equipment) *equipment))
+(def equipment (map (partial refine-extensions *id->equipment) *equipment))
+(def id->equipment (zipmap (map :id equipment) equipment))
+(def type->stuff
+  (merge
+   {:items items}
+   (group-by :type equipment)))
 
 (def elements #{:physical :fire :frost :radiant :shadow})
 
 (s/def ::name string?)
 (s/def ::id keyword?)
 (s/def ::description string?)
-(s/def ::tag keyword?) ; FIXME actual set
+
+(s/def ::item
+  (s/keys :req-un [::name
+                   ::id
+                   ::description]))
+
+(s/def ::tag (set (flatten (map :tags equipment))))
 (s/def ::tags (s/coll-of ::tag :kind set?))
-(s/def ::extends ::id)
+(s/def ::extends (keys id->equipment))
 (s/def ::type #{:weapon :armor :tool :consumable})
-(s/def ::enchantments
-  (s/coll-of
-   (s/or :string string?
-         :ref (keys enchantments))))
 (def rarities #{:common :uncommon :rare :mythic})
 (s/def ::rarity rarities)
 (s/def ::base-equipment

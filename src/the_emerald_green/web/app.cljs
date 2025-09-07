@@ -5,15 +5,15 @@
    [the-emerald-green.web.alchemy :refer [alchemize]]
    [the-emerald-green.web.db :as db]
    [the-emerald-green.web.routing :refer [handle-refresh route->hash]]
-   [the-emerald-green.web.templates.characters :refer [list-characters
-                                                       new-character]]
+   [the-emerald-green.web.templates.characters :refer [list-characters]]
    [the-emerald-green.web.templates.deck :refer [card-guide]]
    [the-emerald-green.web.templates.equipment :refer [equipment-guide]]
    [the-emerald-green.web.templates.guides :as guides]
    [the-emerald-green.web.templates.layout :refer [container]]
    [the-emerald-green.web.templates.tools :as tools]
    [the-emerald-green.web.templates.traits :refer [traits-guide]]
-   [the-emerald-green.web.utils :refer [dynamic-view static-view]]))
+   [the-emerald-green.web.utils :refer [dynamic-view static-view]]
+   [the-emerald-green.web.views.characters :refer [edit-character]]))
 
 ;; CONSTANTS
 
@@ -29,7 +29,7 @@
     {:card-guide      card-guide
      :trait-guide     traits-guide
      :equipment-guide  equipment-guide
-     :new-character   #(new-character)
+     :new-character   #(edit-character)
      :characters      #(list-characters)
      :campaigns       tools/campaigns
      :search          tools/search})

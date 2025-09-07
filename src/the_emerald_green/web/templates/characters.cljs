@@ -8,8 +8,7 @@
    [the-emerald-green.utils :refer [s-format]]
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.prompts :as prompts]
-   [the-emerald-green.web.templates.traits :as ct]
-   [the-emerald-green.web.utils :refer [refresh-node]]))
+   [the-emerald-green.web.templates.traits :as ct]))
 
 (def default-height 500)
 
@@ -96,22 +95,31 @@
       [:ul
        (for [skill known-skills]
          [:li (string/capitalize (name skill))])]])
-   (when (seq talents)
-     [:div
-      [:hr]
-      [:p.subtitle "Talents"]
+   [:div
+    [:hr]
+    [:p.subtitle "Talents"]
+    (if (seq talents)
       [:ul
        (for [talent talents]
-         [:li (print-str talent)])]])
-   (when (seq abilities)
-     [:div
-      [:hr]
-      [:p.subtitle "Abilities"]
-      (if (seq abilities)
-        [:ul
-         (for [ability abilities]
-           [:li (print-str ability)])]
-        [:p "No abilities..."])])])
+         [:li (print-str talent)])]
+      [:p "No talents..."])]
+   [:div
+    [:hr]
+    [:p.subtitle "Abilities"]
+    (if (seq abilities)
+      [:ul
+       (for [ability abilities]
+         [:li (print-str ability)])]
+      [:p "No abilities..."])]])
+
+(defn list-stats-from-traits [level traits]
+  (let [{:keys [attributes skills] :as stats}
+        (c/determine-stats traits)
+        fungibles
+        (c/reset-fungibles {:attributes attributes
+                            :skills skills
+                            :level level})]
+    (list-stats stats fungibles)))
 
 (defn list-traits [traits & {:keys [height]
                              :or {height default-height}}]
@@ -121,122 +129,68 @@
          :let [trait (traits/id->trait trait-id)]]
      (ct/describe-trait trait n))])
 
-(defn edit-character [& {:keys [character on-save on-cancel]}]
-  (let [{char-name :name
-         :keys [biography sanctified exiled level]
-         :or {level 1
-              char-name ""
-              biography ""
-              sanctified #{}
-              exiled #{}}} character
-        -name (atom char-name)
-        -biography (atom biography)
-        -sanctified (atom sanctified)
-        -exiled (atom exiled)
-        -traits (atom nil)
-        -query (atom "")
-        on-sanctify
-        #(when (> (c/max-sanctified level) (count @-sanctified))
-           (fn [card]
-             (when (js/confirm (str (:name card) "... Will you hold it sacred?"))
-               (swap! -sanctified conj card))))
-        on-exile
-        #(when (> (c/max-exiled level) (count @-exiled))
-           (fn [card]
-             (when (js/confirm (str (:name card) "... Will you banish it?"))
-               (swap! -exiled conj card))))
-        list-own-deck
-        #(list-cards
-          (remove
-           (fn [card]
-             (or (contains? (into @-sanctified @-exiled) card)
-                 (and (seq @-query)
-                      (empty?
-                       (filter (partial re-find (re-pattern @-query))
-                               (map name (:tags card)))))))
-           deck/the-ordered-deck)
-          :on-exile (on-exile)
-          :on-sanctify (on-sanctify))
-        list-sanctified
-        #(list-chosen @-sanctified
-                      :on-restore
-                      (fn [card]
-                        (swap! -sanctified disj card))
-                      :empty-msg
-                      "Is nothing sacred to you?")
-        list-exiled
-        #(list-chosen @-exiled
-                      :on-restore
-                      (fn [card]
-                        (swap! -exiled disj card))
-                      :empty-msg
-                      "Unburden yourself...")
-        list-own-traits #(list-traits @-traits)
-        list-own-stats
-        #(let [{:keys [attributes skills] :as stats}
-               (c/determine-stats @-traits)
-               fungibles
-               (c/reset-fungibles {:attributes attributes
-                                   :skills skills
-                                   :level level})]
-           (list-stats stats fungibles))
-        reset-traits #(reset! -traits (traits/determine-traits
-                                       (into (set (map :id @-exiled))
-                                             (set (map :id @-sanctified)))))
-        refresh-deck #(refresh-node "deck" list-own-deck)
-        refresh-traits #(refresh-node "traits" list-own-traits)
-        refresh-stats #(refresh-node "stats" list-own-stats)]
-    (add-watch -sanctified :sanctify
-               #(do (refresh-deck)
-                    (reset-traits)
-                    (refresh-node "sanctified" list-sanctified)))
-    (add-watch -exiled :exiled
-               #(do (refresh-deck)
-                    (reset-traits)
-                    (refresh-node "exiled" list-exiled)))
-    (add-watch -traits :traits
-               #(do (refresh-traits)
-                    (refresh-stats)))
-    (add-watch -query :query refresh-deck)
-    [:div.content
-     [:h1 (if character "Edit Character" "New Character")]
-     [:div.field
-      [:label.label "Name"]
-      [:div.control
-       (prompts/text -name)]]
-     [:div.field
-      [:label.label "Biography"]
-      [:div.control
-       (prompts/textarea -biography)]]
-     [:div.columns
-      [:div.column.is-6
-       [:div.box
-        [:p.title "Deck"]
-        (prompts/text -query
-                      :placeholder "🔍 Filter cards by name or tag.")
-        [:hr]
-        [:div#deck (list-own-deck)]]
-       [:div.box
-        [:h1.title "Traits"]
-        [:div#traits (list-own-traits)]]]
-      [:div.column.is-6
-       [:div.box
-        [:p.title "Sanctified"]
-        [:div#sanctified (list-sanctified)]
-        [:hr]
-        [:p.title "Exiled"]
-        [:div#exiled (list-exiled)]]
-       [:div.box
-        [:h1.title "Stats"]
-        [:div#stats (list-own-stats)]]]]
-     (when (or on-save on-cancel)
-       [:div.buttons
-        (when on-save
-          [:button.button.is-primary.is-fullwidth "Save"])
-        (when on-cancel
-          [:button.button.is-light.is-outlined.is-fullwidth "Cancel"])])]))
+(defn filter-deck [filter-fn & args]
+  (apply list-cards (remove filter-fn deck/the-ordered-deck) args))
 
-(def new-character edit-character) ; yay optional arguments!
+(defn edit-character
+  [-name
+   -biography
+   -deck-query
+   -shop-query
+   & {:keys [new? on-save on-cancel
+             deck traits sanctified exiled stats
+             weapons armor tools consumables items]}]
+  [:div.content
+   [:h1 (if new? "New Character" "Edit Character")]
+   [:div.field
+    [:label.label "Name"]
+    [:div.control (prompts/text -name)]]
+   [:div.field
+    [:label.label "Biography"]
+    [:div.control (prompts/textarea -biography)]]
+   [:h2 "The Pact"]
+   [:div.columns
+    [:div.column.is-6
+     [:div.box
+      [:p.subtitle "Deck"]
+      (prompts/text -deck-query :placeholder "🔍 Filter cards by name or tag.")
+      [:hr]
+      [:div#deck deck]]
+     [:div.box
+      [:p.subtitle "Traits"]
+      [:div#traits traits]]]
+    [:div.column.is-6
+     [:div.box
+      [:p.subtitle "Sanctified"]
+      [:div#sanctified sanctified]
+      [:hr]
+      [:p.subtitle "Exiled"]
+      [:div#exiled exiled]]
+     [:div.box
+      [:p.subtitle "Stats"]
+      [:div#stats stats]]]]
+   [:h2 "The Livery"]
+   [:div.columns
+    [:div.column.is-6
+     [:div.box
+      [:p.subtitle "Shopping"]
+      (prompts/text -shop-query :placeholder "🔍 Filter stuff by name or attributes.")
+      [:div#weapons weapons]
+      [:div#armor armor]
+      [:div#consumables consumables]
+      [:div#tools tools]
+      [:div#items items]]]
+    [:div.column.is-6
+     [:div.box
+      [:p.subtitle "Equipment"]]
+     [:div.box
+      [:p.subtitle "Inventory"]]]]
+   (when (or on-save on-cancel)
+     [:div.buttons
+      (when on-save
+        [:button.button.is-primary.is-fullwidth "Save"])
+      (when on-cancel
+        [:button.button.is-light.is-outlined.is-fullwidth "Cancel"])])])
 
 (defn show-character [character]
   [:div.box

@@ -6,7 +6,7 @@
    [the-emerald-green.traits :as traits]
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.prompts :as prompts]
-   [the-emerald-green.web.utils :refer [refresh-node]]))
+   [the-emerald-green.web.utils :refer [pprint refresh-node]]))
 
 (defn trait-mentions-card?
   [{card-id :id :keys [tags] :as card}
@@ -35,8 +35,8 @@
   (memoize
    (fn [{card-id :id
          card-name :name
-         :keys [tags]}]
-     (let [{:keys [description media-description media-src]} (deck/id->metadata card-id)]
+         :keys [description tags]}]
+     (let [{:keys [media-description media-src]} (deck/id->metadata card-id)]
        [:div.box
         [:div.columns
          (when (seq media-src)
@@ -52,7 +52,7 @@
                   poem (str "> " (string/join "  \n> " lines))]
               (profane "p" (marked/parse poem))))
           [:p "Tags:"]
-          [:pre>code (with-out-str (println tags))]
+          [:pre>code (with-out-str (pprint tags))]
           (when-let [traits (seq (card->traits card-id))]
             [:div
              [:p "Found in these traits:"]
@@ -61,19 +61,11 @@
                      :keys [description]} traits]
                 [:li [:strong trait-name] ": " description])]])]]]))))
 
-(defn card-matches-re?
-  [{card-name :name
-    :keys [description tags]}
-   re]
-  (or (re-find re card-name)
-      (re-find re description)
-      (re-find re (string/join ", " tags))))
-
 (defn list-cards [query]
   (for [card-id deck/the-order-of-things
         :let [card (deck/id->card card-id)
               re (re-pattern query)]
-        :when (card-matches-re? card re)]
+        :when (deck/card-matches-re? card re)]
     (describe-card card)))
 
 (defn card-guide []

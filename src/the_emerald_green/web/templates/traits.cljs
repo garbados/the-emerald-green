@@ -1,12 +1,11 @@
 (ns the-emerald-green.web.templates.traits
   (:require
    ["marked" :as marked]
-   [clojure.pprint :as pprint]
    [clojure.string :as string]
    [the-emerald-green.traits :as traits]
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.prompts :as prompts]
-   [the-emerald-green.web.utils :refer [refresh-node]]))
+   [the-emerald-green.web.utils :refer [refresh-node pprint]]))
 
 (defn describe-trait
   ([{trait-name :name
@@ -27,7 +26,7 @@
             :when reqs]
         [:li
          [:p title]
-         [:p [:pre>code (with-out-str (pprint/pprint reqs))]]
+         [:p [:pre>code (with-out-str (pprint reqs))]]
         ;;  using hljs to highlight edn -- like 300kb deps for some vaguely readable colored text. consider it? i guess?
          #_[:p [:pre (profane "code" (.-value (js/hljs.highlight "clojure" (with-out-str (pprint/pprint reqs)))))]]])]]]))
 

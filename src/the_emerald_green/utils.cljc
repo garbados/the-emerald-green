@@ -1,6 +1,7 @@
 (ns the-emerald-green.utils
   (:require
    [clojure.spec.alpha :as s]
+   [clojure.spec.gen.alpha :as g]
    [clojure.string :as string]))
 
 (defn name->keyword [s]
@@ -75,3 +76,13 @@
                (s/+ (s/or :s string?
                           :n number?)))
   :ret string?)
+
+(s/def :re/pattern
+  (s/with-gen
+    any?
+    #(g/fmap re-pattern (g/string))))
+
+(defn refine-extensions [id->thing thing]
+  (if-let [parent (-> thing :extends id->thing)]
+    (merge (refine-extensions id->thing parent) thing)
+    thing))

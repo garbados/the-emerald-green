@@ -1,15 +1,13 @@
-(ns the-emerald-green.web.prompts)
+(ns the-emerald-green.web.prompts
+  (:require [the-emerald-green.web.utils :refer [debounce default-wait-ms]]))
 
-(defn text [-value & {:keys [on-submit on-change placeholder]}]
-  (let [oninput
-        (fn [event]
-          (.preventDefault event)
-          (reset! -value (-> event .-target .-value)))
+(defn text [-value & {:keys [on-submit on-change placeholder wait]
+                      :or {wait default-wait-ms}}]
+  (let [oninput (debounce #(reset! -value (-> % .-target .-value)) wait)
         onkeydown
-        (fn [event]
-          (cond
-            (and on-submit (= 13 (.-which event))) (on-submit @-value)
-            on-change (on-change @-value)))]
+        #(cond
+           (and on-submit (= 13 (.-which %))) (on-submit @-value)
+           on-change (on-change @-value))]
     [:input.input
      (cond->
       {:type "text"
@@ -18,8 +16,8 @@
        placeholder (assoc :placeholder placeholder)
        (or on-submit on-change) (assoc :onkeydown onkeydown))]))
 
-(defn textarea [-value]
+(defn textarea [-value & {:keys [wait] :or {wait default-wait-ms}}]
   [:textarea.textarea
-   {:oninput #(reset! -value (-> % .-target .-value))
+   {:oninput (debounce #(reset! -value (-> % .-target .-value)) wait)
     :rows 10}
    @-value])

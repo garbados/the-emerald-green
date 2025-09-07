@@ -7,7 +7,8 @@
    [clojure.set :as set]
    [clojure.spec.alpha :as s]
    [clojure.string :as string]
-   [the-emerald-green.utils :as utils]))
+   [the-emerald-green.utils :refer [name->keyword]]
+   [clojure.spec.gen.alpha :as g]))
 
 ;; an obsessive little quest
 (def the-order-of-things
@@ -116,7 +117,7 @@
   (for [suit suits
         rank (drop 2 (range 16))
         :let [arcana-name (str "The " (minor-arcana-rank-names rank) " of " (string/capitalize (name suit)))
-              arcana-kw (utils/name->keyword arcana-name)
+              arcana-kw (name->keyword arcana-name)
               {:keys [description]} (id->metadata arcana-kw)]]
     {:name arcana-name
      :description (clean-description description)
@@ -155,7 +156,7 @@
          "The Sun"
          "Judgement"
          "The World"]
-        :let [arcana-kw (utils/name->keyword arcana-name)
+        :let [arcana-kw (name->keyword arcana-name)
               {:keys [description]} (id->metadata arcana-kw)]]
     {:name arcana-name
      :description (clean-description description)
@@ -223,3 +224,17 @@
 (s/fdef list-missing-cards
   :args (s/cat :cards ::card-ids)
   :ret ::deck)
+
+(defn card-matches-re?
+  [{card-name :name
+    :keys [description tags]}
+   re]
+  (some?
+   (or (re-find re card-name)
+       (re-find re description)
+       (re-find re (string/join ", " tags)))))
+
+(s/fdef card-matches-re?
+  :args (s/cat :card ::card
+               :re :re/pattern)
+  :ret boolean?)

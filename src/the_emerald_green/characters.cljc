@@ -226,6 +226,26 @@
   :args (s/cat :character ::character)
   :ret ::persistent-character)
 
+(defn card-available?
+  [{:keys [tags] :as card}
+   & {:keys [sanctified exiled query]
+      :or {sanctified #{}
+           exiled #{}
+           query ""}}]
+  (or (contains? (into sanctified exiled) card)
+      (and (some? (seq query))
+           (empty?
+            (filter (partial re-find (re-pattern query))
+                    (map name tags))))))
+
+(s/def :card/query string?)
+(s/fdef card-available?
+  :args (s/cat :card ::deck/card
+               :opts (s/keys :req-un [::sanctified
+                                      ::exiled
+                                      :card/query]))
+  :ret boolean?)
+
 ;; REPL BUDDIES
 
 (defn ^:no-stest print-character [character]
