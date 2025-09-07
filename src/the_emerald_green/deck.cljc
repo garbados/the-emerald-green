@@ -91,7 +91,7 @@
    :the-ace-of-pentacles
    :the-world])
 
-(def id->metadata (slurp-edn "resources/cards.edn"))
+(def id->metadata (slurp-edn "cards.edn"))
 
 (def ^:no-stest clean-description #(string/replace % #"\n\s+" "\n"))
 

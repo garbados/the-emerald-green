@@ -30,7 +30,7 @@ jobs:
         run: npm test
 
       - name: Generate coverage
-        run: lein cloverage --coveralls --no-html
+        run: npm run cov -- --coveralls --no-html
           
       - name: Cache clojure dependencies
         uses: actions/cache@v3

@@ -80,9 +80,14 @@
 (s/def :re/pattern
   (s/with-gen
     any?
-    #(g/fmap re-pattern (g/string))))
+    #(g/fmap re-pattern (g/string-alphanumeric))))
 
 (defn refine-extensions [id->thing thing]
   (if-let [parent (-> thing :extends id->thing)]
     (merge (refine-extensions id->thing parent) thing)
     thing))
+
+(s/fdef refine-extensions
+  :args (s/cat :id->thing (s/map-of keyword? map?)
+               :thing map?)
+  :ret map?)

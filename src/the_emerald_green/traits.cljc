@@ -11,7 +11,7 @@
    [the-emerald-green.utils :as utils]))
 
 (def traits
-  (->> (slurp-dir-edn "resources/traits")
+  (->> (slurp-dir-edn "traits")
        (map utils/idify)
        (map
         (fn [trait]

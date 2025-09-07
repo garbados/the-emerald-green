@@ -3,7 +3,8 @@
    [clojure.spec.alpha :as s]
    [clojure.string :as string]
    [clojure.test :refer [deftest is testing]]
-   [the-emerald-green.deck :as deck]))
+   [the-emerald-green.deck :as deck]
+   [the-emerald-green.test-utils :refer [warn]]))
 
 (deftest base-deck-valid
   (doseq [card deck/base-deck]
@@ -19,4 +20,14 @@
   (testing "All things encompass the order."
     (let [remaining (reduce disj (set deck/the-order-of-things) (map :id deck/base-deck))]
       (is (nil? (seq remaining))
-          (str "Not included: " (string/join ", " (map name remaining)))))))
+          (str "Not included: " (string/join ", " (map name remaining))))))
+  (testing "There is a word for all things."
+    (doseq [[card-id {:keys [description media-src media-description]}]
+            (map (juxt identity deck/id->metadata) deck/the-order-of-things)
+            :let [card-name (-> card-id deck/id->card :name)]]
+      (warn (seq description)
+            (str card-name " has no word."))
+      (warn (seq media-src)
+            (str card-name " has no icon."))
+      (warn (seq media-description)
+            (str card-name " has no iconography.")))))

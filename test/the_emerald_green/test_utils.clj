@@ -3,22 +3,33 @@
             [clojure.spec.test.alpha :as stest]
             [clojure.spec.alpha :as s]))
 
-(def -default-opts {:num-tests 100})
+(def default-test-opts {:num-tests 100})
+
+(def ^:dynamic strict (or (some? (System/getenv "STRICT")) false))
+(def ^:dynamic quiet (or (some? (System/getenv "QUIET")) false))
+
+(defmacro warn [expr msg]
+  (if strict
+    `(is ~expr ~msg)
+    (when-not quiet
+      `(when-not ~expr (println "[WARNING]" ~msg)))))
+
+(defn failed-checks [sym opts]
+  (->> (stest/check sym {:clojure.spec.test.check/opts opts})
+       (map stest/abbrev-result)
+       (filter :failure)))
 
 (defn stest-symbol!
-  ([sym] (stest-symbol! sym -default-opts))
+  ([sym] (stest-symbol! sym default-test-opts))
   ([sym opts]
    (testing (str sym)
-     (let [{:keys [failure] :as check}
-           (->> (stest/check sym {:clojure.spec.test.check/opts opts})
-                (map stest/abbrev-result)
-                (filter :failure)
-                first)]
-       (is (nil? failure) check)))))
+     (let [{:keys [failure]} (first (failed-checks sym opts))]
+       (is (nil? failure)
+           (ex-message failure))))))
 
 (defn stest-ns!
   ([ns-name]
-   (stest-ns! ns-name -default-opts))
+   (stest-ns! ns-name default-test-opts))
   ([ns-name opts]
    (doseq [[sym var-ref] (ns-publics ns-name)
            :let [spec (s/get-spec var-ref)

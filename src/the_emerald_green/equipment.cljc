@@ -9,9 +9,9 @@
    [the-emerald-green.money :as money]
    [the-emerald-green.utils :refer [idify refine-extensions]]))
 
-(def enchantments (map idify (slurp-edn "resources/enchantments.edn")))
-(def items (map idify (slurp-edn "resources/items.edn")))
-(def *equipment (map idify (slurp-dir-edn "resources/equipment")))
+(def enchantments (map idify (slurp-edn "enchantments.edn")))
+(def items (map idify (slurp-edn "items.edn")))
+(def *equipment (map idify (slurp-dir-edn "equipment")))
 (def *id->equipment (zipmap (map :id *equipment) *equipment))
 (def equipment (map (partial refine-extensions *id->equipment) *equipment))
 (def id->equipment (zipmap (map :id equipment) equipment))
