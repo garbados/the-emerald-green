@@ -1,5 +1,6 @@
 [{:name "Basic Weapon"
   :id :common-weapon
+  :content-pack "The Emerald Green"
   :abstract true
   :description "An essential template for other weapons."
   :type :weapon

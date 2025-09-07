@@ -39,6 +39,7 @@
    [:p.menu-label "Game Tools"]
    [:ul.menu-list
     [:li [:a (route->href :new-character) "🐣 New Character"]]
+    [:li [:a (route->href :invent-stuff) "🛠️ New Equipment"]]
     [:li [:a (route->href :characters) "🐺 Characters"]]
     [:li [:a (route->href :campaigns) "🧝 Campaigns"]]]])
 

@@ -25,11 +25,13 @@
 (s/def ::name string?)
 (s/def ::id keyword?)
 (s/def ::description string?)
+(s/def ::content-pack string?)
 
 (s/def ::item
   (s/keys :req-un [::name
                    ::id
-                   ::description]))
+                   ::description]
+          :opt-un [::content-pack]))
 
 (s/def ::tag (set (flatten (map :tags equipment))))
 (s/def ::tags (s/coll-of ::tag :kind set?))
@@ -38,15 +40,14 @@
 (def rarities #{:common :uncommon :rare :mythic})
 (s/def ::rarity rarities)
 (s/def ::base-equipment
-  (s/keys :req-un [::name
-                   ::description]
-          :opt-un [::id
-                   ::extends
-                   ::type
-                   ::enchantments
-                   ::money/cost
-                   ::rarity
-                   ::tags]))
+  (s/and
+   ::item
+   (s/keys :opt-un [::extends
+                    ::type
+                    ::enchantments
+                    ::money/cost
+                    ::rarity
+                    ::tags])))
 
 (s/def ::skill #{:melee :ranged :arcana :sorcery :theurgy})
 (s/def ::heft #{:light :medium :heavy})

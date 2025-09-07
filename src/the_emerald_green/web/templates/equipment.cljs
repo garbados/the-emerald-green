@@ -3,6 +3,7 @@
    ["marked" :as marked]
    [clojure.string :as string]
    [the-emerald-green.equipment :as equipment]
+   [the-emerald-green.utils :refer [keyword->name]]
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.routing :refer [route->href]]
    [the-emerald-green.web.utils :refer [lolraw]]))
@@ -14,26 +15,38 @@
    (when _id
      [:a.button.is-fullwidth (route->href :edit-stuff _id) "Edit"])])
 
-(defn describe-weapon [{weapon-name :name
-                        :keys [description tags]
-                        :as weapon}]
+
+(defn describe-thing [notables
+                      {thing-name :name
+                       :keys [description tags]
+                       :as thing}]
   [:div.box
-   [:p [:em weapon-name] (when (seq tags) (str " [" (string/join (map name tags)) "]"))]
+   [:h5 [:em thing-name] (when (seq tags) (str " [" (string/join (map name tags)) "]"))]
    [:div
     (profane "p" (marked/parse description))
     [:ul
-     (for [key [:heft :range :element :cost :rarity]
-           :let [value (get weapon key)]]
-       [:li (string/capitalize (name key)) ": " value])
+     (for [key notables
+           :let [raw-value (get thing key)
+                 key-name (keyword->name key)
+                 value
+                 (cond
+                   (map? raw-value) (lolraw raw-value)
+                   (keyword? raw-value) (keyword->name raw-value)
+                   (sequential? raw-value) (seq raw-value)
+                   :else raw-value)]
+           :when value]
+       [:li key-name ": " value])
      [:li
       [:details
        [:summary "Definition"]
-       (lolraw weapon)]]]
-    (craftbench weapon)]])
+       (lolraw thing)]]]
+    (craftbench thing)]])
 
-(defn describe-armor [armor])
-(defn describe-tool [tool])
-(defn describe-consumable [consumable])
+(def base-props [:cost :rarity :content-pack])
+(def describe-weapon (partial describe-thing (concat [:heft :range :element :enchantments] base-props)))
+(def describe-armor (partial describe-thing (concat [:resistances :inertia] base-props)))
+(def describe-tool (partial describe-thing (concat [:skill] base-props)))
+(def describe-consumable (partial describe-thing (concat [:effect] base-props)))
 (defn describe-item [item])
 
 (def type->describe
