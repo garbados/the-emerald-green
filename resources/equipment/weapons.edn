@@ -1,9 +1,8 @@
 [{:name "Basic Weapon"
+  :extends :basic-item
   :id :common-weapon
-  :content-pack "The Emerald Green"
-  :abstract true
-  :description "An essential template for other weapons."
   :type :weapon
+  :description "An essential template for other weapons."
   :enchantments []
   :rarity :common
   :element :physical

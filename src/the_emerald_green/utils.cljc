@@ -93,3 +93,10 @@
   :args (s/cat :id->thing (s/map-of keyword? map?)
                :thing map?)
   :ret map?)
+
+(defn keyname [kw]
+  (string/replace-first (str kw) #"^:" ""))
+
+(s/fdef keyname
+  :args (s/cat :kw keyword?)
+  :ret (s/and string? #(not= ":" (first %))))

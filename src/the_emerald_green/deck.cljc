@@ -7,8 +7,7 @@
    [clojure.set :as set]
    [clojure.spec.alpha :as s]
    [clojure.string :as string]
-   [the-emerald-green.utils :refer [name->keyword]]
-   [clojure.spec.gen.alpha :as g]))
+   [the-emerald-green.utils :refer [name->keyword]]))
 
 ;; an obsessive little quest
 (def the-order-of-things
@@ -172,6 +171,7 @@
 (s/def ::name (set (map :name base-deck)))
 (s/def ::id (set (map :id base-deck)))
 (s/def ::rank (s/int-in 2 17))
+(s/def ::effective-rank (s/int-in 2 8))
 (s/def ::tag (reduce into #{} (map :tags base-deck)))
 (s/def ::tags (s/coll-of ::tag :kind set?))
 
@@ -184,10 +184,6 @@
 (s/def ::card base-deck-set)
 (s/def ::card-ids (s/coll-of ::id :distinct true))
 (s/def ::cards (s/coll-of ::card :distinct true))
-(s/def ::deck (s/coll-of ::id :kind set? :max-count 78))
-(s/def ::shuffled (s/coll-of ::id :distinct true))
-
-(s/def ::effective-rank (s/int-in 2 8))
 
 (defn rank->mod [rank]
   (cond
@@ -201,29 +197,6 @@
 (s/fdef rank->mod
   :args (s/cat :rank ::rank)
   :ret ::effective-rank)
-
-(defn remove-card [cards card]
-  (remove (partial = card) cards))
-
-(s/fdef remove-card
-  :args (s/cat :cards ::card-ids
-               :card ::id)
-  :ret ::shuffled)
-
-(defn remove-cards-by-tag [cards tag]
-  (remove #(contains? (-> % id->card (:tags #{})) tag) cards))
-
-(s/fdef remove-cards-by-tag
-  :args (s/cat :cards ::card-ids
-               :card ::id)
-  :ret ::shuffled)
-
-(defn list-missing-cards [cards]
-  (set/difference (set (map :id base-deck)) (set cards)))
-
-(s/fdef list-missing-cards
-  :args (s/cat :cards ::card-ids)
-  :ret ::deck)
 
 (defn card-matches-re?
   [{card-name :name

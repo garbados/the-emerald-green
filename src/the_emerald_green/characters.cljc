@@ -13,6 +13,9 @@
 (def max-level 20)
 (def default-sanctify-threshold 4) ; how often you sanctify a card on level-up rather than exile it
 
+(def attr-order [:body :mind :spirit :luck])
+(def fung-order [:health :draw :will :fortune :madness])
+
 (s/def ::name string?)
 (s/def ::biography string?)
 (s/def ::level (s/int-in 1 (inc max-level)))
@@ -227,12 +230,13 @@
   :ret ::persistent-character)
 
 (defn card-available?
-  [{:keys [tags] :as card}
+  [{card-id :id
+    :keys [tags]}
    & {:keys [sanctified exiled query]
       :or {sanctified #{}
            exiled #{}
            query ""}}]
-  (or (contains? (into sanctified exiled) card)
+  (or (contains? (into sanctified exiled) card-id)
       (and (some? (seq query))
            (empty?
             (filter (partial re-find (re-pattern query))
@@ -317,6 +321,7 @@
    (merge
     base-character
     {:name "Dhutlo K'smani"
+     :id :example/dhutlo-ksmani
      :biography "The *last* and *first* of Clan Quxot'l and G'xbenmi Fen."
      :sanctified #{:the-hermit :the-ace-of-swords}
      :exiled #{:the-page-of-swords :the-knight-of-cups :the-two-of-wands}})))

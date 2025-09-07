@@ -4,7 +4,8 @@
    [shadow.cljs.modern :refer (defclass)]
    [the-emerald-green.web.alchemy :refer [alchemize]]
    [the-emerald-green.web.db :as db]
-   [the-emerald-green.web.routing :refer [handle-refresh route->hash]]
+   [the-emerald-green.web.routing :refer [four-oh-four handle-refresh
+                                          route->hash]]
    [the-emerald-green.web.templates.characters :refer [list-characters]]
    [the-emerald-green.web.templates.deck :refer [card-guide]]
    [the-emerald-green.web.templates.equipment :refer [equipment-guide]]
@@ -13,7 +14,9 @@
    [the-emerald-green.web.templates.tools :as tools]
    [the-emerald-green.web.templates.traits :refer [traits-guide]]
    [the-emerald-green.web.utils :refer [dynamic-view static-view]]
-   [the-emerald-green.web.views.characters :refer [edit-character]]
+   [the-emerald-green.web.views.characters :refer [edit-character
+                                                   edit-custom-character
+                                                   template-character]]
    [the-emerald-green.web.views.equipment :refer [design-equipment
                                                   edit-equipment from-template]]))
 
@@ -28,16 +31,19 @@
    (reduce
     (fn [acc [route view]] (assoc acc route (dynamic-view view)))
     {}
-    {:card-guide      card-guide
-     :trait-guide     traits-guide
-     :equipment-guide  equipment-guide
-     :new-character   #(edit-character)
-     :characters      #(list-characters)
-     :campaigns       tools/campaigns
-     :search          tools/search
-     :template-stuff  from-template
-     :invent-stuff    design-equipment
-     :edit-stuff      edit-equipment})
+    {:card-guide         card-guide
+     :trait-guide        traits-guide
+     :equipment-guide    equipment-guide
+     :characters         #(list-characters)
+     :template-character #(template-character)
+     :new-character      #(edit-character :new? true)
+     :edit-character     #(edit-custom-character)
+     :campaigns          tools/campaigns
+     :search             tools/search
+     :template-stuff     from-template
+     :invent-stuff       design-equipment
+     :edit-stuff         edit-equipment
+     :not-found          four-oh-four})
    (reduce
     (fn [acc [route template]] (assoc acc route (static-view template)))
     {}

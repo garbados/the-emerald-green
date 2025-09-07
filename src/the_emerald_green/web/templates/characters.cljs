@@ -4,10 +4,12 @@
    [clojure.string :as string]
    [the-emerald-green.characters :as c]
    [the-emerald-green.deck :as deck]
+   [the-emerald-green.help :as help :refer [markdown-tip]]
    [the-emerald-green.traits :as traits]
-   [the-emerald-green.utils :refer [s-format]]
+   [the-emerald-green.utils :refer [keyname keyword->name s-format]]
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.prompts :as prompts]
+   [the-emerald-green.web.routing :refer [route->href]]
    [the-emerald-green.web.templates.traits :as ct]))
 
 (def default-height 500)
@@ -23,18 +25,22 @@
       [:th.is-narrow "Exile?"]
       [:th.is-narrow "Sanctify?"]]]
     [:tbody
-     (for [card cards]
+     (for [card-id cards
+           :let [{card-name :name
+                  :as card} (deck/id->card card-id)]]
        [:tr
-        [:td (:name card)]
+        [:td (help/tag->title card) card-name]
         [:td [:button.button.is-small.is-danger
               (if on-exile
-                {:onclick (partial on-exile card)}
-                {:disabled true})
+                {:onclick (partial on-exile card-id)}
+                {:disabled true
+                 :title "You despise too much..."})
               "Exile!"]]
         [:td [:button.button.is-small.is-info
               (if on-sanctify
-                {:onclick (partial on-sanctify card)}
-                {:disabled true})
+                {:onclick (partial on-sanctify card-id)}
+                {:disabled true
+                 :title "You hold too much dear..."})
               "Sanctify!"]]])]]])
 
 (defn list-chosen [cards & {:keys [on-restore empty-msg]}]
@@ -45,15 +51,17 @@
        [:th.is-fullwidth "Name"]
        [:th.is-narrow "Restore?"]]]
      [:tbody
-      (for [card cards]
+      (for [card-id cards
+            :let [{card-name :name
+                   :as card} (deck/id->card card-id)]]
         [:tr
-         [:td (:name card)]
+         [:td (help/tag->title card) card-name]
          [:td [:button.button.is-small.is-dark
                (if on-restore
                  {:onclick (partial on-restore card)}
                  {:disabled true})
                "Restore!"]]])]]
-    [:p "None. " [:em empty-msg]]))
+    [:p "None. " (when empty-msg [:em empty-msg])]))
 
 (defn list-stats
   [{:keys [attributes skills talents abilities]}
@@ -62,39 +70,29 @@
    [:table.table.is-fullwidth
     [:thead
      [:tr
-      [:th "Body"]
-      [:th "Mind"]
-      [:th "Spirit"]
-      [:th "Luck"]]]
+      (for [attr c/attr-order]
+        [:th (help/tag->title attr) (keyword->name attr)])]]
     [:tbody
      [:tr
-      [:td (:body attributes)]
-      [:td (:mind attributes)]
-      [:td (:spirit attributes)]
-      [:td (:luck attributes)]]]]
+      (for [tag c/attr-order]
+        [:td (get attributes tag)])]]]
    [:p.subtitle "Fungibles"]
    [:table.table.is-fullwidth
     [:thead
      [:tr
-      [:th "Health"]
-      [:th "Draw"]
-      [:th "Will"]
-      [:th "Fortune"]
-      [:th "Madness"]]]
+      (for [attr c/fung-order]
+        [:th (help/tag->title attr) (keyword->name attr)])]]
     [:tbody
      [:tr
-      [:td (:health fungibles)]
-      [:td (:draw fungibles)]
-      [:td (:will fungibles)]
-      [:td (:fortune fungibles)]
-      [:td (:madness fungibles)]]]]
+      (for [tag c/fung-order]
+        [:td (get fungibles tag)])]]]
    (when-let [known-skills (seq (map first (filter second skills)))]
      [:div
       [:hr]
       [:p.subtitle "Skills"]
       [:ul
        (for [skill known-skills]
-         [:li (string/capitalize (name skill))])]])
+         [:li (help/tag->title skill) (string/capitalize (name skill))])]])
    [:div
     [:hr]
     [:p.subtitle "Talents"]
@@ -108,8 +106,8 @@
     [:p.subtitle "Abilities"]
     (if (seq abilities)
       [:ul
-       (for [ability abilities]
-         [:li (print-str ability)])]
+       (for [ability-id abilities]
+         [:li (print-str ability-id)])]
       [:p "No abilities..."])]])
 
 (defn list-stats-from-traits [level traits]
@@ -125,12 +123,14 @@
                              :or {height default-height}}]
   [:div
    {:style (str "overflow: scroll; max-height: " height "px;")}
-   (for [[trait-id n] traits
-         :let [trait (traits/id->trait trait-id)]]
-     (ct/describe-trait trait n))])
+   (if (seq traits)
+     (for [[trait-id n] traits
+           :let [trait (traits/id->trait trait-id)]]
+       (ct/describe-trait trait n))
+     [:p "No traits..."])])
 
 (defn filter-deck [filter-fn & args]
-  (apply list-cards (remove filter-fn deck/the-ordered-deck) args))
+  (apply list-cards (map :id (remove filter-fn deck/the-ordered-deck)) args))
 
 (defn edit-character
   [-name
@@ -144,10 +144,12 @@
    [:h1 (if new? "New Character" "Edit Character")]
    [:div.field
     [:label.label "Name"]
-    [:div.control (prompts/text -name)]]
+    [:div.control (prompts/text -name)]
+    [:p.help "What do you call yourself? What would you have others call you?"]]
    [:div.field
     [:label.label "Biography"]
-    [:div.control (prompts/textarea -biography)]]
+    [:div.control (prompts/textarea -biography)]
+    [:p.help "What's your story? " markdown-tip]]
    [:h2 "The Pact"]
    [:div.columns
     [:div.column.is-6
@@ -211,7 +213,13 @@
             (seq description)
             (merge {:title description
                     :style "cursor: help; text-decoration: underline dotted;"}))
-          card-name]))])])
+          card-name]))])
+   [:h5 "Livery"]
+   [:div.buttons
+    (when (:id character)
+      [:a.button.is-fullwidth (route->href :template-character (-> character :id keyname)) "Use as Template"])
+    (when-let [_id (:_id character)]
+      [:a.button.is-fullwidth (route->href :edit-character _id) "Edit"])]])
 
 (defn list-characters
   ([] (list-characters []))

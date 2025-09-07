@@ -1,1 +1,6 @@
-[]
+[{:name "Basic Item"
+  :id :basic-item
+  :type :item
+  :description "Any kind of thing. Gems. Runes. Pocket lint."
+  :content-pack "The Emerald Green"
+  :abstract true}]

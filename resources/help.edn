@@ -1,0 +1,15 @@
+{
+;;  attributes
+ :body "Strength and prowess."
+ :mind "Reason and recall."
+ :spirit "Force of will."
+ :luck "Destiny's love."
+;;  fungibles
+ :health "You might die when this runs out."
+ :draw "Number of cards you start each day with."
+ :will "Expend to power abilities or draw cards."
+ :fortune "Expend to gain advantage."
+ :madness "Mills your deck during challenges."
+;;  skills
+ :melee "Close-quarters personal combat."
+ }
