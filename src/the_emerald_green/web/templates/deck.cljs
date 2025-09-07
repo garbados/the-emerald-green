@@ -46,7 +46,7 @@
          card-name :name
          :keys [description tags]}]
      (let [{:keys [media-description media-src]} (deck/id->metadata card-id)]
-       [:div.box
+       [:div.block>div.box
         [:div.columns
          (when (seq media-src)
            [:div.column.is-3
@@ -87,8 +87,8 @@
     (add-watch -query :query refresh-cards)
     [:div.content
      [:h1 "Card Guide"]
-     [:p "A 78-card Tarot deck has the following cards. They tell a kind of story, and contain many fates."]
-     (prompts/text -query
-                   :placeholder "🔍 Filter cards by name, description, or requirements.")
-     [:hr]
+     [:div.block
+      [:p "A 78-card Tarot deck has the following cards. They tell a kind of story, and contain many fates."]
+      (prompts/text -query
+                    :placeholder "🔍 Filter cards by name, description, or requirements.")]
      [:div#cards (list-cards @-query)]]))

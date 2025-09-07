@@ -43,6 +43,7 @@
  :even "Minor arcana with an even rank. Ex: 2, 4, 6, 8, 10"
  :odd "Minor arcana with an odd rank. Ex: 1, 3, 5, 7, 9"
  :prime "Minor arcana with a prime rank. Ex: 2, 3, 5, 7"
+ :court "Minor arcana with a court rank. Ex: page, knight, queen, king"
  ; requirement keywords
  :not "Matches if sub-requirements do not match."
  :and "Matches if all sub-requirements do match."

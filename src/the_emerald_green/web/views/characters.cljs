@@ -47,8 +47,9 @@
         -biography (atom biography)
         -sanctified (atom sanctified)
         -exiled (atom exiled)
-        -traits (atom (traits/determine-traits
-                       (into @-exiled @-sanctified)))
+        -traits (atom
+                 (when-let [pact (seq (into @-exiled @-sanctified))]
+                   (traits/determine-traits pact)))
         -deck-query (atom "")
         -shop-query (atom "")
         list-own-deck
@@ -64,8 +65,9 @@
         list-exiled (list-chosen nothing-exiled -exiled)
         list-own-traits #(ct/list-traits @-traits)
         list-own-stats #(ct/list-stats-from-traits level @-traits)
-        reset-traits #(reset! -traits (traits/determine-traits
-                                       (into @-exiled @-sanctified)))
+        reset-traits #(reset! -traits
+                              (when-let [pact (seq (into @-exiled @-sanctified))]
+                                (traits/determine-traits pact)))
         refresh-deck   (partial refresh-node "deck" list-own-deck)
         refresh-traits (partial refresh-node "traits" list-own-traits)
         refresh-stats  (partial refresh-node "stats" list-own-stats)]
