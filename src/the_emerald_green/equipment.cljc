@@ -45,10 +45,13 @@
                    ::rarity
                    ::tags]))
 
-(s/def ::skill #{:melee :ranged :arcana :sorcery :theurgy})
-(s/def ::heft #{:light :medium :heavy})
+(def weapon-skills #{:melee :ranged :arcana :sorcery :theurgy})
+(s/def ::skill weapon-skills)
+(def hefts #{:light :medium :heavy})
+(s/def ::heft hefts)
 (s/def ::element elements)
-(s/def ::range #{:close :short :medium :long :extreme})
+(def weapon-ranges #{:close :short :medium :long :extreme})
+(s/def ::range weapon-ranges)
 (s/def ::weapon
   (s/merge
    ::item

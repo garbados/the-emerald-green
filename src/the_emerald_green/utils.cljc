@@ -84,7 +84,9 @@
 
 (defn refine-extensions [id->thing thing]
   (if-let [parent (-> thing :extends id->thing)]
-    (merge (refine-extensions id->thing parent) thing)
+    (merge (refine-extensions id->thing parent)
+           {:id (-> thing :name name->keyword)}
+           thing)
     thing))
 
 (s/fdef refine-extensions
