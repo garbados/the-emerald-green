@@ -11,7 +11,7 @@
 (def reasonable-coinage 10000)
 (s/def ::wealth (s/int-in 0 (* x-platinum reasonable-coinage)))
 
-(def gold-expr #"^(\d+p)?(\d+g)?(\d+s)?(\d+c)?$")
+(def gold-expr #"^([\d,]+p)?([\d,]+g)?([\d,]+s)?([\d,]+c)?$")
 (s/def ::gold-ish
   (s/with-gen
     (s/and string? (partial re-matches gold-expr))
@@ -43,8 +43,8 @@
       (->> (for [[coin weight] (map vector (rest match) [x-platinum x-gold x-silver x-copper])
                  :when coin
                  :let [wealth ((comp
-                                #?(:cljs js/parseInt
-                                   :clj Integer/parseInt)
+                                parse-long
+                                #(string/replace % #"," "")
                                 second
                                 (partial re-matches #"^(\d+)[pgsc]$"))
                                coin)]]

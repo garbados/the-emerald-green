@@ -15,7 +15,6 @@
    (when _id
      [:a.button.is-fullwidth (route->href :edit-stuff _id) "Edit"])])
 
-
 (defn describe-thing [notables
                       {thing-name :name
                        :keys [description tags]
@@ -47,13 +46,14 @@
 (def describe-armor (partial describe-thing (concat [:resistances :inertia] base-props)))
 (def describe-tool (partial describe-thing (concat [:skill] base-props)))
 (def describe-consumable (partial describe-thing (concat [:effect] base-props)))
-(defn describe-item [item])
+(def describe-item (partial describe-thing base-props))
 
 (def type->describe
   {:weapon describe-weapon
    :armor describe-armor
    :tool describe-tool
-   :consumable describe-consumable})
+   :consumable describe-consumable
+   :item describe-item})
 
 (defn equipment-guide [type->stuff]
   (let [type->stuff (or type->stuff equipment/type->stuff)]
@@ -62,7 +62,8 @@
      (for [[stuff-type title] [[:weapon "Weapons"]
                                [:armor "Armor"]
                                [:tool "Tools"]
-                               [:consumables "Consumables"]]
+                               [:consumable "Consumables"]
+                               [:item "Items"]]
            :let [stuff (type->stuff stuff-type)
                  describe-thing (type->describe stuff-type)
                  {real-stuff true

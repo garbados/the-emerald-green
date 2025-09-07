@@ -10,15 +10,13 @@
    [the-emerald-green.utils :refer [idify refine-extensions]]))
 
 (def enchantments (map idify (slurp-edn "enchantments.edn")))
-(def items (map idify (slurp-edn "items.edn")))
 (def *equipment (map idify (slurp-dir-edn "equipment")))
 (def *id->equipment (zipmap (map :id *equipment) *equipment))
 (def equipment (map (partial refine-extensions *id->equipment) *equipment))
 (def id->equipment (zipmap (map :id equipment) equipment))
-(def type->stuff
-  (merge
-   {:items items}
-   (group-by :type equipment)))
+(def type->stuff (group-by :type equipment))
+(def equippable-types #{:weapon :armor :tool :consumable})
+(def equippable (reduce concat [] (vals (select-keys type->stuff equippable-types))))
 
 (def elements #{:physical :fire :frost :radiant :shadow})
 
@@ -26,36 +24,34 @@
 (s/def ::id keyword?)
 (s/def ::description string?)
 (s/def ::content-pack string?)
+(def known-tags (set (reduce into [] (filter some? (map :tags equipment)))))
+(s/def ::tag known-tags)
+(s/def ::tags (s/coll-of ::tag :kind set?))
+(s/def ::extends (set (keys id->equipment)))
+(def rarities #{:common :uncommon :rare :mythic})
+(s/def ::rarity rarities)
+(s/def :equippable/type equippable-types)
+(s/def ::type (conj equippable-types :item))
 
 (s/def ::item
   (s/keys :req-un [::name
                    ::id
+                   ::type
                    ::description]
-          :opt-un [::content-pack]))
-
-(s/def ::tag (set (flatten (map :tags equipment))))
-(s/def ::tags (s/coll-of ::tag :kind set?))
-(s/def ::extends (keys id->equipment))
-(s/def ::type #{:weapon :armor :tool :consumable})
-(def rarities #{:common :uncommon :rare :mythic})
-(s/def ::rarity rarities)
-(s/def ::base-equipment
-  (s/and
-   ::item
-   (s/keys :opt-un [::extends
-                    ::type
-                    ::enchantments
-                    ::money/cost
-                    ::rarity
-                    ::tags])))
+          :opt-un [::content-pack
+                   ::extends
+                   ::enchantments
+                   ::money/cost
+                   ::rarity
+                   ::tags]))
 
 (s/def ::skill #{:melee :ranged :arcana :sorcery :theurgy})
 (s/def ::heft #{:light :medium :heavy})
 (s/def ::element elements)
 (s/def ::range #{:close :short :medium :long :extreme})
 (s/def ::weapon
-  (s/and
-   ::base-equipment
+  (s/merge
+   ::item
    (s/keys :opt-un [::skill
                     ::heft
                     ::element
@@ -65,40 +61,28 @@
 (s/def ::resistances (s/map-of ::element int?))
 (s/def ::inertia nat-int?)
 (s/def ::armor
-  (s/and
-   ::base-equipment
+  (s/merge
+   ::item
    (s/keys :opt-un [::resistances
                     ::inertia])))
 
 (s/def ::tool
-  (s/and
-   ::base-equipment
+  (s/merge
+   ::item
    (s/keys :opt-un [::core/skill])))
 
 (s/def ::effect (s/or :basic string?
                       :ability ::core/ability))
 (s/def ::consumable
-  (s/and
-   ::base-equipment
+  (s/merge
+   ::item
    (s/keys :opt-un [::effect])))
 
 (s/def ::equipment*
-  (s/or :weapon ::weapon
-        :armor ::armor
-        :tool ::tool
-        :consumable ::consumable))
+  (s/merge
+   ::item
+   (s/keys :req-un [:equippable/type])))
 
-(s/def ::equipment (set equipment))
+(s/def ::equipment (set (keys id->equipment)))
 (s/def ::equipped (s/coll-of ::equipment))
-
-(s/def ::item*
-  (s/or
-   :unequipped ::equipment
-   :misc
-   (s/keys :req-un [::name
-                    ::description]
-           :opt-un [::cost
-                    ::rarity])))
-
-(s/def ::item (set items))
-(s/def ::inventory (s/coll-of ::item :kind vector?))
+(s/def ::inventory (s/coll-of ::item))
