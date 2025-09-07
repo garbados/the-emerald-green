@@ -1,5 +1,6 @@
 (ns the-emerald-green.web.prompts
-  (:require [the-emerald-green.web.utils :refer [debounce default-wait-ms]]))
+  (:require
+   [the-emerald-green.web.utils :refer [debounce default-wait-ms refresh-node]]))
 
 (defn text [-value & {:keys [on-submit on-change placeholder wait]
                       :or {wait default-wait-ms}}]
@@ -21,3 +22,31 @@
    {:oninput (debounce #(reset! -value (-> % .-target .-value)) wait)
     :rows 10}
    @-value])
+
+(defn field [label help prompt -atom & args]
+  [:div.field
+   [:label.label label]
+   [:div.control (apply prompt -atom args)]
+   (when help
+     [:p.help help])])
+
+(defn list-dropdown [matches on-select]
+  [:p.dropdown-content
+   (cond-> {}
+     (nil? (seq matches)) (merge {:style "display: none;"}))
+   (for [match matches]
+     [:button.is-link.dropdown-item
+      {:onclick #(on-select match)}
+      (:name match match)])])
+
+;; crib https://codesandbox.io/p/sandbox/bulma-autocomplete-gm3pd?file=%2Fsrc%2FAutocomplete.jsx%3A105%2C17
+(defn dropdown [-value search-fn on-select]
+  (let [-matches (atom [])
+        dropdown-id (str (random-uuid))]
+    (add-watch -matches :matches
+               #(when-let [matches (seq @-matches)]
+                  (refresh-node dropdown-id (list-dropdown matches on-select))))
+    (add-watch -value :value #(reset! -matches (search-fn @-value)))
+    [:div.dropdown
+     [:div.dropdown-trigger (text -value)]
+     [(str "div.dropdown-menu#" dropdown-id)]]))

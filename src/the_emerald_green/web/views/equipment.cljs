@@ -6,11 +6,6 @@
    [the-emerald-green.web.prompts :as prompts]
    [the-emerald-green.web.routing :refer [route-pattern]]))
 
-(defn prompt-field [label prompt -atom]
-  [:div.field
-   [:label.label label]
-   [:div.control (prompt -atom)]])
-
 (defn make-weapon
   [weapon
    & {:keys [on-save on-cancel]}]
@@ -44,20 +39,28 @@
                    (->> (string/split @-tags #"\s*,\s*")
                         (map name->keyword)
                         set))]
-    [(prompt-field "Name" prompts/text -name)
-     (prompt-field "Description" prompts/textarea -description)
-     (prompt-field "Content Pack" prompts/text -content-pack)
+    [(prompts/field "Name"
+                    "Human-readable title of the thing."
+                    prompts/text -name)
+     (prompts/field "Description"
+                    "Use Markdown!"
+                    prompts/textarea -description)
+     (prompts/field "Content Pack"
+                    "What content pack, campaign, or setting is this associated with?"
+                    prompts/text -content-pack)
     ;;  TODO choose-from: heft, skill, element, range, rarity
     ;;  TODO wealth (cost as number, display wealth beside it)
     ;;  TODO autocomplete from known content IDs
-     [:div.field
-      [:label.label "Enchantments"]
-      [:div.control (prompts/text -enchantments)]
-      [:p.help "Comma separated!"]]
-     [:div.field
-      [:label.label "Tags"]
-      [:div.control (prompts/text -tags)]
-      [:p.help "Comma separated!"]]
+     (prompts/field "Enchantments"
+                    "Comma separated!"
+                    prompts/dropdown -enchantments
+                    (fn [query] [])
+                    (fn [selected] nil))
+     (prompts/field "Tags"
+                    "Comma separated!"
+                    prompts/dropdown -tags
+                    (fn [query] [])
+                    (fn [selected] nil))
      [:div.buttons
       (when on-save
         [:button.button
