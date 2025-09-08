@@ -201,7 +201,7 @@
 
 (defn show-character [{:as character
                        :keys [level traits]}]
-  [:div.block>div.box
+  [:div.block
    [:div.level
     [:div.level-left
      [:div.level-item

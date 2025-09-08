@@ -116,7 +116,9 @@
 
 (defn show-character []
   (let [character-ref (route-pattern :show-character)
-        -character (atom nil)
+        -character (atom
+                    (when (string/starts-with? character-ref "example")
+                      (c/id->example (keyword character-ref))))
         show-this-character
         #(if @-character
            (ct/show-character @-character)
@@ -133,11 +135,6 @@
                 (profane "p" (marked/parse (:biography character)))])]])]
     (add-watch -character :character
                #(refresh-node "character" show-this-character))
-    (js/setTimeout
-     #(if (string/starts-with? character-ref "example")
-        (reset! -character (c/id->example (keyword character-ref)))
-        #_TODO_fetch_from_db)
-     1)
     [:div.content#character (show-this-character)]))
 
 (defn edit-custom-character []
