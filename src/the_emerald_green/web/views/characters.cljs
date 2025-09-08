@@ -144,4 +144,5 @@
 
 (defn list-characters [custom-characters]
   [:div.content
+   [:h1.title "Characters"]
    (ct/list-characters custom-characters :edit? false)])
