@@ -2,7 +2,8 @@
   (:require
    ["pouchdb" :as pouchdb]
    [clojure.edn :as edn]
-   [the-emerald-green.characters :as c]))
+   [the-emerald-green.characters :as c]
+   [clojure.string :as string]))
 
 (defn init-db
   ([name]
@@ -99,6 +100,16 @@
      [(list-characters)
       (list-stuff)]))
    (fn [[characters stuff]]
-     (println characters stuff)
-     (reset! -characters (zipmap (map :_id characters) characters))
+     (let [changes-feed (.changes db (clj->js {:since "now" :live true :include_docs true}))]
+       (.on changes-feed "change"
+            (fn [change]
+              (js/console.log change)
+              (let [doc (unmarshal-doc (.-doc change))]
+                (cond
+                  (string/starts-with? (:_id doc) character-prefix)
+                  (swap! -characters assoc (.-id doc) doc)
+                  (string/starts-with? (:_id doc) stuff-prefix)
+                  (swap! -stuff assoc (:_id doc) doc))))))
+     (println "[DB OK]" characters stuff)
+     (reset! -characters (zipmap (map :_id characters) (map c/hydrate-character characters)))
      (reset! -stuff (zipmap (map :_id stuff) stuff)))))

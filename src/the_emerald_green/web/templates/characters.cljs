@@ -194,7 +194,9 @@
        [:p.subtitle "Inventory"]]]]]
    (when on-save
      [:div.block
-      [:button.button.is-primary.is-fullwidth "Save"]])])
+      [:button.button.is-primary.is-fullwidth
+       {:onclick on-save}
+       "Save"]])])
 
 (defn show-character [{:as character
                        :keys [level traits]}]
@@ -237,11 +239,9 @@
   [:div.content
    [:h1 "Characters"]
    [:ul
-    (for [character (concat (vals characters) c/examples)]
+    (for [character (concat (vals characters) c/examples)
+          :let [character-id (get character :_id (keyname (:id character)))]]
       [:li
        [:a
-        (route->href :show-character (-> character :id keyname))
-        (s-format "%s < %s >" (:name character) (:level character))]]
-      #_[:details
-         [:summary (s-format "%s < %s >" (:name character) (:level character))]
-         (show-character character)])]])
+        (route->href :show-character character-id)
+        (s-format "%s < %s >" (:name character) (:level character))]])]])

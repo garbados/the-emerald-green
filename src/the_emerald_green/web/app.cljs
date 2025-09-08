@@ -41,7 +41,7 @@
      :trait-guide        traits-guide
      :equipment-guide    #(equipment-guide @-stuff)
      :characters         #(list-characters @-characters)
-     :template-character #(template-character)
+     :template-character #(template-character @-characters)
      :new-character      #(edit-character :new? true)
      :edit-character     #(edit-custom-character @-characters)
      :show-character     #(show-character @-characters)
@@ -68,6 +68,8 @@
   (.appendChild node (alchemize container))
   (let [refresh #(handle-refresh hash->view main-id)]
     (js/window.addEventListener "popstate" refresh)
+    ;; (add-watch -characters :refresh refresh)
+    ;; (add-watch -stuff :refresh refresh)
     (.then (js/Promise.resolve (setup)) refresh)))
 
 ;; webcomponents
