@@ -120,18 +120,19 @@
         (get custom-characters character-ref (c/id->example (keyword character-ref)))]
     (if character
       [:div.content (ct/show-character character)]
-      (character-not-found custom-characters character-ref))))
+      (character-not-found custom-characters character-ref :show? true))))
 
 (defn new-character []
   (edit-character :on-save #(goto :show-character %)))
 
 (defn template-character [custom-characters]
-  (let [example-id (keyword (route-pattern :template-character))
+  (let [example-ref (route-pattern :template-character)
+        example-id (keyword example-ref)
         character (first (filter #(= example-id (:id %)) c/examples))]
     (if character
       (edit-character :character character
                       :on-save #(goto :show-character %))
-      (character-not-found custom-characters example-id))))
+      (character-not-found custom-characters example-ref))))
 
 (defn edit-custom-character [custom-characters]
   (let [character-ref (route-pattern :edit-character)
@@ -145,4 +146,4 @@
 (defn list-characters [custom-characters]
   [:div.content
    [:h1.title "Characters"]
-   (ct/list-characters custom-characters :edit? false)])
+   (ct/list-characters custom-characters :show? true)])

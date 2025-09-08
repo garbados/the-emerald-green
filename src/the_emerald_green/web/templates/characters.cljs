@@ -236,15 +236,15 @@
 
 (def ulify #(vec [:li %]))
 
-(defn summarize-character [character & {:keys [edit?]
-                                        :or {edit? true}}]
+(defn summarize-character [character & {:keys [show?]
+                                        :or {show? false}}]
   (let [example? (keyword? (:id character))
         [route ref]
-        (if edit?
+        (if show?
+          [:show-character (:_id character (-> character :id keyname))]
           (if example?
             [:template-character (-> character :id keyname)]
-            [:edit-character (:_id character)])
-          [:show-character (:_id character (-> character :id keyname))])]
+            [:edit-character (:_id character)]))]
     [:div.box
      [:p.subtitle [:a (route->href route ref) (:name character)]]
      [:p
@@ -252,8 +252,8 @@
       (profane "blockquote" (marked/parse (:biography character)))]]))
 
 (defn list-characters
-  [characters & {:keys [edit?]}]
-  (let [summarize #(summarize-character % :edit? edit?)]
+  [characters & {:keys [show?]}]
+  (let [summarize #(summarize-character % :show? show?)]
     [[:div.block
       [:p.subtitle "Examples"]
       (map summarize c/examples)]
@@ -262,14 +262,17 @@
         [:p.subtitle "Custom"]
         (map summarize (vals characters))])]))
 
-(defn character-not-found [custom-characters attempted-ref]
-  (let [example? (string/starts-with? attempted-ref "example")
-        error-msg (str "No " (if example? "example" "custom") " character with this ID: " attempted-ref)]
+(defn character-not-found [custom-characters attempted-ref & {:keys [show?]}]
+  (let [attempted-str (if (keyword? attempted-ref) (keyname attempted-ref) attempted-ref)
+        example? (string/starts-with? attempted-ref "example")
+        error-msg (str "No " (if example? "example" "custom") " character with this ID: " attempted-str)]
     [:div.content
-     (cons
-      [:div.block
-       [:h1.title "Character not found!"]
-       [:p.subtitle error-msg]
-       [:p "Why not " [:a (route->href :new-character) "make a new character"] "?"]
-       [:p "Or use another character:"]]
-      (list-characters custom-characters))]))
+     [:div.block
+      [:h1.title "Character not found!"]]
+     [:div.block
+      [:p.subtitle error-msg]]
+     [:div.block
+      [:p "Why not " [:a (route->href :new-character) "make a new character"] "?"]
+      [:p "Or use another character:"]]
+     [:div.block
+      (list-characters custom-characters :show? show?)]]))
