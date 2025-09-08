@@ -74,16 +74,17 @@
 (def type->maker
   {:weapon make-weapon})
 
-(defn from-template []
+(defn from-template [custom-stuff]
   (let [thing-id (route-pattern :template-stuff)
-        {thing-type :type :as thing} (equipment/id->equipment (keyword thing-id))]
+        {thing-type :type :as thing}
+        (get custom-stuff thing-id (equipment/id->equipment (keyword thing-id)))]
     [:div.content
      [:h1 "Create from Template"]
      (when-let [thing-maker (type->maker thing-type)]
        (thing-maker thing))]))
 
-(defn design-equipment []
+(defn design-equipment [custom-stuff]
   [:h1 "TODO"])
 
-(defn edit-equipment []
+(defn edit-equipment [custom-stuff]
   [:h1 "TODO"])

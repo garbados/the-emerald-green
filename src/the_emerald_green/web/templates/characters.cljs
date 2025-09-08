@@ -192,12 +192,9 @@
        [:p.subtitle "Equipment"]]
       [:div.box
        [:p.subtitle "Inventory"]]]]]
-   (when (or on-save on-cancel)
-     [:div.buttons
-      (when on-save
-        [:button.button.is-primary.is-fullwidth "Save"])
-      (when on-cancel
-        [:button.button.is-light.is-outlined.is-fullwidth "Cancel"])])])
+   (when on-save
+     [:div.block
+      [:button.button.is-primary.is-fullwidth "Save"]])])
 
 (defn show-character [{:as character
                        :keys [level traits]}]
@@ -236,16 +233,15 @@
     [:h4.subtitle "Livery"]]])
 
 (defn list-characters
-  ([] (list-characters []))
-  ([characters]
-   [:div.content
-    [:h1 "Characters"]
-    [:ul
-     (for [character (concat characters c/examples)]
-       [:li
-        [:a
-         (route->href :show-character (-> character :id keyname))
-         (s-format "%s < %s >" (:name character) (:level character))]]
-       #_[:details
-          [:summary (s-format "%s < %s >" (:name character) (:level character))]
-          (show-character character)])]]))
+  [characters]
+  [:div.content
+   [:h1 "Characters"]
+   [:ul
+    (for [character (concat (vals characters) c/examples)]
+      [:li
+       [:a
+        (route->href :show-character (-> character :id keyname))
+        (s-format "%s < %s >" (:name character) (:level character))]]
+      #_[:details
+         [:summary (s-format "%s < %s >" (:name character) (:level character))]
+         (show-character character)])]])

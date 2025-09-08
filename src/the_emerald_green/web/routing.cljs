@@ -40,7 +40,12 @@
 (defn goto-search [query]
   (goto-str (str (route->hash :search) "/" query)))
 
-(defn goto [route] (goto-str (get route->hash route not-found-route)))
+(defn goto [route & args]
+  (goto-str
+   (string/join "/" (cons (or (get route->hash route)
+                              (route->hash not-found-route))
+                          args))))
+
 (def go-home #(goto default-route))
 
 (defn redirect

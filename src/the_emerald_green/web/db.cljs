@@ -67,9 +67,9 @@
   (let [dehydrated (c/dehydrate-character character)]
     (upsert-doc! dehydrated :id (or id (str character-prefix "/" (random-uuid))))))
 
-(def equipment-prefix "equipment")
+(def stuff-prefix "stuff")
 (defn save-equipment! [equipment & [id]]
-  (upsert-doc! equipment :id (or id (str equipment-prefix "/" (random-uuid)))))
+  (upsert-doc! equipment :id (or id (str stuff-prefix "/" (random-uuid)))))
 
 (defn normalize-results [results docs?]
   (vec
@@ -89,20 +89,16 @@
 (defn list-characters [& args]
   (apply list-type character-prefix args))
 
-(defn list-equipment [& args]
-  (apply list-type equipment-prefix args))
+(defn list-stuff [& args]
+  (apply list-type stuff-prefix args))
 
-(defn setup-db []
-  (-> (js/Promise.all
-       (clj->js
-        [(list-characters)
-         (list-equipment)]))
-      (.then
-       (fn [[characters equipment]]
-         {:characters (zipmap (map :_id characters) characters)
-          :equipment (zipmap (map :_id equipment) equipment)}))
-      (.then
-       #(do
-          (js/console.log "DB OK! Contents:")
-          (println %)
-          (js/console.log (clj->js %))))))
+(defn setup-db [-characters -stuff]
+  (.then
+   (js/Promise.all
+    (clj->js
+     [(list-characters)
+      (list-stuff)]))
+   (fn [[characters stuff]]
+     (println characters stuff)
+     (reset! -characters (zipmap (map :_id characters) characters))
+     (reset! -stuff (zipmap (map :_id stuff) stuff)))))

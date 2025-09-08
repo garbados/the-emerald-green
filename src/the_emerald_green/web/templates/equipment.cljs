@@ -55,8 +55,9 @@
    :consumable describe-consumable
    :item describe-item})
 
-(defn equipment-guide [type->stuff]
-  (let [type->stuff (or type->stuff equipment/type->stuff)]
+(defn equipment-guide [custom-stuff]
+  (let [type->custom-stuff (group-by :type (vals custom-stuff))
+        type->stuff (merge-with concat equipment/type->stuff type->custom-stuff)]
     [:div.content
      [:h1.title "Equipment Guide"]
      (for [[stuff-type title] [[:weapon "Weapons"]

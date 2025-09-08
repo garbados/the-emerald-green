@@ -5,10 +5,10 @@
    [the-emerald-green.traits :as traits]
    [the-emerald-green.utils :refer [keyname]]
    [the-emerald-green.web.alchemy :refer [profane]]
-   [the-emerald-green.web.routing :refer [route->href route-pattern]]
+   [the-emerald-green.web.db :as db]
+   [the-emerald-green.web.routing :refer [goto route->href route-pattern]]
    [the-emerald-green.web.templates.characters :as ct]
-   [the-emerald-green.web.utils :refer [refresh-node]]
-   [clojure.string :as string]))
+   [the-emerald-green.web.utils :refer [refresh-node]]))
 
 (def sanctify-msg "Will you hold it sacred?")
 (def nothing-sacred "Is nothing sacred to you?")
@@ -36,9 +36,9 @@
                      :on-restore on-restore
                      :empty-msg empty-msg)))
 
-(defn edit-character [& {:keys [character on-save on-cancel]}]
+(defn edit-character [& {:keys [character on-save]}]
   (let [{char-name :name
-         :keys [biography sanctified exiled level]
+         :keys [biography sanctified exiled level wealth]
          :or {level 1
               char-name ""
               biography ""
@@ -48,11 +48,24 @@
         -biography (atom biography)
         -sanctified (atom sanctified)
         -exiled (atom exiled)
+        -wealth (atom wealth)
         -traits (atom
                  (when-let [pact (seq (into @-exiled @-sanctified))]
                    (traits/determine-traits pact)))
         -deck-query (atom "")
         -shop-query (atom "")
+        save-character
+        (db/save-character!
+         {:name @-name
+          :biography @-biography
+          :level level
+          :sanctified @-sanctified
+          :exiled @-exiled
+          :equipped []
+          :inventory []
+          :media []
+          :wealth 1000}
+         (:_id character))
         list-own-deck
         #(ct/filter-deck
           (fn [card]
@@ -94,8 +107,12 @@
                        :exiled (list-exiled)
                        :sanctified (list-sanctified)
                        :new? (nil? character)
-                       :on-save on-save
-                       :on-cancel on-cancel)))
+                       :on-save
+                       (when on-save
+                         #(.then (save-character)
+                                 (fn [js-res]
+                                   (js/console.log js-res)
+                                   (on-save (.-id js-res))))))))
 
 (defn template-character []
   (let [example-id (keyword (route-pattern :template-character))
@@ -114,28 +131,26 @@
            [:p [:a (route->href :template-character id-ref) (:name character)]]
            (profane "p" (marked/parse (:biography character)))])]])))
 
-(defn show-character []
+(defn show-character [custom-characters]
   (let [character-ref (route-pattern :show-character)
-        -character (atom
-                    (when (string/starts-with? character-ref "example")
-                      (c/id->example (keyword character-ref))))
-        show-this-character
-        #(if @-character
-           (ct/show-character @-character)
-           [:div.content
-            [:h1.title "Character not found!"]
-            [:p.subtitle "No example character with this ID: " character-ref]
-            [:p "Why not " [:a (route->href :new-character) "make a new character"] "?"]
-            [:p "Or use an actual character:"]
-            [:ul
-             (for [character c/examples
-                   :let [id-ref (keyname (:id character))]]
-               [:li
-                [:p [:a (route->href :template-character id-ref) (:name character)]]
-                (profane "p" (marked/parse (:biography character)))])]])]
-    (add-watch -character :character
-               #(refresh-node "character" show-this-character))
-    [:div.content#character (show-this-character)]))
+        character
+        (get custom-characters character-ref (c/id->example (keyword character-ref)))]
+    (if character
+      [:div.content (ct/show-character character)]
+      [:div.content
+       [:h1.title "Character not found!"]
+       [:p.subtitle "No example character with this ID: " character-ref]
+       [:p "Why not " [:a (route->href :new-character) "make a new character"] "?"]
+       [:p "Or use an actual character:"]
+       [:ul
+        (for [character c/examples
+              :let [id-ref (keyname (:id character))]]
+          [:li
+           [:p [:a (route->href :template-character id-ref) (:name character)]]
+           (profane "p" (marked/parse (:biography character)))])]])))
 
-(defn edit-custom-character []
+(defn new-character []
+  (edit-character :on-save #(goto :show-character %)))
+
+(defn edit-custom-character [custom-characters]
   [:h1.title "TODO"])

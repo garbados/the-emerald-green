@@ -25,6 +25,11 @@
 
 (def main-id "main") ; contained in layout.cljs, see `container`
 
+;; GLOBAL ATOMS LOL
+
+(def -characters (atom {}))
+(def -stuff (atom {}))
+
 ;; VIEWS
 
 (def route->view
@@ -34,17 +39,17 @@
     {}
     {:card-guide         card-guide
      :trait-guide        traits-guide
-     :equipment-guide    equipment-guide
-     :characters         #(list-characters)
+     :equipment-guide    #(equipment-guide @-stuff)
+     :characters         #(list-characters @-characters)
      :template-character #(template-character)
      :new-character      #(edit-character :new? true)
-     :edit-character     #(edit-custom-character)
-     :show-character     #(show-character)
+     :edit-character     #(edit-custom-character @-characters)
+     :show-character     #(show-character @-characters)
      :campaigns          tools/campaigns
-     :search             tools/search
-     :template-stuff     from-template
-     :invent-stuff       design-equipment
-     :edit-stuff         edit-equipment
+     :search             #(tools/search @-characters @-stuff)
+     :template-stuff     #(from-template @-stuff)
+     :invent-stuff       #(design-equipment @-stuff)
+     :edit-stuff         #(edit-equipment @-stuff)
      :not-found          four-oh-four})
    (reduce
     (fn [acc [route template]] (assoc acc route (static-view template)))
@@ -57,15 +62,13 @@
 ;; prepare main view
 
 (defn setup []
-  (db/setup-db))
+  (db/setup-db -characters -stuff))
 
 (defn main-view [node]
   (.appendChild node (alchemize container))
-  (let [refresh (partial handle-refresh hash->view main-id)]
+  (let [refresh #(handle-refresh hash->view main-id)]
     (js/window.addEventListener "popstate" refresh)
-    (.then
-     (js/Promise.resolve (setup))
-     #(refresh))))
+    (.then (js/Promise.resolve (setup)) refresh)))
 
 ;; webcomponents
 

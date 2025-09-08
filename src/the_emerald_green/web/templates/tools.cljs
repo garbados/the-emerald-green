@@ -9,7 +9,7 @@
    [:p "TODO"]])
 
 (def search-re (re-pattern (str (route->hash :search) "/")))
-(defn search []
+(defn search [custom-characters custom-stuff]
   (let [query (string/replace-first js/document.location.hash search-re "")]
     [:div.content
      [:h1 (str "Search: " query)]
