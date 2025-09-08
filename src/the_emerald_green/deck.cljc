@@ -4,7 +4,6 @@
       [the-emerald-green.macros :refer [slurp-edn]]
       :cljs
       [the-emerald-green.macros :refer-macros [slurp-edn]])
-   [clojure.set :as set]
    [clojure.spec.alpha :as s]
    [clojure.string :as string]
    [the-emerald-green.utils :refer [name->keyword]]))
@@ -67,11 +66,11 @@
    :the-page-of-cups
    :the-page-of-pentacles
    :wheel-of-fortune
+   :justice
    :the-knight-of-swords
    :the-knight-of-wands
    :the-knight-of-cups
    :the-knight-of-pentacles
-   :justice
    :the-star
    :the-queen-of-swords
    :the-queen-of-wands

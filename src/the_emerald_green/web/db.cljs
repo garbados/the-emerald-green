@@ -111,6 +111,4 @@
                   (swap! -stuff assoc (:_id doc) doc))))))
      (reset! -characters (zipmap (map :_id characters) (map c/hydrate-character characters)))
      (reset! -stuff (zipmap (map :_id stuff) stuff))
-     (println "[DB OK]")
-     (cljs.pprint/pprint @-characters)
-     (cljs.pprint/pprint @-stuff))))
+     (println "[DB OK]"))))
