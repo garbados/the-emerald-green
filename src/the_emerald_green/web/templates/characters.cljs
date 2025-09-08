@@ -125,7 +125,7 @@
 
 (defn list-traits [traits & {:keys [height]
                              :or {height default-height}}]
-  [:div
+  [:div.block
    {:style (str "overflow: scroll; max-height: " height "px;")}
    (if (seq traits)
      (for [[trait-id n] (sort-by (comp name first) traits)
@@ -212,7 +212,9 @@
          [:a.button.is-light (route->href :template-character (-> character :id keyname)) "Use as Template"])
        (when-let [_id (:_id character)]
          [:a.button.is-info (route->href :edit-character _id) "Edit"])]]]]
-   (profane "blockquote" (marked/parse (:biography character)))
+   [:div.block
+    {:style "overflow: scroll; max-height: 500px;"}
+    (profane "blockquote" (marked/parse (:biography character)))]
    [:div.block
     [:h4.subtitle "Pact"]
     [:div.box
@@ -232,9 +234,10 @@
     [:h4.subtitle "Stats"]
     (list-stats-from-traits level traits)]
    [:div.block
+    [:h4.subtitle "Traits"]
+    (list-traits traits)]
+   [:div.block
     [:h4.subtitle "Livery"]]])
-
-(def ulify #(vec [:li %]))
 
 (defn summarize-character [character & {:keys [show?]
                                         :or {show? false}}]

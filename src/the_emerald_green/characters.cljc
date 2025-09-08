@@ -6,6 +6,10 @@
    [the-emerald-green.core :as core]
    [the-emerald-green.deck :as deck]
    [the-emerald-green.equipment :as equipment]
+   #?(:clj
+      [the-emerald-green.macros :refer [slurp-resource]]
+      :cljs
+      [the-emerald-green.macros :refer-macros [slurp-resource]])
    [the-emerald-green.money :as money]
    [the-emerald-green.traits :as traits]
    [the-emerald-green.utils :as utils]))
@@ -319,9 +323,19 @@
     base-character
     {:name "Dhutlo K'smani"
      :id :example/dhutlo-ksmani
-     :biography "The *last* and *first* of Clan Quxot'l and G'xbenmi Fen."
+     :biography (slurp-resource "examples/dhutlo.md")
      :sanctified #{:the-hermit :the-ace-of-swords}
      :exiled #{:the-page-of-swords :the-knight-of-cups :the-two-of-wands}})))
 
-(def examples [dhutlo])
+(def tessa
+  (hydrate-character
+   (merge
+    base-character
+    {:name "Tessa, the Wayward"
+     :id :example/tessa-the-wayward
+     :biography (slurp-resource "examples/tessa.md")
+     :sanctified #{:the-tower :the-ace-of-cups}
+     :exiled #{:the-fool :the-two-of-swords :the-queen-of-cups}})))
+
+(def examples [dhutlo tessa])
 (def id->example (zipmap (map :id examples) examples))

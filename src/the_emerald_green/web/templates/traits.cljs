@@ -66,7 +66,7 @@
      :keys [effect description]
      :as trait}
     & [n]]
-   [:div.block>div.box>div.content
+   [:div.block>div.box
     [:p.subtitle trait-name (when (< 1 n) (str " (x " n ")"))]
     [:blockquote
      (profane "p" (marked/parse description))]
