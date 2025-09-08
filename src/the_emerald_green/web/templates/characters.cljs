@@ -255,11 +255,11 @@
   [characters & {:keys [edit?]}]
   (let [summarize #(summarize-character % :edit? edit?)]
     [[:div.block
-      [:h3.subtitle "Examples"]
+      [:p.subtitle "Examples"]
       (map summarize c/examples)]
      (when (seq characters)
        [:div.block
-        [:h3.subtitle "Custom"]
+        [:p.subtitle "Custom"]
         (map summarize (vals characters))])]))
 
 (defn character-not-found [custom-characters attempted-ref]
