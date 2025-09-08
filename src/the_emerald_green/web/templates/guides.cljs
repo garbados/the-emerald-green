@@ -4,8 +4,7 @@
             [the-emerald-green.guides :as guides]))
 
 (defn guide-text [text]
-  [:div.content
-   (profane "span" (marked/parse text))])
+  (profane "span" (marked/parse text)))
 
 (def guides
   (reduce

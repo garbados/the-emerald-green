@@ -78,8 +78,7 @@
   (let [thing-id (route-pattern :template-stuff)
         {thing-type :type :as thing}
         (get custom-stuff thing-id (equipment/id->equipment (keyword thing-id)))]
-    [:div.content
-     [:h1 "Create from Template"]
+    [[:h1 "Create from Template"]
      (when-let [thing-maker (type->maker thing-type)]
        (thing-maker thing))]))
 

@@ -171,8 +171,7 @@
   (let [-query (atom "")
         refresh-traits #(refresh-node "traits" (partial list-traits @-query))]
     (add-watch -query :query refresh-traits)
-    [:div.content
-     [:h1 "Trait Guide"]
+    [[:h1 "Trait Guide"]
      [:div.block
       [:p "Here are documented all the fae traits you may... develop."]
       (prompts/text -query

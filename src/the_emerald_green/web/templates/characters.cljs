@@ -143,11 +143,10 @@
    -biography
    -deck-query
    -shop-query
-   & {:keys [new? on-save on-cancel
+   & {:keys [new? on-save
              deck traits sanctified exiled stats
              equipment]}]
-  [:div.content
-   [:h1.title (if new? "New Character" "Edit Character")]
+  [[:h1.title (if new? "New Character" "Edit Character")]
    [:div.block
     [:div.field
      [:label.label "Name"]
@@ -199,7 +198,8 @@
        "Save"]])])
 
 (defn show-character [{:as character
-                       :keys [level traits]}]
+                       :keys [level traits]}
+                      & {:keys [on-delete]}]
   [:div.block
    [:div.level
     [:div.level-left
@@ -210,10 +210,12 @@
       [:div.buttons.has-addons
        (when (:id character)
          [:a.button.is-light (route->href :template-character (-> character :id keyname)) "Use as Template"])
+       (when on-delete
+         [:button.button.is-danger {:on-click on-delete} "Delete!"])
        (when-let [_id (:_id character)]
          [:a.button.is-info (route->href :edit-character _id) "Edit"])]]]]
    [:div.block
-    {:style "overflow: scroll; max-height: 500px;"}
+    {:style "overflow: scroll; max-height: 300px;"}
     (profane "blockquote" (marked/parse (:biography character)))]
    [:div.block
     [:h4.subtitle "Pact"]
@@ -269,8 +271,7 @@
   (let [attempted-str (if (keyword? attempted-ref) (keyname attempted-ref) attempted-ref)
         example? (string/starts-with? attempted-ref "example")
         error-msg (str "No " (if example? "example" "custom") " character with this ID: " attempted-str)]
-    [:div.content
-     [:div.block
+    [[:div.block
       [:h1.title "Character not found!"]]
      [:div.block
       [:p.subtitle error-msg]]

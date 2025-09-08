@@ -85,8 +85,7 @@
   (let [-query (atom "")
         refresh-cards #(refresh-node "cards" (partial list-cards @-query))]
     (add-watch -query :query refresh-cards)
-    [:div.content
-     [:h1 "Card Guide"]
+    [[:h1 "Card Guide"]
      [:div.block
       [:p "A 78-card Tarot deck has the following cards. They tell a kind of story, and contain many fates."]
       (prompts/text -query

@@ -119,7 +119,7 @@
         character
         (get custom-characters character-ref (c/id->example (keyword character-ref)))]
     (if character
-      [:div.content (ct/show-character character)]
+      (ct/show-character character)
       (character-not-found custom-characters character-ref :show? true))))
 
 (defn new-character []
@@ -144,6 +144,5 @@
       (character-not-found custom-characters character-ref))))
 
 (defn list-characters [custom-characters]
-  [:div.content
-   [:h1.title "Characters"]
+  [[:h1.title "Characters"]
    (ct/list-characters custom-characters :show? true)])

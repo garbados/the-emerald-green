@@ -75,8 +75,7 @@
                             or-try-route default-route}}]
   (let [not-found (route-pattern route)]
     (if (seq not-found)
-      [:div.content
-       [:h1.title not-found-msg]
+      [[:h1.title not-found-msg]
        [:p.subtitle "I couldn't find that: " not-found]
        [:p "Why not " [:a (route->href or-try-route) or-try-msg] "?"]]
       (redirect))))

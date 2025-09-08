@@ -4,13 +4,11 @@
    [the-emerald-green.web.routing :refer [route->hash]]))
 
 (defn campaigns []
-  [:div.content
-   [:h1 "Campaigns"]
+  [[:h1 "Campaigns"]
    [:p "TODO"]])
 
 (def search-re (re-pattern (str (route->hash :search) "/")))
 (defn search [custom-characters custom-stuff]
   (let [query (string/replace-first js/document.location.hash search-re "")]
-    [:div.content
-     [:h1 (str "Search: " query)]
+    [[:h1 (str "Search: " query)]
      [:p "TODO"]]))
