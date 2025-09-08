@@ -234,14 +234,42 @@
    [:div.block
     [:h4.subtitle "Livery"]]])
 
+(def ulify #(vec [:li %]))
+
+(defn summarize-character [character & {:keys [edit?]
+                                        :or {edit? true}}]
+  (let [example? (keyword? (:id character))
+        [route ref]
+        (if edit?
+          (if example?
+            [:template-character (-> character :id keyname)]
+            [:edit-character (:_id character)])
+          [:show-character (:_id character (-> character :id keyname))])]
+    [:div.box
+     [:p.subtitle [:a (route->href route ref) (:name character)]]
+     [:p
+      {:style "max-height: 300px; overflow: scroll;"}
+      (profane "blockquote" (marked/parse (:biography character)))]]))
+
 (defn list-characters
-  [characters]
-  [:div.content
-   [:h1 "Characters"]
-   [:ul
-    (for [character (concat (vals characters) c/examples)
-          :let [character-id (get character :_id (keyname (:id character)))]]
-      [:li
-       [:a
-        (route->href :show-character character-id)
-        (s-format "%s < %s >" (:name character) (:level character))]])]])
+  [characters & {:keys [edit?]}]
+  (let [summarize #(summarize-character % :edit? edit?)]
+    [[:div.block
+      [:h3.subtitle "Examples"]
+      (map summarize c/examples)]
+     (when (seq characters)
+       [:div.block
+        [:h3.subtitle "Custom"]
+        (map summarize (vals characters))])]))
+
+(defn character-not-found [custom-characters attempted-ref]
+  (let [example? (string/starts-with? attempted-ref "example")
+        error-msg (str "No " (if example? "example" "custom") " character with this ID: " attempted-ref)]
+    [:div.content
+     (cons
+      [:div.block
+       [:h1.title "Character not found!"]
+       [:p.subtitle error-msg]
+       [:p "Why not " [:a (route->href :new-character) "make a new character"] "?"]
+       [:p "Or use another character:"]]
+      (list-characters custom-characters))]))

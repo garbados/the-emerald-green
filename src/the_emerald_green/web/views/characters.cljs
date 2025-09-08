@@ -1,15 +1,11 @@
 (ns the-emerald-green.web.views.characters
   (:require
-   ["marked" :as marked]
-   [clojure.string :as string]
    [the-emerald-green.characters :as c]
    [the-emerald-green.deck :as deck]
    [the-emerald-green.traits :as traits]
-   [the-emerald-green.utils :refer [keyname]]
-   [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.db :as db]
-   [the-emerald-green.web.routing :refer [goto route->href route-pattern]]
-   [the-emerald-green.web.templates.characters :as ct]
+   [the-emerald-green.web.routing :refer [goto route-pattern]]
+   [the-emerald-green.web.templates.characters :as ct :refer [character-not-found]]
    [the-emerald-green.web.utils :refer [refresh-node]]))
 
 (def sanctify-msg "Will you hold it sacred?")
@@ -116,34 +112,7 @@
                (fn [js-res]
                  (on-save (.-id js-res))))))))
 
-(defn summarize-character [character]
-  (let [example? (keyword? (:id character))
-        [route ref]
-        (if example?
-          [:template-character (-> character :id keyname)]
-          [:edit-character (:_id character)])]
-    [[:p [:a (route->href route ref) (:name character)]]
-     (profane "p" (marked/parse (:biography character)))]))
 
-(def ulify #(vec [:li %]))
-
-(defn character-not-found [custom-characters attempted-ref]
-  (let [example? (string/starts-with? attempted-ref "example")
-        error-msg (str "No " (if example? "example" "custom") " character with this ID: " attempted-ref)]
-    [:div.content
-     [:div.block
-      [:h1.title "Character not found!"]
-      [:p.subtitle error-msg]
-      [:p "Why not " [:a (route->href :new-character) "make a new character"] "?"]
-      [:p "Or use another character:"]]
-     [:div.block
-      [:h3 [:strong "Examples"]]
-      [:ul
-       (map (comp ulify summarize-character) c/examples)]]
-     [:div.block
-      [:h3 [:strong "Custom"]]
-      [:ul
-       (map (comp ulify summarize-character) (vals custom-characters))]]]))
 
 (defn show-character [custom-characters]
   (let [character-ref (route-pattern :show-character)
@@ -172,3 +141,7 @@
                       :on-save #(goto :show-character %)
                       :id character-ref)
       (character-not-found custom-characters character-ref))))
+
+(defn list-characters [custom-characters]
+  [:div.content
+   (ct/list-characters custom-characters :edit? false)])

@@ -6,7 +6,6 @@
    [the-emerald-green.web.db :as db]
    [the-emerald-green.web.routing :refer [four-oh-four handle-refresh
                                           route->hash]]
-   [the-emerald-green.web.templates.characters :refer [list-characters]]
    [the-emerald-green.web.templates.deck :refer [card-guide]]
    [the-emerald-green.web.templates.equipment :refer [equipment-guide]]
    [the-emerald-green.web.templates.guides :as guides]
@@ -17,7 +16,8 @@
    [the-emerald-green.web.views.characters :refer [edit-custom-character
                                                    new-character
                                                    show-character
-                                                   template-character]]
+                                                   template-character
+                                                   list-characters]]
    [the-emerald-green.web.views.equipment :refer [design-equipment
                                                   edit-equipment from-template]]))
 
