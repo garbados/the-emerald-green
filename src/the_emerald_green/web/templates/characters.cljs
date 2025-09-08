@@ -215,26 +215,25 @@
          [:a.button.is-info (route->href :edit-character _id) "Edit"])]]]]
    (profane "p" (marked/parse (:biography character)))
    [:div.block
-    [:p.subtitle "Pact"]
-    [:ul
+    [:h4.subtitle "Pact"]
+    [:div.box
      (for [group [:sanctified :exiled]
            :let [group-name (-> group name string/capitalize)
                  cards (get character group)]]
-       [:li
-        [:p
-         [:span (help/tag->title group) group-name]
-         ": "
-         (interpose
-          ", "
-          (for [card-id cards
-                :let [{card-name :name
-                       :keys [description]} (deck/id->card card-id)]]
-            [:span (help/tag->title description) card-name]))]])]]
+       [:p
+        [:span (help/tag->title group) group-name]
+        ": "
+        (interpose
+         ", "
+         (for [card-id cards
+               :let [{card-name :name
+                      :keys [description]} (deck/id->card card-id)]]
+           [:span (help/tag->title description) card-name]))])]]
    [:div.block
-    [:p.subtitle "Stats"]
+    [:h4.subtitle "Stats"]
     (list-stats-from-traits level traits)]
    [:div.block
-    [:p.subtitle "Livery"]]])
+    [:h4.subtitle "Livery"]]])
 
 (defn list-characters
   ([] (list-characters []))
@@ -243,9 +242,10 @@
     [:h1 "Characters"]
     [:ul
      (for [character (concat characters c/examples)]
-       [:li>a
-        (route->href :show-character (-> character :id keyname))
-        (s-format "%s < %s >" (:name character) (:level character))]
+       [:li
+        [:a
+         (route->href :show-character (-> character :id keyname))
+         (s-format "%s < %s >" (:name character) (:level character))]]
        #_[:details
           [:summary (s-format "%s < %s >" (:name character) (:level character))]
           (show-character character)])]]))
