@@ -14,8 +14,8 @@
    [the-emerald-green.web.templates.tools :as tools]
    [the-emerald-green.web.templates.traits :refer [traits-guide]]
    [the-emerald-green.web.utils :refer [debounce dynamic-view static-view]]
-   [the-emerald-green.web.views.characters :refer [edit-character
-                                                   edit-custom-character
+   [the-emerald-green.web.views.characters :refer [edit-custom-character
+                                                   new-character
                                                    show-character
                                                    template-character]]
    [the-emerald-green.web.views.equipment :refer [design-equipment
@@ -42,7 +42,7 @@
      :equipment-guide    #(equipment-guide @-stuff)
      :characters         #(list-characters @-characters)
      :template-character #(template-character @-characters)
-     :new-character      #(edit-character)
+     :new-character      #(new-character)
      :edit-character     #(edit-custom-character @-characters)
      :show-character     #(show-character @-characters)
      :campaigns          tools/campaigns
@@ -69,12 +69,10 @@
 (defn main-view [node]
   (.appendChild node (alchemize container))
   (js/window.addEventListener "popstate" refresh)
-  (-> (js/Promise.resolve (setup))
-      (.then
-       (fn []
-         (add-watch -characters :refresh (debounce refresh 100))
-         (add-watch -stuff :refresh (debounce refresh 100))))
-      (.then refresh)))
+  (.then (js/Promise.resolve (setup))
+         #(do (add-watch -characters :refresh (debounce refresh 100))
+              (add-watch -stuff :refresh (debounce refresh 100))
+              (refresh))))
 
 ;; webcomponents
 

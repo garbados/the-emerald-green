@@ -145,13 +145,6 @@
       [:ul
        (map (comp ulify summarize-character) (vals custom-characters))]]]))
 
-(defn template-character [custom-characters]
-  (let [example-id (keyword (route-pattern :template-character))
-        character (first (filter #(= example-id (:id %)) c/examples))]
-    (if character
-      (edit-character :character character)
-      (character-not-found custom-characters example-id))))
-
 (defn show-character [custom-characters]
   (let [character-ref (route-pattern :show-character)
         character
@@ -162,6 +155,14 @@
 
 (defn new-character []
   (edit-character :on-save #(goto :show-character %)))
+
+(defn template-character [custom-characters]
+  (let [example-id (keyword (route-pattern :template-character))
+        character (first (filter #(= example-id (:id %)) c/examples))]
+    (if character
+      (edit-character :character character
+                      :on-save #(goto :show-character %))
+      (character-not-found custom-characters example-id))))
 
 (defn edit-custom-character [custom-characters]
   (let [character-ref (route-pattern :edit-character)

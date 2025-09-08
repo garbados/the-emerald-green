@@ -35,7 +35,7 @@
       (string/replace-first #"^/" "")))
 
 (defn goto-str [s]
-  (js/history.pushState {} "" s))
+  (set! js/window.location s))
 
 (defn goto-search [query]
   (goto-str (str (route->hash :search) "/" query)))
@@ -45,8 +45,6 @@
    (string/join "/" (cons (or (get route->hash route)
                               (route->hash not-found-route))
                           args))))
-
-(def go-home #(goto default-route))
 
 (defn redirect
   ([] (redirect default-route))
