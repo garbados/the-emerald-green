@@ -99,23 +99,22 @@
                #(do (refresh-traits)
                     (refresh-stats)))
     (add-watch -deck-query :query refresh-deck)
-    (ct/edit-character -name
-                       -biography
-                       -deck-query
-                       -shop-query
-                       :deck (list-own-deck)
-                       :traits (list-own-traits)
-                       :stats (list-own-stats)
-                       :exiled (list-exiled)
-                       :sanctified (list-sanctified)
-                       :new? (nil? character)
-                       :on-save
-                       (when on-save
-                         #(.then (save-character)
-                                 (fn [js-res]
-                                   (js/console.log "saved!")
-                                   (js/console.log js-res)
-                                   (on-save (.-id js-res))))))))
+    (ct/edit-character
+     -name
+     -biography
+     -deck-query
+     -shop-query
+     :deck (list-own-deck)
+     :traits (list-own-traits)
+     :stats (list-own-stats)
+     :exiled (list-exiled)
+     :sanctified (list-sanctified)
+     :new? (nil? character)
+     :on-save
+     (when on-save
+       #(.then (save-character)
+               (fn [js-res]
+                 (on-save (.-id js-res))))))))
 
 (defn summarize-character [character]
   (let [example? (keyword? (:id character))

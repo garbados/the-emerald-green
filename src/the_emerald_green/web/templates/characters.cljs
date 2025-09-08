@@ -212,7 +212,7 @@
          [:a.button.is-light (route->href :template-character (-> character :id keyname)) "Use as Template"])
        (when-let [_id (:_id character)]
          [:a.button.is-info (route->href :edit-character _id) "Edit"])]]]]
-   (profane "p" (marked/parse (:biography character)))
+   (profane "blockquote" (marked/parse (:biography character)))
    [:div.block
     [:h4.subtitle "Pact"]
     [:div.box

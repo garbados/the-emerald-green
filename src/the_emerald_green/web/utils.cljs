@@ -7,7 +7,7 @@
   (refresh node-ish (clj->js (expr))))
 
 (defn dynamic-view [expr]
-  #(refresh %1 (clj->js (expr))))
+  #(refresh-node % expr))
 
 (defn static-view [template]
   #(refresh %1 (clj->js template)))

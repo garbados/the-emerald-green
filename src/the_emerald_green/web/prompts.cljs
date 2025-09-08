@@ -17,11 +17,18 @@
        placeholder (assoc :placeholder placeholder)
        (or on-submit on-change) (assoc :onkeydown onkeydown))]))
 
-(defn textarea [-value & {:keys [wait] :or {wait default-wait-ms}}]
-  [:textarea.textarea
-   {:oninput (debounce #(reset! -value (-> % .-target .-value)) wait)
-    :rows 10}
-   @-value])
+(defn textarea [-value & {:keys [wait on-submit] :or {wait default-wait-ms}}]
+  (let [onkeydown
+        (when on-submit
+          #(when (and (or (= 10 (.-keyCode %))
+                          (= 13 (.-keyCode %)))
+                      (.-ctrlKey %))
+             (on-submit @-value)))]
+    [:textarea.textarea
+     {:oninput (debounce #(reset! -value (-> % .-target .-value)) wait)
+      :onkeydown onkeydown
+      :rows 10}
+     @-value]))
 
 (defn field [label help prompt -atom & args]
   [:div.field

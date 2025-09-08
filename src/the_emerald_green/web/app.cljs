@@ -13,7 +13,7 @@
    [the-emerald-green.web.templates.layout :refer [container]]
    [the-emerald-green.web.templates.tools :as tools]
    [the-emerald-green.web.templates.traits :refer [traits-guide]]
-   [the-emerald-green.web.utils :refer [dynamic-view static-view]]
+   [the-emerald-green.web.utils :refer [debounce dynamic-view static-view]]
    [the-emerald-green.web.views.characters :refer [edit-character
                                                    edit-custom-character
                                                    show-character
@@ -42,7 +42,7 @@
      :equipment-guide    #(equipment-guide @-stuff)
      :characters         #(list-characters @-characters)
      :template-character #(template-character @-characters)
-     :new-character      #(edit-character :new? true)
+     :new-character      #(edit-character)
      :edit-character     #(edit-custom-character @-characters)
      :show-character     #(show-character @-characters)
      :campaigns          tools/campaigns
@@ -59,6 +59,8 @@
 (def hash->view
   (zipmap (map route->hash (keys route->view)) (vals route->view)))
 
+(def refresh #(handle-refresh hash->view main-id))
+
 ;; prepare main view
 
 (defn setup []
@@ -66,11 +68,13 @@
 
 (defn main-view [node]
   (.appendChild node (alchemize container))
-  (let [refresh #(handle-refresh hash->view main-id)]
-    (js/window.addEventListener "popstate" refresh)
-    ;; (add-watch -characters :refresh refresh)
-    ;; (add-watch -stuff :refresh refresh)
-    (.then (js/Promise.resolve (setup)) refresh)))
+  (js/window.addEventListener "popstate" refresh)
+  (-> (js/Promise.resolve (setup))
+      (.then
+       (fn []
+         (add-watch -characters :refresh (debounce refresh 100))
+         (add-watch -stuff :refresh (debounce refresh 100))))
+      (.then refresh)))
 
 ;; webcomponents
 
