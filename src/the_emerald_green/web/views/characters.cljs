@@ -7,7 +7,8 @@
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.routing :refer [route->href route-pattern]]
    [the-emerald-green.web.templates.characters :as ct]
-   [the-emerald-green.web.utils :refer [refresh-node]]))
+   [the-emerald-green.web.utils :refer [refresh-node]]
+   [clojure.string :as string]))
 
 (def sanctify-msg "Will you hold it sacred?")
 (def nothing-sacred "Is nothing sacred to you?")
@@ -105,13 +106,37 @@
        [:h1.title "Character not found!"]
        [:p.subtitle "No example character with this ID: " example-id]
        [:p "Why not " [:a (route->href :new-character) "make a new character"] "?"]
-       [:p "Or use an actual example character:"]
+       [:p "Or use an actual character:"]
        [:ul
         (for [character c/examples
               :let [id-ref (keyname (:id character))]]
           [:li
            [:p [:a (route->href :template-character id-ref) (:name character)]]
            (profane "p" (marked/parse (:biography character)))])]])))
+
+(defn show-character []
+  (let [character-ref (route-pattern :show-character)
+        -character (atom nil)
+        show-this-character
+        #(if @-character
+           (ct/show-character @-character)
+           [:div.content
+            [:h1.title "Character not found!"]
+            [:p.subtitle "No example character with this ID: " character-ref]
+            [:p "Why not " [:a (route->href :new-character) "make a new character"] "?"]
+            [:p "Or use an actual character:"]
+            [:ul
+             (for [character c/examples
+                   :let [id-ref (keyname (:id character))]]
+               [:li
+                [:p [:a (route->href :template-character id-ref) (:name character)]]
+                (profane "p" (marked/parse (:biography character)))])]])]
+    (add-watch -character :character
+               #(refresh-node "character" show-this-character))
+    (if (string/starts-with? character-ref "example")
+      (reset! -character (c/id->example (keyword character-ref)))
+      #_TODO_fetch_from_db)
+    [:div#character]))
 
 (defn edit-custom-character []
   [:h1.title "TODO"])

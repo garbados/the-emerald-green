@@ -16,6 +16,7 @@
    [the-emerald-green.web.utils :refer [dynamic-view static-view]]
    [the-emerald-green.web.views.characters :refer [edit-character
                                                    edit-custom-character
+                                                   show-character
                                                    template-character]]
    [the-emerald-green.web.views.equipment :refer [design-equipment
                                                   edit-equipment from-template]]))
@@ -38,6 +39,7 @@
      :template-character #(template-character)
      :new-character      #(edit-character :new? true)
      :edit-character     #(edit-custom-character)
+     :show-character     #(show-character)
      :campaigns          tools/campaigns
      :search             tools/search
      :template-stuff     from-template

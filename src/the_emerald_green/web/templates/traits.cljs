@@ -37,15 +37,15 @@
   (let [{talent-name :name
          :keys [description]}
         (if (keyword? talent-ish) (traits/id->talent talent-ish) talent-ish)]
-    [:div
+    [:div.block
      [:p [:em talent-name] ": " description]]))
 
 (defn describe-ability [ability-ish]
   (let [{ability-name :name
          :keys [description actions phase tags madness]}
         (if (keyword? ability-ish) (traits/id->ability ability-ish) ability-ish)]
-    [:div
-     [:p [:em ability-name]]
+    [:div.block
+     [:p [:strong>em ability-name]]
      [:blockquote
       (profane "p" (marked/parse description))]
      [:ul

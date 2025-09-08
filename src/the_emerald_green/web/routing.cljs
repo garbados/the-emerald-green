@@ -20,6 +20,7 @@
    :template-character "#/characters/new-from"
    :new-character      "#/characters/new"
    :edit-character     "#/characters/edit"
+   :show-character     "#/characters/show"
    :characters         "#/characters"
    :campaigns          "#/campaigns"
    :search             "#/search"

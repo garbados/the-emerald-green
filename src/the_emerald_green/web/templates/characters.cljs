@@ -65,10 +65,9 @@
                "Restore!"]]])]]
     [:p "None. " (when empty-msg [:em empty-msg])]))
 
-(defn list-stats
-  [{:keys [attributes skills talents abilities]}
-   fungibles]
-  [[:p.subtitle "Attributes"]
+(defn describe-attributes [attributes]
+  [:div.box>div.block
+   [:p.subtitle "Attributes"]
    [:table.table.is-fullwidth
     [:thead
      [:tr
@@ -77,7 +76,10 @@
     [:tbody
      [:tr
       (for [tag core/attr-order]
-        [:td (get attributes tag)])]]]
+        [:td (get attributes tag)])]]]])
+
+(defn describe-fungibles [fungibles]
+  [:div.box>div.block
    [:p.subtitle "Fungibles"]
    [:table.table.is-fullwidth
     [:thead
@@ -87,30 +89,30 @@
     [:tbody
      [:tr
       (for [fung core/fung-order]
-        [:td (get fungibles fung)])]]]
+        [:td (get fungibles fung)])]]]])
+
+(defn list-stats
+  [{:keys [attributes skills talents abilities]}
+   fungibles]
+  [:div.block
+   (describe-attributes attributes)
+   (describe-fungibles fungibles)
    (when-let [known-skills (seq (map first (filter second skills)))]
-     [:div
-      [:hr]
+     [:div.box>div.block
       [:p.subtitle "Skills"]
       [:ul
        (for [skill known-skills]
          [:li (help/tag->title skill) (string/capitalize (name skill))])]])
-   [:div
-    [:hr]
-    [:p.subtitle "Talents"]
-    (if (seq talents)
-      [:ul
-       (for [talent talents]
-         [:li (describe-talent talent)])]
-      [:p "No talents..."])]
-   [:div
-    [:hr]
-    [:p.subtitle "Abilities"]
-    (if (seq abilities)
-      [:ul
-       (for [ability-id abilities]
-         [:li (describe-ability ability-id)])]
-      [:p "No abilities..."])]])
+   (when (seq talents)
+     [:div.box>div.block
+      [:p.subtitle "Talents"]
+      (for [talent talents]
+        (describe-talent talent))])
+   (when (seq abilities)
+     [:div.box>div.block
+      [:p.subtitle "Abilities"]
+      (for [ability-id abilities]
+        (describe-ability ability-id))])])
 
 (defn list-stats-from-traits [level traits]
   (let [{:keys [attributes skills] :as stats}
@@ -169,10 +171,10 @@
        [:div#traits traits]]]
      [:div.column.is-6
       [:div.box
-       [:p.subtitle "Sanctified"]
+       [:p.subtitle (help/tag->title :sanctified) "Sanctified"]
        [:div#sanctified sanctified]
        [:hr]
-       [:p.subtitle "Exiled"]
+       [:p.subtitle (help/tag->title :exiled) "Exiled"]
        [:div#exiled exiled]]
       [:div.box
        [:p.subtitle "Stats"]
@@ -197,39 +199,53 @@
       (when on-cancel
         [:button.button.is-light.is-outlined.is-fullwidth "Cancel"])])])
 
-(defn show-character [character]
-  [:div.box
-   [:h3 (:name character)]
+(defn show-character [{:as character
+                       :keys [level traits]}]
+  [:div.block>div.box
+   [:div.level
+    [:div.level-left
+     [:div.level-item
+      [:h3 (:name character)]]]
+    [:div.level-right
+     [:div.level-item
+      [:div.buttons.has-addons
+       (when (:id character)
+         [:a.button.is-light (route->href :template-character (-> character :id keyname)) "Use as Template"])
+       (when-let [_id (:_id character)]
+         [:a.button.is-info (route->href :edit-character _id) "Edit"])]]]]
    (profane "p" (marked/parse (:biography character)))
-   [:h5 "Pact"]
-   (for [group [:sanctified :exiled]
-         :let [group-name (-> group name string/capitalize)
-               cards (get character group)]]
-     [:p group-name ": "
-      (interpose
-       ", "
-       (for [card-id cards
-             :let [{card-name :name
-                    :keys [description]} (deck/id->card card-id)]]
-         [:span
-          (cond-> {}
-            (seq description)
-            (merge {:title description
-                    :style "cursor: help; text-decoration: underline dotted;"}))
-          card-name]))])
-   [:h5 "Livery"]
-   [:div.buttons
-    (when (:id character)
-      [:a.button.is-fullwidth (route->href :template-character (-> character :id keyname)) "Use as Template"])
-    (when-let [_id (:_id character)]
-      [:a.button.is-fullwidth (route->href :edit-character _id) "Edit"])]])
+   [:div.block
+    [:p.subtitle "Pact"]
+    [:ul
+     (for [group [:sanctified :exiled]
+           :let [group-name (-> group name string/capitalize)
+                 cards (get character group)]]
+       [:li
+        [:p
+         [:span (help/tag->title group) group-name]
+         ": "
+         (interpose
+          ", "
+          (for [card-id cards
+                :let [{card-name :name
+                       :keys [description]} (deck/id->card card-id)]]
+            [:span (help/tag->title description) card-name]))]])]]
+   [:div.block
+    [:p.subtitle "Stats"]
+    (list-stats-from-traits level traits)]
+   [:div.block
+    [:p.subtitle "Livery"]]])
 
 (defn list-characters
   ([] (list-characters []))
   ([characters]
    [:div.content
     [:h1 "Characters"]
-    (for [character (concat characters c/examples)]
-      [:details
-       [:summary (s-format "%s < %s >" (:name character) (:level character))]
-       (show-character character)])]))
+    [:ul
+     (for [character (concat characters c/examples)]
+       [:li>a
+        (route->href :show-character (-> character :id keyname))
+        (s-format "%s < %s >" (:name character) (:level character))]
+       #_[:details
+          [:summary (s-format "%s < %s >" (:name character) (:level character))]
+          (show-character character)])]]))

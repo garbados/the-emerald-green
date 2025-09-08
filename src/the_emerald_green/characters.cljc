@@ -324,3 +324,4 @@
      :exiled #{:the-page-of-swords :the-knight-of-cups :the-two-of-wands}})))
 
 (def examples [dhutlo])
+(def id->example (zipmap (map :id examples) examples))

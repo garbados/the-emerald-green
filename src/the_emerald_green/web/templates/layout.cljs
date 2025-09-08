@@ -17,7 +17,7 @@
        [:div.control.has-icons-right
         (prompts/text (atom "")
                       :on-submit goto-search
-                      :placeholder "🔍 Search traits")]]]
+                      :placeholder "🔍 Search content")]]]
      [:div.navbar-item
       [:a.button.is-info.is-light
        {:href "https://github.com/garbados/the-emerald-green"

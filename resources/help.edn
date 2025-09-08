@@ -4,6 +4,9 @@
  :mind "Reason and recall."
  :spirit "Will and determination."
  :luck "Serendipity and destiny."
+ ; pact
+ :sanctified "What you hold sacred. These cards remain in your deck during play."
+ :exiled "What you have bartered away. These cards are removed from your deck during play."
  ; suits
  :skills "Proficiencies that allow you to ignore challenge demands, and pass trivial expertise checks. Draw a card if you meet a challenge's demand anyway."
  :swords "Force. Associated with Body."
