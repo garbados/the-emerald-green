@@ -51,4 +51,5 @@
      [:div.columns.is-desktop
       [:div.column.is-narrow menu-bar]
       [:div.column
-       [:div.box#main]]]]]])
+       [:div.box#main
+        [:h1.title "Loading..."]]]]]]])
