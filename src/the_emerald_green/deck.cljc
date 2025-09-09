@@ -44,15 +44,15 @@
    :the-seven-of-cups
    :the-seven-of-pentacles
    :the-hermit
+   :the-eight-of-swords
    :the-eight-of-wands
    :the-eight-of-cups
-   :the-eight-of-swords
    :the-eight-of-pentacles
    :the-hanged-man
    :death
+   :the-nine-of-swords
    :the-nine-of-wands
    :the-nine-of-cups
-   :the-nine-of-swords
    :the-nine-of-pentacles
    :temperance
    :the-ten-of-swords
