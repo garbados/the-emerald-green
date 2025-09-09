@@ -2,8 +2,10 @@
 ;; - attack
 ;; - defend
 ;; - analyze
-;; - setup
+;; - ready
+;; - step
 ;; - move
+;; - sprint
 ;; # exploration
 ;; - search
 ;; - travel
@@ -11,14 +13,82 @@
 ;; - craft
 [{:name "Attack"
   :tags #{:attack :implicit}
+  :phase :encounter
   :id :basic-attack
   :description
   "Use an equipped weapon against a target in range.
+   This ability consumes a number of action points
+   equal to the weapon's Heft:
+   - Light: 1
+   - Medium: 2
+   - Heavy: 3
    Depending on the type of weapon, the Challenge may demand:
    - Melee: Swords
    - Ranged: Wands
    The difficulty of this check is 10,
    unless the defender chooses to actively defend themselves.
    If they do, they can Respond.
-   The result's effective rank becomes the new difficulty.
-   "}]
+   The result's effective rank becomes the new difficulty,
+   potentially averting damage.
+
+   If the attack succeeds, it deals damage
+   equal to the weapon's Heft,
+   unless otherwise indicated.
+
+   When making a melee attack,
+   or defending against attacks,
+   you may use a Step action
+   at no cost."}
+ {:name "Defend"
+  :tags #{:implicit}
+  :phase :encounter
+  :actions 1
+  :id :active-defense
+  :description
+  "Ready your shield. Position the parry. Tense for the roll.
+   Protect yourself.
+
+   Until the beginning of your next turn,
+   increase the difficulty of attacks against you
+   by 2."}
+ {:name "Analyze"
+  :tags #{:implicit}
+  :phase :encounter
+  :actions 1
+  :id :analyze
+  :description
+  "Take a moment to assess the situation. Reach for solutions.
+   Draw a card."}
+ {:name "Ready"
+  :tags #{:implicit :meta}
+  :phase :encounter
+  :id :ready-action
+  :description
+  "Prepare for something.
+   Name an ability and a condition.
+   If, while it is not your turn,
+   that condition is met,
+   you may carry out the ability
+   against contextually appropriate targets.
+   (Ex: fire on the first enemy you see, etc.)
+
+   Readying this action takes as many action points
+   as the ability does to carry out.
+   If the condition is not met,
+   the action points are lost."}
+ {:name "Step"
+  :tags #{:implicit :movement}
+  :phase :encounter
+  :id :step-move
+  :description
+  "You may move up to 1 meter
+   (or one space, square or hex)
+   without triggering reactions."}
+ {:name "Move"}
+ (:name "Sprint")
+ {:name "Search"}
+ {:name "Travel"}
+ {:name "Rest"}
+ {:name "Converse"}
+ {:name "Craft"}
+ {:name "Work"}]
