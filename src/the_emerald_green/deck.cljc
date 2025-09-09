@@ -33,11 +33,11 @@
    :the-five-of-cups
    :the-five-of-pentacles
    :the-lovers
+   :the-chariot
    :the-six-of-swords
    :the-six-of-wands
    :the-six-of-cups
    :the-six-of-pentacles
-   :the-chariot
    :strength
    :the-seven-of-swords
    :the-seven-of-wands

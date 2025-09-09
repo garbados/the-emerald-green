@@ -1,0 +1,24 @@
+;; # encounters
+;; - attack
+;; - defend
+;; - analyze
+;; - setup
+;; - move
+;; # exploration
+;; - search
+;; - travel
+;; # downtime
+;; - craft
+[{:name "Attack"
+  :tags #{:attack :implicit}
+  :id :basic-attack
+  :description
+  "Use an equipped weapon against a target in range.
+   Depending on the type of weapon, the Challenge may demand:
+   - Melee: Swords
+   - Ranged: Wands
+   The difficulty of this check is 10,
+   unless the defender chooses to actively defend themselves.
+   If they do, they can Respond.
+   The result's effective rank becomes the new difficulty.
+   "}]

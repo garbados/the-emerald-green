@@ -1,1 +1,5 @@
-[]
+[{:name "Simple Armor"
+  :id :simple-armor
+  :extends :basic-item
+  :type :armor
+  :description "Essentially, thick clothing."}]
