@@ -8,11 +8,11 @@
  :sanctified "What you hold sacred. These cards remain in your deck during play."
  :exiled "What you have bartered away. These cards are removed from your deck during play."
  ; suits
- :skills "Proficiencies that allow you to ignore challenge demands, and pass trivial expertise checks. Draw a card if you meet a challenge's demand anyway."
- :swords "Force. Associated with Body."
- :wands "Intellect. Associated with Mind."
- :cups "Heart. Associated with Spirit."
- :pentacles "Chance. Associated with Luck."
+ :skills "Proficiencies that allow you to ignore challenge demands. Draw a card if you meet a challenge's demand anyway."
+ :swords "Force. Associated with Body, and Frost."
+ :wands "Intellect. Associated with Mind, and Fire."
+ :cups "Heart. Associated with Spirit, and Radiance."
+ :pentacles "Chance. Associated with Luck, and Shadow."
  ; fungibles
  :fungibles "Tokens that you gain, lose, and spend during play."
  :health "You might die when this runs out."

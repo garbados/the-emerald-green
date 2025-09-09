@@ -50,7 +50,7 @@
 
    Until the beginning of your next turn,
    increase the difficulty of attacks against you
-   by 2."}
+   by 1."}
  {:name "Analyze"
   :tags #{:implicit}
   :phase :encounter

@@ -14,7 +14,7 @@ a clever little game
 well  
 i make clever little games  
 so why not after all  
-why not have a look-see
+why not have a look-see  
 
 ## the-fool
 
@@ -153,22 +153,44 @@ Another one of the most striking and ominous cards in the deck, the Ten of Sword
 ## the-devil
 ## the-tower
 ## the-page-of-swords
+
+### labyrinthos.co
+
+The Page of Swords card is representative of a person in one's life who shows an abundance of energy. With wind-blown trees, turbulent clouds and the their tossed hair, a youth stands proudly on a rocky precipice. This energetic youth has a sword in her hands. Her expression is one of determination, and perhaps a little bit of defiance - she seems ready to pounce at the slightest word.
+
 ## the-page-of-wands
 ## the-page-of-cups
 ## the-page-of-pentacles
 ## wheel-of-fortune
 ## justice
 ## the-knight-of-swords
+
+### labyrinthos.co
+
+What a rush we see this Knight in! The Knight of Swords card depicts a young man who is dressed in his armor and rides a strong white horse into the midst of a battle. The white color of his horse is a reference to the overall purity and intellectual energy which motivates this young rider. The sky behind him holds stormy clouds as well as trees which are tossed wildly around by the strong winds. The horse’s harness is also decorated with images of birds and butterflies. The cape of the knight is also decorated with those same birds.
+
 ## the-knight-of-wands
 ## the-knight-of-cups
 ## the-knight-of-pentacles
 ## the-star
 ## the-queen-of-swords
+
+### labyrinthos.co
+
+The Queen of Swords wears a stern look as she sits high on the throne - looking off into the distance. A queen of the air element that the swords represents, her place in the clouds shows that no one can trick or fool her. The sword in her right hand is pointed towards the sky, whereas the left hand is extended like it is offering something. The Queen of Swords gives us the gift of judgment for everyday decisions and having the flexibility to take in knowledge from others.
+
 ## the-queen-of-wands
 ## the-queen-of-cups
 ## the-queen-of-pentacles
 ## the-moon
 ## the-king-of-swords
+
+### labyrinthos.co
+
+The King of Swords tarot card shows a king who sits on his throne while holding a double-edged sword that points upwards in his right hand. The King of Swords radiates intellectual power, clear thinking, truth, and authority. He understands that power holds great responsibility.
+
+The blue tunic that the king wears is a symbol of his spiritual understanding. The butterflies on the back of his throne are indicative of transformation.
+
 ## the-king-of-wands
 ## the-king-of-cups
 ## the-king-of-pentacles
@@ -182,7 +204,7 @@ The Ace of Swords shows a hand emerging from the clouds wielding a double-edged 
 
 The crown is used as the symbol for both royalty and the power to rule that comes with royalty.
 
-Behind the foreground, the sword stands floating over a varied setting - which holds both mountains and sea, which are used as symbols of the vast reach and distant lands that the swords can be used to conquer, as well as ambition. 
+Behind the foreground, the sword stands floating over a varied setting - which holds both mountains and sea, which are used as symbols of the vast reach and distant lands that the swords can be used to conquer, as well as ambition.
 
 ## the-ace-of-wands
 ## the-ace-of-cups

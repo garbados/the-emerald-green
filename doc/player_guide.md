@@ -1,5 +1,15 @@
 # Player Guide
 
+Welcome to *The Emerald Green*, AKA **TEG**. I'm the author, Diana. Usually there's a narrator instead, but, why deal in illusions with you, love? This is a guide to a tabletop roleplaying game about people who have gotten in over their heads with things they don't understand -- things they can't. It 
+
+You, a player, take on the role of such a person. When you make a character, you decide what this person's connection to such a *thing* is, and select Tarot cards to form your *Pact*, which confers powers subtle and profound alike. Some cards, which you *sanctify*, you'll keep in your deck during play. Others, which you *exile*, are removed from your deck during play. Your Pact includes all your sanctified and exiled cards. When you level up, sometimes you'll sanctify a new card, but mostly you'll have to exile something.
+
+> *Divination note*: You can read a Pact like a spread, in which sanctified cards are upright, and exiled ones are inverted.
+
+Your character, as a mortal, also deals in items and equipment, your *Livery*. You may sell treasure for coin, buy weapons and armor, and so on. You may also *craft* things -- more on that later. Your Livery does not affect your Pact.
+
+Each in-game day, or after a *long rest*, you begin by shuffling your character's deck and drawing a hand. Over the course of the day, you'll *play* cards to *Respond* to *Challenges*. A Challenge could be anything where success or failure is significant, from attacking a foe, to winning a coin toss. Roughly, it encompasses everything you would roll a d20 for in a game like DnD or Pathfinder. However, you don't generally draw a replacement card after playing one for a challenge, so you must be judicious about how you apply yourself, and use what means you have to keep your hand flush with options.
+
 ## The Basics
 
 ### Anatomy of a Game
@@ -11,7 +21,7 @@ You'll need two or more people to play the game:
 
 ### Anatomy of a Character
 
-You play as a fantasy adventurer whose strengths, above and beyond your mortal peers, arrive from what spiritual natures you have *exiled* or *sanctified* -- which are *absent* from your mortal experience, disjuncted into something beyond space and time, life and death. These absences evoke *traits*, ranging from the mundane to the profound. Your character's spiritual natures are the Tarot deck you play with, and as your character grows, you will exile many cards from it, thinning it out and skewing its contents.
+You play as a fantasy adventurer whose strengths, above and beyond your mortal peers, arrive from what spiritual natures you have *exiled* or *sanctified*, collectively the Pact that disjuncts your mortal experience into... something else. The game's *traits*, which range from the mundane to the profound, have requirements that activate when they match your Pact. Your character's spiritual natures are the Tarot deck you play with, and as your character grows, you will exile many cards from it, thinning it out and skewing its contents.
 
 **Traits**
 
@@ -20,19 +30,20 @@ You play as a fantasy adventurer whose strengths, above and beyond your mortal p
 - **Unique**: Whether a trait matches against your absences as a whole ("unique") or can trigger multiple times, once for each matching absence.
 - **Requires**: An expression of what absence or absences cause the trait to activate, as a list of special operators ("and", "or", "count") and card tags ("even", "odd", "prime", "swords").
 - **Effect**:
-    - *Attributes*: Traits may increase attributes.
-    - *Skills*: Traits may provide proficiency.
+    - *Attributes*: Traits may increase some attributes.
+    - *Skills*: Traits may provide proficiency in a skill.
     - *Talents*: Traits may grant passive boons.
     - *Abilities*: Traits may grant active techniques.
+    - *Fungibles*: Traits may increase the quantity of fungibles like Health.
 
-All your character's secondary characteristics -- *stats* and *fungibles* -- are computed based on your traits.
+All your character's *stats* are computed based on your traits, including *attributes* and *skills* and so on.
 
 **Stats**
 
 - **Attributes**: General qualities. These are represented as a number that contributes to overcoming *challenges*.
+    - **Body**: Physical prowess. *Associated with the suit of Swords.*
     - **Mind**: Mental acuity. *Associated with the suit of Wands.*
     - **Spirit**: Creative resolve. *Associated with the suit of Cups.*
-    - **Body**: Physical prowess. *Associated with the suit of Swords.*
     - **Luck**: Divine favor. *Associated with the suit of Pentacles.*
 - **Skills**: Specialized aptitudes, in which one is *proficient* or not. Each skill has an associated *attribute*. Challenges that call on a proficient skill are much easier.
     - *Body*
@@ -54,7 +65,11 @@ All your character's secondary characteristics -- *stats* and *fungibles* -- are
         - **Stealth**: Sneaking, hiding, inconspicuousness.
         - **Sorcery**: Command of the eldritch.
     - *Luck*
-        - **Theurgy**: Divine favor, religious knowledge.
+        - **Gambling**: The art of beating the house.
+        - **Appraisal**: Mercantilism and accounting.
+        - **Skepticism**: Looking a gift horse in the mouth.
+        - **Divination**: Reading the book of fates.
+        - **Theurgy**: Divine favor, chaotic and vibrant.
 - **Talents**: Permanent conditions that change the game's rules for you.
     - **Name**: What's in a name?
     - **Description**: A summary of the talent, for humans.
@@ -64,15 +79,13 @@ All your character's secondary characteristics -- *stats* and *fungibles* -- are
     - **Phase**: What time-scale this ability concerns, either *encounter* (for combat and hazards), *exploration* (for travel, or several hours), *downtime* (for rest, or a day or more).
     - **Actions**: The number of action points the ability consumes. In an encounter, a turn contains 3 action points. In exploration, an action point represents an hour. In downtime, a day.
     - **Madness**: How much *madness* the ability confers, if any.
-
-**Fungibles**
-
-- **Health**: Hit points. Lose some when you take damage, restore some from healing and resting. You're unconscious at 0, but you only die when the gods allow it. *Equal to 3 plus Body plus your level, or twice your level if proficient in Resilience.*
-- **Hand**: How many cards you draw after each long rest. You discard cards from your hand to apply them to challenges. Though you may draw more cards during the day for a variety of reasons, you will tend to run out as you approach exhaustion.
-- **Will**: Spend to draw a card from your deck. When you do this, you may discard a card to draw another card. You may do this at any time.
-- **Fortune**: Spend to gain *advantage* or to counter *disadvantage*.
-- **Madness**: Accumulated from spellcasting and magical effects. When resolving a challenge, after choosing a card to apply, draw and discard cards from the top of your deck equal to your madness. You may choose one of them to use instead of the card you applied. Resting lowers madness.
-- **Wealth**: Your financial liquidity, expressed in terms of *copper* ("c", 1), *silver* ("s", 100c), *gold* ("g", 10,000c), and *platinum* ("p", 1,000,000c).
+- **Fungibles**: Tokens you may gain, lose, spend, and struggle to be rid of.
+    - **Health**: Hit points. Lose some when you take damage, restore some from healing and resting. You're unconscious at 0, but you only die when the gods allow it. *Equal to 3 plus Body plus your level, or twice your level if proficient in Resilience.*
+    - **Draw**: How many cards you draw after each long rest.
+    - **Will**: Spend to draw two cards from your deck. When you do this, you may discard a card to draw another card. You may do this at any time.
+    - **Fortune**: Spend to gain *advantage* or to counter *disadvantage*.
+    - **Madness**: Accumulated from spellcasting and magical effects. Ffter choosing a card to apply as a Response, draw and discard cards from the top of your deck equal to your madness. You may choose one of them to use instead of the card you applied. Resting lowers madness.
+    - **Wealth**: Your financial liquidity, expressed in terms of *copper* ("c", 1), *silver* ("s", 100c), *gold* ("g", 10,000c), and *platinum* ("p", 1,000,000c).
 
 ## Challenges
 
