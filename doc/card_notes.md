@@ -65,7 +65,21 @@ REVERSED: Over-committed, disorganisation, reprioritisation.
 In the Two of Pentacles, a young man dances while juggling two coins in his hands. The infinity symbol links the coins, suggesting that this man can handle unlimited problems so long as he manages his time, energy and resources well. In the background, two ships sail the high seas, bobbing up and down on the huge waves – another sign that the ups and downs of life are manageable with focus and attention.
 
 ## the-magician
+
+### labyrinthos.co
+
+The Magician is one tarot card that is filled with symbolism. The central figure depicts someone with one hand pointed to the sky, while the other hand points to the ground, as if to say "as above, so below". This is a rather complicated phrase, but its summarization is that earth reflects heaven, the outer world reflects within, the microcosm reflects the macrocosm, earth reflects God. It can also be interpreted here that the magician symbolizes the ability to act as a go-between between the world above and the contemporary, human world.
+
+On his table, the magician also wields all the suits of the tarot. This symbolizes the four elements being connected by this magician - the four elements being earth, water, air, and fire. The infinity sign on his head indicates the infinite possibilities of creation with the will.
+
 ## the-high-priestess
+
+### labyrinthos.co
+
+You've most likely encountered the High Priestess before, but in other forms - she can be seen in the archetypes of Persephone, Artemis, Isis and many more. When you encounter her, you will see her sitting on a cubic stone between the two pillars at Solomon’s Temple, Jachin, and Boaz. Jachin (right) is generally referred to as the Pillar of Establishment and Boaz (left) is the Pillar of Strength. The pillars also depict the duality of nature; masculine and feminine, good and evil, negative and positive.
+
+The High Priestess's location between the two suggests that it is her responsibility to serve as a mediator between the depths of the reality. She is the third pillar - the path between. She believes that both pillars are equal and there is knowledge to be learned in both worlds. You will also notice that she wears the crown of Isis which can mean that she is a believer of magic. The high priestess wearing of the solar cross denotes that she is connected to the season of the earth and the earth itself. The crescent moon at her feet is seen also in many depictions of the Virgin Mary, and means that she has a complete grasp over her emotion and the pomegranates refer to the ambition of the priestess.
+
 ## the-three-of-swords
 
 ### labyrinthos.co
@@ -76,7 +90,19 @@ One of the most iconic images in the tarot, the Three of Swords displays a float
 ## the-three-of-cups
 ## the-three-of-pentacles
 ## the-empress
+
+### labyrinthos.co
+
+The Empress depicts a woman sitting on a throne. From the abundant nature that surrounds her, we can assume that this woman represents the Earth Mother archetype, a goddess of fertility. Her world is ruled by venus which means that there is complete love, harmony, fertility and luxury by the grace of this goddess. The woman herself has blonde hair crowned with stars, signaling her divine connection with the mystical realm. She is dressed in a pomegranate-patterned robe that represents fertility, and she is seated on cushions embroidered with a venus sign. She is surrounded by an enchanting green forest with a river streaming through it. The Empress brings abundance and blessings in the readings of those she meets.
+
 ## the-emperor
+
+### labyrinthos.co
+
+In the Emperor tarot card, a stoic ruler figure can be seen on his throne, which is adorned with the heads of four rams, representing his astrological sign - Aries. In one hand, he carries a scepter, representing his reign and his right to rule, and in the other an orb, a symbol of the kingdom that he watches over. The long beard of the emperor represents his vast experience; over time he has learned much about what it takes to rule, to establish power, authority and complete order for the benefit of his people.
+
+Behind him, the barren mountains shows his determination, his ambition for greater heights and his leadership capability. Contrast this with his complement, the Empress, whose flowing fields are filled with nurturing kindness. The Emperor instead rules with grit, strength and force.
+
 ## the-four-of-swords
 
 ### labyrinthos.co
@@ -87,6 +113,13 @@ There is a quiet stillness that is present in the Four of Swords, a sense of cal
 ## the-four-of-cups
 ## the-four-of-pentacles
 ## the-hierophant
+
+### labyrinthos.co
+
+The card depicts a religious figure that sits in a rather formal environment characteristic for a church. He is wearing three elaborate vestments which are designated to represent the three different worlds. His right hand is properly raised in an act of benediction, a sign of blessing – it’s the same hand that the Magician has raised. In his other hand, he carries a triple cross, which is associated traditionally with the pope. Each of the horizontal bars in the cross are thought to represent the Father, the Son and the Holy Ghost. Beneath him, two acolytes are seated, representing the transfer of sacred knowledge within institutions. Through these acolytes, the card also comes to represent following the path to knowledge and education.
+
+This card is also known as the High Priest in certain decks - as well as the Pope. He is acting as the masculine counterpart of another card which is known as the High Priestess. This card is ruled by Taurus.
+
 ## the-five-of-swords
 
 ### labyrinthos.co
@@ -97,7 +130,21 @@ The Five of Swords card depicts a young man who has a very convenient look of co
 ## the-five-of-cups
 ## the-five-of-pentacles
 ## the-lovers
+
+### labyrinthos.co
+
+In the Lovers card, the man and the woman in the image are being protected and blessed by an angel above. The couple seems secure and happy in their home, which appears to be the Garden of Eden. The fruit tree with the snake behind the woman is a reference to that story, which tells of humanity's fall into temptation and into the realm of flesh and sensuality. The angel depicted here is Raphael, the angel of air - who is of the same element of the zodiac sign that governs this card: Gemini. Air is associated with mental activity, and communication in particular, which is the foundation for healthy relationships. His blessing seems to give this card a sense of balance and harmony, the symbolization of union in a grand and cosmic sense between two opposing forces.
+
 ## the-chariot
+
+### labyrinthos.co
+
+The Chariot tarot card depicts a figure sitting inside a vehicle that is being driven by two black and white sphinxes. The whole card has a bit of a celestial influence; the figure sits underneath a blue canopy adorned by white stars. On his shoulders, he carries the sign of the crescent moon, representing the spiritual influence under which he is guided. On his head sits a crown, meaning that he is enlightened, and that his will is pure. Emblazoned on his chest is a square, denoting the element of earth, of the material world, which grounds him and his actions.
+
+The sphinxes are colored in black and white, a symbol of opposing forces that the charioteer must learn to control. Here they are calm, but they frequently get into scuffles as they seem to want to move in different directions. His task is to guide these sphinxes towards a destination, one that is marked by the cosmic forces that he represents.
+
+The Chariot is linked to the Cancer zodiac sign.
+
 ## the-six-of-swords
 
 ### labyrinthos.co
@@ -108,6 +155,15 @@ The image in the Six of Swords shows a woman and a child in a boat being rowed i
 ## the-six-of-cups
 ## the-six-of-pentacles
 ## strength
+
+### labyrinthos.co
+
+In this tarot card, you will see a woman who calmly holds the jaws of a fully grown lion. Despite the fact that the lion looks menacing and strong, the woman seems to have dominion over it. What is captivating is how gracefully she controls the lion. She is calm and collected, which is representative for being in control and disciplined especially in times of great adversities.
+
+The fact that she is also holding the jaws of a lion also shows that she has courage. Her control of the lion without being too rough shows love and compassion. The blue background over the mountains shows stability and the kind of calmness that comes with being stable.
+
+The lion is a symbol of courage, passion and desire which are very much part of the human feelings that are necessary for survival. But if these feelings are not put in check can lead to our eventual destruction.
+
 ## the-seven-of-swords
 
 ### labyrinthos.co
@@ -120,6 +176,19 @@ The expression on the man’s face shows quite a bit of confidence, and he seems
 ## the-seven-of-cups
 ## the-seven-of-pentacles
 ## the-hermit
+
+### labyrinthos.co
+
+The Hermit depicts an old man standing alone at the peak of the mountain while holding a lantern in one of his hands and a staff on the other. The mountain denotes accomplishment, development, and success. The hermit tarot card refers to the level of spiritual knowledge that he attained, and that he is ready to impart that knowledge to everyone. There is also a deep commitment he has to his goal and a solid awareness of the path that he is taking. Inside the lantern, you will notice a star with 6 points which is also known as the Seal of Solomon. This symbol represents wisdom. The staff that he holds depicts authority and power.
+
+## wheel-of-fortune
+
+### labyrinthos.co
+
+The Wheel of Fortune is one of the most highly symbolic cards in the deck, filled with signs that each have its own meaning. At the center of the card, lies a giant wheel, covered in esoteric symbols. There are different creatures that surround the wheel; the angel, the eagle, the bull and the lion. They are related to four fixed signs in the zodiac - leo, taurus, scorpio and aquarius. These four animals are also representatives for the four evangelists in Christian traditions, which is perhaps the reason that they are all adorned with wings.
+
+The books that each of the creatures hold represents the Torah which communicates wisdom and self-understanding. The snake indicates the act of descending into material world. On the wheel itself, rides a sphinx that sits at the top, and what appears to be either a devil, or Anubis himself arising at the bottom. These two Egyptian figures are representative of both the wisdom of the gods and kings (in the case of the sphinx) and the underworld (Anubis). They are rotating forever, in a cycle, and suggests that as one comes up, the other goes down.
+
 ## the-eight-of-swords
 
 ### labyrinthos.co
@@ -129,8 +198,14 @@ On the Eight of Swords is a woman who is tied up and blindfolded. There are eigh
 ## the-eight-of-wands
 ## the-eight-of-cups
 ## the-eight-of-pentacles
+## justice
+
+### labyrinthos.co
+
 ## the-hanged-man
-## death
+
+### labyrinthos.co
+
 ## the-nine-of-swords
 
 ### labyrinthos.co
@@ -140,6 +215,7 @@ The Nine of Swords depicts a woman that is sitting on her bed while she holds he
 ## the-nine-of-wands
 ## the-nine-of-cups
 ## the-nine-of-pentacles
+## death
 ## temperance
 ## the-ten-of-swords
 
@@ -151,7 +227,6 @@ Another one of the most striking and ominous cards in the deck, the Ten of Sword
 ## the-ten-of-cups
 ## the-ten-of-pentacles
 ## the-devil
-## the-tower
 ## the-page-of-swords
 
 ### labyrinthos.co
@@ -161,8 +236,7 @@ The Page of Swords card is representative of a person in one's life who shows an
 ## the-page-of-wands
 ## the-page-of-cups
 ## the-page-of-pentacles
-## wheel-of-fortune
-## justice
+## the-tower
 ## the-knight-of-swords
 
 ### labyrinthos.co

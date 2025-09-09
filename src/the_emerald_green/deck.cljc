@@ -28,11 +28,11 @@
    :the-four-of-cups
    :the-four-of-pentacles
    :the-hierophant
+   :the-lovers
    :the-five-of-swords
    :the-five-of-wands
    :the-five-of-cups
    :the-five-of-pentacles
-   :the-lovers
    :the-chariot
    :the-six-of-swords
    :the-six-of-wands
@@ -44,16 +44,18 @@
    :the-seven-of-cups
    :the-seven-of-pentacles
    :the-hermit
+   :wheel-of-fortune
    :the-eight-of-swords
    :the-eight-of-wands
    :the-eight-of-cups
    :the-eight-of-pentacles
+   :justice
    :the-hanged-man
-   :death
    :the-nine-of-swords
    :the-nine-of-wands
    :the-nine-of-cups
    :the-nine-of-pentacles
+   :death
    :temperance
    :the-ten-of-swords
    :the-ten-of-wands
@@ -65,23 +67,21 @@
    :the-page-of-wands
    :the-page-of-cups
    :the-page-of-pentacles
-   :wheel-of-fortune
-   :justice
+   :the-star
    :the-knight-of-swords
    :the-knight-of-wands
    :the-knight-of-cups
    :the-knight-of-pentacles
-   :the-star
+   :the-moon
    :the-queen-of-swords
    :the-queen-of-wands
    :the-queen-of-cups
    :the-queen-of-pentacles
-   :the-moon
+   :the-sun
    :the-king-of-swords
    :the-king-of-wands
    :the-king-of-cups
    :the-king-of-pentacles
-   :the-sun
    :judgement
    :the-ace-of-swords
    :the-ace-of-wands
