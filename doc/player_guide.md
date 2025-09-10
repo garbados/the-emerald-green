@@ -16,7 +16,7 @@ Each in-game day, or after a *long rest*, you begin by shuffling your character'
 
 You'll need two or more people to play the game:
 
-- Arbiter: The game-runner, who plays all the NPCs and mediates both the narrative and the rules. Sometimes also called a GM or DM.
+- Arbiter: The game-runner, who plays all the NPCs and mediates both the narrative and the rules. Sometimes also called a GM or DM. The Arbiter has secret knowledge of the world that, by withholding it from the players, makes possible the *discovery* of a narrative.
 - Players: People playing characters, so-called *player-characters*. Each player will need their own 78-card Tarot deck.
 
 ### Anatomy of a Character
@@ -27,8 +27,8 @@ You play as a fantasy adventurer whose strengths, above and beyond your mortal p
 
 - **Name**: What's in a name?
 - **Description**: A summary of the trait, for humans.
-- **Unique**: Whether a trait matches against your absences as a whole ("unique") or can trigger multiple times, once for each matching absence.
-- **Requires**: An expression of what absence or absences cause the trait to activate, as a list of special operators ("and", "or", "count") and card tags ("even", "odd", "prime", "swords").
+- **Requires**: An expression describing the conditions under which the trait activates, as a list of special operators ("and", "or", "count") and card tags ("even", "odd", "prime", "swords").
+    - **Traits**, **Deck**, **Card**: The requirements which, when satisfied by your Pact and/or other traits, activate and apply to your character. *Traits* indicate the traits you must possess for this trait to activate. *Deck* evaluates the cards in your Pact altogether, while *Card* matches against each one individually. A Trait with a Card requirement will apply as many times as it matches cards in your Pact, provided its *Deck* and *Trait* requirements are also satisfied.
 - **Effect**:
     - *Attributes*: Traits may increase some attributes.
     - *Skills*: Traits may provide proficiency in a skill.
