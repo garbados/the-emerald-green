@@ -2,4 +2,28 @@
   :id :simple-armor
   :extends :basic-item
   :type :armor
-  :description "Essentially, thick clothing."}]
+  :description "Essentially, thick clothing."
+  :enchantments []
+  :rarity :common
+  :resistances {}
+  :inertia 0
+  :cost "5s"}
+ {:name "Light Armor"
+  :id :light-armor
+  :extends :simple-armor
+  :description "Treated furs. A soft leather cuirass. A chainmail shirt. Not too heavy, but not insignificant."
+  :resistances {:physical 1}}
+ {:name "Medium Armor"
+  :id :medium-armor
+  :extends :simple-armor
+  :description "A breastplate. Scale mail. Thick hides. Soaks more hurt, but slows you down."
+  :resistances {:physical 2}
+  :inertia 1
+  :cost "7s"}
+ {:name "Heavy Armor"
+  :id :heavy-armor
+  :extends :simple-armor
+  :description "Field plate. Full plate. Splint mail. Heavy, and very hard to hurt."
+  :resistances {:physical 3}
+  :inertia 2
+  :cost "10s"}]

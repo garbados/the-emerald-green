@@ -58,6 +58,22 @@
   :description "Gain proficiency in Sorcery."
   :deck [:the-ace-of-cups]
   :effect {:skills {:sorcery true}}}
+ {:name "The Bettor"
+  :description "Gain proficiency in Gambling."
+  :deck [:the-page-of-pentacles]
+  :effect {:skills {:gambling true}}}
+ {:name "The Merchant"
+  :description "Gain proficiency in Appraisal."
+  :deck [:the-knight-of-pentacles]
+  :effect {:skills {:appraisal true}}}
+ {:name "The Grounded"
+  :description "Gain proficiency in Skepticism."
+  :deck [:the-queen-of-pentacles]
+  :effect {:skills {:skepticism true}}}
+ {:name "The Oracle"
+  :description "Gain proficiency in Divination."
+  :deck [:the-king-of-pentacles]
+  :effect {:skills {:divination true}}}
  {:name "The Coin"
   :description "Gain proficiency in Theurgy."
   :deck [:the-ace-of-pentacles]

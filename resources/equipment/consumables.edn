@@ -1,1 +1,24 @@
-[]
+[{:name "Basic Consumable"
+  :id :basic-consumable
+  :extends :basic-item
+  :type :consumable
+  :description "A thing, like a potion, that gets used up when used."
+  :enchantments []
+  :rarity :common
+  :cost "3s"}
+ {:name "Healing Potion"
+  :id :basic-healing-potion
+  :extends :basic-consumable
+  :description
+  "Close your wounds with semi-magical liquids.
+   Tastes unpleasantly like cherries.
+   Restore 5 Health when used."}
+ {:name "Mana Potion"
+  :id :basic-mana-potion
+  :extends :basic-consumable
+  :description
+  "Your mind clears with each gulp.
+   A quick quaff and the world settles.
+   Tastes unpleasantly like mint.
+   Removes 5 Madness when used,
+   to a minimum of zero."}]

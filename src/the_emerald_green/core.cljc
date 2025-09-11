@@ -6,7 +6,7 @@
   {:body   [:athletics :melee :ranged :resilience :intimidation]
    :mind   [:arcana :craft :diplomacy :insight :medicine]
    :spirit [:awareness :deception :sorcery :stealth :resolve]
-   :luck   [:theurgy]})
+   :luck   [:gambling :appraisal :skepticism :divination :theurgy]})
 (def attr-order [:body :mind :spirit :luck])
 (def fung-order [:health :draw :will :fortune :madness])
 (def attributes (set attr-order))

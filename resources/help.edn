@@ -36,6 +36,10 @@
  :deception "Illusory persuasion."
  :stealth "Sneaking, hiding, inconspicuousness."
  :sorcery "Command of the eldritch."
+ :gambling "The art of beating the house."
+ :appraisal "Mercantilism and accounting."
+ :skepticism "Empirical grounded doubt."
+ :divination "Reading the book of fates."
  :theurgy "Divine favor, religious knowledge."
  ; cards
  :deck "Requirements match your pact as a whole."

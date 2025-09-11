@@ -1,1 +1,56 @@
-[]
+[{:name "Basic Tool"
+  :id :basic-tool
+  :extends :basic-item
+  :type :tool
+  :description "A thing you use for stuff."
+  :enchantments []
+  :rarity :common
+  :cost "5s"}
+ {:name "Shield"
+  :abstract false
+  :id :basic-shield
+  :extends :basic-tool
+  :skill :resilience
+  :description "A buckler. A round shield. A kite shield. You know how to defend yourself with it."}
+ {:name "Lockpicks"
+  :abstract false
+  :id :lockpicks
+  :extends :basic-tool
+  :skill :stealth
+  :description "Comb picks, hook picks, ball picks, tension wrenches, and everything else you need to tumble."}
+ {:name "Physicians' Kit"
+  :abstract false
+  :id :physicians-kit
+  :extends :basic-tool
+  :skill :medicine
+  :description "Tinctures, poultices, splints, gauze, and common powders. A healer's best friend."}
+ {:name "Magnifying Glass"
+  :abstract false
+  :id :magnifying-glass
+  :extends :basic-tool
+  :skill :insight
+  :description "Let's take a closer look, shall we? Let's see what we find."}
+ {:name "Smith's Hammer"
+  :abstract false
+  :id :smiths-hammer
+  :extends :basic-tool
+  :skill :craft
+  :description "A solid metal hammer for working steel, even for field repairs."}
+ {:name "Spellbook"
+  :abstract false
+  :id :spellbook
+  :extends :basic-tool
+  :skill :arcana
+  :description "A book of quoted sources and your own notes about the mysteries of Creation."}
+ {:name "Disguise Kit"
+  :abstract false
+  :id :disguise-kit
+  :extends :basic-tool
+  :skill :deception
+  :description "Makeup, wigs, false ears and noses and more, to help you blend in."}
+ {:name "Calendar"
+  :abstract false
+  :id :calendar
+  :extends :basic-tool
+  :skill :divination
+  :description "A chronicle of past and future celestial events, including sunrise, solstices, and eclipses."}]

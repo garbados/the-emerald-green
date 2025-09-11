@@ -67,7 +67,7 @@ All your character's *stats* are computed based on your traits, including *attri
     - *Luck*
         - **Gambling**: The art of beating the house.
         - **Appraisal**: Mercantilism and accounting.
-        - **Skepticism**: Looking a gift horse in the mouth.
+        - **Skepticism**: Empirical grounded doubt.
         - **Divination**: Reading the book of fates.
         - **Theurgy**: Divine favor, chaotic and vibrant.
 - **Talents**: Permanent conditions that change the game's rules for you.
