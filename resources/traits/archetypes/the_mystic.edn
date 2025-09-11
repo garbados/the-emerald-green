@@ -22,7 +22,8 @@
              :description "Restore health equal to your level plus one, up to your maximum."
              :phase :encounter
              :actions 2
-             :madness 1}]}}
+             :madness 1
+             :tags #{}}]}}
  {:name "Purity of Mind"
   :description "Unwelcome spirits slide from your form like rain on stone."
   :traits :the-mystic
@@ -34,7 +35,8 @@
               including ones you don't know about."
              :phase :encounter
              :actions 2
-             :madness 2}]}}
+             :madness 2
+             :tags #{}}]}}
  {:name "Unity of Being"
   :description "The universe does not wish to harm you. It does not wish to harm itself."
   :traits :the-mystic
