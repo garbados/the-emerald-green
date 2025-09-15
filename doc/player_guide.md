@@ -40,7 +40,7 @@ All your character's *stats* are computed based on your traits, including *attri
 
 **Stats**
 
-- **Attributes**: General qualities. These are represented as a number that contributes to overcoming *challenges*.
+- **Attributes**: General qualities. These are represented as a number that contributes to overcoming relevant *challenges*.
     - **Body**: Physical prowess. *Associated with the suit of Swords.*
     - **Mind**: Mental acuity. *Associated with the suit of Wands.*
     - **Spirit**: Creative resolve. *Associated with the suit of Cups.*
@@ -51,7 +51,7 @@ All your character's *stats* are computed based on your traits, including *attri
         - **Athletics**: Balancing, tumbling, climbing, swimming, etc.
         - **Intimidation**: Forceful persuasion.
         - **Ranged**: Sharpshooting, marksmanship.
-        - **Melee**: Close-quarters personal combat.
+        - **Melee**: Close-quarters combat.
     - *Mind*
         - **Insight**: Putting the clues together.
         - **Craft**: Making things.
@@ -67,7 +67,7 @@ All your character's *stats* are computed based on your traits, including *attri
     - *Luck*
         - **Gambling**: The art of beating the house.
         - **Appraisal**: Mercantilism and accounting.
-        - **Skepticism**: Empirical grounded doubt.
+        - **Skepticism**: Empirical and grounded doubt.
         - **Divination**: Reading the book of fates.
         - **Theurgy**: Divine favor, chaotic and vibrant.
 - **Talents**: Permanent conditions that change the game's rules for you.
@@ -84,12 +84,12 @@ All your character's *stats* are computed based on your traits, including *attri
     - **Draw**: How many cards you draw after each long rest.
     - **Will**: Spend to draw two cards from your deck. When you do this, you may discard a card to draw another card. You may do this at any time.
     - **Fortune**: Spend to gain *advantage* or to counter *disadvantage*.
-    - **Madness**: Accumulated from spellcasting and magical effects. Ffter choosing a card to apply as a Response, draw and discard cards from the top of your deck equal to your madness. You may choose one of them to use instead of the card you applied. Resting lowers madness.
+    - **Madness**: Accumulated from spellcasting and magical effects. After choosing a card for a response to a challenge, draw and discard cards from the top of your deck equal to your madness. You may choose one of them to use instead of the card you applied. Resting lowers madness.
     - **Wealth**: Your financial liquidity, expressed in terms of *copper* ("c", 1), *silver* ("s", 100c), *gold* ("g", 10,000c), and *platinum* ("p", 1,000,000c).
 
 ## Challenges
 
-When facing a tribulation, such as a locked door, or a murderous foe, you may be *challenged* to overcome the situation. In practice, this includes any time that a game like DnD would have you roll a d20.
+When facing a tribulation, such as a locked door, or a murderous foe, you may be *challenged* to overcome the situation. In general, whenever a game like DnD would have you roll a d20.
 
 When challenged, the arbiter secretly selects a *difficulty*, which is a number your response must meet or beat. You respond by *applying* a card from your hand, discarding it in the process.
 
@@ -153,7 +153,7 @@ To create your character, first follow the following steps.
 - You have encountered a Fae. How did you meet?
 - They took an interest, that you can't fully grasp. What is it?
 - You asked for something, and they gave you something. Was it fair?
-- They took something in return. Do you miss it.
+- They took something in return. Do you miss it?
 - Now you have their Blessing. What will you do with it?
 
 Remember these things as you write your character's name and biography.
@@ -161,9 +161,10 @@ Remember these things as you write your character's name and biography.
 ### 1. Forging the Pact
 
 - Exile three cards from your deck. *Exiled cards are removed from your deck during play. You can always restore them after the session.*
-- Sanctify two more. *Sanctified cards are allowed to remain in your deck, but count as absent for acquiring traits.*
-- Gain all traits whose requirements these absences satisfy. *You do not choose which traits to acquire. You choose what is absent, and the consequences happen.*
-- Stats and fungibles are calculated automatically.
+- Sanctify two more. *Sanctified cards are allowed to remain in your deck, but qualify for acquiring traits.*
+- Collectively, your exiled and sanctified cards form your Pact.
+- Gain all traits whose requirements your Pact satisfies. *You do not choose which traits to acquire. You choose what to Pact, and the consequences happen.*
+- Calculate your stats, fungibles, talents, and abilities from your traits.
 
 ### 2. Donning the Livery
 

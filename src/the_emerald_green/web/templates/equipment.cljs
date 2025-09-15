@@ -4,14 +4,16 @@
    [clojure.string :as string]
    [the-emerald-green.equipment :as equipment]
    [the-emerald-green.utils :refer [keyword->name]]
-   [the-emerald-green.web.alchemy :refer [profane]]
+   [the-emerald-green.web.alchemy :refer [profane snag]]
    [the-emerald-green.web.routing :refer [route->href]]
-   [the-emerald-green.web.utils :refer [lolraw]]))
+   [the-emerald-green.web.utils :refer [lolraw scroll-to-id]]))
 
-(defn craftbench [{_id :_id abstract? :abstract :as thing}]
+(defn thing-hash-id [{stuff-type :type thing-id :id}]
+  (str (name stuff-type) "_" (name thing-id)))
+
+(defn craftbench [{_id :_id :as thing}]
   [:div.buttons
-   (when abstract?
-     [:a.button.is-fullwidth (route->href :template-stuff (-> thing :id name)) "Use as Template"])
+   [:a.button.is-fullwidth (route->href :template-stuff (-> thing :id name)) "Use as Template"]
    (when _id
      [:a.button.is-fullwidth (route->href :edit-stuff _id) "Edit"])])
 
@@ -19,7 +21,7 @@
                       {thing-name :name
                        :keys [description tags]
                        :as thing}]
-  [:div.box
+  [(str "div.box#" (thing-hash-id thing))
    [:h5 [:em thing-name] (when (seq tags) (str " [" (string/join (map name tags)) "]"))]
    [:div
     (profane "p" (marked/parse description))
@@ -29,11 +31,14 @@
                  key-name (keyword->name key)
                  value
                  (cond
-                   (map? raw-value) (lolraw raw-value)
-                   (keyword? raw-value) (keyword->name raw-value)
+                   (map? raw-value)
+                   (when-let [seq-map (seq raw-value)]
+                     (string/join " ; " (map #(str (keyword->name (first %)) " => " (second %)) seq-map)))
+                   (keyword? raw-value)    (keyword->name raw-value)
                    (sequential? raw-value) (seq raw-value)
                    :else raw-value)]
-           :when value]
+           :when (and (not (zero? value))
+                      value)]
        [:li key-name ": " value])
      [:li
       [:details
@@ -55,29 +60,64 @@
    :consumable describe-consumable
    :item describe-item})
 
+(def section-titles
+  [[:weapon "Weapons"]
+   [:armor "Armor"]
+   [:tool "Tools"]
+   [:consumable "Consumables"]
+   [:item "Items"]])
+
+(defn equipment-guide-nav [type->stuff]
+  [[:p>strong "Table of Contents"]
+   (for [[stuff-type title] section-titles
+         :let [stuff (type->stuff stuff-type)
+               {real-stuff true
+                abstract-stuff false}
+               (group-by (comp false? :abstract) stuff)
+               on-click
+               (fn [id abstract?]
+                 (when abstract?
+                   (.setAttribute (snag (str "abstract-" stuff-type)) "open" true))
+                 (scroll-to-id id))
+               stuff-toc
+               #(vec
+                 [:ul
+                  (for [{thing-name :name
+                         abstract? :abstract
+                         :as thing} %
+                        :let [id (thing-hash-id thing)]]
+                    [:li>a {:onclick (partial on-click id abstract?)} thing-name])])]]
+     [:div.block
+      [:p>em title]
+      (stuff-toc real-stuff)
+      (when (seq abstract-stuff)
+        [:details
+         [:summary "Abstract Base Types"]
+         (stuff-toc abstract-stuff)])
+      [:br]])])
+
+(defn equipment-guide-tables [type->stuff]
+  (for [[stuff-type title] section-titles
+        :let [stuff (type->stuff stuff-type)
+              describe-thing (type->describe stuff-type)
+              {real-stuff true
+               abstract-stuff false}
+              (group-by (comp false? :abstract) stuff)]
+        :when (and describe-thing
+                   (seq stuff))]
+    [:div.block
+     [:h3.subtitle title]
+     (when (seq real-stuff)
+       (map describe-thing real-stuff))
+     (when (seq abstract-stuff)
+       [(str "details#abstract-" stuff-type)
+        [:summary "Abstract Base Types"]
+        (map describe-thing abstract-stuff)])]))
+
 (defn equipment-guide [custom-stuff]
   (let [type->custom-stuff (group-by :type (vals custom-stuff))
         type->stuff (merge-with concat equipment/type->stuff type->custom-stuff)]
     [[:h1.title "Equipment Guide"]
-     (for [[stuff-type title] [[:weapon "Weapons"]
-                               [:armor "Armor"]
-                               [:tool "Tools"]
-                               [:consumable "Consumables"]
-                               [:item "Items"]]
-           :let [stuff (type->stuff stuff-type)
-                 describe-thing (type->describe stuff-type)
-                 {real-stuff true
-                  abstract-stuff false}
-                 (group-by (comp not some? :abstract) stuff)]
-           :when (and describe-thing
-                      (seq stuff))]
-       [:div
-        [:h3 title]
-        (when (seq abstract-stuff)
-          [:details
-           [:summary "Abstract Base Types"]
-           [:div.box
-            (map describe-thing abstract-stuff)]])
-        (when (seq real-stuff)
-          [[:hr]
-           (map describe-thing real-stuff)])])]))
+     (equipment-guide-nav type->stuff)
+     [:hr]
+     (equipment-guide-tables type->stuff)]))

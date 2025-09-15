@@ -24,6 +24,12 @@
 (s/def ::id keyword?)
 (s/def ::description string?)
 (s/def ::content-pack string?)
+(s/def ::enchantments
+  (s/or :ref keyword?
+        :def (s/keys :req-un [::name
+                              ::id
+                              ::description
+                              ::content-pack])))
 (def known-tags (set (reduce into [] (filter some? (map :tags equipment)))))
 (s/def ::tag known-tags)
 (s/def ::tags (s/coll-of ::tag :kind set?))
@@ -37,9 +43,9 @@
   (s/keys :req-un [::name
                    ::id
                    ::type
-                   ::description]
-          :opt-un [::content-pack
-                   ::extends
+                   ::description
+                   ::content-pack]
+          :opt-un [::extends
                    ::enchantments
                    ::money/cost
                    ::rarity
@@ -87,5 +93,5 @@
    (s/keys :req-un [:equippable/type])))
 
 (s/def ::equipment (set (keys id->equipment)))
-(s/def ::equipped (s/coll-of ::equipment))
+(s/def ::equipped (s/coll-of ::equipment*))
 (s/def ::inventory (s/coll-of ::item))
