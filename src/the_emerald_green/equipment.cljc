@@ -25,11 +25,12 @@
 (s/def ::description string?)
 (s/def ::content-pack string?)
 (s/def ::enchantments
-  (s/or :ref keyword?
-        :def (s/keys :req-un [::name
-                              ::id
-                              ::description
-                              ::content-pack])))
+  (s/coll-of
+   (s/or :ref keyword?
+         :def (s/keys :req-un [::name
+                               ::id
+                               ::description
+                               ::content-pack]))))
 (def known-tags (set (reduce into [] (filter some? (map :tags equipment)))))
 (s/def ::tag known-tags)
 (s/def ::tags (s/coll-of ::tag :kind set?))
@@ -53,8 +54,8 @@
 
 (def weapon-skills #{:melee :ranged :arcana :sorcery :theurgy})
 (s/def ::skill weapon-skills)
-(def hefts #{:light :medium :heavy})
-(s/def ::heft hefts)
+(def hefts [:light :medium :heavy])
+(s/def ::heft (set hefts))
 (s/def ::element elements)
 (def weapon-ranges #{:close :short :medium :long :extreme})
 (s/def ::range weapon-ranges)

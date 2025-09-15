@@ -1,5 +1,6 @@
 (ns the-emerald-green.web.prompts
   (:require
+   [the-emerald-green.utils :refer [keyword->name name->keyword]]
    [the-emerald-green.web.utils :refer [debounce default-wait-ms refresh-node]]))
 
 (defn text [-value & {:keys [on-submit on-change placeholder wait]
@@ -29,6 +30,13 @@
       :onkeydown onkeydown
       :rows 10}
      @-value]))
+
+(defn choose-one [-choice options & {:keys [wait] :or {wait default-wait-ms}}]
+  [:div.select
+   [:select
+    {:oninput (debounce #(reset! -choice (-> % .-target .-value name->keyword)) wait)}
+    (for [option options]
+      [:option (keyword->name option)])]])
 
 (defn field [label help prompt -atom & args]
   [:div.field

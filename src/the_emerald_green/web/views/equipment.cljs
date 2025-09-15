@@ -2,7 +2,7 @@
   (:require
    [clojure.string :as string]
    [the-emerald-green.equipment :as equipment]
-   [the-emerald-green.utils :refer [keyword->name name->keyword]]
+   [the-emerald-green.utils :refer [keyword->name]]
    [the-emerald-green.web.prompts :as prompts]
    [the-emerald-green.web.routing :refer [route-pattern]]
    [the-emerald-green.help :as help]))
@@ -69,7 +69,6 @@
                  :content-pack ""
                  :enchantments #(string/join ", " (map keyword->name (:enchantments % [])))
                  :tags #(string/join ", " (map keyword->name (:tags % []))))]
-    (println atoms)
     [(describe-name -name)
      (describe-description -description)
      (describe-content-pack -content-pack)
@@ -80,7 +79,13 @@
      (when (= :weapon (:type thing))
        (let [{:keys [-skill -heft -element -range]}
              atoms]
-         [:p "TODO"]))
+         [[:p "Skill: todo"]
+          (prompts/field "Heft"
+                         "Light, medium, heavy."
+                         prompts/choose-one -heft
+                         equipment/hefts)
+          [:p "Element: todo"]
+          [:p "Range: todo"]]))
      (when (= :armor (:type thing))
        (let [{:keys [-resistances -inertia]}
              atoms]
