@@ -16,6 +16,7 @@
 (def equipment (map (partial refine-extensions *id->equipment) *equipment))
 (def id->equipment (zipmap (map :id equipment) equipment))
 (def type->stuff (group-by :type equipment))
+(def stuff-types [:weapon :armor :tool :consumable :item])
 (def equippable-types #{:weapon :armor :tool :consumable})
 (def equippable (reduce concat [] (vals (select-keys type->stuff equippable-types))))
 (def all-tags (set (reduce concat [] (map :tags equipment))))
@@ -25,7 +26,7 @@
 (s/def ::name string?)
 (s/def ::id keyword?)
 (s/def ::description string?)
-(s/def ::content-pack string?)
+(s/def ::content-pack keyword?)
 (s/def ::enchantments
   (s/coll-of
    (s/or :ref keyword?

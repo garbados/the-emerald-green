@@ -4,7 +4,6 @@
       [the-emerald-green.macros :refer [slurp-dir-edn]]
       :cljs
       [the-emerald-green.macros :refer-macros [slurp-dir-edn]])
-   [clojure.set :as set]
    [clojure.spec.alpha :as s]
    [the-emerald-green.core :as core]
    [the-emerald-green.deck :as deck]

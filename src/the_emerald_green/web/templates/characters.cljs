@@ -7,7 +7,7 @@
    [the-emerald-green.deck :as deck]
    [the-emerald-green.help :as help :refer [markdown-tip]]
    [the-emerald-green.traits :as traits]
-   [the-emerald-green.utils :refer [keyname keyword->name s-format]]
+   [the-emerald-green.utils :refer [keyname keyword->name]]
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.prompts :as prompts]
    [the-emerald-green.web.routing :refer [route->href]]
@@ -123,16 +123,21 @@
                             :level level})]
     (list-stats stats fungibles)))
 
-(defn list-traits [traits & {:keys [height]
-                             :or {height default-height}}]
+(defn list-traits [traits]
   [:div.block
-   {:style (str "overflow: scroll; max-height: " height "px;")}
    (if (seq traits)
      (for [[trait-id n] (sort-by (comp name first) traits)
            :let [trait (traits/id->trait trait-id)]]
-       (if (< 1 n)
-         (ct/describe-trait trait n)
-         (ct/describe-a-trait trait)))
+       [:details
+        [:summary
+         (if (< 1 n)
+           (str (:name trait) " x" n)
+           (:name trait))]
+        [:br]
+        (if (< 1 n)
+          (ct/describe-trait trait n)
+          (ct/describe-a-trait trait))
+        [:br]])
      [:p "No traits..."])])
 
 (defn filter-deck [filter-fn & args]
@@ -200,23 +205,23 @@
 (defn show-character [{:as character
                        :keys [level traits]}
                       & {:keys [on-delete]}]
-  [:div.block
-   [:div.level
-    [:div.level-left
-     [:div.level-item
-      [:h3 (:name character)]]]
-    [:div.level-right
-     [:div.level-item
-      [:div.buttons.has-addons
-       (when (:id character)
-         [:a.button.is-light (route->href :template-character (-> character :id keyname)) "Use as Template"])
-       (when on-delete
-         [:button.button.is-danger {:on-click on-delete} "Delete!"])
-       (when-let [_id (:_id character)]
-         [:a.button.is-info (route->href :edit-character _id) "Edit"])]]]]
-   [:div.block
-    {:style "overflow: scroll; max-height: 300px;"}
-    (profane "blockquote" (marked/parse (:biography character)))]
+  [[:div.block
+    [:div.level
+     [:div.level-left
+      [:div.level-item
+       [:h3.subtitle (:name character)]]]
+     [:div.level-right
+      [:div.level-item
+       [:div.buttons.has-addons
+        (when (:id character)
+          [:a.button.is-light (route->href :template-character (-> character :id keyname)) "Use as Template"])
+        (when on-delete
+          [:button.button.is-danger {:on-click on-delete} "Delete!"])
+        (when-let [_id (:_id character)]
+          [:a.button.is-info (route->href :edit-character _id) "Edit"])]]]]
+    [:details
+     [:summary "Biography"]
+     (profane "blockquote" (marked/parse (:biography character)))]]
    [:div.block
     [:h4.subtitle "Pact"]
     [:div.box

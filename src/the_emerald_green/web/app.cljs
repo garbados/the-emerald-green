@@ -48,7 +48,7 @@
      :campaigns          tools/campaigns
      :search             #(tools/search @-characters @-stuff)
      :template-stuff     #(from-template @-stuff)
-     :invent-stuff       #(design-equipment @-stuff)
+     :invent-stuff       #(design-equipment)
      :edit-stuff         #(edit-equipment @-stuff)
      :not-found          four-oh-four})
    (reduce

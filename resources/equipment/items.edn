@@ -2,5 +2,5 @@
   :id :basic-item
   :type :item
   :description "Any kind of thing. Gems. Runes. Pocket lint."
-  :content-pack "The Emerald Green"
+  :content-pack :the-emerald-green
   :abstract true}]

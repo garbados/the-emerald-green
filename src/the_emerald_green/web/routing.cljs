@@ -36,9 +36,6 @@
       (string/replace-first #"^/" "")))
 
 (defn goto-str [s]
-  (js/setTimeout
-   #(scroll-to-top)
-   5)
   (set! js/window.location s))
 
 (defn goto-search [query]
@@ -68,7 +65,9 @@
   (let [url-hash js/document.location.hash]
     (if (seq url-hash)
       (if-let [view (find-view route->view url-hash)]
-        (view (snag main-id))
+        (do
+          (scroll-to-top)
+          (view (snag main-id)))
         (goto-str (string/replace-first url-hash #"^#/" (str (route->hash not-found-route) "/"))))
       (goto default-route))))
 

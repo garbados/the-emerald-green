@@ -7,7 +7,7 @@
    [the-emerald-green.utils :refer [keyword->name]]
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.prompts :as prompts]
-   [the-emerald-green.web.utils :refer [pprint refresh-node]]
+   [the-emerald-green.web.utils :refer [refresh-node]]
    [the-emerald-green.help :as help]))
 
 (defn trait-mentions-card?

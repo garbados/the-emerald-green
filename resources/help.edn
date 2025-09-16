@@ -21,6 +21,7 @@
  :fortune "Expend to gain advantage."
  :madness "Mills your deck during challenges."
  ; skills
+ :skill "A trained proficiency in some practical specialty."
  :resilience "Strength of constitution."
  :athletics "Balancing, tumbling, climbing, swimming, etc."
  :intimidation "Forceful persuasion."
@@ -66,4 +67,29 @@
  :downtime "A period of downtime, like spending a day in camp or town."
  ; ability etc
  :actions "The number of action points the ability consumes when used. Each turn in a phase provides 3 action points."
- :ability-madness "The amount of madness accrued when you use this ability."}
+ :ability-madness "The amount of madness accrued when you use this ability."
+ ; elements
+ :element "The associated element. Attacks with this thing apply this type of damage."
+ :physical "Slashing. Piercing. Bludgeoning. Maiming."
+ :fire "Heat. Combustion. Metallurgy. Fission."
+ :frost "Cold. Ice. Stillness. Crystals."
+ :radiant "The awesome power of illumination."
+ :shadow "The deafening call of nullity."
+ ; rarities
+ :rarity "How readily obtainable this is."
+ :common "Easy to find at a typical general store."
+ :uncommon "A specialty shop might have this."
+ :rare "It would be a quest to find this."
+ :mythic "Hardly anyone has even heard of this."
+ ; content packs
+ :content-pack "A bundle of associated content."
+ :the-emerald-green "The game's core, setting-less content."
+ ; weapon
+ :heft "How hard the weapon is to wield, and how hard it hits."
+ :light "A light weapon, attacks quickly and deals little damage."
+ :medium "A fair-sized weapon; takes most of a turn to attack."
+ :heavy "A large weapon, taking all of your turn to attack for massive damage."
+ ; misc
+ :cost "The typical exchange value of a thing, in gold."
+ :tags "Miscellaneous metadata."
+ :reload "This weapon must be reloaded, a 1-action ability, before it can be fired again."}

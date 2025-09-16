@@ -5,7 +5,7 @@
    [the-emerald-green.equipment :as equipment]
    [the-emerald-green.help :as help]
    [the-emerald-green.money :as money]
-   [the-emerald-green.utils :refer [keyword->name]]
+   [the-emerald-green.utils :refer [keyword->name name->keyword]]
    [the-emerald-green.web.db :as db]
    [the-emerald-green.web.prompts :as prompts]
    [the-emerald-green.web.routing :refer [goto redirect route-pattern]]
@@ -24,14 +24,21 @@
            (atom (if transform? (default value) (or value default)))])))
 
 (defn marshal-thing [atoms & {:as transforms}]
-  (into {}
-        (for [[prop* -value] atoms
-              :let [prop (keyword (subs (name prop*) 1))
-                    value
-                    (if-let [transform (get transforms prop)]
-                      (transform @-value)
-                      @-value)]]
-          [prop value])))
+  (into {:abstract false}
+        (concat
+         (for [[prop* -value] atoms
+               :let [prop (keyword (subs (name prop*) 1))
+                     value
+                     (if-let [transform (get transforms prop)]
+                       (transform @-value)
+                       @-value)]
+               :when (cond
+                       (string? value) (seq value)
+                       :else value)]
+           [prop value])
+         (for [[prop transform] transforms
+               :when (not (get atoms (keyword (str "-" (name prop)))))]
+           [prop (transform)]))))
 
 (def prompt-name
   #(prompts/field "Name"
@@ -64,25 +71,24 @@
   (add-watch -cost :to-gold (fn [& _]
                               (refresh-node "cost-as-gold" #(money/wealth-to-gold @-cost))))
   [[:label.label "Cost"]
+   [:p.help "The value of the thing, in copper pieces."]
    [:div.field.has-addons
     [:p.control
      [:a.button.is-static#cost-as-gold (money/wealth-to-gold @-cost)]]
-    [:p.control {:style "width: 100%;"} (prompts/number -cost)]]
-   [:p.help "The value of the thing, in copper pieces."]])
+    [:p.control {:style "width: 100%;"} (prompts/number -cost :props {:min 0})]]])
 
 (defn make-thing [thing & {:keys [on-save on-cancel]}]
-  (let [{:keys [-name -description -content-pack -tags -enchantments
+  (let [{:keys [-name -description -content-pack -enchantments -tags
                 -cost -rarity]
-         :as atoms
-         :or {-tags (atom "")
-              -enchantments (atom "")}}
+         :as atoms}
         (atomify thing
                  :name ""
                  :description ""
-                 :content-pack ""
-                 :enchantments #(string/join ", " (map keyword->name (:enchantments % [])))
-                 :tags #(string/join ", " (map keyword->name (:tags % [])))
-                 :cost money/->cost
+                 :content-pack #(if % (keyword->name %) "")
+                 :enchantments #(string/join ", " (map keyword->name (or % [])))
+                 :tags #(string/join ", " (map keyword->name (or % [])))
+                 :cost (fnil money/->cost 0)
+                 :rarity ""
                  :skill ""
                  :heft ""
                  :element ""
@@ -133,17 +139,20 @@
                @-resistances))]
          (doseq [[element -value] elements]
            (add-watch -value element #(swap! -resistances assoc element @-value)))
-         [[:div.block
+         [:div.block
+          [:div.block
            (prompts/field "Inertia"
                           "Slows you down, complicates finesse."
                           prompts/number -inertia)]
           [:div.block
-           [:p>strong "Resistances"]
+           [:p.subtitle "Resistances"]
            [:p.help "Amount of damage prevented from attacks that strike you."]
-           (for [[element -value] elements]
-             (prompts/field (keyword->name element)
-                            (help/get-help element)
-                            prompts/number -value))]]))
+           (for [[element -value] elements
+                 :let [element-kw (keyword (subs (name element) 1))]]
+             [:div.block
+              (prompts/field (keyword->name element-kw)
+                             (help/get-help element-kw)
+                             prompts/number -value)])]]))
      (when (= :tool (:type thing))
        (let [{:keys [-skill]}
              atoms]
@@ -159,24 +168,58 @@
      [:div.block>div.buttons
       (when on-save
         [:button.button.is-primary.is-fullwidth
-         {:onclick #(on-save (marshal-thing atoms))}
+         {:onclick
+          (fn [& _]
+            (on-save (marshal-thing atoms
+                                    :type (constantly (:type thing))
+                                    :abstract (constantly false)
+                                    :cost money/wealth-to-gold
+                                    :content-pack name->keyword
+                                    :enchantments
+                                    (fn [raw-enchantments]
+                                      (if-let [enchantments (seq (filter seq (string/split raw-enchantments #",\s*")))]
+                                        (set (map name->keyword enchantments))
+                                        #{}))
+                                    :tags
+                                    (fn [raw-tags]
+                                      (if-let [tags (seq (filter seq (string/split raw-tags #",\s*")))]
+                                        (set (map name->keyword tags))
+                                        #{})))))}
          "Save"])
       (when on-cancel
         [:button.button.is-small.is-dark.is-fullwidth
          {:onclick on-cancel}
          "Cancel"])]]))
 
+(defn save-equipment! [thing]
+  (.then (db/save-equipment! thing)
+         #(goto :equipment-guide)))
+
 (defn from-template [custom-stuff]
   (let [thing-id (route-pattern :template-stuff)]
     (if-let [thing (get custom-stuff thing-id
                         (equipment/id->equipment (keyword thing-id)))]
       [[:h1 "Create from Template"]
-       (make-thing thing :on-save #(do (db/save-equipment! %)
-                                       (goto :equipment-guide)))]
+       (make-thing thing :on-save save-equipment!)]
       #(redirect :404))))
 
-(defn design-equipment [custom-stuff]
-  [:h1 "TODO"])
+(defn design-equipment []
+  (let [-type (atom "")]
+    (add-watch -type :design
+               (fn [& _]
+                 (refresh-node "new-equipment" #(make-thing {:type @-type} :on-save save-equipment!))))
+    [[:h1 "Design Equipment"]
+     [:div.block
+      (prompts/field "Equipment Type"
+                     "What is this thing?"
+                     prompts/choose-one -type
+                     equipment/stuff-types)]
+     [:div.block#new-equipment]]))
 
 (defn edit-equipment [custom-stuff]
-  [:h1 "TODO"])
+  (let [thing-id (route-pattern :edit-stuff)]
+    (if-let [thing (get custom-stuff thing-id
+                        (equipment/id->equipment (keyword thing-id)))]
+      [[:h1 "Edit Equipment"]
+       (make-thing thing :on-save save-equipment!)]
+      #(redirect :404))))

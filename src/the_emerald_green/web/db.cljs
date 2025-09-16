@@ -61,7 +61,7 @@
          #(.remove db %)))
 
 (defn snag-edn [id]
-  (.then (get-doc id) (comp second unmarshal-doc)))
+  (.then (get-doc id) unmarshal-doc))
 
 (def character-prefix "character")
 (defn save-character! [character & [id]]
@@ -70,7 +70,7 @@
 
 (def stuff-prefix "stuff")
 (defn save-equipment! [equipment & [id]]
-  (upsert-doc! equipment :id (or id (str stuff-prefix "/" (random-uuid)))))
+  (upsert-doc! equipment :id (or id (:_id equipment) (str stuff-prefix "/" (random-uuid)))))
 
 (defn normalize-results [results docs?]
   (vec
@@ -86,6 +86,24 @@
                        :startkey (str prefix "/")
                        :endkey (str prefix "/\uffff")})]
     (.then (.allDocs db opts) #(normalize-results % docs?))))
+
+(defn list-untyped [& {:keys [docs?]
+                       :or {docs? true}}]
+  (.then (.allDocs db (clj->js {:include_docs docs?}))
+         (fn [results]
+           (filter #(not
+                     (or (string/starts-with? (.-id %) character-prefix)
+                         (string/starts-with? (.-id %) stuff-prefix)
+                         (string/starts-with? (.-id %) "_design")))
+                   (.-rows results)))))
+
+(defn delete-untyped! []
+  (.then
+   (list-untyped)
+   (fn [rows]
+     (doseq [js-row rows
+             :let [doc (.-doc js-row)]]
+       (.remove db doc)))))
 
 (defn list-characters [& args]
   (apply list-type character-prefix args))

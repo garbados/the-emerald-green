@@ -3,6 +3,23 @@
    [cljs.pprint :as pprint]
    [the-emerald-green.web.alchemy :refer [refresh snag]]))
 
+(defn get-rect [elem]
+  (js->clj (.getBoundingClientRect elem) :keywordize-keys true))
+
+(defn scroll-to [elem]
+  (let [rect (get-rect elem)]
+    (js/window.scrollTo (clj->js {:left (.-left rect)
+                                  :top (.-top rect)
+                                  :behavior "smooth"}))))
+
+(defn scroll-to-top []
+  (js/window.scrollTo (clj->js {:left 0
+                                :top 0
+                                :behavior "smooth"})))
+
+(defn scroll-to-id [id]
+  (scroll-to (snag id)))
+
 (defn refresh-node [node-ish expr]
   (refresh node-ish (clj->js (expr))))
 
@@ -30,19 +47,3 @@
       (when-let [timer @-timer]
         (clear-timeout timer))
       (reset! -timer (set-timeout #(apply f args))))))
-
-(defn get-rect [elem]
-  (js->clj (.getBoundingClientRect elem) :keywordize-keys true))
-
-(defn scroll-to [elem]
-  (let [rect (get-rect elem)]
-    (js/window.scrollTo (clj->js {:left (.-left rect)
-                                  :top (.-top rect)
-                                  :behavior "smooth"}))))
-
-(defn scroll-to-top []
-  (println "huh?")
-  (js/window.scrollTo 0 0))
-
-(defn scroll-to-id [id]
-  (scroll-to (snag id)))

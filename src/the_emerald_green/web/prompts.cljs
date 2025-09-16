@@ -7,7 +7,8 @@
   [-value
    & {:keys [on-submit on-change
              placeholder wait
-             options-list input-type]
+             options-list input-type
+             props]
       :or {wait default-wait-ms}}]
   (let [oninput (debounce #(reset! -value (-> % .-target .-value)) wait)
         onkeydown
@@ -19,9 +20,10 @@
       {:type input-type
        :value @-value
        :oninput oninput}
-       placeholder (assoc :placeholder placeholder)
+       placeholder              (assoc :placeholder placeholder)
        (or on-submit on-change) (assoc :onkeydown onkeydown)
-       options-list (assoc :list options-list))]))
+       options-list             (assoc :list options-list)
+       props                    (merge props))]))
 
 (defn text [-value & args]
   (apply input -value :input-type "text" args))
@@ -68,7 +70,7 @@
 
 (defn field [label help prompt -atom & args]
   [[:label.label label]
-   [:div.field
-    [:div.control (apply prompt -atom args)]]
    (when help
-     [:p.help help])])
+     [:p.help help])
+   [:div.field
+    [:div.control (apply prompt -atom args)]]])

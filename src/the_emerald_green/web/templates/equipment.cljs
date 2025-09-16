@@ -6,16 +6,18 @@
    [the-emerald-green.utils :refer [keyword->name]]
    [the-emerald-green.web.alchemy :refer [profane snag]]
    [the-emerald-green.web.routing :refer [route->href]]
-   [the-emerald-green.web.utils :refer [lolraw scroll-to-id]]))
+   [the-emerald-green.web.utils :refer [lolraw scroll-to-id]]
+   [the-emerald-green.help :as help]))
 
-(defn thing-hash-id [{stuff-type :type thing-id :id}]
-  (str (name stuff-type) "_" (name thing-id)))
+(defn thing-hash-id [{stuff-type :type id :id id_ :_id}]
+  (str (name stuff-type) "_" (name (or id id_))))
 
-(defn craftbench [{_id :_id :as thing}]
-  [:div.buttons
-   [:a.button.is-fullwidth (route->href :template-stuff (-> thing :id name)) "Use as Template"]
-   (when _id
-     [:a.button.is-fullwidth (route->href :edit-stuff _id) "Edit"])])
+(defn craftbench [{id :id _id :_id}]
+  (let [thing-id (if id (name id) _id)]
+    [:div.buttons
+     [:a.button.is-fullwidth (route->href :template-stuff thing-id) "Use as Template"]
+     (when _id
+       [:a.button.is-fullwidth.is-light (route->href :edit-stuff _id) "Edit"])]))
 
 (defn describe-thing [notables
                       {thing-name :name
@@ -36,18 +38,30 @@
                      (string/join " ; " (map #(str (keyword->name (first %)) " => " (second %)) seq-map)))
                    (keyword? raw-value)    (keyword->name raw-value)
                    (sequential? raw-value) (seq raw-value)
+                   (set? raw-value)
+                   (interpose
+                    ", "
+                    (for [sub-value raw-value
+                          :let [value-name (keyword->name sub-value)]]
+                      [:span (help/tag->title sub-value) value-name]))
                    :else raw-value)]
-           :when (and (not (zero? value))
-                      value)]
-       [:li key-name ": " value])
+           :when (not
+                  (or (nil? value)
+                      (false? value)
+                      (zero? value)
+                      (when (sequential? value) (nil? (seq value)))))]
+       [:li
+        [:span (help/tag->title key) key-name]
+        ": "
+        [:span (when (keyword? raw-value) (help/tag->title raw-value)) value]])
      [:li
       [:details
        [:summary "Definition"]
        (lolraw thing)]]]
     (craftbench thing)]])
 
-(def base-props [:cost :rarity :content-pack])
-(def describe-weapon (partial describe-thing (concat [:heft :range :element :enchantments] base-props)))
+(def base-props [:cost :rarity :content-pack :enchantments :tags])
+(def describe-weapon (partial describe-thing (concat [:heft :range :element] base-props)))
 (def describe-armor (partial describe-thing (concat [:resistances :inertia] base-props)))
 (def describe-tool (partial describe-thing (concat [:skill] base-props)))
 (def describe-consumable (partial describe-thing (concat [:effect] base-props)))
@@ -70,7 +84,7 @@
 (defn equipment-guide-nav [type->stuff]
   [[:p>strong "Table of Contents"]
    (for [[stuff-type title] section-titles
-         :let [stuff (type->stuff stuff-type)
+         :let [stuff (sort-by :name (type->stuff stuff-type))
                {real-stuff true
                 abstract-stuff false}
                (group-by (comp false? :abstract) stuff)
@@ -98,7 +112,7 @@
 
 (defn equipment-guide-tables [type->stuff]
   (for [[stuff-type title] section-titles
-        :let [stuff (type->stuff stuff-type)
+        :let [stuff (sort-by :name (type->stuff stuff-type))
               describe-thing (type->describe stuff-type)
               {real-stuff true
                abstract-stuff false}
@@ -117,8 +131,8 @@
 (defn equipment-guide [custom-stuff]
   (let [type->custom-stuff (group-by :type (vals custom-stuff))
         type->stuff (merge-with concat equipment/type->stuff type->custom-stuff)]
-    (println type->custom-stuff)
-    [[:h1.title "Equipment Guide"]
+    [:div.block
+     [:h1.title "Equipment Guide"]
      (equipment-guide-nav type->stuff)
      [:hr]
      (equipment-guide-tables type->stuff)]))

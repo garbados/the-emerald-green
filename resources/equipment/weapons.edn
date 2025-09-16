@@ -27,6 +27,7 @@
   :description "Daggers, punchknives, katars, fistwraps, etc."
   :extends :common-weapon
   :skill :melee
+  :element :physical
   :heft :light
   :range :close}
  {:name "Medium Melee Weapon"

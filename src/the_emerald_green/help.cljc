@@ -28,16 +28,18 @@
 (defn get-help
   ([thing] (get-help thing tag->tip))
   ([thing tag->tip]
-   (cond
-     (keyword? thing) (tag->tip thing)
-     (and (string? thing)
-          (seq thing)) thing
-     (map? thing)
-     (->> ((juxt :id :description :biography :type) thing)
-          (filter some?)
-          (map #(get-help % tag->tip))
-          (filter some?)
-          first))))
+   (let [tip
+         (cond
+           (keyword? thing) (tag->tip thing)
+           (and (string? thing)
+                (seq thing)) thing
+           (map? thing)
+           (->> ((juxt :id :description :biography :type) thing)
+                (filter some?)
+                (map #(get-help % tag->tip))
+                (filter some?)
+                first))]
+     (if tip tip (println "no tip:" thing)))))
 
 (s/fdef get-help
   :args ::help-args
