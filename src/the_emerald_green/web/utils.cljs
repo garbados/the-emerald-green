@@ -47,3 +47,32 @@
       (when-let [timer @-timer]
         (clear-timeout timer))
       (reset! -timer (set-timeout #(apply f args))))))
+
+(def immutable #{:abstract :type :id :extends})
+
+(defn atomify [thing & {:as defaults}]
+  (into {}
+        (for [prop (concat (keys thing) (keys defaults))
+              :let [value (get thing prop)
+                    default (get defaults prop)
+                    transform? (fn? default)]
+              :when (not (contains? immutable prop))]
+          [(keyword (str "-" (name prop)))
+           (atom (if transform? (default value) (or value default)))])))
+
+(defn marshal-thing [atoms & {:as transforms}]
+  (into {:abstract false}
+        (concat
+         (for [[prop* -value] atoms
+               :let [prop (keyword (subs (name prop*) 1))
+                     value
+                     (if-let [transform (get transforms prop)]
+                       (transform @-value)
+                       @-value)]
+               :when (cond
+                       (string? value) (seq value)
+                       :else value)]
+           [prop value])
+         (for [[prop transform] transforms
+               :when (not (get atoms (keyword (str "-" (name prop)))))]
+           [prop (transform)]))))

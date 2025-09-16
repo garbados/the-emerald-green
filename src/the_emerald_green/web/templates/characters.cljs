@@ -11,7 +11,7 @@
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.prompts :as prompts]
    [the-emerald-green.web.routing :refer [route->href]]
-   [the-emerald-green.web.templates.traits :as ct :refer [describe-ability
+   [the-emerald-green.web.templates.traits :as tt :refer [describe-ability
                                                           describe-talent]]))
 
 (def default-height 500)
@@ -24,8 +24,8 @@
     [:thead
      [:tr
       [:th.is-fullwidth "Name"]
-      [:th.is-narrow "Exile?"]
-      [:th.is-narrow "Sanctify?"]]]
+      [:th.is-narrow.has-text-centered "Exile?"]
+      [:th.is-narrow.has-text-centered "Sanctify?"]]]
     [:tbody
      (for [card-id cards
            :let [{card-name :name
@@ -51,7 +51,7 @@
      [:thead
       [:tr
        [:th.is-fullwidth "Name"]
-       [:th.is-narrow "Restore?"]]]
+       [:th.is-narrow.has-text-centered "Restore?"]]]
      [:tbody
       (for [card-id cards
             :let [{card-name :name
@@ -135,8 +135,8 @@
            (:name trait))]
         [:br]
         (if (< 1 n)
-          (ct/describe-trait trait n)
-          (ct/describe-a-trait trait))
+          (tt/describe-trait trait n)
+          (tt/describe-a-trait trait))
         [:br]])
      [:p "No traits..."])])
 
@@ -150,7 +150,7 @@
    -shop-query
    & {:keys [new? on-save
              deck traits sanctified exiled stats
-             equipment]}]
+             shopping equipped wealth]}]
   [[:h1.title (if new? "New Character" "Edit Character")]
    [:div.block
     [:div.field
@@ -189,13 +189,17 @@
      [:div.column.is-6
       [:div.box
        [:p.subtitle "Shopping"]
-       (prompts/text -shop-query :placeholder "🔍 Filter stuff by name or attributes.")
-       [:div#equipment equipment]]]
+       [:div.block
+        (prompts/text -shop-query :placeholder "🔍 Filter stuff by name or attributes.")]
+       [:div.block#shopping shopping]]]
      [:div.column.is-6
       [:div.box
-       [:p.subtitle "Equipment"]]
+       [:p.subtitle
+        "Wealth: "
+        [:span#wealth wealth]]]
       [:div.box
-       [:p.subtitle "Inventory"]]]]]
+       [:p.subtitle "Equipment"]
+       [:div.block#equipped equipped]]]]]
    (when on-save
      [:div.block
       [:button.button.is-primary.is-fullwidth

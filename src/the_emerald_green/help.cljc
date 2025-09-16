@@ -5,9 +5,22 @@
       :cljs
       [the-emerald-green.macros :refer-macros [slurp-edn]])
    [clojure.spec.alpha :as s]
-   [clojure.spec.gen.alpha :as g]))
+   [clojure.spec.gen.alpha :as g]
+   [the-emerald-green.traits :as traits]
+   [the-emerald-green.equipment :as equipment]
+   [the-emerald-green.deck :as deck]))
 
-(def tag->tip (slurp-edn "help.edn"))
+(def tag->tip
+  (reduce
+   merge
+   (slurp-edn "help.edn")
+   (for [id->thing [traits/id->trait
+                    traits/id->talent
+                    traits/id->ability
+                    equipment/id->equipment
+                    equipment/id->enchantment
+                    deck/id->card]]
+     (zipmap (keys id->thing) (map :description (vals id->thing))))))
 
 (s/def ::tag
   (s/with-gen
@@ -34,23 +47,36 @@
            (and (string? thing)
                 (seq thing)) thing
            (map? thing)
-           (->> ((juxt :id :description :biography :type) thing)
-                (filter some?)
+           (->> ((juxt :id :description :type) thing)
+                (filter
+                 #(cond
+                    (string? %) (seq %)
+                    :else (some? %)))
                 (map #(get-help % tag->tip))
-                (filter some?)
+                (filter
+                 #(cond
+                    (string? %) (seq %)
+                    :else (some? %)))
                 first))]
-     (if tip tip (println "no tip:" thing)))))
+     (if tip
+       tip
+       (if (map? thing)
+         (println "no tip:" (:id thing))
+         (println "no tip:" (pr-str thing)))))))
 
 (s/fdef get-help
   :args ::help-args
   :ret (s/nilable string?))
 
+(defn ^:no-stest ->title [tip]
+  {:title tip
+   :style "text-decoration: underline dotted; cursor: help;"})
+
 (defn tag->title
   ([thing] (tag->title thing tag->tip))
   ([thing tag->tip]
    (when-let [tip (get-help thing tag->tip)]
-     {:title tip
-      :style "text-decoration: underline dotted; cursor: help;"})))
+     (->title tip))))
 
 (s/def ::title string?)
 (s/def ::style string?)

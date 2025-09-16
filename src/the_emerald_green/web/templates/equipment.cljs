@@ -19,8 +19,8 @@
      (when _id
        [:a.button.is-fullwidth.is-light (route->href :edit-stuff _id) "Edit"])]))
 
-(defn describe-thing [notables
-                      {thing-name :name
+(defn describe-thing [{thing-name :name
+                       thing-type :type
                        :keys [description tags]
                        :as thing}]
   [(str "div.box#" (thing-hash-id thing))
@@ -28,7 +28,7 @@
    [:div
     (profane "p" (marked/parse description))
     [:ul
-     (for [key notables
+     (for [key (equipment/type->props thing-type)
            :let [raw-value (get thing key)
                  key-name (keyword->name key)
                  value
@@ -60,19 +60,30 @@
        (lolraw thing)]]]
     (craftbench thing)]])
 
-(def base-props [:cost :rarity :content-pack :enchantments :tags])
-(def describe-weapon (partial describe-thing (concat [:heft :range :element] base-props)))
-(def describe-armor (partial describe-thing (concat [:resistances :inertia] base-props)))
-(def describe-tool (partial describe-thing (concat [:skill] base-props)))
-(def describe-consumable (partial describe-thing (concat [:effect] base-props)))
-(def describe-item (partial describe-thing base-props))
-
-(def type->describe
-  {:weapon describe-weapon
-   :armor describe-armor
-   :tool describe-tool
-   :consumable describe-consumable
-   :item describe-item})
+(defn summarize-thing [{thing-type :type :as thing}]
+  (string/join
+   "\n"
+   (concat
+    [(:name thing)
+     (str "> " (string/replace (:description thing) #"\n\s+" "\n> "))]
+    (for [prop (equipment/type->props thing-type)
+          :let [value (get thing prop)
+                value
+                (cond
+                  (map? value)
+                  (string/join ", " (map #(str %1 ": " %2)
+                                         (map keyword->name (keys value))
+                                         (vals value)))
+                  (keyword? value)
+                  (keyword->name value)
+                  (some true? ((juxt sequential? set?) value))
+                  (string/join ", " (map keyword->name value))
+                  :else
+                  value)]
+          :when (if (string? value)
+                  (seq value)
+                  value)]
+      (str (keyword->name prop) ": " value)))))
 
 (def section-titles
   [[:weapon "Weapons"]
@@ -112,7 +123,6 @@
 (defn equipment-guide-tables [type->stuff]
   (for [[stuff-type title] section-titles
         :let [stuff (sort-by :name (type->stuff stuff-type))
-              describe-thing (type->describe stuff-type)
               {real-stuff true
                abstract-stuff false}
               (group-by (comp false? :abstract) stuff)]
@@ -128,8 +138,7 @@
         (map describe-thing abstract-stuff)])]))
 
 (defn equipment-guide [custom-stuff]
-  (let [type->custom-stuff (group-by :type (vals custom-stuff))
-        type->stuff (merge-with concat equipment/type->stuff type->custom-stuff)]
+  (let [type->stuff (equipment/merge-custom-stuff custom-stuff)]
     [:div.block
      [:h1.title "Equipment Guide"]
      (equipment-guide-nav type->stuff)

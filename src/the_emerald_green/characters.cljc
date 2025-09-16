@@ -64,7 +64,7 @@
    :level 1
    :sanctified #{}
    :exiled #{}
-   :equipped []
+   :equipped {}
    :inventory []
    :media []
    :wealth 1000})

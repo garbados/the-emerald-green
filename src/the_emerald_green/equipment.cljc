@@ -96,6 +96,22 @@
    ::item
    (s/keys :req-un [:equippable/type])))
 
+(def base-props [:cost :rarity :content-pack :enchantments :tags])
+(def weapon-props [:heft :range :element])
+(def armor-props [:resistances :inertia])
+(def tool-props [:skill])
+(def consumable-props [:effect])
+
+(def type->props
+  {:weapon (concat base-props weapon-props)
+   :armor (concat base-props armor-props)
+   :tool (concat base-props tool-props)
+   :consumable (concat base-props consumable-props)
+   :item base-props})
+
 (s/def ::equipment (set (keys id->equipment)))
 (s/def ::equipped (s/coll-of ::equipment*))
 (s/def ::inventory (s/coll-of ::item))
+
+(defn ^:no-stest merge-custom-stuff [custom-stuff]
+  (merge-with concat type->stuff (group-by :type (vals custom-stuff))))

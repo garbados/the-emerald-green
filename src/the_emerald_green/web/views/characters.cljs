@@ -2,11 +2,16 @@
   (:require
    [the-emerald-green.characters :as c]
    [the-emerald-green.deck :as deck]
+   [the-emerald-green.equipment :as equipment]
+   [the-emerald-green.help :as help]
+   [the-emerald-green.money :as money]
    [the-emerald-green.traits :as traits]
-   [the-emerald-green.web.db :as db]
+   [the-emerald-green.utils :refer [keyword->name]]
+   [the-emerald-green.web.db :refer [save-character!]]
    [the-emerald-green.web.routing :refer [goto route-pattern]]
    [the-emerald-green.web.templates.characters :as ct :refer [character-not-found]]
-   [the-emerald-green.web.utils :refer [refresh-node]]))
+   [the-emerald-green.web.templates.equipment :refer [summarize-thing]]
+   [the-emerald-green.web.utils :refer [atomify marshal-thing refresh-node]]))
 
 (def sanctify-msg "Will you hold it sacred?")
 (def nothing-sacred "Is nothing sacred to you?")
@@ -33,37 +38,71 @@
                      :on-restore on-restore
                      :empty-msg empty-msg)))
 
-(defn edit-character [& {:keys [character on-save id]}]
-  (let [{char-name :name
-         :keys [biography sanctified exiled level wealth]
-         :or {level 1
-              char-name ""
-              biography ""
-              sanctified #{}
-              exiled #{}
-              wealth 1000}} character
-        -name (atom char-name)
-        -biography (atom biography)
-        -level (atom level)
-        -sanctified (atom sanctified)
-        -exiled (atom exiled)
-        -wealth (atom wealth)
+(defn list-stuff [type->stuff & {:keys [on-buy on-get on-sell on-lose]}]
+  (for [stuff-type equipment/stuff-types
+        :let [stuff (filter
+                     #(and
+                       (false? (:abstract %))
+                       (#{:common :uncommon} (:rarity %)))
+                     (type->stuff stuff-type []))]
+        :when (seq stuff)]
+    [:div.block
+     [:h3.subtitle (keyword->name stuff-type)]
+     [:table.table.is-hoverable.is-fullwidth
+      [:thead
+       [:tr
+        [:th.is-fullwidth "Name"]
+        (when on-buy
+          [:th.is-narrow.has-text-centered "Buy?"])
+        (when on-get
+          [:th.is-narrow.has-text-centered "Get?"])
+        (when on-sell
+          [:th.is-narrow.has-text-centered "Sell?"])
+        (when on-lose
+          [:th.is-narrow.has-text-centered "Lose?"])]]
+      [:tbody
+       (for [thing stuff]
+         [:tr
+          [:td [:p (help/->title (summarize-thing thing)) (:name thing)]]
+          (when on-buy
+            [:td [:button.button.is-primary.is-small
+                  {:title (str "Spend " (:cost thing) " to purchase!")
+                   :onclick #(on-buy thing)}
+                  "Buy!"]])
+          (when on-get
+            [:td [:button.button.is-info.is-small
+                  {:title "Obtain for free!"
+                   :onclick #(on-get thing)}
+                  "Get!"]])
+          (when on-sell
+            [:td [:button.button.is-info.is-warning
+                  {:title "Pawn it for gold!"
+                   :onclick #(on-get thing)}
+                  "Sell!"]])
+          (when on-lose
+            [:td [:button.button.is-info.is-danger
+                  {:title "Lose it, gain nothing!"
+                   :onclick #(on-get thing)}
+                  "Get!"]])])]]]))
+
+(defn edit-character [type->stuff & {:keys [character on-save id]}]
+  (let [{:keys [-name -biography -level -sanctified -exiled -wealth -equipped]
+         :as atoms}
+        (atomify character
+                 :name ""
+                 :biography ""
+                 :level 1
+                 :sanctified #{}
+                 :exiled #{}
+                 :equipped (zipmap equipment/stuff-types (repeat []))
+                 :wealth 1000)
         -traits (atom
                  (when-let [pact (seq (into @-exiled @-sanctified))]
                    (traits/determine-traits pact)))
         -deck-query (atom "")
         -shop-query (atom "")
         save-character
-        #(-> {:name @-name
-              :biography @-biography
-              :level @-level
-              :sanctified @-sanctified
-              :exiled @-exiled
-              :equipped []
-              :inventory []
-              :media []
-              :wealth @-wealth}
-             (db/save-character! id))
+        #(save-character! (marshal-thing atoms) id)
         list-own-deck
         #(ct/filter-deck
           (fn [card]
@@ -77,6 +116,11 @@
         list-exiled (list-chosen nothing-exiled -exiled)
         list-own-traits #(ct/list-traits @-traits)
         list-own-stats #(ct/list-stats-from-traits @-level @-traits)
+        show-wealth #(money/wealth-to-gold @-wealth)
+        list-equipped
+        #(list-stuff @-equipped)
+        list-shopping
+        #(list-stuff type->stuff)
         reset-traits #(reset! -traits
                               (when-let [pact (seq (into @-exiled @-sanctified))]
                                 (traits/determine-traits pact)))
@@ -106,39 +150,49 @@
      :exiled (list-exiled)
      :sanctified (list-sanctified)
      :new? (nil? character)
+     :equipped (list-equipped)
+     :shopping (list-shopping)
+     :wealth (show-wealth)
      :on-save
      (when on-save
        #(.then (save-character)
                (fn [js-res]
                  (on-save (.-id js-res))))))))
 
-(defn show-character [custom-characters]
+(defn show-character [custom-characters custom-stuff]
   (let [character-ref (route-pattern :show-character)
         character
-        (get custom-characters character-ref (c/id->example (keyword character-ref)))]
+        (get custom-characters character-ref (c/id->example (keyword character-ref)))
+        type->stuff (equipment/merge-custom-stuff custom-stuff)]
     (if character
-      (ct/show-character character)
+      (ct/show-character type->stuff character)
       (character-not-found custom-characters character-ref :show? true))))
 
-(defn new-character []
-  (edit-character :on-save #(goto :show-character %)))
+(defn new-character [custom-stuff]
+  (edit-character
+   (equipment/merge-custom-stuff custom-stuff)
+   :on-save #(goto :show-character %)))
 
-(defn template-character [custom-characters]
+(defn template-character [custom-characters custom-stuff]
   (let [example-ref (route-pattern :template-character)
         example-id (keyword example-ref)
         character (first (filter #(= example-id (:id %)) c/examples))]
     (if character
-      (edit-character :character character
+      (edit-character
+       (equipment/merge-custom-stuff custom-stuff)
+       :character character
                       :on-save #(goto :show-character %))
       (character-not-found custom-characters example-ref))))
 
-(defn edit-custom-character [custom-characters]
+(defn edit-custom-character [custom-characters custom-stuff]
   (let [character-ref (route-pattern :edit-character)
         character (get custom-characters character-ref)]
     (if character
-      (edit-character :character character
-                      :on-save #(goto :show-character %)
-                      :id character-ref)
+      (edit-character
+       (equipment/merge-custom-stuff custom-stuff)
+       :character character
+       :on-save #(goto :show-character %)
+       :id character-ref)
       (character-not-found custom-characters character-ref))))
 
 (defn list-characters [custom-characters]

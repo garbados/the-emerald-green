@@ -41,10 +41,10 @@
      :trait-guide        traits-guide
      :equipment-guide    #(equipment-guide @-stuff)
      :characters         #(list-characters @-characters)
-     :template-character #(template-character @-characters)
-     :new-character      #(new-character)
-     :edit-character     #(edit-custom-character @-characters)
-     :show-character     #(show-character @-characters)
+     :template-character #(template-character @-characters @-stuff)
+     :new-character      #(new-character @-stuff)
+     :edit-character     #(edit-custom-character @-characters @-stuff)
+     :show-character     #(show-character @-characters @-stuff)
      :campaigns          tools/campaigns
      :search             #(tools/search @-characters @-stuff)
      :template-stuff     #(from-template @-stuff)
