@@ -83,7 +83,7 @@
          :as atoms}
         (atomify thing
                  :name ""
-                 :description ""
+                 :description #(if % (string/replace % #"\n\s+" "\n") "")
                  :content-pack #(if % (keyword->name %) "")
                  :enchantments #(string/join ", " (map keyword->name (or % [])))
                  :tags #(string/join ", " (map keyword->name (or % [])))
@@ -161,10 +161,10 @@
                          "The skill relevant to using the tool."
                          prompts/choose-one -skill
                          core/ordered-skills)]))
-     (when (= :consumable (:type thing))
-       (let [{:keys [-effect]}
-             atoms]
-         [:p "TODO"]))
+     #_(when (= :consumable (:type thing))
+         (let [{:keys [-effect]}
+               atoms]
+           [:p "TODO"]))
      [:div.block>div.buttons
       (when on-save
         [:button.button.is-primary.is-fullwidth

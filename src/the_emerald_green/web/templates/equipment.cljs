@@ -107,8 +107,7 @@
       (when (seq abstract-stuff)
         [:details
          [:summary "Abstract Base Types"]
-         (stuff-toc abstract-stuff)])
-      [:br]])])
+         (stuff-toc abstract-stuff)])])])
 
 (defn equipment-guide-tables [type->stuff]
   (for [[stuff-type title] section-titles

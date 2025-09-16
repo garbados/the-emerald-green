@@ -7,6 +7,7 @@
   :rarity :common
   :cost "3s"}
  {:name "Healing Potion"
+  :abstract false
   :id :basic-healing-potion
   :extends :basic-consumable
   :description
@@ -14,6 +15,7 @@
    Tastes unpleasantly like cherries.
    Restore 5 Health when used."}
  {:name "Mana Potion"
+  :abstract false
   :id :basic-mana-potion
   :extends :basic-consumable
   :description
