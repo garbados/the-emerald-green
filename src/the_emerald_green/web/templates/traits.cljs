@@ -38,7 +38,9 @@
          :keys [description]}
         (if (keyword? talent-ish) (traits/id->talent talent-ish) talent-ish)]
     [:div.block
-     [:p [:em talent-name] ": " description]]))
+     [:p [:strong>em talent-name]]
+     [:blockquote
+      (profane "p" (marked/parse description))]]))
 
 (defn describe-ability [ability-ish]
   (let [{ability-name :name
