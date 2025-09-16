@@ -29,8 +29,8 @@
 (defn wealth-to-gold [wealth]
   (cond-> ""
     (>= wealth x-platinum) (str (int (/ wealth x-platinum)) "p")
-    (> (rem wealth x-platinum) x-gold) (str (int (/ (rem wealth x-platinum) x-gold)) "g")
-    (> (rem wealth x-gold) x-silver) (str (int (/ (rem wealth x-gold) x-silver)) "s")
+    (>= (rem wealth x-platinum) x-gold) (str (int (/ (rem wealth x-platinum) x-gold)) "g")
+    (>= (rem wealth x-gold) x-silver) (str (int (/ (rem wealth x-gold) x-silver)) "s")
     (pos-int? (rem wealth x-silver)) (str (int (rem wealth x-silver)) "c")))
 
 (s/fdef wealth-to-gold

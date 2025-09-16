@@ -5,7 +5,6 @@
   :description "An essential template for other weapons."
   :enchantments []
   :rarity :common
-  :element :physical
   :cost "5s"}
  {:name "Exotic Weapon"
   :id :uncommon-weapon

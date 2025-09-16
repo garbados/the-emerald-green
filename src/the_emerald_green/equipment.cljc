@@ -10,6 +10,7 @@
    [the-emerald-green.utils :refer [idify refine-extensions]]))
 
 (def enchantments (map idify (slurp-edn "enchantments.edn")))
+(def id->enchantment (zipmap (map :id enchantments) enchantments))
 (def *equipment (map idify (slurp-dir-edn "equipment")))
 (def *id->equipment (zipmap (map :id *equipment) *equipment))
 (def equipment (map (partial refine-extensions *id->equipment) *equipment))
@@ -17,8 +18,9 @@
 (def type->stuff (group-by :type equipment))
 (def equippable-types #{:weapon :armor :tool :consumable})
 (def equippable (reduce concat [] (vals (select-keys type->stuff equippable-types))))
+(def all-tags (set (reduce concat [] (map :tags equipment))))
 
-(def elements #{:physical :fire :frost :radiant :shadow})
+(def elements [:physical :fire :frost :radiant :shadow])
 
 (s/def ::name string?)
 (s/def ::id keyword?)
@@ -35,8 +37,8 @@
 (s/def ::tag known-tags)
 (s/def ::tags (s/coll-of ::tag :kind set?))
 (s/def ::extends (set (keys id->equipment)))
-(def rarities #{:common :uncommon :rare :mythic})
-(s/def ::rarity rarities)
+(def rarities [:common :uncommon :rare :mythic])
+(s/def ::rarity (set rarities))
 (s/def :equippable/type equippable-types)
 (s/def ::type (conj equippable-types :item))
 
@@ -52,13 +54,13 @@
                    ::rarity
                    ::tags]))
 
-(def weapon-skills #{:melee :ranged :arcana :sorcery :theurgy})
-(s/def ::skill weapon-skills)
-(def hefts [:light :medium :heavy])
-(s/def ::heft (set hefts))
-(s/def ::element elements)
-(def weapon-ranges #{:close :short :medium :long :extreme})
-(s/def ::range weapon-ranges)
+(def weapon-skills [:melee :ranged :arcana :sorcery :theurgy])
+(s/def ::skill (set weapon-skills))
+(def weapon-hefts [:light :medium :heavy])
+(s/def ::heft (set weapon-hefts))
+(s/def ::element (set elements))
+(def weapon-ranges [:close :short :medium :long :extreme])
+(s/def ::range (set weapon-ranges))
 (s/def ::weapon
   (s/merge
    ::item

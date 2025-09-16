@@ -117,6 +117,7 @@
 (defn equipment-guide [custom-stuff]
   (let [type->custom-stuff (group-by :type (vals custom-stuff))
         type->stuff (merge-with concat equipment/type->stuff type->custom-stuff)]
+    (println type->custom-stuff)
     [[:h1.title "Equipment Guide"]
      (equipment-guide-nav type->stuff)
      [:hr]

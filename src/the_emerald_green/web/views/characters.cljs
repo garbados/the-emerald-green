@@ -112,8 +112,6 @@
                (fn [js-res]
                  (on-save (.-id js-res))))))))
 
-
-
 (defn show-character [custom-characters]
   (let [character-ref (route-pattern :show-character)
         character

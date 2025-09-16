@@ -40,5 +40,9 @@
                                   :top (.-top rect)
                                   :behavior "smooth"}))))
 
+(defn scroll-to-top []
+  (println "huh?")
+  (js/window.scrollTo 0 0))
+
 (defn scroll-to-id [id]
   (scroll-to (snag id)))

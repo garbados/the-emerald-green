@@ -1,10 +1,14 @@
 (ns the-emerald-green.web.prompts
   (:require
    [the-emerald-green.utils :refer [keyword->name name->keyword]]
-   [the-emerald-green.web.utils :refer [debounce default-wait-ms refresh-node]]))
+   [the-emerald-green.web.utils :refer [debounce default-wait-ms]]))
 
-(defn text [-value & {:keys [on-submit on-change placeholder wait]
-                      :or {wait default-wait-ms}}]
+(defn input
+  [-value
+   & {:keys [on-submit on-change
+             placeholder wait
+             options-list input-type]
+      :or {wait default-wait-ms}}]
   (let [oninput (debounce #(reset! -value (-> % .-target .-value)) wait)
         onkeydown
         #(cond
@@ -12,11 +16,15 @@
            on-change (on-change @-value))]
     [:input.input
      (cond->
-      {:type "text"
+      {:type input-type
        :value @-value
        :oninput oninput}
        placeholder (assoc :placeholder placeholder)
-       (or on-submit on-change) (assoc :onkeydown onkeydown))]))
+       (or on-submit on-change) (assoc :onkeydown onkeydown)
+       options-list (assoc :list options-list))]))
+
+(defn text [-value & args]
+  (apply input -value :input-type "text" args))
 
 (defn textarea [-value & {:keys [wait on-submit] :or {wait default-wait-ms}}]
   (let [onkeydown
@@ -31,37 +39,36 @@
       :rows 10}
      @-value]))
 
+(defn number [-value & args]
+  (apply input -value :input-type "number" args))
+
 (defn choose-one [-choice options & {:keys [wait] :or {wait default-wait-ms}}]
   [:div.select
    [:select
     {:oninput (debounce #(reset! -choice (-> % .-target .-value name->keyword)) wait)}
-    (for [option options]
+    (for [option (cons @-choice options)]
       [:option (keyword->name option)])]])
 
+(defn autocomplete-one
+  "Input for completing a single value.
+  Uses a `<datalist>` on a typical `<input>`."
+  [-value options & args]
+  (let [options-id (str "autocomplete-" (random-uuid))]
+    [(apply text -value :options-list options-id args)
+     [(str "datalist#" options-id)
+      (for [option options]
+        [:option {:value option}])]]))
+
+;; TODO FIXME: this is actually obviously behaviorally distinct
+;; - watch variable
+;; - take last comma-sep'd section
+;; - present filtered options
+;; - update to replace last comma-sep'd section
+(def autocomplete-many autocomplete-one)
+
 (defn field [label help prompt -atom & args]
-  [:div.field
-   [:label.label label]
-   [:div.control (apply prompt -atom args)]
+  [[:label.label label]
+   [:div.field
+    [:div.control (apply prompt -atom args)]]
    (when help
      [:p.help help])])
-
-(defn list-dropdown [matches on-select]
-  [:p.dropdown-content
-   (cond-> {}
-     (nil? (seq matches)) (merge {:style "display: none;"}))
-   (for [match matches]
-     [:button.is-link.dropdown-item
-      {:onclick #(on-select match)}
-      (:name match match)])])
-
-;; crib https://codesandbox.io/p/sandbox/bulma-autocomplete-gm3pd?file=%2Fsrc%2FAutocomplete.jsx%3A105%2C17
-(defn dropdown [-value search-fn on-select]
-  (let [-matches (atom [])
-        dropdown-id (str (random-uuid))]
-    (add-watch -matches :matches
-               #(when-let [matches (seq @-matches)]
-                  (refresh-node dropdown-id (list-dropdown matches on-select))))
-    (add-watch -value :value #(reset! -matches (search-fn @-value)))
-    [:div.dropdown
-     [:div.dropdown-trigger (text -value)]
-     [(str "div.dropdown-menu#" dropdown-id)]]))

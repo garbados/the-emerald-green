@@ -1,1 +1,11 @@
-{:flaming "TODO"}
+[{:name "Flaming"
+  :id :flaming
+  :description
+  "This object glows with ethereal fire.
+   It is warm to the touch, but doesn't burn.
+   You can feel the flames lick your skin like flagella.
+   It is fireproof -- even when thrust back in the forge.
+
+   Flaming weapons deal 2 fire damage in addition to physical damage.
+   Flaming armor gains 2 additional fire resistance."
+  :content-pack "The Emerald Green"}]

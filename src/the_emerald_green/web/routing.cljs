@@ -1,7 +1,8 @@
 (ns the-emerald-green.web.routing
   (:require
    [clojure.string :as string]
-   [the-emerald-green.web.alchemy :refer [snag]]))
+   [the-emerald-green.web.alchemy :refer [snag]]
+   [the-emerald-green.web.utils :refer [scroll-to-top]]))
 
 (def default-route :introduction)
 (def not-found-route :not-found)
@@ -35,6 +36,9 @@
       (string/replace-first #"^/" "")))
 
 (defn goto-str [s]
+  (js/setTimeout
+   #(scroll-to-top)
+   5)
   (set! js/window.location s))
 
 (defn goto-search [query]
