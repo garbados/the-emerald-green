@@ -39,8 +39,7 @@
         (if (keyword? talent-ish) (traits/id->talent talent-ish) talent-ish)]
     [:div.block
      [:p [:strong>em talent-name]]
-     [:blockquote
-      (profane "p" (marked/parse description))]]))
+     (profane "blockquote" (marked/parse description))]))
 
 (defn describe-ability [ability-ish]
   (let [{ability-name :name
@@ -48,8 +47,7 @@
         (if (keyword? ability-ish) (traits/id->ability ability-ish) ability-ish)]
     [:div.block
      [:p [:strong>em ability-name]]
-     [:blockquote
-      (profane "p" (marked/parse description))]
+     (profane "blockquote" (marked/parse description))
      [:ul
       [:li [:span (help/tag->title :phase) "Phase"] ": " [:span (help/tag->title phase) (keyword->name phase)]]
       [:li [:span (help/tag->title :actions) "Actions"] ": " actions]
@@ -70,8 +68,7 @@
     & [n]]
    [:div.block>div.box
     [:p.subtitle trait-name (when (< 1 n) (str " (x " n ")"))]
-    [:blockquote
-     (profane "p" (marked/parse description))]
+    (profane "blockquote" (marked/parse description))
     (when effect
       [[:p "Effects"]
        (let [{:keys [attributes skills fungibles talents abilities]} effect]

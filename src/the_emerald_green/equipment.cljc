@@ -60,7 +60,7 @@
 (def weapon-hefts [:light :medium :heavy])
 (s/def ::heft (set weapon-hefts))
 (s/def ::element (set elements))
-(def weapon-ranges [:close :short :medium :long :extreme])
+(def weapon-ranges [:close :near :distant :far :extreme])
 (s/def ::range (set weapon-ranges))
 (s/def ::weapon
   (s/merge
@@ -108,6 +108,13 @@
    :tool (concat base-props tool-props)
    :consumable (concat base-props consumable-props)
    :item base-props})
+
+(def type->title
+  {:weapon "Weapons"
+   :armor "Armor"
+   :tool "Tools"
+   :consumable "Consumables"
+   :item "Items"})
 
 (s/def ::equipment (set (keys id->equipment)))
 (s/def ::equipped (s/coll-of ::equipment*))

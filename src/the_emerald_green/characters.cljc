@@ -325,7 +325,23 @@
      :id :example/dhutlo-ksmani
      :biography (slurp-resource "examples/dhutlo.md")
      :sanctified #{:the-hermit :the-ace-of-swords}
-     :exiled #{:the-page-of-swords :the-knight-of-cups :the-two-of-wands}})))
+     :exiled #{:the-page-of-swords :the-knight-of-cups :the-two-of-wands}
+     :equipped
+     {:weapon [{:description
+                "The natural talons, teeth, and of course, claws, of reptilian humanoids like Lizardfolk.",
+                :tags #{:natural},
+                :skill :melee,
+                :element :physical,
+                :name "Lizardfolk Claws",
+                :content-pack :dhutlo,
+                :heft :light,
+                :abstract false,
+                :inertia 0,
+                :type :weapon,
+                :enchantments #{},
+                :cost "0c",
+                :rarity :common,
+                :range :close}]}})))
 
 (def tessa
   (hydrate-character

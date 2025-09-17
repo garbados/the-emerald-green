@@ -5,12 +5,14 @@
    [the-emerald-green.characters :as c]
    [the-emerald-green.core :as core]
    [the-emerald-green.deck :as deck]
+   [the-emerald-green.equipment :as equipment]
    [the-emerald-green.help :as help :refer [markdown-tip]]
    [the-emerald-green.traits :as traits]
    [the-emerald-green.utils :refer [keyname keyword->name]]
    [the-emerald-green.web.alchemy :refer [profane]]
    [the-emerald-green.web.prompts :as prompts]
    [the-emerald-green.web.routing :refer [route->href]]
+   [the-emerald-green.web.templates.equipment :as templates.equipment]
    [the-emerald-green.web.templates.traits :as tt :refer [describe-ability
                                                           describe-talent]]))
 
@@ -206,9 +208,10 @@
        {:onclick on-save}
        "Save"]])])
 
-(defn show-character [{:as character
-                       :keys [level traits]}
-                      & {:keys [on-delete]}]
+(defn show-character
+  [{:as character
+    :keys [level traits equipped]}
+   & {:keys [on-delete]}]
   [[:div.block
     [:div.level
      [:div.level-left
@@ -248,7 +251,14 @@
     [:h4.subtitle "Traits"]
     (list-traits traits)]
    [:div.block
-    [:h4.subtitle "Livery"]]])
+    (when (seq equipped)
+      [[:h4.subtitle "Livery"]
+       (for [stuff-type equipment/stuff-types
+             :let [stuff (equipped stuff-type [])]
+             :when (seq stuff)]
+         [:div.block
+          [:h5.subtitle (keyword->name stuff-type)]
+          (map #(templates.equipment/describe-thing % :craftable? false) stuff)])])]])
 
 (defn summarize-character [character & {:keys [show?]
                                         :or {show? false}}]

@@ -56,6 +56,8 @@
  :not "Matches if sub-requirements do not match."
  :and "Matches if all sub-requirements do match."
  :or "Matches if any sub-requirements do match."
+ ; general tags
+ :natural "Something that is a part of your body."
  ; ability tags
  :stance "A stance you may hold during an encounter. May only have one stance active at a time."
  :flourish "Only one flourish can be used in a turn, and only once."
@@ -75,6 +77,13 @@
  :frost "Cold. Ice. Stillness. Crystals."
  :radiant "The awesome power of illumination."
  :shadow "The deafening call of nullity."
+ ; ranges
+ :range "The distance at which this weapon is effective."
+ :close "You must be adjacent to your target to hit with this."
+ :near "Target things up to 10 meters away."
+ :distant "Target things up to 30 meters away."
+ :far "Target things up to 60 meters away."
+ :extreme "Target things up to a kilometer away."
  ; rarities
  :rarity "How readily obtainable this is."
  :common "Easy to find at a typical general store."
@@ -86,9 +95,9 @@
  :the-emerald-green "The game's core, setting-less content."
  ; weapon
  :heft "How hard the weapon is to wield, and how hard it hits."
- :light "A light weapon, attacks quickly and deals little damage."
- :medium "A fair-sized weapon; takes most of a turn to attack."
- :heavy "A large weapon, taking all of your turn to attack for massive damage."
+ :light "A light weapon, attacks in one action but only deals one damage."
+ :medium "A fair-sized weapon; attacks in two actions and deals two damage."
+ :heavy "A large weapon. Attacks in three actions, and deals four damage!"
  ; misc
  :cost "The typical exchange value of a thing, in gold."
  :tags "Miscellaneous metadata."

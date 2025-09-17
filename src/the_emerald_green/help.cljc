@@ -58,11 +58,11 @@
                     (string? %) (seq %)
                     :else (some? %)))
                 first))]
-     (if tip
-       tip
-       (if (map? thing)
-         (println "no tip:" (:id thing))
-         (println "no tip:" (pr-str thing)))))))
+     (cond
+       tip tip
+       (map? thing) (println "no tip:" (:id thing))
+       (string? thing) nil
+       :else (println "no tip:" (pr-str thing))))))
 
 (s/fdef get-help
   :args ::help-args

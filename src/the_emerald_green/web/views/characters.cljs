@@ -159,13 +159,12 @@
                (fn [js-res]
                  (on-save (.-id js-res))))))))
 
-(defn show-character [custom-characters custom-stuff]
+(defn show-character [custom-characters]
   (let [character-ref (route-pattern :show-character)
         character
-        (get custom-characters character-ref (c/id->example (keyword character-ref)))
-        type->stuff (equipment/merge-custom-stuff custom-stuff)]
+        (get custom-characters character-ref (c/id->example (keyword character-ref)))]
     (if character
-      (ct/show-character type->stuff character)
+      (ct/show-character character)
       (character-not-found custom-characters character-ref :show? true))))
 
 (defn new-character [custom-stuff]

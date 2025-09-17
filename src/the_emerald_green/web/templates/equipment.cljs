@@ -10,7 +10,7 @@
    [the-emerald-green.help :as help]))
 
 (defn thing-hash-id [{stuff-type :type id :id id_ :_id}]
-  (str (name stuff-type) "_" (name (or id id_))))
+  (str (name stuff-type) "_" (if id (name id) (or id_ (str (random-uuid))))))
 
 (defn craftbench [{id :id _id :_id}]
   (let [thing-id (if id (name id) _id)]
@@ -22,11 +22,13 @@
 (defn describe-thing [{thing-name :name
                        thing-type :type
                        :keys [description tags]
-                       :as thing}]
+                       :as thing}
+                      & {:keys [craftable?]
+                         :or {craftable? true}}]
   [(str "div.box#" (thing-hash-id thing))
    [:h5 [:em thing-name] (when (seq tags) (str " [" (string/join (map name tags)) "]"))]
    [:div
-    (profane "p" (marked/parse description))
+    (profane "blockquote" (marked/parse description))
     [:ul
      (for [key (equipment/type->props thing-type)
            :let [raw-value (get thing key)
@@ -58,7 +60,8 @@
       [:details
        [:summary "Definition"]
        (lolraw thing)]]]
-    (craftbench thing)]])
+    (when craftable?
+      (craftbench thing))]])
 
 (defn summarize-thing [{thing-type :type :as thing}]
   (string/join
@@ -85,17 +88,13 @@
                   value)]
       (str (keyword->name prop) ": " value)))))
 
-(def section-titles
-  [[:weapon "Weapons"]
-   [:armor "Armor"]
-   [:tool "Tools"]
-   [:consumable "Consumables"]
-   [:item "Items"]])
+
 
 (defn equipment-guide-nav [type->stuff]
   [[:p>strong "Table of Contents"]
-   (for [[stuff-type title] section-titles
-         :let [stuff (sort-by :name (type->stuff stuff-type))
+   (for [stuff-type equipment/stuff-types
+         :let [title (equipment/type->title stuff-type)
+               stuff (sort-by :name (type->stuff stuff-type))
                {real-stuff true
                 abstract-stuff false}
                (group-by (comp false? :abstract) stuff)
@@ -121,8 +120,9 @@
          (stuff-toc abstract-stuff)])])])
 
 (defn equipment-guide-tables [type->stuff]
-  (for [[stuff-type title] section-titles
-        :let [stuff (sort-by :name (type->stuff stuff-type))
+  (for [stuff-type equipment/stuff-types
+        :let [title (equipment/type->title stuff-type)
+              stuff (sort-by :name (type->stuff stuff-type))
               {real-stuff true
                abstract-stuff false}
               (group-by (comp false? :abstract) stuff)]

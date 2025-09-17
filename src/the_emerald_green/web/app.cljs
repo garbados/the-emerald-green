@@ -44,7 +44,7 @@
      :template-character #(template-character @-characters @-stuff)
      :new-character      #(new-character @-stuff)
      :edit-character     #(edit-custom-character @-characters @-stuff)
-     :show-character     #(show-character @-characters @-stuff)
+     :show-character     #(show-character @-characters)
      :campaigns          tools/campaigns
      :search             #(tools/search @-characters @-stuff)
      :template-stuff     #(from-template @-stuff)
