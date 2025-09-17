@@ -47,14 +47,16 @@
            :opt-un [::description])))
 
 ;; a version of a character that can be safely persisted to disk
+(s/def ::equipped
+  (s/map-of (set equipment/stuff-types)
+            ::equipment/equipped))
 (s/def ::persistent-character
   (s/keys :req-un [::name
                    ::biography
                    ::level
                    ::sanctified
                    ::exiled
-                   ::equipment/equipped
-                  ;;  ::equipment/inventory
+                   ::equipped
                    ::media
                    ::money/wealth]))
 

@@ -25,6 +25,7 @@
 
 (s/def ::name string?)
 (s/def ::id keyword?)
+(s/def ::_id string?)
 (s/def ::description string?)
 (s/def ::content-pack keyword?)
 (s/def ::enchantments
@@ -45,7 +46,6 @@
 
 (s/def ::item
   (s/keys :req-un [::name
-                   ::id
                    ::type
                    ::description
                    ::content-pack]
@@ -53,7 +53,9 @@
                    ::enchantments
                    ::money/cost
                    ::rarity
-                   ::tags]))
+                   ::tags
+                   ::id
+                   ::_id]))
 
 (def weapon-skills [:melee :ranged :arcana :sorcery :theurgy])
 (s/def ::skill (set weapon-skills))

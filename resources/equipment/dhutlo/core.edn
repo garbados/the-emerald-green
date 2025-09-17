@@ -1,0 +1,11 @@
+[{:name "Lizardfolk Claws"
+  :id :lizardfolk-claws
+  :description
+  "The natural talons, teeth, and of course, claws, of reptilian humanoids like Lizardfolk."
+  :extends :light-melee-weapon
+  :tags #{:natural}
+  :content-pack :dhutlo
+  :abstract false
+  :cost "0c"
+  :rarity :common
+  :range :close}]
