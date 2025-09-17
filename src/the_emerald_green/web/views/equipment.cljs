@@ -30,13 +30,13 @@
 (def prompt-enchantments
   #(prompts/field "Enchantments"
                   "Comma separated!"
-                  prompts/autocomplete-one %
+                  prompts/autocomplete-many %
                   (keys equipment/id->enchantment)))
 
 (def prompt-tags
   #(prompts/field "Tags"
                   "Comma separated!"
-                  prompts/autocomplete-one %
+                  prompts/autocomplete-many %
                   equipment/all-tags))
 
 (defn prompt-cost [-cost]

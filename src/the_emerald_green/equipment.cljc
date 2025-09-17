@@ -118,7 +118,6 @@
 
 (s/def ::equipment (set (keys id->equipment)))
 (s/def ::equipped (s/coll-of ::equipment*))
-(s/def ::inventory (s/coll-of ::item))
 
 (defn ^:no-stest merge-custom-stuff [custom-stuff]
   (merge-with concat type->stuff (group-by :type (vals custom-stuff))))

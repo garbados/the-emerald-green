@@ -124,9 +124,13 @@
               (let [doc (unmarshal-doc (.-doc change))]
                 (cond
                   (string/starts-with? (:_id doc) character-prefix)
-                  (swap! -characters assoc (:_id doc) doc)
+                  (if (true? (-> change .-doc .-_deleted))
+                    (swap! -characters dissoc (:_id doc))
+                    (swap! -characters assoc (:_id doc) doc))
                   (string/starts-with? (:_id doc) stuff-prefix)
-                  (swap! -stuff assoc (:_id doc) doc))))))
+                  (if (true? (-> change .-doc .-_deleted))
+                    (swap! -stuff dissoc (:_id doc))
+                    (swap! -stuff assoc (:_id doc) doc)))))))
      (reset! -characters (zipmap (map :_id characters) (map c/hydrate-character characters)))
      (reset! -stuff (zipmap (map :_id stuff) stuff))
      (println "[DB OK]"))))

@@ -38,16 +38,17 @@
                      :on-restore on-restore
                      :empty-msg empty-msg)))
 
-(defn list-stuff [type->stuff & {:keys [on-buy on-get on-sell on-lose]}]
+(defn list-stuff [type->stuff & {:keys [can-buy on-buy on-get on-sell on-lose]}]
   (for [stuff-type equipment/stuff-types
-        :let [stuff (filter
+        :let [title (equipment/type->title stuff-type)
+              stuff (filter
                      #(and
                        (false? (:abstract %))
                        (#{:common :uncommon} (:rarity %)))
                      (type->stuff stuff-type []))]
         :when (seq stuff)]
     [:div.block
-     [:h3.subtitle (keyword->name stuff-type)]
+     [:h3.subtitle title]
      [:table.table.is-hoverable.is-fullwidth
       [:thead
        [:tr
@@ -66,8 +67,11 @@
           [:td [:p (help/->title (summarize-thing thing)) (:name thing)]]
           (when on-buy
             [:td [:button.button.is-primary.is-small
-                  {:title (str "Spend " (:cost thing) " to purchase!")
-                   :onclick #(on-buy thing)}
+                  (if (can-buy thing)
+                    {:title (str "Spend " (:cost thing) " to purchase!")
+                     :onclick #(on-buy thing)}
+                    {:title "Too expensive..."
+                     :disabled true})
                   "Buy!"]])
           (when on-get
             [:td [:button.button.is-info.is-small
@@ -77,13 +81,13 @@
           (when on-sell
             [:td [:button.button.is-info.is-warning
                   {:title "Pawn it for gold!"
-                   :onclick #(on-get thing)}
+                   :onclick #(on-sell thing)}
                   "Sell!"]])
           (when on-lose
             [:td [:button.button.is-info.is-danger
                   {:title "Lose it, gain nothing!"
-                   :onclick #(on-get thing)}
-                  "Get!"]])])]]]))
+                   :onclick #(on-lose thing)}
+                  "Lose!"]])])]]]))
 
 (defn edit-character [type->stuff & {:keys [character on-save id]}]
   (let [{:keys [-name -biography -level -sanctified -exiled -wealth -equipped]
@@ -101,6 +105,16 @@
                    (traits/determine-traits pact)))
         -deck-query (atom "")
         -shop-query (atom "")
+        check-thing
+        (fn [thing]
+          (let [re (re-pattern @-shop-query)]
+            (or (re-find re (:name thing))
+                (re-find re (:description thing))
+                (re-find re (:type thing))
+                (not-empty
+                 (for [tag (:tags thing [])
+                       :when (re-find re (name tag))]
+                   true)))))
         save-character
         #(save-character! (marshal-thing atoms) id)
         list-own-deck
@@ -118,12 +132,41 @@
         list-own-stats #(ct/list-stats-from-traits @-level @-traits)
         show-wealth #(money/wealth-to-gold @-wealth)
         list-equipped
-        #(list-stuff @-equipped)
+        #(list-stuff @-equipped
+                     :on-sell
+                     (fn [thing]
+                       (when (js/confirm (str "Are you sure you want to sell " (:name thing) " for " (:cost thing) "?"))
+                         (swap! -equipped update (:type thing) (partial remove (partial = thing)))
+                         (reset! -wealth (+ @-wealth (money/gold-to-wealth (:cost thing))))))
+                     :on-lose
+                     (fn [thing]
+                       (when (js/confirm (str "Are you sure you want to lose " (:name thing) " for nothing?"))
+                         (swap! -equipped update (:type thing) (partial remove (partial = thing))))))
         list-shopping
-        #(list-stuff type->stuff)
+        #(list-stuff
+          (reduce
+           (fn [acc [stuff-type stuff]]
+             (assoc acc stuff-type (filter check-thing stuff)))
+           {}
+           type->stuff)
+          :can-buy
+          (fn [thing]
+            (<= (money/gold-to-wealth (:cost thing)) @-wealth))
+          :on-buy
+          (fn [thing]
+            (when (js/confirm (str "Are you sure you want to buy " (:name thing) " for " (:cost thing) "?"))
+              (swap! -equipped update (:type thing) conj thing)
+              (reset! -wealth (- @-wealth (money/gold-to-wealth (:cost thing))))))
+          :on-get
+          (fn [thing]
+            (when (js/confirm (str "Are you sure you want to get " (:name thing) " for free?"))
+              (swap! -equipped update (:type thing) conj thing))))
         reset-traits #(reset! -traits
                               (when-let [pact (seq (into @-exiled @-sanctified))]
                                 (traits/determine-traits pact)))
+        refresh-shopping (partial refresh-node "shopping" list-shopping)
+        refresh-equipped (partial refresh-node "equipped" list-equipped)
+        refresh-wealth (partial refresh-node "wealth" show-wealth)
         refresh-deck   (partial refresh-node "deck" list-own-deck)
         refresh-traits (partial refresh-node "traits" list-own-traits)
         refresh-stats  (partial refresh-node "stats" list-own-stats)]
@@ -139,6 +182,10 @@
                #(do (refresh-traits)
                     (refresh-stats)))
     (add-watch -deck-query :query refresh-deck)
+    (add-watch -shop-query :query refresh-shopping)
+    (add-watch -equipped :equipped refresh-equipped)
+    (add-watch -wealth :gold #(do (refresh-wealth)
+                                  (refresh-shopping)))
     (ct/edit-character
      -name
      -biography

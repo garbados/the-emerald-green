@@ -7,11 +7,13 @@
    [the-emerald-green.deck :as deck]
    [the-emerald-green.equipment :as equipment]
    [the-emerald-green.help :as help :refer [markdown-tip]]
+   [the-emerald-green.money :as money]
    [the-emerald-green.traits :as traits]
    [the-emerald-green.utils :refer [keyname keyword->name]]
    [the-emerald-green.web.alchemy :refer [profane]]
+   [the-emerald-green.web.db :as db]
    [the-emerald-green.web.prompts :as prompts]
-   [the-emerald-green.web.routing :refer [route->href]]
+   [the-emerald-green.web.routing :refer [goto route->href]]
    [the-emerald-green.web.templates.equipment :as templates.equipment]
    [the-emerald-green.web.templates.traits :as tt :refer [describe-ability
                                                           describe-talent]]))
@@ -208,10 +210,14 @@
        {:onclick on-save}
        "Save"]])])
 
+(defn delete-character! [{id_ :_id :as character}]
+  (when (js/confirm (str "Are you sure you want to delete " (:name character) "?"))
+    (.then (db/delete-id! id_)
+           #(goto :characters))))
+
 (defn show-character
   [{:as character
-    :keys [level traits equipped]}
-   & {:keys [on-delete]}]
+    :keys [level traits equipped]}]
   [[:div.block
     [:div.level
      [:div.level-left
@@ -222,10 +228,9 @@
        [:div.buttons.has-addons
         (when (:id character)
           [:a.button.is-light (route->href :template-character (-> character :id keyname)) "Use as Template"])
-        (when on-delete
-          [:button.button.is-danger {:on-click on-delete} "Delete!"])
         (when-let [_id (:_id character)]
-          [:a.button.is-info (route->href :edit-character _id) "Edit"])]]]]
+          [[:button.button.is-danger {:onclick #(delete-character! character)} "Delete!"]
+           [:a.button.is-info (route->href :edit-character _id) "Edit"]])]]]]
     [:details
      [:summary "Biography"]
      (profane "blockquote" (marked/parse (:biography character)))]]
@@ -253,11 +258,14 @@
    [:div.block
     (when (seq equipped)
       [[:h4.subtitle "Livery"]
+       [:div.block
+        [:p.subtitle "Wealth: " [:span#wealth (money/wealth-to-gold (:wealth character))]]]
        (for [stuff-type equipment/stuff-types
-             :let [stuff (equipped stuff-type [])]
+             :let [stuff (equipped stuff-type [])
+                   title (equipment/type->title stuff-type)]
              :when (seq stuff)]
          [:div.block
-          [:h5.subtitle (keyword->name stuff-type)]
+          [:h5.subtitle title]
           (map #(templates.equipment/describe-thing % :craftable? false) stuff)])])]])
 
 (defn summarize-character [character & {:keys [show?]
@@ -270,10 +278,10 @@
             [:template-character (-> character :id keyname)]
             [:edit-character (:_id character)]))]
     [:div.box
-     [:p.subtitle [:a (route->href route ref) (:name character)]]
+     [:p.subtitle [:a (route->href route ref) (:name character "")]]
      [:p
       {:style "max-height: 300px; overflow: scroll;"}
-      (profane "blockquote" (marked/parse (:biography character)))]]))
+      (profane "blockquote" (marked/parse (:biography character "")))]]))
 
 (defn list-characters
   [characters & {:keys [show?]}]
@@ -284,7 +292,7 @@
      (when (seq characters)
        [:div.block
         [:p.subtitle "Custom"]
-        (map summarize (vals characters))])]))
+        (map summarize (filter some? (vals characters)))])]))
 
 (defn character-not-found [custom-characters attempted-ref & {:keys [show?]}]
   (let [attempted-str (if (keyword? attempted-ref) (keyname attempted-ref) attempted-ref)
