@@ -215,6 +215,21 @@
     (.then (db/delete-id! id_)
            #(goto :characters))))
 
+(defn describe-pact [character]
+  [:div.box
+   (for [group [:sanctified :exiled]
+         :let [group-name (-> group name string/capitalize)
+               cards (get character group)]]
+     [:p
+      [:span (help/tag->title group) group-name]
+      ": "
+      (interpose
+       ", "
+       (for [card-id cards
+             :let [{card-name :name
+                    :keys [description]} (deck/id->card card-id)]]
+         [:span (help/tag->title description) card-name]))])])
+
 (defn show-character
   [{:as character
     :keys [level traits equipped]}]
@@ -236,19 +251,7 @@
      (profane "blockquote" (marked/parse (:biography character)))]]
    [:div.block
     [:h4.subtitle "Pact"]
-    [:div.box
-     (for [group [:sanctified :exiled]
-           :let [group-name (-> group name string/capitalize)
-                 cards (get character group)]]
-       [:p
-        [:span (help/tag->title group) group-name]
-        ": "
-        (interpose
-         ", "
-         (for [card-id cards
-               :let [{card-name :name
-                      :keys [description]} (deck/id->card card-id)]]
-           [:span (help/tag->title description) card-name]))])]]
+    (describe-pact character)]
    [:div.block
     [:h4.subtitle "Stats"]
     (list-stats-from-traits level traits)]
@@ -278,17 +281,17 @@
             [:template-character (-> character :id keyname)]
             [:edit-character (:_id character)]))]
     [:div.box
-     [:p.subtitle [:a (route->href route ref) (:name character "")]]
-     [:p
-      {:style "max-height: 300px; overflow: scroll;"}
-      (profane "blockquote" (marked/parse (:biography character "")))]]))
+     [:p.subtitle [:a (route->href route ref) (:name character "") " <level " (:level character) ">"]]
+     (profane "blockquote" (marked/parse (first (string/split-lines (:biography character "")))))
+     (describe-pact character)]))
 
 (defn list-characters
   [characters & {:keys [show?]}]
   (let [summarize #(summarize-character % :show? show?)]
     [[:div.block
-      [:p.subtitle "Examples"]
-      (map summarize c/examples)]
+      [:details
+       [:summary.subtitle "Examples"]
+       (map summarize c/examples)]]
      (when (seq characters)
        [:div.block
         [:p.subtitle "Custom"]
