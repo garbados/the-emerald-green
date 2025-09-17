@@ -32,8 +32,8 @@
 
 (defn list-chosen [empty-msg -chosen]
   (let [on-restore
-        #(when (js/confirm (str (-> % deck/id->card :name) "... " restore-msg))
-           (swap! -chosen disj %))]
+        #(when (js/confirm (str (:name %) "... " restore-msg))
+           (swap! -chosen disj (:id %)))]
     #(ct/list-chosen @-chosen
                      :on-restore on-restore
                      :empty-msg empty-msg)))
@@ -79,12 +79,12 @@
                    :onclick #(on-get thing)}
                   "Get!"]])
           (when on-sell
-            [:td [:button.button.is-info.is-warning
+            [:td [:button.button.is-warning.is-small
                   {:title "Pawn it for gold!"
                    :onclick #(on-sell thing)}
                   "Sell!"]])
           (when on-lose
-            [:td [:button.button.is-info.is-danger
+            [:td [:button.button.is-danger.is-small
                   {:title "Lose it, gain nothing!"
                    :onclick #(on-lose thing)}
                   "Lose!"]])])]]]))
@@ -169,15 +169,17 @@
         refresh-wealth (partial refresh-node "wealth" show-wealth)
         refresh-deck   (partial refresh-node "deck" list-own-deck)
         refresh-traits (partial refresh-node "traits" list-own-traits)
-        refresh-stats  (partial refresh-node "stats" list-own-stats)]
+        refresh-stats  (partial refresh-node "stats" list-own-stats)
+        refresh-sanctified (partial refresh-node "sanctified" list-sanctified)
+        refresh-exiled (partial refresh-node "exiled" list-exiled)]
     (add-watch -sanctified :sanctify
                #(do (refresh-deck)
                     (reset-traits)
-                    (refresh-node "sanctified" list-sanctified)))
+                    (refresh-sanctified)))
     (add-watch -exiled :exiled
                #(do (refresh-deck)
                     (reset-traits)
-                    (refresh-node "exiled" list-exiled)))
+                    (refresh-exiled)))
     (add-watch -traits :traits
                #(do (refresh-traits)
                     (refresh-stats)))

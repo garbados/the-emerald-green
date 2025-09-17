@@ -88,8 +88,6 @@
                   value)]
       (str (keyword->name prop) ": " value)))))
 
-
-
 (defn equipment-guide-nav [type->stuff]
   [[:p>strong "Table of Contents"]
    (for [stuff-type equipment/stuff-types
