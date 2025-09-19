@@ -28,7 +28,7 @@ You'll need two or more people to play the game:
 
 ### Anatomy of a Character
 
-You play as a fantasy adventurer whose strengths, above and beyond your mortal peers, arrive from what spiritual natures you have *exiled* or *sanctified*, collectively the Pact that disjuncts your mortal experience into... something else. The game's *traits*, which range from the mundane to the profound, have requirements that activate when they match your Pact. Your character's spiritual natures are the Tarot deck you play with, and as your character grows, you will exile many cards from it, thinning it out and skewing its contents.
+You play as a fantasy adventurer whose strengths, above and beyond your mortal peers, arrive from what spiritual natures you have *exiled* or *sanctified*, collectively the *Pact* that disjuncts your mortal experience into... something else. The game's *traits*, which range from the mundane to the profound, have requirements that activate when they match your Pact. Your character's spiritual natures are the Tarot deck you play with, and as your character grows, you will exile many cards from it, thinning it out and skewing its contents.
 
 **Traits**
 
