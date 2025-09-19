@@ -10,13 +10,20 @@ Your character, as a mortal, also deals in items and equipment, your *Livery*. Y
 
 Each in-game day, or after a *long rest*, you begin by shuffling your character's deck and drawing a hand. Over the course of the day, you'll *play* cards to *Respond* to *Challenges*. A Challenge could be anything where success or failure is significant, from attacking a foe, to winning a coin toss. Roughly, it encompasses everything you would roll a d20 for in a game like DnD or Pathfinder. However, you don't generally draw a replacement card after playing one for a challenge, so you must be judicious about how you apply yourself, and use what means you have to keep your hand flush with options.
 
+## Preface: Tarot
+
+Tarot mysticism relies heavily on a shared system of symbols and implications, but the meanings of cards rely on personal interpretation, and their magic is strongest when you observe how you personally react to their iconography -- to read in the universe what it reads in you through random chance. In TEG, I have tried to stick to so-to-say typical interpretations of each card, but I have made some choices you may find more adventurous than others:
+
+- Although Swords are generally thought of as to do with the mind, I read them as pertaining to struggle, which the body governs. Instead, *wands* are associated with reason, recall, and intellectual creativity.
+- Each card has an attendant free-verse poem, sorted into *The Order of Things*, a brief epic modelled on *The Fool's Journey* and the *Epic of Gilgamesh*. This sorting situates major arcana between ranks of suited cards, always in the order *swords-wands-cups-pentacles*. Because there are more more major arcana than suited ranks, some majors are directly adjacent to one another. Which major arcana are proximate, or separated, is a narrative choice.
+
 ## The Basics
 
 ### Anatomy of a Game
 
 You'll need two or more people to play the game:
 
-- Arbiter: The game-runner, who plays all the NPCs and mediates both the narrative and the rules. Sometimes also called a GM or DM. The Arbiter has secret knowledge of the world that, by withholding it from the players, makes possible the *discovery* of a narrative.
+- Arbiter: The game-runner, who plays all the NPCs and mediates both the narrative and the rules. Sometimes also called a GM or DM. The Arbiter has secret knowledge of the world that they use to act as your friends and foes. They use their own 78-card Tarot deck, belonging to the Arbiter.
 - Players: People playing characters, so-called *player-characters*. Each player will need their own 78-card Tarot deck.
 
 ### Anatomy of a Character
