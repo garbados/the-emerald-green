@@ -45,6 +45,11 @@ The Two of Swords symbolizes the confusion we face when we are forced to make di
 The swords that she is holding in each of her hands show that there are two choices that lead in different directions and are mutually exclusive to one another. It may also depict a stalemate, which means that the problem should be addressed with a logical and rational thinking. The Moon positioned on the right side of the card signifies may signify the role of illusions and deception in the difficulty that the woman has in making a choice.
 
 ## the-two-of-wands
+
+### labyrinthos.co
+
+The Two of Wands card features a man standing on top of what looks like a castle and in his right hand he holds a miniature globe. From the way he is standing, the man is looking down upon the vast terrain, in which an ocean lies on the left-hand side, whilst the land stretches over on the right-hand side. The man is wearing an orange tunic and a red hat, symbolizing his enthusiasm towards life itself and hunger for adventure respectively. The miniature globe in his hand represents potential for possible expansion of his reach to broader life experiences.
+
 ## the-two-of-cups
 ## the-two-of-pentacles
 
