@@ -1,6 +1,6 @@
 # Player Guide
 
-Welcome to *The Emerald Green*, AKA **TEG**. I'm the author, Diana. Usually there's a narrator instead, but, why deal in illusions with you, love? This is a guide to a tabletop roleplaying game about people who have gotten in over their heads with things they don't understand -- things they can't. It 
+Welcome to *The Emerald Green*, AKA **TEG**. I'm the author, Diana. Usually there's a narrator instead, but, why deal in illusions with you, love? This is a guide to a tabletop roleplaying game about people who have gotten in over their heads with things they don't understand -- things they can't.
 
 You, a player, take on the role of such a person. When you make a character, you decide what this person's connection to such a *thing* is, and select Tarot cards to form your *Pact*, which confers powers subtle and profound alike. Some cards, which you *sanctify*, you'll keep in your deck during play. Others, which you *exile*, are removed from your deck during play. Your Pact includes all your sanctified and exiled cards. When you level up, sometimes you'll sanctify a new card, but mostly you'll have to exile something.
 
@@ -96,9 +96,11 @@ All your character's *stats* are computed based on your traits, including *attri
 
 ## Challenges
 
-When facing a tribulation, such as a locked door, or a murderous foe, you may be *challenged* to overcome the situation. In general, whenever a game like DnD would have you roll a d20.
+When facing a tribulation, such as a locked door, or a murderous foe, you may be *challenged* to overcome the situation. In general, whenever a game like DnD would have you roll a d20. Challenges include one or more *demands*; a failure to acknowledge them can punish you in strange ways.
 
-When challenged, the arbiter secretly selects a *difficulty*, which is a number your response must meet or beat. You respond by *applying* a card from your hand, discarding it in the process.
+When challenged, the arbiter secretly selects a *difficulty*, which is a number your response must meet or beat. You respond by *bestowing* a card from your hand, discarding it in the process.
+
+When you're proficient in a relevant skill, when you expend a *fortune*, or during reactive interactions like saving throws, you can instead *unveil* the top card of your deck, and use that instead of a card from your hand. *If you don't like the result of the unveiling, you can still bestow a better card.* After the challenge, discard what you've unveiled.
 
 Cards have an *effective rank* that is based on their rank in the deck:
 
@@ -111,9 +113,13 @@ Cards have an *effective rank* that is based on their rank in the deck:
 
 A response's effective rank combines the applied card's effective rank with a relevant attribute, plus or minus other circumstantial modifiers at the arbiter's discretion.
 
+Your Arbiter may say this to you, when a challenge occurs:
+- When requiring a bestowal, *"I challenge your {skill}, and demand a {condition}!"*
+- When requesting an unveiling, *"I witness your {skill}, and prophesy a {condition}!"*
+
 ### Demands
 
-Challenges may *demand* a certain kind of response, such as that the player applies a card of a certain suit. A response that does not meet this demand suffers a -2 penalty to its effective rank. If you are proficient in a skill relevant to the challenge, you may ignore this demand at no penalty, or draw a card if you meet it anyway.
+Challenges may *demand* a certain kind of response, such as that the player applies a card of a certain suit. A response that does not meet this demand suffers a -2 penalty to its effective rank, unless something else happens. Failing a demand is like failing a secondary challenge. You may pick the lock, but trip an alarm. You might hit your foe, but leave yourself open to attack. If you are proficient in a skill relevant to the challenge, or you expend a *fortune*, you may ignore this demand at no penalty, or draw a card if you meet it anyway.
 
 *Examples*:
 
