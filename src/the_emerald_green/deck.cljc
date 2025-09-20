@@ -1,9 +1,9 @@
 (ns the-emerald-green.deck
   (:require
    #?(:clj
-      [the-emerald-green.macros :refer [slurp-edn]]
+      [the-emerald-green.macros :refer [slurp-edn inline-slurp]]
       :cljs
-      [the-emerald-green.macros :refer-macros [slurp-edn]])
+      [the-emerald-green.macros :refer-macros [slurp-edn inline-slurp]])
    [clojure.spec.alpha :as s]
    [clojure.string :as string]
    [the-emerald-green.utils :refer [name->keyword]]))
@@ -89,7 +89,18 @@
    :the-ace-of-pentacles
    :the-world])
 
-(def id->metadata (slurp-edn "cards.edn"))
+(def id->poem
+  (reduce
+   (fn [acc [raw-title body]]
+     (let [title (subs raw-title 3)]
+       (assoc acc (name->keyword title) body)))
+   {}
+   (->> (string/split
+         (inline-slurp "doc/the_order_of_things.md")
+         #"\n\n")
+        (drop 1)
+        (partition 2))))
+(def smith-waite (slurp-edn "decks/smith_waite.edn"))
 
 (def ^:no-stest clean-description #(string/replace % #"\n\s+" "\n"))
 
@@ -116,7 +127,7 @@
         rank (drop 2 (range 16))
         :let [arcana-name (str "The " (minor-arcana-rank-names rank) " of " (string/capitalize (name suit)))
               arcana-kw (name->keyword arcana-name)
-              {:keys [description]} (id->metadata arcana-kw)]]
+              description (id->poem arcana-kw "")]]
     {:name arcana-name
      :description (clean-description description)
      :id arcana-kw
@@ -155,7 +166,7 @@
          "Judgement"
          "The World"]
         :let [arcana-kw (name->keyword arcana-name)
-              {:keys [description]} (id->metadata arcana-kw)]]
+              description (id->poem arcana-kw "")]]
     {:name arcana-name
      :description (clean-description description)
      :id arcana-kw

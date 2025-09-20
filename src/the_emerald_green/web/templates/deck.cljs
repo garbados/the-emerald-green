@@ -45,15 +45,16 @@
    (fn [{card-id :id
          card-name :name
          :keys [description tags]}]
-     (let [{:keys [media-description media-src]} (deck/id->metadata card-id)]
+     (let [{{media-description :description :keys [src]} :media}
+           (deck/smith-waite card-id)]
        [:div.block>div.box
         [:div.columns
-         (when (seq media-src)
+         (when (seq src)
            [:div.column.is-3
             [:figure.image
              [:img {:alt media-description
                     :title media-description
-                    :src media-src}]]])
+                    :src src}]]])
          [:div.column
           [:h3 card-name]
           (when (seq description)
