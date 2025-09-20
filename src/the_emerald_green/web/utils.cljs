@@ -76,3 +76,6 @@
          (for [[prop transform] transforms
                :when (not (get atoms (keyword (str "-" (name prop)))))]
            [prop (transform)]))))
+
+(def markdown-tip
+  [:em "Use " [:a {:href "https://commonmark.org/help/" :target "_blank"} "Markdown!"]])

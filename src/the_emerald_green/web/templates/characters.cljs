@@ -6,7 +6,7 @@
    [the-emerald-green.core :as core]
    [the-emerald-green.deck :as deck]
    [the-emerald-green.equipment :as equipment]
-   [the-emerald-green.help :as help :refer [markdown-tip]]
+   [the-emerald-green.help :as help]
    [the-emerald-green.money :as money]
    [the-emerald-green.traits :as traits]
    [the-emerald-green.utils :refer [keyname keyword->name]]
@@ -16,7 +16,8 @@
    [the-emerald-green.web.routing :refer [goto route->href]]
    [the-emerald-green.web.templates.equipment :as templates.equipment]
    [the-emerald-green.web.templates.traits :as tt :refer [describe-ability
-                                                          describe-talent]]))
+                                                          describe-talent]]
+   [the-emerald-green.web.utils :refer [markdown-tip]]))
 
 (def default-height 500)
 

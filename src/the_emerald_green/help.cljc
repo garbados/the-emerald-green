@@ -86,6 +86,3 @@
 (s/fdef tag->title
   :args ::help-args
   :ret (s/nilable ::title-props))
-
-(def markdown-tip
-  [:em "Use " [:a {:href "https://commonmark.org/help/" :target "_blank"} "Markdown!"]])

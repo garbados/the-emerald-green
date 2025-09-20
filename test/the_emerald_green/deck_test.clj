@@ -22,12 +22,12 @@
       (is (nil? (seq remaining))
           (str "Not included: " (string/join ", " (map name remaining))))))
   (testing "There is a word for all things."
-    (doseq [[card-id {:keys [description media-src media-description]}]
-            (map (juxt identity deck/id->metadata) deck/the-order-of-things)
+    (doseq [[card-id description media]
+            (map (juxt identity deck/id->poem deck/smith-waite) deck/the-order-of-things)
             :let [card-name (-> card-id deck/id->card :name)]]
       (warn (seq description)
             (str card-name " has no word."))
-      (warn (seq media-src)
+      (warn (seq (:src media))
             (str card-name " has no icon."))
-      (warn (seq media-description)
+      (warn (seq (:description media))
             (str card-name " has no iconography.")))))

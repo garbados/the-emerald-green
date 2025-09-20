@@ -9,7 +9,8 @@
    [the-emerald-green.web.db :as db]
    [the-emerald-green.web.prompts :as prompts]
    [the-emerald-green.web.routing :refer [goto redirect route-pattern]]
-   [the-emerald-green.web.utils :refer [atomify marshal-thing refresh-node]]))
+   [the-emerald-green.web.utils :refer [atomify markdown-tip marshal-thing
+                                        refresh-node]]))
 
 
 (def prompt-name
@@ -19,7 +20,7 @@
 
 (def prompt-description
   #(prompts/field "Description"
-                  help/markdown-tip
+                  markdown-tip
                   prompts/textarea %))
 
 (def prompt-content-pack
