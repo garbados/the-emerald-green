@@ -2,6 +2,11 @@
 
 ## Characters
 
+Pacts:
+- Pacts represent the cards you've *sanctified* and *exiled*.
+- Sanctified cards remain in the deck during play.
+- Exiled cards are removed from the deck during play.
+- Traits apply to you when they match your Pact.
 Attributes:
 - Add to effective rank of card applied to challenges.
 Skills:
