@@ -35,7 +35,7 @@ Who now do I find?
 What an offer -- what a trade.
 I look at the thundering clouds,
 the forest bending before the gale,
-and think, just as they say to me,
+and think the same words they say to me:
 "We can only get through this together."
 So we do. We make it through.
 What an offer. What a trade.
@@ -141,7 +141,7 @@ We call it the Duarchy, and I'm the other half.
 My forces march against our enemies, such as they are.
 Not the weather, not the seasons, not the stars or seas,
 But the foolhardy violence of my peers and cousins.
-The slaver's hand can be turned,
+The slaver's hand can be turned
 Even when it means breaking the arm,
 And once you hear that bone snap enough times,
 You stop feeling like there's a person around it.
