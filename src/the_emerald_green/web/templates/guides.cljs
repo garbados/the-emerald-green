@@ -10,4 +10,22 @@
   (reduce
    (fn [acc [key text]] (assoc acc key (guide-text text)))
    {}
-   guides/guides))
+   (dissoc guides/guides :introduction)))
+
+(def carla-credit "Illustration of the Fae Queen's Court by Carla Romero")
+(def introduction
+  [:div
+   [:div.block>h1.title "Welcome, mortal... Won't you play? Won't you dance?"]
+   [:div.block.has-text-centered
+    [:figure.image
+     [:img
+      {:src "./img/The_Emerald_Green.png"
+       :alt carla-credit
+       :title carla-credit}]]
+    [:p.help
+     "Illustration by "
+     [:a {:href "https://carla-a-romero.com/"
+          :target "_blank"}
+      "Carla Romero"]]]
+   [:div.block
+    (guide-text (:introduction guides/guides))]])

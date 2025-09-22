@@ -34,6 +34,7 @@
 
 (def route->view
   (merge
+   {:introduction       (static-view guides/introduction)}
    (reduce
     (fn [acc [route view]] (assoc acc route (dynamic-view view)))
     {}
