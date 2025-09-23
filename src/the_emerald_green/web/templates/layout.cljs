@@ -25,7 +25,7 @@
        "Source 👩‍💻"]]]]])
 
 (def menu-bar
-  [:aside.menu
+  [:aside.menu.box
    [:ul.menu-list
     [:li [:a (route->href :introduction) "📖 Introduction"]]]
    [:p.menu-label "Guides"]
