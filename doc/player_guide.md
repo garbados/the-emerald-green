@@ -100,7 +100,7 @@ When facing a tribulation, such as a locked door, or a murderous foe, you may be
 
 When challenged, the arbiter secretly selects a *difficulty*, which is a number your response must meet or beat. You respond by *bestowing* a card from your hand, discarding it in the process.
 
-When you're proficient in a relevant skill, when you expend a *fortune*, or during reactive interactions like saving throws, you can instead *unveil* the top card of your deck, and use that instead of a card from your hand. *If you don't like the result of the unveiling, you can still bestow a better card.* After the challenge, discard what you've unveiled.
+When you're proficient in a relevant skill, when you have advantage, or during reactive interactions like saving throws, you can instead *unveil* the top card of your deck, and use that instead of a card from your hand. *If you don't like the result of the unveiling, you can still bestow a better card.* After the challenge, discard what you've unveiled.
 
 Cards have an *effective rank* that is based on their rank in the deck:
 
@@ -143,17 +143,23 @@ When appropriate, characters may *assist* each other on checks. This may include
 
 ### Advantage, Disadvantage
 
-You may also experience *advantage* or *disadvantage* during challenges. If you have *advantage*, draw a card before choosing a response, and you may ignore the challenge's demands. If you have *disadvantage*, after choosing a response, you must discard an additional card if you have one.
+You may also experience *advantage* or *disadvantage* during challenges.
 
-Advantage and disadvantage counter each other, but being dis/advantaged multiple times does nothing. *Being advantaged three times, and disadvantaged once, counts as being advantaged only once.*
+If you have *advantage*, you may *unveil* if you would otherwise have to *bestow*. Furthermore, you may ignore the challenge's demands. If you still satisfy them, draw a card.
+
+If you have *disadvantage*, after *bestowing* a card for the challenge, you *unveil* another card and use it instead if it has a lower rank.
+
+Advantage and disadvantage counter each other, and neither stacks. *Being advantaged three times, and disadvantaged once, counts as being advantaged only once.*
 
 ### Difficulty Guide
 
-- 4 or less: Trivial; probably not a check. Narratively, ask yourself: why force a character to apply a card to something so easy?
-- 5-6: Simple, but significant and possible to fail.
-- 7-8: Tricky, being of a sophistication demanding some acumen. 
-- 9-10: Complex, requiring a significant degree of mastery.
-- 11+: Impossible, requiring almost superhuman prowess.
+- 5 or less: Trivial; probably not a check. Narratively, ask yourself: why force a character to apply a card to something so easy?
+- 7: Simple, but significant and possible to fail.
+- 9: Tricky, being of a sophistication demanding some acumen. 
+- 11: Complex, requiring a significant degree of mastery.
+- 13+: Impossible, requiring almost superhuman prowess.
+
+> GM Tip: if the character you intend to challenge has a relevant attribute at least as high as the difficulty minus two (the lowest effective rank of any card), then that character can probably do that thing reliably.
 
 ## Character Creation
 
@@ -179,6 +185,17 @@ Remember these things as you write your character's name and biography.
 - Gain all traits whose requirements your Pact satisfies. *You do not choose which traits to acquire. You choose what to Pact, and the consequences happen.*
 - Calculate your stats, fungibles, talents, and abilities from your traits.
 
+> **Metagaming tip**
+>
+> While the intent of the trait system is to support a "balanced" (interesting) character falling out of any possible five card spread (and to complicate metagaming by being incomprehensibly vast and interwoven), there are some patterns you may want to consider:
+> - So-called *class archetypes*, like "fighter" or "wizard" or "rogue" and their permutations, all begin with a particular pair of card pairs, either of which may be satisfied. These pairs are always a particular *major arcana* and a particular "skill card" (which we'll get to shortly).
+> - Court cards and aces grant skill proficiencies. This group -- pages, knights, queens, kings, and aces -- are known as "skill cards".
+> - Suited ranks between 2 and 10 interact with class archetypes by triggering particular sub-traits. For example, the five of wands may grant a spell to a mage.
+> - Suited cards grant attribute increases, but the pattern of which is particular: court cards increase the attribute associated with that suit, while evens and odds increase some other attribute -- except for Luck, which is only and always increased by pacting pentacles. Rather than provide a sub-list of these interactions, read the card guide and figure the pattern yourself.
+> - Major arcana do nothing when pacted alone, but usually something together. Class archetypes are characterized by two-needing-one, but pairs of majors may trigger *specializations*, which are distinctive traits reflecting a fusion of particularly profound forces. While class archetypes have many sub-traits, specializations have no sub-traits. *Except for the Cultist...*
+> - Some class archetypes trigger from what *isn't* in your pact. In particular: when you have no skill cards, *The Dandy*; when you have no even or odd suited cards, *The Courtier*; when you have no major arcana, *The Troubador*; and when you have *only* major arcana, *The Cultist*. These archetypes have many sub-traits, being their own progressions.
+> *...which is all to say, don't think too hard about it.* Unless you really want to study the trait system, just take these things in mind and then pick five cards that fit the vibes of what you want to play. The outcome will (we hope) reflect the so-to-say *typical* associations of each card in combination. **Or, when it comes to divination, you can always trust entropy.**
+
 ### 2. Donning the Livery
 
 - Begin with 10 silver pieces.
@@ -188,3 +205,10 @@ Remember these things as you write your character's name and biography.
 ### 3. Ta-da!
 
 Your character is complete. You can now use it in campaigns.
+
+## Character Advancement
+
+As your Pact deepens, you will continue to exile and sanctify cards in your deck. When this happens is a narrative choice, reflecting the growing complexity of your relationship to your fae patrons.
+
+Every time you "level up", you exile another card from your deck, except on every four level after the first, when you sanctify another card from your deck. *That is, at 5th, 9th, 13th, 17th, and so on, you sanctify a card. Otherwise, exile a card.*
+
