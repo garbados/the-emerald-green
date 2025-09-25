@@ -162,7 +162,7 @@
      :deception
      :melee]]})
 
-(defn group-classes-by-skill [class->skills]
+(defn ^:no-stest group-classes-by-skill [class->skills]
   (reduce
    (fn [acc [class skills]]
      (reduce
@@ -175,7 +175,7 @@
    {}
    class->skills))
 
-(deftest class-skill-overuse
+(deftest class-skill-overuse-test
   (testing "How often is each skill used by a class?"
     (doseq [[skill classes]
             (group-classes-by-skill
