@@ -46,11 +46,10 @@
 (def container
   [:div
    navbar
-   [:section.section
-    [:div.container-fluid
-     [:div.columns.is-desktop
-      [:div.column.is-narrow menu-bar]
-      [:div.column
-       [:div.box
-        [:div.content#main
-         [:h1.title "Loading..."]]]]]]]])
+   [:div.container-fluid
+    [:div.columns.is-desktop
+     [:div.column
+      [:div.box
+       [:div.content#main
+        [:h1.title "Loading..."]]]]
+     [:div.column.is-narrow menu-bar]]]])

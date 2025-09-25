@@ -3,10 +3,188 @@
   each skill-major combination matches a class archetype
   and class archetypes are not used overmuch." 
   (:require
-   [clojure.test :refer [deftest is testing]]
-   [the-emerald-green.utils :refer [keyword->name]]))
+   [clojure.string :as string]
+   [clojure.test :refer [deftest is testing]]))
 
-(def skill->major->class
+(def major->class-skills
+  {:the-fool
+   [:the-rogue
+    [:resolve
+     :arcana
+     :deception
+     :stealth
+     :gambling]]
+   :the-magician
+   [:the-wizard
+    [:arcana
+     :sorcery
+     :theurgy
+     :divination
+     :craft]]
+   :the-high-priestess
+   [:the-witch
+    [:sorcery
+     :skepticism
+     :insight
+     :medicine
+     :diplomacy]]
+   :the-empress
+   [:the-summoner
+    [:arcana
+     :theurgy
+     :medicine
+     :resolve
+     :resilience]]
+   :the-emperor
+   [:the-tactician
+    [:ranged
+     :athletics
+     :appraisal
+     :intimidation
+     :resilience]]
+   :the-hierophant
+   [:the-cleric
+    [:theurgy
+     :divination
+     :diplomacy
+     :medicine
+     :appraisal]]
+   :the-lovers
+   [:the-courtesan
+    [:diplomacy
+     :appraisal
+     :deception
+     :insight
+     :skepticism]]
+   :the-chariot
+   [:the-ranger
+    [:ranged
+     :awareness
+     :athletics
+     :stealth
+     :skepticism]]
+   :strength
+   [:the-warrior
+    [:melee
+     :ranged
+     :athletics
+     :resilience
+     :craft]]
+   :the-hermit
+   [:the-outsider
+    [:athletics
+     :appraisal
+     :skepticism
+     :gambling
+     :craft]]
+   :wheel-of-fortune
+   [:the-merchant
+    [:appraisal
+     :diplomacy
+     :intimidation
+     :gambling
+     :deception]]
+   :justice
+   [:the-paladin
+    [:melee
+     :resilience
+     :resolve
+     :sorcery
+     :medicine]]
+   :the-hanged-man
+   [:the-oracle
+    [:sorcery
+     :divination
+     :insight
+     :ranged
+     :resolve]]
+   :death
+   [:the-alchemist
+    [:arcana
+     :theurgy
+     :craft
+     :medicine
+     :gambling]]
+   :temperance
+   [:the-monk
+    [:melee
+     :resilience
+     :insight
+     :awareness
+     :athletics]]
+   :the-devil
+   [:the-illusionist
+    [:diplomacy
+     :intimidation
+     :deception
+     :stealth
+     :theurgy]]
+   :the-tower
+   [:the-occultist
+    [:intimidation
+     :divination
+     :stealth
+     :deception
+     :ranged]]
+   :the-star
+   [:the-enchanter
+    [:sorcery
+     :divination
+     :skepticism
+     :gambling
+     :diplomacy]]
+   :the-moon
+   [:the-shadow
+    [:stealth
+     :melee
+     :athletics
+     :skepticism
+     :awareness]]
+   :the-sun
+   [:the-exemplar
+    [:resilience
+     :resolve
+     :insight
+     :awareness
+     :craft]]
+   :judgment
+   [:the-inquisitor
+    [:arcana
+     :divination
+     :appraisal
+     :resolve
+     :intimidation]]
+   :the-world
+   [:the-wildshaper
+    [:sorcery
+     :awareness
+     :insight
+     :deception
+     :melee]]})
+
+(defn group-classes-by-skill [class->skills]
+  (reduce
+   (fn [acc [class skills]]
+     (reduce
+      (fn [acc skill]
+        (if (get acc skill)
+          (update acc skill conj class)
+          (assoc acc skill [class])))
+      acc
+      skills))
+   {}
+   class->skills))
+
+(deftest class-skill-overuse
+  (testing "How often is each skill used by a class?"
+    (doseq [[skill classes]
+            (group-classes-by-skill
+             (vals
+              major->class-skills))]
+      (is (<= 5 (count classes) 6)
+          (str (name skill) " used " (count classes) " times: " (string/join ", " (map name classes)))))))
+
+#_(def skill->major->class
   {:athletics
    {:the-chariot :the-courier
     :the-hermit  :the-traveler}
@@ -78,7 +256,7 @@
    :theurgy
    {}})
 
-(deftest overuse-tests
+#_(deftest overuse-tests
   (testing "Majors are not overused among skills."
     (let [wanted 3
           major->skills-actual

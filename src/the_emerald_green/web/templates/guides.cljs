@@ -15,8 +15,10 @@
 (def carla-credit "Illustration of the Fae Queen's Court by Carla Romero")
 (def introduction
   [:div
-   [:div.block>h1.title.is-1>em "Welcome, mortal... Won't you play? Won't you dance?"]
-   [:div.block>div.columns>div.column.has-text-centered
+   [:div.block
+    [:h1.title.is-2>strong "Welcome, mortal..."]
+    [:p.subtitle.is-4>em "Won't you play? Won't you dance?"]]
+   [:div.block.has-text-centered
     [:figure.image.is-inline-block
      [:img
       {:src "./img/The_Emerald_Green.png"
