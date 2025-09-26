@@ -12,7 +12,7 @@
 >
 > ***What shall you do with My blessing?***
 
-*The Emerald Green* is a tabletop roleplaying game that you play using a 78-card Tarot deck, such as the Smith-Waite (aka Rider-Waite) deck or the Tarot of Marseilles (but not the Thoth deck). You play as a person that has entered into a fae pact which grants you powers, and consumes you. It is intended for use in high fantasy settings similar to the worlds of Faerun or Golarion, where gods are real, and alien.
+*The Emerald Green* is a tabletop roleplaying game that you play using a 78-card Tarot deck, such as the Smith-Waite (aka Rider-Waite) deck or the Tarot of Marseilles. You play as a person that has entered into a fae pact which grants you powers, and consumes you. It is intended for use in high fantasy settings similar to the worlds of Faerun or Golarion, where gods are real, and alien.
 
 Players build characters by first *exiling* three cards from their deck, and then *sanctifying* two more. Exiled cards are permanently removed (you can always restore them after the session; your character sheet keeps track) but sanctified cards are allowed to remain in the deck. Together, they form your Pact. Characters gain traits based on what cards are in their pact, whose effects range from increased health or luck, to experience-shaping powers and covenants. You do not pick which traits you gain. You choose what to Pact, and the consequences happen whether you want them or not.
 

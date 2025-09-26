@@ -16,6 +16,7 @@ Tarot mysticism relies heavily on a shared system of symbols and implications, b
 
 - Although Swords are generally thought of as to do with the mind, I read them as pertaining to struggle, which the body governs. Instead, *wands* are associated with reason, recall, and intellectual creativity.
 - Each card has an attendant free-verse poem, sorted into *The Order of Things*, a brief epic modelled on *The Fool's Journey* and the *Epic of Gilgamesh*. This sorting situates major arcana between ranks of suited cards, always in the order *swords-wands-cups-pentacles*. Because there are more more major arcana than suited ranks, some majors are directly adjacent to one another. Which major arcana are proximate, or separated, is a narrative choice.
+- The orientation of a card -- whether it is upright or inverted -- is normally very important to a tarot reading, but orientation is not directly considered in the game's rules. Instead, cards are meant to be read in *superposition*, as they are both upright and inverted in every combination with their peers. (***Setting Note***: This represents the nature of eternity the fae experience.*)
 
 ## The Basics
 

@@ -1,4 +1,4 @@
-(ns the-emerald-green.class-archetype-tests
+(ns the-emerald-green.class-archetype-test
   "This file attempts to verify and ensure that
   each skill-major combination matches a class archetype
   and class archetypes are not used overmuch." 
@@ -127,7 +127,7 @@
      :deception
      :ranged]]
    :the-star
-   [:the-enchanter
+   [:the-mesmerist
     [:sorcery
      :divination
      :skepticism

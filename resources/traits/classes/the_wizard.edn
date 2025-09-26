@@ -1,0 +1,284 @@
+[{:name "The Wizard"
+  :id :the-wizard
+  :description
+  "By diligent study and detailed comprehension,
+   you have ascended.
+   When you observe the world,
+   you look down."
+  :deck :the-magician
+  :effect
+  {:attributes {:mind 1 :spirit 1}
+   :talents
+   [{:name "Strange Mastery"
+     :description
+     "Disjunction exhilerates you.
+      When you cast a spell,
+      draw a card."}]
+   :abilities
+   [{:name "Counterspell"
+     :id :counterspell
+     :description
+     "As a reaction, while someone is carrying out a spell,
+      you may shout against it across the fabric of the real.
+      You may challenge it as a reaction,
+      treating its effective rank as the difficulty.
+      If you succeed, the spell ceases in progress,
+      fizzling with an unpleasant sensation
+      of static feedback."
+     :phase :encounter
+     :actions 0
+     :madness 1
+     :tags #{:reaction :spell}}
+    {:name "Profane Contemplation"
+     :id :profane-contemplation
+     :description
+     "Think the unthinkable;
+      manifest leverage none may perceive.
+      Their mind rejects what yours exploits.
+      Draw two cards."
+     :phase :encounter
+     :actions 1
+     :madness 2
+     :tags #{:flourish :spell}}]}}
+ {:name "The Arcanist"
+  :id :the-arcanist
+  :description
+  "That fool Ungulasith doesn't know anything.
+   If xe had actually studied their Migsians Dialectic,
+   they would know what it concludes,
+   and furthermore what it doesn't.
+   They tarnish the discourse of Multivariate Symbology
+   and cannot understand the nuance of its power."
+  :traits :the-wizard
+  :deck :the-ace-of-wands
+  :effect
+  {:talents
+   [{:name "Unshakeable Materialism"
+     :id :unshakeable-materialism
+     :description
+     "When you would gain madness,
+      gain one less."}]
+   :abilities
+   [{:name "Magic Missile"
+     :id :magic-missile
+     :description
+     "With a terrifying thought and practiced motion,
+      you strike with pure unerring force,
+      transcending any barrier.
+      The defender cannot actively defend,
+      and you attack with advantage.
+      On a success,
+      inflict three damage, ignoring resistances.
+      You may discard a card to gamble on the attack
+      instead of suffering a penalty to effective rank.
+      If you do, inflict one additional damage."
+     :phase :encounter
+     :actions 2
+     :madness 2
+     :range :distant
+     :tags #{:attack :spell}}
+    {:name "Ward, Against"
+     :id :defensive-ward
+     :description
+     "As a reaction, you wave your hands
+      as you have a million times
+      and the forces of the elements
+      decide to think better of it.
+      As you are targeted for an attack,
+      you raise a magical barrier
+      which grants 2 resistance
+      against every element
+      except physical."
+     :phase :encounter
+     :actions 0
+     :madness 2}]}}
+ {:name "The Sorcerer"
+  :id :the-sorcerer
+  :description
+  "She draws it from within, we think.
+   Observation has been difficult,
+   as she is quite disagreeable
+   at a surprising range.
+   Examination should give us more answers
+   and eliminate her threat,
+   but it has become very costly
+   to continue the attempt."
+  :traits :the-magician
+  :deck :the-ace-of-cups
+  :effect
+  {:talents
+   [{:name "Eldritch Suffusion"
+     :id :eldritch-suffusion
+     :description
+     "You can fit impossible truths in your heart,
+      or maybe there is just a tunnel of sorts
+      to some faraway cavern of sobering depths.
+      When you gain madness,
+      draw a card."}]
+   :abilities
+   [{:name "Two-Tone Lash"
+     :id :two-tone-lash
+     :description
+     "Hone a flash of rage
+      into cords of fire and ice,
+      striking a nearby foe.
+      Attack an enemy; if you succeed,
+      inflict two fire damage and two frost damage."
+     :phase :encounter
+     :actions 2
+     :madness 2
+     :range :near
+     :tags #{:attack :spell}}
+    {:name "Command"
+     :id :command
+     :description
+     "When the body and spirit align,
+      your word is law.
+      State the command,
+      and challenge a being's resolve.
+      If successful, they obey,
+      even against their will.
+      After five seconds,
+      you must command them again
+      or they regain their wits."
+     :phase :encounter
+     :actions 1
+     :madness 2
+     :range :near
+     :tags #{:spell}}]}}
+ {:name :the-godhead
+  :id :the-godhead
+  :description
+  "I speak the language of the heavens,
+   and when you hear it,
+   it is with all your secret ears
+   you have never touched with skin.
+   The body is a conduit,
+   and manna flows down my aqueduct."
+  :traits :the-wizard
+  :deck :the-ace-of-pentacles
+  :effect
+  {:talents
+   [{:name "Demigod Fate"
+     :description
+     "The gods don't look down on you,
+      at least not quite as much.
+      When you use fortune,
+      you may draw a card."}]
+   :abilities
+   [{:name "Heavenly Bolt"
+     :id :heavenly-bolt
+     :description
+     "Lightning can strike as many times as you ask,
+      appearing close enough for a roof not to impede.
+      Smite thy foes with a glare.
+      Attack; if successful, inflict three radiant damage.
+      If they actively defend, inflict three more."
+     :phase :encounter
+     :actions 2
+     :madness 1
+     :range :distant
+     :tags #{:attack :spell}}
+    {:name "Banish"
+     :id :banish
+     :description
+     "You are not welcome here any longer.
+      Begone.
+      With a mere utterance,
+      outsiders take the hint and vanish,
+      their avatars ceasing to be.
+      If the target has a physical form,
+      this is considered an attack
+      and you make it at disadvantage.
+      Otherwise, such as when dismissing an image,
+      you probably just succeed."
+     :phase :encounter
+     :actions 0
+     :madness 2
+     :range :near
+     :tags #{:attack :spell}}]}}
+ {:name "The Seer"
+  :id :the-seer
+  :description
+  "The future tells on itself all the time.
+   Its snickering can be heard for centuries.
+   You have only to listen
+   as you would at a keyhole:
+   secret, stowing your senses in-between.
+   But then you are the in-between,
+   the interlocutor,
+   and your word cannot contain the reality."
+  :traits :the-wizard
+  :deck :the-king-of-pentacles
+  :effect
+  {:talents
+   [{:name "Cassandra"
+     :id :cassandra-curse
+     :description
+     "You have seen, and will see --
+      and will see forever --
+      a terrifying totality,
+      which others tend to dismiss
+      whether in ignorance
+      or self-defense.
+      When scrying, draw a card.
+      When persuading someone of your reading,
+      do so at disadvantage."}]
+   :abilities
+   [{:name "Listen Closely"
+     :id :listen-closely
+     :description
+     "You may reflect for some time,
+      and ask without asking
+      (except out of character)
+      the Arbiter a question
+      in a three-card spread
+      dealt from the top of your deck.
+      You may shuffle prior to dealing the spread."
+     :phase :exploration
+     :actions 3
+     :madness 2
+     :tags #{:spell}}
+    {:name "Tempt Fate"
+     :id :tempt-fate
+     :description
+     "Summon a future by goading it.
+      It may seek revenge, but then it has arrived.
+      As you spend a fortune,
+      after unveiling from your own deck,
+      unveil from the Arbiter's deck.
+      You may choose to respond with either.
+      If you choose from the Arbiter's deck,
+      your next challenge suffers disadvantage."
+     :actions 0
+     :phase :encounter
+     :madness 1
+     :tags #{:spell}}]}}
+ {:name "The Enchanter"
+  :id :the-enchanter
+  :description
+  "Spirits live in things all the time,
+   especially when you put them there.
+   Maybe it's a prison, for what they've done,
+   or maybe it's a pleasant home they visit
+   when they miss their dear friend you."
+  :traits :the-wizard
+  :deck :the-knight-of-wands
+  :effect
+  {:talents
+   [{:name "Second Sight"
+     :description
+     "The world of spirits is a vivid reality to you,
+      but you've learned to see many reals at once.
+      By investigating objects,
+      you may determine their recent history.
+      The Arbiter may challenge you to reason it out."}]
+   :abilities
+   [{:name "Invest the Invitation"
+     :description
+     "Add an enchantment to what you are crafting.
+      You may do this up to three times."
+     :phase :downtime
+     :actions 3
+     :madness 2
+     :tags #{:crafting}}]}}]

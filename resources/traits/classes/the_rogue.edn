@@ -1,0 +1,146 @@
+[{:name "The Rogue"
+  :id :the-rogue
+  :description
+  "The canny stranger knows a bit too much
+   for such idle curiosity.
+   What are they plotting?"
+  :deck :the-fool
+  :effect
+  {:attributes {:spirit 1 :luck 1}
+   :talents
+   [{:name "Expertise"
+     :id :expertise
+     :description
+     "When you are challenged in a proficient skill,
+      or when you have advantage,
+      draw a card."}]}}
+ {:name "The Sacrifice"
+  :id :the-sacrifice
+  :description
+  "Every job needs a fall guy,
+   just in case.
+   Maybe it's better if they don't know
+   who are are
+   until it matters."
+  :traits :the-rogue
+  :deck :the-page-of-cups
+  :effect
+  {:talents
+   [{:name "Uncanny Dodge"
+     :id :uncanny-dodge
+     :description
+     "You won't die until something higher requires it,
+      and in the meantime,
+      they want to keep you well-preserved.
+      You may discard a card to evade an attack,
+      either physically or socially."}]}}
+ {:name "The Trickster"
+  :id :arcane-trickster
+  :description
+  "Deep in the tomes of the dead
+   lie the words that made the difference
+   when the job inevitably went bad,
+   Words that exploit a bend in the real,
+   like no simple mundane may understand
+   as anything less than magic.
+   Thank the heavens you can read."
+  :traits :the-rogue
+  :deck :the-ace-of-wands
+  :effect
+  {:abilities
+   [{:name "Mage Hand"
+     :id :mage-hand
+     :description
+     "With some concentration, gesturing and muttering,
+      you can evoke an ethereal hand
+      capable of lifting and carrying
+      about five kilos or less.
+      The hand moves about five meters a turn
+      during encounters.
+
+      The hand is capable of limited manipulation;
+      you may attempt to do something with it,
+      like pick a lock or disarm a trap,
+      but you do this at a disadvantage."
+     :phase :exploration
+     :actions 0
+     :tags #{}}
+    {:name "Manifest Shield"
+     :id :manifest-shield
+     :description
+     "As though like a reflex,
+      you snap your hand to a strange position
+      and a barrier appears that breaks like glass
+      and vanishes into vapor and nothing.
+      
+      Increase your defense against an attack
+      by 2."
+     :phase :encounter
+     :actions 0
+     :madness 1
+     :tags #{:reaction}}]}}
+ {:name "The Liar"
+  :id :the-liar
+  :description
+  "You don't know where they come from,
+   and not because they haven't told you.
+   What they say makes sense,
+   but is never quite true.
+   When you wonder why,
+   it makes you afraid."
+  :traits :the-rogue
+  :deck :the-queen-of-cups
+  :effect
+  {:abilities
+   [{:name "Feint"
+     :id :feint
+     :description
+     "Whether physically or socially,
+      you can goad someone into exposing themselves.
+      
+      When you challenge someone else with a lie,
+      and succeed a difficulty as though attacking,
+      your target leaves themselves vulnerable.
+      Socially, they may reveal too much.
+      Physically, they defend at -2 until their next turn."
+     :phase :encounter
+     :actions 1
+     :tags #{:flourish}}]}}
+ {:name "The Burglar"
+  :id :the-burglar
+  :description
+  "In and out without a light,
+   but never a step more than light
+   lest we daring thieves fail the tradition
+   of being where we ought not."
+  :traits :the-rogue
+  :deck :the-king-of-cups
+  :effect
+  {:talents
+   [{:name "A Light Touch"
+     :description
+     "Failing the demand of a challenge against stealth
+      never raises an alarm, nor triggers a trap."}]}}
+ {:name "The Mark"
+  :id :the-mark
+  :description
+  "When they've got it to spend,
+   you can guess where it's spent.
+   Never quite wisely,
+   despite great deliberation.
+   But the bettor settles their accounts
+   while they know what's good for 'em."
+  :traits :the-rogue
+  :deck :the-page-of-pentacles
+  :effect
+  {:talents
+   [{:name "In Your Favor"
+     :description
+     "Call the big sixes on the knucklebones.
+      Double or nothing.
+      Win big or go home.
+      Though,
+      by luck or fate or whatever it is,
+      you tend to profit from chance.
+      When you gamble during a challenge,
+      draw a card."}]}}]
