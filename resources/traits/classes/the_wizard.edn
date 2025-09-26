@@ -91,7 +91,8 @@
       except physical."
      :phase :encounter
      :actions 0
-     :madness 2}]}}
+     :madness 2
+     :tags #{:reaction :spell}}]}}
  {:name "The Sorcerer"
   :id :the-sorcerer
   :description
@@ -146,7 +147,7 @@
      :madness 2
      :range :near
      :tags #{:spell}}]}}
- {:name :the-godhead
+ {:name "The Godhead"
   :id :the-godhead
   :description
   "I speak the language of the heavens,
