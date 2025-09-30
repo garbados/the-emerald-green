@@ -281,5 +281,20 @@ The human cost takes a long toll,
 But empire can imagine nothing for them,
 Nothing more compassionate
 Than another pained and shallow breath.
-What kindness can they not conceive?
-What compassion escapes their rigid order?
+What kindness can it not conceive?
+What compassion escapes its rigid order?
+
+## The Chariot
+
+We ride!
+Our foes gather like wasps;
+I go to scatter them. Will you attend me?
+You have seen them assault the gates.
+You have seen how they covet the City.
+I need your strong arm and wild wits
+Like my armies need my governance
+For together, we are unstoppable.
+Triumph is summoned, not destined;
+The ritual of effort evokes victory.
+Fight with me, my strange lover,
+And I promise I will see you again.
