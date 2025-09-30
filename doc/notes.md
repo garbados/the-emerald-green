@@ -81,7 +81,7 @@
     - Fire magic.
     - Party buffs.
 - "Judgement"
-    - > Awakening. Forgiveness. Renewal. Judgment. Resolution. The end of the story.
+    - > Awakening. Forgiveness. Renewal. Judgement. Resolution. The end of the story.
     - Time magic.
     - The sharp edge of neutrality.
     - Shivan decay/renewal aspect; transformation.

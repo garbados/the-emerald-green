@@ -101,7 +101,7 @@ Loose notes regarding traits.
     - The Exemplar
     - The Cleric
     - The Preacher
-- Judgment
+- Judgement
     - The Justiciar
     - The Exemplar
 - The World

@@ -3,9 +3,9 @@
    [clojure.spec.alpha :as s]))
 
 (def attribute->skills
-  {:body   [:athletics :melee :ranged :resilience :intimidation]
-   :mind   [:arcana :craft :diplomacy :insight :medicine]
-   :spirit [:awareness :deception :sorcery :stealth :resolve]
+  {:body   [:resilience :athletics :intimidation :ranged :melee]
+   :mind   [:insight :craft :medicine :diplomacy :arcana]
+   :spirit [:resolve :awareness :deception :stealth :sorcery]
    :luck   [:gambling :appraisal :skepticism :divination :theurgy]})
 (def attr-order [:body :mind :spirit :luck])
 (def fung-order [:health :draw :will :fortune :madness])

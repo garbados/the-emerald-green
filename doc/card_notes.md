@@ -460,7 +460,7 @@ The Star card shows a woman kneeling at the edge of a small pond. She is holding
 
 ### labyrinthos.co
 
-The Queen of Swords wears a stern look as she sits high on the throne - looking off into the distance. A queen of the air element that the swords represents, her place in the clouds shows that no one can trick or fool her. The sword in her right hand is pointed towards the sky, whereas the left hand is extended like it is offering something. The Queen of Swords gives us the gift of judgment for everyday decisions and having the flexibility to take in knowledge from others.
+The Queen of Swords wears a stern look as she sits high on the throne - looking off into the distance. A queen of the air element that the swords represents, her place in the clouds shows that no one can trick or fool her. The sword in her right hand is pointed towards the sky, whereas the left hand is extended like it is offering something. The Queen of Swords gives us the gift of judgement for everyday decisions and having the flexibility to take in knowledge from others.
 
 ## the-queen-of-wands
 
@@ -526,7 +526,7 @@ The Sun card presents an feeling of optimism and fulfillment. This card represen
 
 ### labyrinthos.co
 
-This card depicts what one would imagine the last judgment would be, in the various forms that takes in many mythologies. The image in the Judgement card shows women, men, and children who are rising from the grave to respond to Gabriel’s trumpet call. Their outstretched arms symbolize that they are ready to be judged by the universe. They are about to meet their creator, their actions weighed, and find out where they will spend the remainder of eternity: in heaven or in hell. The massive tidal wave in the background signify that judgement is unavoidable, and that this judgement will be final.
+This card depicts what one would imagine the last judgement would be, in the various forms that takes in many mythologies. The image in the Judgement card shows women, men, and children who are rising from the grave to respond to Gabriel’s trumpet call. Their outstretched arms symbolize that they are ready to be judged by the universe. They are about to meet their creator, their actions weighed, and find out where they will spend the remainder of eternity: in heaven or in hell. The massive tidal wave in the background signify that judgement is unavoidable, and that this judgement will be final.
 
 Judgement is ruled by Pluto, who is the underworld’s ruler. There are echoes of this card in Death, for they both remind us that everything comes to an end and that a new beginning is coming.
 

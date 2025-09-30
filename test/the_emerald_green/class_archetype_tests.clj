@@ -37,7 +37,7 @@
    :diplomacy
    {:the-lovers   :the-comrade
     :the-devil    :the-spy
-    :judgment     :the-inquisitor
+    :judgement     :the-inquisitor
     :temperance   :the-diplomat}
    :insight
    {:the-magician   :the-archivist
