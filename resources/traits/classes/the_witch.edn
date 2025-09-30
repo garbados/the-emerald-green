@@ -1,0 +1,54 @@
+[{:name "The Witch"
+  :id :the-witch
+  :description
+  ""
+  :deck :the-high-priestess
+  :effect
+  {:attributes {:mind 1 :luck 1}
+   :talents
+   []
+   :abilities
+   []}}
+ {:name "The Elementalist"
+  :description "TODO"
+  :traits :the-witch
+  :deck :the-ace-of-cups
+  :effect {}}
+ {:name "The Static"
+  :description
+  "It unnerves them,
+   the sound of you.
+   They feel you coming
+   like the pressure of the air
+   as a storm rolls in,
+   until it is a deafening howl
+   and the totality of your being
+   drives them to their knees."
+  :traits :the-witch
+  :deck :the-queen-of-pentacles
+  :effect {}}
+ {:name "The Medium"
+  :description
+  "The heavens listen, when you speak.
+   They hear parts of you that cannot speak.
+   They speak in turn,
+   and will even answer a call,
+   if you have the humility to hear."
+  :traits :the-witch
+  :deck :the-page-of-wands
+  :effect {}}
+ {:name "The Lifetender"
+  :description
+  "TODO"
+  :traits :the-witch
+  :deck :the-queen-of-wands
+  :effect {}}
+ {:name "The Kingmaker"
+  :description
+  "Prophecy can be evoked,
+   when opportunity manifests.
+   One may not always step into the void themselves,
+   but they can sometimes inspire who will."
+  :traits :the-witch
+  :deck :the-king-of-wands
+  :effect {}}]

@@ -3,7 +3,7 @@
 [![Build and Test](https://github.com/garbados/the-emerald-green/actions/workflows/test.yml/badge.svg)](https://github.com/garbados/the-emerald-green/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/garbados/the-emerald-green/badge.svg?branch=main)](https://coveralls.io/github/garbados/the-emerald-green?branch=main)
 
-*The Emerald Green* is a tabletop roleplaying game that you play with using a 78-card Tarot deck, such as the Rider-Waite deck or the Tarot of Marseilles (but not the Thoth deck), instead of dice. You play as a person that has entered into a fae pact, that grants you powers, and consumes you. It is intended for use in high fantasy settings similar to the worlds of Faerun or Golarion, where gods are real, and alien.
+*The Emerald Green* is a tabletop roleplaying game that you play with using a 78-card Tarot deck, such as the Smith-Waite deck or the Tarot of Marseilles, instead of dice. You play as a person that has entered into a fae pact, that grants you powers, and consumes you. It is intended for use in high fantasy settings similar to the worlds of Faerun or Golarion, where gods are real, and alien.
 
 You can read more in [the introduction](./doc/introduction.md). You can build characters and manage campaigns on [the website](https://garbados.github.io/the-emerald-green).
 

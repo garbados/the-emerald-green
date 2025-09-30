@@ -1,4 +1,141 @@
-# Trait Notes
+# NEW Trait Notes
+
+## The New Class War
+
+- The Fool: The Rogue
+    - Resolve
+    - Awareness
+    - Deception
+    - Stealth
+    - Gambling
+- The Magician: The Wizard
+    - Arcana
+    - Sorcery
+    - Theurgy
+    - Divination
+    - Craft
+- The High Priestess: The Witch
+    - Sorcery
+    - Skepticism
+    - Insight
+    - Medicine
+    - Diplomacy
+- The Empress: The Summoner
+    - Arcana
+    - Theurgy
+    - Craft
+    - Resolve
+    - Resilience
+- The Emperor: The Tactician
+    - Intimidation
+    - Diplomacy
+    - Stealth
+    - Awareness
+    - Resilience
+- The Hierophant: The Cleric
+    - Theurgy
+    - Divination
+    - Diplomacy
+    - Medicine
+    - Appraisal
+- The Lovers: The Courtesan
+    - Diplomacy
+    - Intimidation
+    - Deception
+    - Insight
+    - Divination
+- The Chariot: The Ranger
+    - Ranged
+    - Awareness
+    - Arcana
+    - Stealth
+    - Skepticism
+- Strength: The Warrior
+    - Melee
+    - Ranged
+    - Athletics
+    - Resilience
+    - Craft
+- The Hermit: The Outsider
+    - Sorcery
+    - Theurgy
+    - Skepticism
+    - Gambling
+    - Craft
+- Wheel of Fortune: The Merchant
+    - Appraisal
+    - Diplomacy
+    - Intimidation
+    - Insight
+    - Deception
+- Justice: The Paladin
+    - Melee
+    - Resilience
+    - Resolve
+    - Theurgy
+    - Medicine
+- The Hanged Man: The Oracle
+    - Sorcery
+    - Divination
+    - Insight
+    - Resilience
+    - Resolve
+- Death: The Alchemist
+    - Arcana
+    - Theurgy
+    - Craft
+    - Medicine
+    - Insight
+- Temperance: The Monk
+    - Melee
+    - Resilience
+    - Insight
+    - Awareness
+    - Athletics
+- The Devil: The Illusionist
+    - Diplomacy
+    - Intimidation
+    - Deception
+    - Stealth
+    - Theurgy
+- The Tower: The Occultist
+    - Arcana
+    - Divination
+    - Stealth
+    - Deception
+    - Ranged
+- The Star: The Enchanter
+    - Sorcery
+    - Divination
+    - Skepticism
+    - Insight
+    - Diplomacy
+- The Moon: The Shadow
+    - Stealth
+    - Melee
+    - Insight
+    - Skepticism
+    - Awareness
+- The Sun: The Exemplar
+    - Resilience
+    - Resolve
+    - Insight
+    - Awareness
+    - Arcana
+- Judgment: The Inquisitor
+    - Arcana
+    - Divination
+    - Insight
+    - Resolve
+    - Intimidation
+- The World: The Wildshaper
+    - Sorcery
+    - Awareness
+    - Insight
+    - Deception
+    - Melee
+
+# OLD Trait Notes
 
 Loose notes regarding traits.
 
