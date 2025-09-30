@@ -1,0 +1,41 @@
+[{:name "The Summoner"
+  :id :the-summoner
+  :description
+  "TODO"
+  :deck :the-empress
+  :effect {}}
+ {:name "The Evoker"
+  :id :the-evoker
+  :description
+  "TODO"
+  :traits :the-summoner
+  :deck :the-ace-of-wands
+  :effect {}}
+ {:name "The Invoker"
+  :id :the-invoker
+  :description
+  "TODO"
+  :traits :the-summoner
+  :deck :the-ace-of-pentacles
+  :effect {}}
+ {:name "The Healer"
+  :id :the-healer
+  :description
+  "TODO"
+  :traits :the-summoner
+  :deck :the-queen-of-wands
+  :effect {}}
+ {:name "The Steward"
+  :id :the-steward
+  :description
+  "TODO"
+  :traits :the-summoner
+  :deck :the-page-of-cups
+  :effect {}}
+ {:name "The Survivor"
+  :id :the-survivor
+  :description
+  "TODO"
+  :traits :the-summoner
+  :deck :the-page-of-swords
+  :effect {}}]

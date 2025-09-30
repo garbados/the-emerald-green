@@ -50,9 +50,9 @@
   :description "Shortbow, javelin, atl-atl, etc."
   :extends :light-ranged-weapon
   :heft :medium
-  :range :medium}
+  :range :distant}
  {:name "Heavy Ranged Weapon"
   :description "Heavy crossbow, longbow, yumi, etc."
   :extends :light-ranged-weapon
   :heft :heavy
-  :range :long}]
+  :range :far}]

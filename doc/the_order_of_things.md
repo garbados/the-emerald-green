@@ -225,3 +225,59 @@ Inbetween the only real things in life,
 The things our bodies feel.
 If empire cannot survive how we feel together,
 Then maybe it deserves to crumble.
+
+## The Five of Swords
+
+When we scatter their legions,
+The survivors walk to our gates
+And become our latest citizens.
+Nomads and traders and crows all scavenge,
+And the profits trickle to our bazaars.
+The battle does not quell animosity.
+The strength of our walls does not change
+That they will come again, and again.
+For now, we watch their generals walk away
+Unlike so many of their loyal guard,
+Because we are merciful, stranger,
+But mercy doesn't keep you safe.
+
+## The Five of Wands
+
+They present me with a weapon,
+Long and sharp and borne of killing dreams.
+You will need this, they say.
+You will need to know how to use it.
+I ask, but why?
+War lives in the human spirit, they reply,
+Before they show me how to hit a dummy.
+The weapon's shaft thuds against straw flesh;
+They don't tell me how different it is,
+The sound when the flesh is thinking meat.
+
+## The Five of Cups
+
+What have I lost in the City?
+I made a friend of a bailiff,
+Who died on a rival people's spear-point.
+My neighbors know me by name now,
+But that name is always: stranger.
+I carved the walls of the newest temple,
+But only the priests get the credit.
+I may have some things of unalloyed good,
+But even the love that makes me glow
+Is a secret to his court.
+What have I lost in the City?
+Was it worth it?
+
+## The Five of Pentacles
+
+The wounded don't simply die.
+They suffer.
+They wander a world no longer for them.
+It considers their each breath a mercy,
+However shallow, however pained.
+After the battle is won,
+The human cost takes a long toll,
+But empire can imagine nothing for them,
+Nothing more compassionate
+Than another pained and shallow breath.
