@@ -281,3 +281,5 @@ The human cost takes a long toll,
 But empire can imagine nothing for them,
 Nothing more compassionate
 Than another pained and shallow breath.
+What kindness can they not conceive?
+What compassion escapes their rigid order?
