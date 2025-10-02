@@ -298,3 +298,412 @@ Triumph is summoned, not destined;
 The ritual of effort evokes victory.
 Fight with me, my strange lover,
 And I promise I will see you again.
+
+## The Six of Swords
+
+Hush now, if you know what matters.
+The times, they are a-changing
+By the hands of courageous rivals --
+our hands, your Lady.
+You may not want to go,
+Nor to take your most cherished away,
+But this is how we hate each other.
+It's more than my nation wanting your City.
+We want to paint its walls with our droppings
+In the artistic ways of our superior culture.
+If you come with us now, we will let you live.
+Your Duarchal husband will come for you,
+and then we will have it all.
+
+## The Six of Wands
+
+The many fight as one
+In the practiced ways of our storied ranks,
+But particularly when one tells them to.
+When I call them to bravery,
+They answer with confidence.
+But when I doubt,
+They smell it like piss.
+I trust who calls me in or out,
+Whoever has the bravery for that,
+Because a sycophant can never be trusted.
+When we stand together,
+No one falls.
+But, if someone has to,
+How could I do less than volunteer?
+
+## The Six of Cups
+
+I dreamed about us, lover.
+I dreamed about a home that didn't raise me,
+One with pillows and baked bread.
+You were there, an itching youth like me,
+And we dug in the mud for fun,
+Thinking someday we'd dig aqueducts.
+Lover, what is an aqueduct?
+In the wild, I drink from the good streams,
+And the City has its sacred fountains --
+Is that how they work?
+Maybe I might have known that,
+If I had been born somehow different.
+Imagine if we had known each other
+Longer.
+
+## The Six of Pentacles
+
+Kneel, and I'll grant you a fair deal.
+You stood against the City, and we beat you.
+Your lords took her. Where is she?
+Now, look -- everyone has a price,
+And we're all just following orders, right?
+So maybe I fill your hands,
+And you stand down and divulge,
+And when then is all over,
+We call it square.
+Now I ask you again:
+Where is she?
+
+## Strength
+
+The prison fell without a fight.
+It was all over, by then.
+She walked out shaken, but in one piece.
+The guards weren't even a problem,
+Except the ones who became a problem,
+And we City-folk, we solve problems.
+The bards will say it was destiny, like the weather,
+But the truth is more like the cleverness of a crow.
+The opportunistic leap, the scavenger's creativity --
+Step into the vacuum that floats like a wave
+Sucked between the systems of time and space
+And the systems of communal human effect
+Like a rip-tide.
+Unready, you might drown,
+But the boat-buoyed sailor floats to sea
+While my navy navigates home.
+
+## The Seven of Swords
+
+You can fight without weapons, I realize,
+And by virtue of your eminent skill, you'll still win.
+But you can't fight where you aren't,
+And you can't fight while you sleep.
+You'll hate the gift of the wine,
+And the truth in its tannins will prove too much.
+The tragedy of hierarchy is always the heart,
+That it beats alone, central and essential.
+When it stops, the show stops,
+And your government falls.
+Heirs, advisors, and courtiers may quibble for the remains,
+And the name of your realm will be passed on tattered
+Like the chew toy of a dozen hungry dogs.
+But, only if you're the one that drinks the wine...
+
+## The Seven of Wands
+
+They came while you were away, my monarchs.
+We stood our ground, but couldn't hold it.
+Their unfathomable ambitions produced devices
+Hurling rock and burning oil.
+Falling masonry, screams of the burning dead --
+It won't go away, my monarchs. It's been days.
+It's been days since they occupied the City.
+They took apart their artillery to patch the walls.
+We can still win, of course. Can't we?
+I suppose it isn't up to me,
+However much I'll be called to realize it.
+
+## The Seven of Cups
+
+There isn't just one future, of course.
+We summon our destiny with our deeds,
+And the spirit only acts by choice.
+But what choices are these?
+I have been faithful. How can you vex me so?
+To trade my most loyal for my own home?
+Or to give it up, and return to nomad ways?
+There's no shame in being the wandering shepherd.
+They range the reaches we can't govern,
+And trade us milk and wool for cheese and cloth
+In the market we used to have.
+I think I had a nomad ancestor,
+Only a few generations back.
+Six or seven, maybe.
+What am I thinking? I've never known
+But fountains and bread and books,
+And I don't intend to soon.
+I'd rather cut off my own head
+Than trade of my herd in their bazaar.
+But,
+Maybe that's exactly what I'll have to do.
+
+## The Seven of Pentacles
+
+The first lesson you learn in my civil corps?
+Reap what you sow. You always will; you always do.
+We planted the City, a long time ago maybe, like a tree,
+But we make it every day we live it, because it's not a place.
+It's us, and how we choose to live.
+We might have inherited our ways,
+Been privileged to see them set in stone
+Even for a while,
+But they are still our ways, even unlanded.
+Our ancestors sowed secrets, and today they bear fruit.
+The occupier doesn't know the dirt like we do,
+And our wandering rivers don't know their names.
+Step lightly into the hidden belly,
+And lift back to life everything we made.
+
+## The Hermit
+
+It isn't my city, is it?
+It's the City. I just used to live there.
+You can't ask me to give of myself like this.
+I'm not from here. Your peers call me outsider.
+What home can I have, even in your arms?
+Your embrace returns to her, obligated,
+But with what passion? Passion like ours?
+I don't want to gamble in your sewers
+For a chance to whimper in your shadow.
+I want to lay with you now, while she's away,
+While the candles burn and the pillows have feathers.
+I want to taste the wine on your lips
+Like no animal can.
+
+## The Wheel of Fortune
+
+You hesitated. Why? Oh.
+Oh no.
+It doesn't feel right.
+I've rolled unseemly dice
+And they've landed all wrong.
+Some strange transmutation writhes in me.
+What have you done? What have I done?
+No. Who has done this to us?
+Fate calls in such strange ways.
+Up sometimes, down all the others, huh?
+Prey and predator's not worse than this,
+This covenant of a higher barbarism.
+It could have been either of us, lover.
+I suppose I'm glad it was me.
+
+## The Eight of Swords
+
+There had been a traitor, naturally.
+To call him a rat would dishonor the rodent.
+He's baking in the sun and the mud now,
+And that's fine by me today.
+The wounded lie in tents, a numerous cacaphony.
+But, by their struggle, the City is ours again.
+A conspiracy, a faction's aspiring duo --
+They're all dead now, of course.
+I had higher hopes for them. We used to drink together.
+But I've seen what happens when you trust a drink,
+And I wanted worse for them than what they gave.
+I wanted from them the weight of all they took,
+And it sufficed to take it in blood.
+
+## The Eight of Wands
+
+The campaign comes to a close.
+The heroes get medals. The maimed get pensions.
+The survivors go home. The banished go away.
+There's still so much to do --
+Just look at how they've defaced our temples --
+But at least we're home now.
+At least I can send the wildman a proper doctor,
+Something for the pain,
+Something for the anguish.
+In his old home, he'd already be dead.
+I wonder if my mercy is kinder.
+
+## The Eight of Cups
+
+I turn my back.
+I can hardly look at you like this.
+You gibber now, yearning and sickly.
+What would I want from you?
+I won't send the doctor away,
+But I won't be back soon.
+I feel things when you look at me --
+Eyes sunken, skin sallow, lips quivering --
+That I can't stand to feel.
+Everything we had is empty now.
+Nothing is forever, not even in a life.
+I'm sorry we had so little.
+I'm sorry I didn't have more.
+
+## The Eight of Pentacles
+
+Work hard, and it'll work out.
+That's what the Teacher says, anyway.
+Every lesson sticks to the avid student,
+And though months may pass rebuilding,
+Every day contains a unique discovery.
+The Teacher speaks loose, speaking ill:
+The Duarchy lags today, don't they?
+Their court is sundered, working us overtime
+To patch the holes of their incompetence.
+A wiser Duarchy wouldn't have faced such a trap,
+As the wise artisans conceive the proper tool
+While their lessers toil primitively.
+No work does not require skill,
+So the unskilled suffer from ignorance.
+We don't need ignorance here. We have skill.
+The Student nods, chiseling away.
+They have no reply, but the message settles
+Into a nest in their mind
+To be repeated without thinking
+Just as it was spoken.
+
+## Justice
+
+I am sorry. I owed you my love in the daylight.
+I proclaim it so: a plaza of your name,
+To honor your kindness, curiosity, and sacrifice.
+It will be cold comfort when you are gone,
+But in the springs to come,
+The blossoms will remind me of you.
+Bees will wriggle into petals,
+And I will think of you
+When you were more than dying.
+The pact of mortality is death,
+Though we never quite know its nature
+Until it's too late to tell.
+This recognition may end my reign,
+But I hope it brings us peace.
+
+## The Hanged Man
+
+Lover, I must tell you what will come.
+No, what has happened...!
+I dreamed -- I dreamed so furiously.
+Down in the earth lies a temple
+Of carved stone turned wet and slick and green
+By the moist aquifier hardly meters below.
+I've never liked caves, not the ones that go so deep.
+Things live there, lover. Things like birds with hands
+That clutch at the moss and clay, and devour,
+Hungry for such a bare crop. Hungry forever.
+Listen, lover. It's where I'm going.
+Find me, if you can.
+I wandered the dim halls, glowing with ghostlight.
+Etched glyphs faded to soft depressions;
+If I wrote them, could you read them?
+I can't read, lover. I still can't.
+I saw this one on the forehead
+Of a too-long obsidian woman, garbed in jade and emerald.
+She sneered from her black throne -- at me, lover.
+"Who are you?" she demanded. She stood so tall.
+Her presence swept away the light like night.
+I had no lips with which to answer. The dead have no bodies.
+But I woke up screaming.
+What is her name in your heavens?
+Of course, of course. Queen of the underworld.
+How do you think I knew her sign? A coincidence?
+I'll die soon, lover.
+It's no coincidence where I'm going.
+
+## The Nine of Swords
+
+Life isn't bad, out of power.
+My walls glitter with my trophies,
+And my bones creak with the years.
+I don't have to worry who sees my back ache;
+That's the new Duarchy's problem now.
+Me and the old lady, we still live together,
+But it's colder than I'd like.
+I wake up to those trophies like weights on my chest,
+The burden of decades like inertia, like momentum,
+Like a destiny beyond my control,
+Like a realm I no longer govern.
+She's happy enough, the new vizier,
+The wisest of wormtongues, the queen of thorns.
+I always did love her for that. Ambitious like the asp.
+But mainly, I think of you.
+Mainly, I think of you and cry.
+
+## The Nine of Wands
+
+What if I didn't give up?
+What if my mistakes didn't win?
+What if I kept fighting
+Even on my death-bed.
+What if I told Death no,
+And she listened?
+I'm coughing blood now;
+The doctor feeds and bathes me.
+Did the assassin want this for you?
+Good thing I'm the stronger one.
+You City-folk are as pretty as lillies,
+And about as frail.
+
+## The Nine of Cups
+
+The new Duarchy has a benefactor in the bazaar.
+The Lady may control the corps, the Lord his armies,
+But it's really trade that stocks the storehouse,
+And a hungering thing's first foe is always hunger.
+The nine outer tribes obey the monopolist's writ;
+His caravans favor them, and happen to favor us.
+While grain is cheap and plentiful, who complains?
+The cart that rolls doesn't need to be fixed,
+Even when it depends on a single weak axle.
+It won't be a problem for a while yet,
+Not for a lifetime at least,
+And by then he won't care.
+He'll be dead.
+
+## The Nine of Pentacles
+
+Consequences echo, and sometimes they rhyme.
+The City prospers again, with its cold and calculated compassion.
+There is enough for everyone, so long as enough is enough.
+When you said there's too little, you just needed too much.
+Eat your fill, and it will fill you;
+Suck on faith to stave the hunger.
+We didn't salt the earth, that isn't why it spoils.
+The salt is very clever, you see. The spoil is your fault.
+We bicker to distract from famine, like it were bread.
+All good things come to an end,
+And we're never quite wise enough for cleverness,
+Are we?
+But we had a good thing,
+Didn't we?
+
+## Death
+
+Lover, come close. Join me at the threshold now.
+Everything changes. Nothing happens twice, really.
+It's always different, everything, everywhere.
+But, in your memories, I can be preserved,
+Our little time elongated with each reverie.
+Will you hold me there still?
+And when I return to soil,
+Will the wealth of my body become your fecund harvest?
+I hope so.
+I never got to cook you dinner,
+But maybe I can feed your progeny.
+Then, someday, perhaps,
+I will see you again.
+Everything changes,
+And very little isn't possible.
+Lover, come close,
+For the last time.
+
+## Temperance
+
+It's quiet, afterwards.
+He's faded from my eyes, which I can hardly recall.
+The taste of his kiss echoes like the patter of rain,
+Fading, fading, fading, as the sky clears.
+I'm not bothered by forgetting, I realize.
+It feels like peace. Then I realize nothing.
+Nothing is all that remains of me,
+Except this mote, floating, wondering,
+Recalling vaguely some of what I might have been,
+And some of who I will be, and what I was before all that.
+It blurs together, doesn't it?
+But it doesn't feel bad. It doesn't hurt anymore.
+I feel at peace.
+It feels like nothing.
