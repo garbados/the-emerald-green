@@ -18,6 +18,8 @@ It tugs on your guts like a new kind of north.
 You have to stay steady not just to stay the course,
 But to listen to the earth under you, inside of you,
 To hear what moves ahead.
+Strange barriers may cleave you
+From the things you find you want.
 
 ## The Two of Wands
 
@@ -27,15 +29,15 @@ My goodness -- why not?
 There's so much out there to see and feel and touch and be!
 I could be anyone, eventually. Anything.
 Why not go a-looking, then?
-Let's see what fate has in store!
+Let's see what fate has for me!
 
 ## The Two of Cups
 
 Who now do I find?
 What an offer -- what a trade.
 I look at the thundering clouds,
-the forest bending before the gale,
-and think the same words they say to me:
+The forest bending before the gale,
+And think the same words they say to me:
 "We can only get through this together."
 So we do. We make it through.
 What an offer. What a trade.
@@ -628,7 +630,7 @@ Mainly, I think of you and cry.
 What if I didn't give up?
 What if my mistakes didn't win?
 What if I kept fighting
-Even on my death-bed.
+Even on my death-bed?
 What if I told Death no,
 And she listened?
 I'm coughing blood now;
@@ -651,7 +653,7 @@ The cart that rolls doesn't need to be fixed,
 Even when it depends on a single weak axle.
 It won't be a problem for a while yet,
 Not for a lifetime at least,
-And by then he won't care.
+And by then the monopolist won't care.
 He'll be dead.
 
 ## The Nine of Pentacles
@@ -705,5 +707,24 @@ Recalling vaguely some of what I might have been,
 And some of who I will be, and what I was before all that.
 It blurs together, doesn't it?
 But it doesn't feel bad. It doesn't hurt anymore.
-I feel at peace.
+I feel total tranquility.
 It feels like nothing.
+
+## The Ten of Swords
+
+A corpse is only beautiful from a strange perspective.
+It deflates, in the moment. Relaxing in his arms.
+Tears are not enough. They are never really enough.
+Grief touched eternity. He thinks of loving him forever,
+But of course,
+His dearest friend is already gone.
+What would he care about his body now?
+Well, his dearest friend sure does.
+We return to soil with rituals
+(And his all mean love)
+But it's the soil that's alive.
+All we do is return.
+
+## The Ten of Wands
+
+My deeds are so heavy.
