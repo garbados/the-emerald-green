@@ -727,4 +727,22 @@ All we do is return.
 
 ## The Ten of Wands
 
-My deeds are so heavy.
+My deeds are so heavy. I have accrued so many,
+Over such a fatiguing trip.
+Born beyond and without, innocent in the green,
+I tripped and travelled and travailed;
+I tricked and trapped and triumphed.
+Now they're just this burden
+But for where I'm going, I suppose.
+There I'll make use of all I've prepared --
+Right?
+What if I took a rest,
+If I laid down a staff or two,
+Forgot where I'd placed them,
+And went on lighter?
+Surely not, surely not --
+Surely...
+
+## The Ten of Cups
+
+How bright it is, here at last!
