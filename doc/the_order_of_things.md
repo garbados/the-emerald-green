@@ -808,3 +808,138 @@ So I thought I'd strike first,
 Tear by tooth if I must, the fabric of fate.
 It's a tough weave,
 But the green gave me sharp canines.
+
+## The Page of Swords
+
+Eternity awaits. Life just happens along the way.
+Step lively into the cracks of the before
+And the after, too, for it is all cracked.
+The Creator is Creation, and it is just like us:
+Flawed, temperamental -- of personality.
+So like a neighbor, I hope we'll be friends,
+But the real is always more alien than you expect.
+It can surprise you,
+No matter your wisdom.
+It can sate you,
+No matter your curiosity.
+
+## The Page of Wands
+
+How can you get anywhere quickly in forever?
+You can get anywhere if you take forever,
+And now I've got nothing but forever.
+There's nothing in my life that I had never,
+That isn't lying on an infinity beyond never.
+I could read it to the end, but it ends in never,
+The only thing you can't find in forever.
+
+## The Page of Cups
+
+Belief lives in the heart,
+A home that lives in you, powers you,
+And dies with you --
+Or does it?
+Does it come to you
+Because you are alive? No --
+Maybe I know that now.
+Maybe it comes from somewhere that isn't alive.
+What could it think, that thinks like us
+Without a heart like ours?
+A heart like I had.
+
+## The Page of Pentacles
+
+Sometimes I get a glimpse
+Of something like being alive again.
+I recall a feeling like a gust of wind,
+A place or person or predicament of some past,
+Maybe mine, or maybe someone I was;
+Like remembering a story I'd overheard
+From the inside.
+I bet I could find a way there, if I tried.
+Stories aren't so different from prophecies,
+Not if we really try.
+I think I want to try;
+I'm ready to see what happens.
+
+## The Star
+
+Did the heavens create us to find them?
+Not to die, to meet them afterwards,
+But to seek them in their ineffable forms?
+We live in contradiction and duality,
+Their bond as unbreakable as the sky,
+As assured as dawn or dusk.
+It shouldn't work at all, should it?
+Yet it is the only thing
+We have ever seen work.
+If even it seems unthinkable now,
+Then what else can our minds grasp
+When they live in the unthinkable?
+
+## The Knight of Swords
+
+The covenant of prey and predator
+Was not inevitable or self-evident.
+In an entropic universe, radiating decay,
+There is plenty of rot with which to grow life,
+And it does not always find cause to self-consume,
+Though it usually does.
+It tends to eventually discover
+It is much easier to take what is whole
+Than to grow from a seed,
+But the cycle always begins with one.
+
+## The Knight of Wands
+
+Ho there! I am the promise of the City,
+At long last come to aid you.
+You have been to my place above the ground,
+Now welcome to it below.
+The villains of wild and weather assail you!
+They are no match for my clever tools
+And my drive to employ them.
+Take my hand, come away with me.
+I'll teach you to read, this time,
+And you can use it against our enemies.
+
+## The Knight of Cups
+
+When all else falls away, there we are,
+Naked, alone with the fact of us.
+I don't want to return to biting and sweating,
+Tearing from flesh with my overgrown bones
+And calling it delicious.
+Is that who I was? Is that who I wanted to be?
+How can who I want to be, be outside of me,
+When it came from me?
+Is it my child?
+Then let me show it adoration over disappointment,
+Kindness and understanding, more than judgment,
+And the grace to be not quite enough.
+
+## The Knight of Pentacles
+
+I garb myself in what I have,
+And here it's fractions of ignorance.
+When the thing you become spans forever,
+It's a luxury to know less than everything.
+It's all the rage, all the fashion, among the deathless,
+Because it reminds them of having been, even just the once,
+And lets those who never were, play pretend.
+It's practical garb, at least.
+How better to hide something
+Than to forget it?
+
+## The Moon
+
+I'm sorry, but there is no return from neverwhere.
+You can yap all you want, but it only vibrates the air.
+Hear though I may, you can't make me care.
+By my design, I made things this way.
+You live in shadows because that's what I say,
+And you laugh at them for my amusement.
+It's complicated, so let me give you a hint,
+Because you fought so hard to understand it.
+Now you're too deep to back out,
+And what you've done has chosen your route.
