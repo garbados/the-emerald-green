@@ -745,4 +745,66 @@ Surely...
 
 ## The Ten of Cups
 
-How bright it is, here at last!
+Look, a rainbow. Let's make a wish.
+I wish he was still alive.
+I wish he could see the daylight.
+I wish you, my child, all the happiness in the world,
+And my Empress all the love I failed to realize,
+However much or little I tried while I could.
+Parents and children do not share fates,
+However much or little we try while we can,
+So I wish something different for you,
+And I know it will be granted,
+However much or little of it I will see.
+
+## The Ten of Pentacles
+
+Royal descendants tend to live well,
+While someone recognizes their royalty.
+Someone important, of course, of an important City,
+While that City remains important,
+And for generations, several at least, it does.
+The hubris of privilege can be a slow poison,
+But it doubtless is toxic.
+Not even the land would survive it, in the end.
+I didn't live to see it, of course,
+But after my eyes closed for the last time,
+I saw it all, to the end,
+And the wealth was nothing there.
+
+## The Devil
+
+Brother, it is good to see you again.
+I missed you in the green, where you left me.
+You were always so hairless for a boar,
+But we called you family and you earned it.
+You wouldn't take of the clan, though,
+And that priestess -- she took you.
+Remember? Remember leaving us behind?
+We died to hunters. They ate in the temple-hall
+Where you chiseled murals.
+-- Hahaha! What faces I can wear.
+Do you like it? When I'm like who you've loved?
+Maybe I can try another -- you protest!
+Oh no, no, my dear and darling once-alive,
+You don't get to say no this time.
+Corpses say nothing, and yours rotted away.
+
+## The Tower
+
+Even gods can be defied,
+And death has a palette
+For more than just the living.
+It's a great trial indeed:
+Great laid stones fall away as you step;
+Walls thought unbreakable, shatter and crumble;
+Even the sky expresses its disfavor,
+For it is the heavens you seek to assault.
+When they come for you,
+Unless you rise to the task,
+You'll perish in the rubble,
+Screaming much too long.
+So I thought I'd strike first,
+Tear by tooth if I must, the fabric of fate.
+It's a tough weave,
+But the green gave me sharp canines.

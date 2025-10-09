@@ -15,8 +15,8 @@ Each in-game day, or after a *long rest*, you begin by shuffling your character'
 Tarot mysticism relies heavily on a shared system of symbols and implications, but the meanings of cards rely on personal interpretation, and their magic is strongest when you observe how you personally react to their iconography -- to read in the universe what it reads in you through random chance. In TEG, I have tried to stick to so-to-say typical interpretations of each card, but I have made some choices you may find more adventurous than others:
 
 - Although Swords are generally thought of as to do with the mind, I read them as pertaining to struggle, which the body governs. Instead, *wands* are associated with reason, recall, and intellectual creativity.
-- Each card has an attendant free-verse poem, sorted into *The Order of Things*, a brief epic modelled on *The Fool's Journey* and the *Epic of Gilgamesh*. This sorting situates major arcana between ranks of suited cards, always in the order *swords-wands-cups-pentacles*. Because there are more more major arcana than suited ranks, some majors are directly adjacent to one another. Which major arcana are proximate, or separated, is a narrative choice.
-- The orientation of a card -- whether it is upright or inverted -- is normally very important to a tarot reading, but orientation is not directly considered in the game's rules. Instead, cards are meant to be read in *superposition*, as they are both upright and inverted in every combination with their peers. (***Setting Note***: This represents the nature of eternity the fae experience.*)
+- Each card has an attendant free-verse poem, sorted into *The Order of Things*, a brief epic modelled on *The Fool's Journey* and the *Epic of Gilgamesh*. This sorting situates major arcana between ranks of suited cards, always in the order *swords-wands-cups-pentacles*. Because there are more major arcana than suited ranks, some majors are directly adjacent to one another. Which major arcana are proximate, or separated, is a narrative choice.
+- The orientation of a card -- whether it is upright or inverted -- is normally very important to a tarot reading, but orientation is not directly considered in the game's rules. Instead, cards are meant to be read in *superposition*, as they are both upright and inverted in every combination with their peers. (***Setting Note***: *This represents the nature of eternity the fae experience.*)
 
 ## The Basics
 
@@ -189,7 +189,7 @@ Remember these things as you write your character's name and biography.
 > **Metagaming tip**
 >
 > While the intent of the trait system is to support a "balanced" (interesting) character falling out of any possible five card spread (and to complicate metagaming by being incomprehensibly vast and interwoven), there are some patterns you may want to consider:
-> - So-called *class archetypes*, like "fighter" or "wizard" or "rogue" and their permutations, all begin with a particular pair of card pairs, either of which may be satisfied. These pairs are always a particular *major arcana* and a particular "skill card" (which we'll get to shortly).
+> - So-called *class archetypes*, like "fighter" or "wizard" or "rogue" and their permutations, correspond to each major arcana.
 > - Court cards and aces grant skill proficiencies. This group -- pages, knights, queens, kings, and aces -- are known as "skill cards".
 > - Suited ranks between 2 and 10 interact with class archetypes by triggering particular sub-traits. For example, the five of wands may grant a spell to a mage.
 > - Suited cards grant attribute increases, but the pattern of which is particular: court cards increase the attribute associated with that suit, while evens and odds increase some other attribute -- except for Luck, which is only and always increased by pacting pentacles. Rather than provide a sub-list of these interactions, read the card guide and figure the pattern yourself.
