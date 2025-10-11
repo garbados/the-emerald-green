@@ -153,7 +153,7 @@
          "The Chariot"
          "Strength"
          "The Hermit"
-         "Wheel of Fortune"
+         "The Wheel of Fortune"
          "Justice"
          "The Hanged Man"
          "Death"
