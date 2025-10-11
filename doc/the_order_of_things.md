@@ -472,7 +472,7 @@ While the candles burn and the pillows have feathers.
 I want to taste the wine on your lips
 Like no animal can.
 
-## The Wheel of Fortune
+## Wheel of Fortune
 
 You hesitated. Why? Oh.
 Oh no.
