@@ -77,7 +77,7 @@
      :skepticism
      :gambling
      :craft]]
-   :wheel-of-fortune
+   :the-wheel-of-fortune
    [:the-merchant
     [:appraisal
      :diplomacy

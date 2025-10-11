@@ -44,7 +44,7 @@
    :the-seven-of-cups
    :the-seven-of-pentacles
    :the-hermit
-   :wheel-of-fortune
+   :the-wheel-of-fortune
    :the-eight-of-swords
    :the-eight-of-wands
    :the-eight-of-cups
