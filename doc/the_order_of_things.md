@@ -943,3 +943,98 @@ It's complicated, so let me give you a hint,
 Because you fought so hard to understand it.
 Now you're too deep to back out,
 And what you've done has chosen your route.
+
+## The Queen of Swords
+
+Maybe there isn't really life after death;
+That's alright. I'm still here, now,
+Somehow --
+I remain this mote, this little nothing,
+That doesn't quite feel nothing.
+I've left so many marks on existence,
+Spun so many things into being,
+Things that whirl far beyond my passing.
+I miss being the seed of them all,
+Coherent and messy, whole and broken, all at once --
+But I can't let it hold me back,
+This specter of what isn't anymore.
+There's something else out there,
+Something very much like nothing,
+Something my little nothing seeks.
+
+## The Queen of Wands
+
+Those pesky mortals and their remnants here
+Flit like flies and buzz like bugs.
+They waltz right in, reeking of life,
+Dripping all over eternity's regal carpets,
+Viscera and memory and grief and want.
+It makes me nauseous,
+When it doesn't make me jealous.
+Our radiance caused the fabric upon which they fester,
+Where they fight and fuck and forget,
+And never wholly appreciate what they so briefly have --
+What we cannot.
+We know everything, and can never forget.
+We exist forever, but are never alive.
+We feel nothing, and have witnessed everything.
+It's a pale shadow of their vivacious being,
+To wrap their remains around my countless digits,
+But in a drought without an end --
+The drought at the end of time --
+Then any water will slake a ceaseless thirst.
+
+## The Queen of Cups
+
+It's enough to have everything, isn't it?
+It's not just anything, unfortunately --
+It's always more than you want,
+And never what you had in mind.
+It's never something specific,
+And when you have something specifically,
+It becomes a part of you, and the absence too
+Of everything it isn't.
+That's beautiful, I think -- don't you agree?
+It should be protected, and savored,
+Even when those chosen to have it
+Resent the burden they never requested.
+Even their resentment is something,
+And all the somethings in everything
+Are the same kind of sacred.
+
+## The Queen of Pentacles
+
+I cannot let you go, little morsel.
+You must leave your essence with me
+If you wish to press on.
+I hunger for it. See, my drool drips.
+It isn't so much to ask, is it?
+Or so much to give, at this late hour?
+I can help you fit beyond the gate,
+To squeeze key-like through the lock,
+Because without this last piece of you,
+You will soon be everything.
+Don't worry about what you'll miss,
+Or what will become impossible to you.
+Your new form will span all possibility,
+To touch all things, all at once, forever,
+Beyond the likes of pain and fear --
+And only what you give me
+Will mind my chewing.
+
+## The Sun
+
+Dawn begins each day,
+But dawn never ends, either.
+It just races around the planet,
+Over and over and over again.
+Its sweeping gaze heralds life and death
+And the decay that fuels them both.
+I am born again in its light, as its light,
+Sweeping and sweeping, formless and warm,
+Weightless and incomparable, a miracle
+From which all to observe miracles do rise.
+What does light think, I wonder?
+I wonder, and realize how heavy I remain.
+What astounding forms our bodies take,
+Even here, far beyond flesh.
