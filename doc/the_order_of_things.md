@@ -1038,3 +1038,23 @@ What does light think, I wonder?
 I wonder, and realize how heavy I remain.
 What astounding forms our bodies take,
 Even here, far beyond flesh.
+
+## The King of Swords
+
+You recognize me --
+Or you think you do.
+Isn't it marvelous, to think at all?
+I resemble him, don't I?
+Younger, fuller-faced, the youth
+Before the weather wore him down
+And you fell for every wrinkle.
+All authority resembles itself,
+From the fabric of reality
+To the grip of a lover
+And the bite of a foe.
+The mind cuts like steel,
+Slicing through time's waters
+A trout with the current,
+Never a salmon against.
+The closest you can come, little one,
+Is to be the cold blue itself.
