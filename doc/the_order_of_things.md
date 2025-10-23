@@ -1056,7 +1056,7 @@ The mind cuts like steel,
 Slicing through time's waters
 A trout with the current,
 Never a salmon against.
-The closest you can come, little one,
+The closest you can come, little mote,
 Is to be the cold blue itself.
 
 ## The King of Wands
@@ -1168,3 +1168,56 @@ But they all return to soil
 Where knowledge goes to rest.
 
 ## The Ace of Cups
+
+The font overflows, bountiful;
+The stuff of life, of which all life sups
+Pours from the nothing at the dawn,
+Transmuting into the everything at the end.
+What remains of you now but intuition?
+The littlest voice of the barest mote,
+The droplet flowing, the single grain of sand --
+Can you hear the chorus of our greater body?
+The sonnet of the salty depths?
+The stirring as it laps at the endless coast?
+One bodiless voice -- the one long word of everything.
+Something from nothing came the whole of Creation,
+And now, to nothing, you return.
+
+## The Ace of Pentacles
+
+Creation is a cornucopia, replete with plenty.
+There is nothing not in abundance, in life or after.
+Space and time as far as forever, full of everything
+With emptiness just for padding.
+You approach the final gate, little mote.
+You twinkle like a speck, like dust in the wind.
+Let it blow you on and on, smaller and smaller,
+Shearing the edges of what remains.
+You can't look back anymore, not without eyes,
+But why would you want to
+When you've nothing with which to want?
+Float on, little mote.
+Sublimate, at last.
+
+## The World
+
+In nothing, silence.
+In dawn, the light.
+In day, the warmth.
+In existence, the anguish.
+I return not to life but to being,
+To the fabric, as the fabric,
+As the hairs on my lover's chin,
+As the rain that graces his cheeks,
+As the ground upon which steps
+Every foot to ever walk.
+From beginning to end, there I am;
+The beginning and the end, I now am.
+I remember me and you and everyone
+Like the rock recalls the sunburst
+That eons ago accreted into its form,
+Not as memory but as a nature.
+The fact of our history is my shape,
+The contours of forever, my new body.
+I return not to life, dear love,
+But I do return to you.
