@@ -1136,3 +1136,35 @@ Wherever there is one thing,
 Now there are two.
 I divide you, piece into pieces.
 Things into parts; symbols into referents.
+The unity of the universe crumbles
+Before the poetry of its own patterns.
+The rock never perceives its wholeness,
+Nor pebbles, how they form when it shatters,
+But the living do witness.
+They witness with eyes that distinguish,
+They witness with swords that disfigure,
+They witness with hammers that destroy,
+Until death disarms them.
+So disarmed, so reduced, you arrive,
+Little mote: what can you distinguish now?
+
+## The Ace of Wands
+
+The seed sprouts after the fire,
+Sending tentative limbs into the ash,
+Hungry and curious.
+It grows in the daylight,
+And flourishes in the rain.
+It rises and rises, soft green giving way
+To tough brown bark, rough and durable.
+The traveler plucks a branch, strips it,
+And calls it a staff -- a wand.
+The seedling's stuff grown sturdy,
+Steadying the journey, easing the path.
+The tree travels in this way, sightless
+And still, nevertheless, worldly.
+The tree will never know the branch again,
+But they all return to soil
+Where knowledge goes to rest.
+
+## The Ace of Cups
