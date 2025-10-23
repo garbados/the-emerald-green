@@ -1058,3 +1058,81 @@ A trout with the current,
 Never a salmon against.
 The closest you can come, little one,
 Is to be the cold blue itself.
+
+## The King of Wands
+
+You miss the body, don't you?
+The flesh that summoned you,
+The womb-grown form, spilled in the green,
+Teeth-torn umbilical and hushed infant cries.
+Remember? Of course you don't.
+The hand you flex belongs to a ghost;
+The hand you had decays in the dirt.
+The animal commanded the spirit,
+However much your waking life disagreed.
+You were its tool -- just another organ,
+However alien the you-of-you proves.
+That is why you stand before me now, little mote.
+It needed you to live and live again,
+But you don't need the body, not really.
+You exist here, formless and eternal;
+You always did, and you always will.
+But you miss the body, don't you?
+You always will.
+
+## The King of Cups
+
+The cup that overflowed, is empty
+And all the ground goes flooded.
+We pour endless of ourselves
+Yet prove no deeper than droplets
+Swallowed by the ravenous sea.
+Witness this wet eternity
+Replete with souls and remnants
+Flowing like liquid colors,
+Vibrant streams and oil slicks
+Superficially differentiated
+In an undivided ocean.
+How different were you, ever?
+How different could you be
+When you arose from the same waters
+As all that would ever be?
+
+## The King of Pentacles
+
+Isn't the Emerald Green rich, little mote?
+You've wandered its reaches long and deep,
+And come near now to its strangest edge --
+The closest thing it has to an end.
+Verdancy swallows us, however fleshless:
+Life upon life, through life, despite life;
+Death beyond death, before death, without death.
+These spaceless places teem relentless!
+What a fleeting privilege, to want anything at all.
+All your possessions devour you, in the end
+And even your bones leave you behind.
+Then you will have nothing.
+Then you will be like us.
+Then you will be everything.
+
+## Judgement
+
+Rise! And face me,
+The last face you'll ever see.
+Hear! And listen well,
+The only sound to follow death's knell.
+Place your remains upon my scale
+And suffer the wages of a winter gale:
+Cold and frigid, clean and pure.
+I judge you sufficient, enough to endure,
+Or not enough to weather the storm
+That reduces to nothing your remnant form.
+Rise! And face me,
+The last burden before you're free.
+
+## The Ace of Swords
+
+Wherever there is one thing,
+Now there are two.
+I divide you, piece into pieces.
+Things into parts; symbols into referents.
