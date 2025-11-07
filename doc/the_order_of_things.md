@@ -3,29 +3,63 @@
 ## The Fool
 
 I begin each day,
-But neither is sunset an end.
-My arrivals compound everywhere I go,
+But neither is dusk an end.
+My arrivals compound wherever I go,
 And I go where I damn please.
-No door can stay the intrepid;
-No lock, the curious.
-The wild green lives in me,
-And it blossoms with every dream.
+My footfalls alert the beasts,
+When I choose to make a noise.
+I have grown of their milk,
+And grown strong upon it,
+As strong as the wild green
+That surrounds me, that made me,
+That wells up within me.
+The nomads call me the wildman,
+Dirty and different and dire.
+The name's just a noise they utter in fear.
+I am their shadow in the deep,
+The unkempt stranger, rippling with power
+They tremble to comprehend.
 
 ## The Two of Swords
 
 Intuition pulls like the moon sometimes, doesn't it?
-It tugs on your guts like a new kind of north.
-You have to stay steady not just to stay the course,
-But to listen to the earth under you, inside of you,
-To hear what moves ahead.
-Strange barriers may cleave you
-From the things you find you want.
+In my dreams, a woman awaits at a gate between worlds,
+Between the heaving ocean and the firm dry loam.
+The beasts tell me we used to be fish, a long time ago
+Before we came to land and made our home above.
+The guardian of the gate challenges my return,
+But why would I want to be a fish again?
+I have hands for clutching and lungs for singing,
+While the fish the river offers just blink and gape.
+But, in the dream, I want to return. Why? To what?
+She does not appraise me with eyes.
+She does not threaten me with teeth.
+She says only, do you want what I can give you?
+And in the dream, my lips move without me,
+Uttering a word in a tongue of no beast:
+Yes.
+When I awaken in the night, I question the moon.
+Who have you sent to vex me?
+When will I meet her?
 
 ## The Two of Wands
 
-You already have so much, you think to yourself sometimes.
-Why want more?
-My goodness -- why not?
+I already have so much, I think to myself.
+Fruits grow aplenty in the right season,
+And I sleep through the lean winters,
+Full on the cornucopias of fecund summers.
+I'm not as hairy as my brother the boar,
+But the nomads I do cross seem nigh naked,
+Protected from wind and rain only by cloth and leather,
+Those strange results of careful weaving and indifferent skinning.
+Why do humans do so many queer things?
+I wonder, what would it be like, to be like them?
+To wear clothes, or eat bread and cheese
+Rather than berries and flesh?
+The wind carries their scent across the meadows,
+Long before I see them (and they rarely see me)
+And they smell like bright oil and sweet flowers.
+What would it be like, to reek of pleasant things?
 There's so much out there to see and feel and touch and be!
 I could be anyone, eventually. Anything.
 Why not go a-looking, then?
