@@ -3,29 +3,63 @@
 ## The Fool
 
 I begin each day,
-But neither is sunset an end.
-My arrivals compound everywhere I go,
+But neither is dusk an end.
+My arrivals compound wherever I go,
 And I go where I damn please.
-No door can stay the intrepid;
-No lock, the curious.
-The wild green lives in me,
-And it blossoms with every dream.
+My footfalls alert the beasts,
+When I choose to make a noise.
+I have grown of their milk,
+And grown strong upon it,
+As strong as the wild green
+That surrounds me, that made me,
+That wells up within me.
+The nomads call me the wildman,
+Dirty and different and dire.
+The name's just a noise they utter in fear.
+I am their shadow in the deep,
+The unkempt stranger, rippling with power
+They tremble to comprehend.
 
 ## The Two of Swords
 
 Intuition pulls like the moon sometimes, doesn't it?
-It tugs on your guts like a new kind of north.
-You have to stay steady not just to stay the course,
-But to listen to the earth under you, inside of you,
-To hear what moves ahead.
-Strange barriers may cleave you
-From the things you find you want.
+In my dreams, a woman awaits at a gate between worlds,
+Between the heaving ocean and the firm dry loam.
+The beasts tell me we used to be fish, a long time ago
+Before we came to land and made our home above.
+The guardian of the gate challenges my return,
+But why would I want to be a fish again?
+I have hands for clutching and lungs for singing,
+While the fish the river offers just blink and gape.
+But, in the dream, I want to return. Why? To what?
+She does not appraise me with eyes.
+She does not threaten me with teeth.
+She says only, do you want what I can give you?
+And in the dream, my lips move without me,
+Uttering a word in a tongue of no beast:
+Yes.
+When I awaken in the night, I question the moon.
+Who have you sent to vex me?
+When will I meet her?
 
 ## The Two of Wands
 
-You already have so much, you think to yourself sometimes.
-Why want more?
-My goodness -- why not?
+I already have so much, I think to myself.
+Fruits grow aplenty in the right season,
+And I sleep through the lean winters,
+Full on the cornucopias of fecund summers.
+I'm not as hairy as my brother the boar,
+But the nomads I do cross seem nigh naked,
+Protected from wind and rain only by cloth and leather,
+Those strange results of careful weaving and indifferent skinning.
+Why do humans do so many queer things?
+I wonder, what would it be like, to be like them?
+To wear clothes, or eat bread and cheese
+Rather than berries and flesh?
+The wind carries their scent across the meadows,
+Long before I see them (and they rarely see me)
+And they smell like bright oil and sweet flowers.
+What would it be like, to reek of pleasant things?
 There's so much out there to see and feel and touch and be!
 I could be anyone, eventually. Anything.
 Why not go a-looking, then?
@@ -33,36 +67,77 @@ Let's see what fate has for me!
 
 ## The Two of Cups
 
-Who now do I find?
-What an offer -- what a trade.
-I look at the thundering clouds,
-The forest bending before the gale,
-And think the same words they say to me:
-"We can only get through this together."
-So we do. We make it through.
-What an offer. What a trade.
+The hunter approaches me over the leopard's corpse.
+I had twisted its neck to stop its yowling
+While it bled from the hunter's shoddy trap,
+Crude and heavy iron digging into furred flesh.
+I look upon my neighbors, the corpse and the other,
+And wonder who more belongs in the cycle of decay.
+He sees my wary glare, and does a neighborly thing:
+He offers me his flask,
+Then sets about to dressing his kill with a short knife.
+The waterskin contains no water but a strong wine
+Whose alcohol smells like poison.
+Still, is it not unneighborly to reject a gift?
+I swallow from the flask, and the wine's layers challenge me,
+Sweet and sickly and sour and strange.
+I spit what I don't swallow, and the stranger laughs.
+He doesn't laugh when I offer my own strong wine,
+Pissing into the vessel.
+Take my own strong wine, interloper.
+May it make you strong like what you cowardly kill.
+He takes my gift, but does not imbibe it.
+With a look of revulsion, he pours it out,
+And I honor the dead by laughing in his face.
 
 ## The Two of Pentacles
 
-My two cents? Balance in all things.
-Accounts balance, loves balance,
-And everything that falls apart
-Is just finding a new balance.
-It's deft to dance in the midst,
-Because the balance you try to hold
-Differs from decay's indifference.
+Nomads trade in coin sometimes, shiny and round,
+The sort that clever birds prize.
+Are the nomads and hunter and shepherds bird-like?
+They flit and gather and disperse from the green,
+Spending but a moon or two in my realm
+Before packing up and leaving only careless trash.
+In the dirt of their camp's remains, I find a purse lost.
+Maybe my friends the birds will appreciate their shine,
+But first I choose to play with them myself,
+Mimicking the wanderers, alone in the wood.
+May I have that cloth, my peer? It must be worm-silk.
+Aye, my peer, for umpteen pence it may be yours.
+What a steal! But, of course, I steal no thing;
+Have my coin, and give me the good thing.
+Aye, my peer, for coin, we can be equals.
+But, coin in hand, what do I do with them?
+Here in the wild green's thick embrace,
+These metals with faces etched have no meaning.
+Their crude smirks mock me.
+They wonder: where might I matter?
+They challenge me: where do you matter?
 
 ## The Magician
 
-Look at all the little things
-Scurrying, loving, breeding, dying.
-I remember those things, distantly.
-I don't miss the mud and blood and shit
-And I wonder why they treasure them.
-Let me show you something greater, mortal.
-Open those extra eyes
-That nobody told you about
-And see all that choice can offer.
+Look upon the wild thing, grunting like a boar.
+What parent has lost their child in the savage green,
+Who has so strong become of the milk of beasts?
+I wish of him to see the light of my City,
+The City of my covenant, of my loving promise!
+He will not understand, at first.
+It will of crude artifice seem,
+Beside the elegance of predator and prey,
+But he is so beautiful, no?
+His raw might, of such honed grace.
+I wish of him to walk the City's brick streets,
+To dwell in its houses under lacquered shingles,
+To regard what my faithful have there painted:
+Sweeping grand murals of myths -- of me.
+Go forth, my priestess, and grant my invitation.
+Teach him of the civilized, to put in him such a way.
+Call me sentimental, and I admit you won't be wrong.
+I remember so distantly when I was beastly like him.
+Beside the City that honors my pact in cultured kinship --
+Whose way is my love, whose peace is my triumph --
+I do not miss the reeking wood.
+I wonder if he will.
 
 ## The High Priestess
 
@@ -77,20 +152,54 @@ When I ask, how to enlighten my peers
 The line goes quiet.
 It's always up to us mortals
 To fill in the details.
+I speak to the temple coven and we surmise a who,
+This wildman of the forests of oak and spruce.
+My heavens are not just true but a truth
+Which I practice in good faith.
+When I am called to share it,
+It is an honor to teach.
 
 ## The Three of Swords
 
+The three essential pleasures, she instructed:
+Good hygiene, to ward disease and please the senses;
+Good food, to sate the body and please the senses;
+And good sex, to delight the spirit and please the senses.
+I did not resist your careful touch, and I followed your example
+There in the shallow pools of a river's eddies.
+You bathed me, and I bathed me, oiled and cut and clean.
+You fed me, of sweet umami jams spread over spongy bread,
+Rippling with honey to delight a bear,
+Laced with salt to delight the deer,
+But there on the shore, it was to delight me.
+When you had taught me to please you,
+I took such pleasure in it,
+And it was nothing but a pleasure.
+You shared, in the breathless after
+That there are three more essential pleasures:
+Good music, good art, and good jokes,
+But humans struggle to realize those.
+The others are a puzzle of logistics and culture,
+Though a solution always lies within cleverness.
+(You insisted in good faith, though I protested:
+How can you know?
+What if the disturbance exceeds your skillful puzzling
+And swallows you in a tide of changes you can't prevent?
+You insisted in good faith:
+Come what may.
+A solution always lies within cleverness!)
+So when you said you would return without me,
+To likely never see me again,
+Hidden as you were in the sacred cloisters --
 I didn't know a heart could break like that.
-You found me in the wild green,
-And I found you naked, body and soul.
-You invited me in, and we opened flowers
-Like you opened my mind.
 By the end of seven days, I was someone different.
 The unkempt grasses of my homeland
 Now pricked the feet you had washed so soft.
 So you said, go to the people.
-Love is a promise that lives in you.
-Through all of us, we give it form.
+Love is a promise that lives in you,
+Not me or my touch or my memory.
+Through each of us, in a new way every time,
+We together give it form.
 
 ## The Three of Wands
 
