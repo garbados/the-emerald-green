@@ -152,20 +152,54 @@ When I ask, how to enlighten my peers
 The line goes quiet.
 It's always up to us mortals
 To fill in the details.
+I speak to the temple coven and we surmise a who,
+This wildman of the forests of oak and spruce.
+My heavens are not just true but a truth
+Which I practice in good faith.
+When I am called to share it,
+It is an honor to teach.
 
 ## The Three of Swords
 
+The three essential pleasures, she instructed:
+Good hygiene, to ward disease and please the senses;
+Good food, to sate the body and please the senses;
+And good sex, to delight the spirit and please the senses.
+I did not resist your careful touch, and I followed your example
+There in the shallow pools of a river's eddies.
+You bathed me, and I bathed me, oiled and cut and clean.
+You fed me, of sweet umami jams spread over spongy bread,
+Rippling with honey to delight a bear,
+Laced with salt to delight the deer,
+But there on the shore, it was to delight me.
+When you had taught me to please you,
+I took such pleasure in it,
+And it was nothing but a pleasure.
+You shared, in the breathless after
+That there are three more essential pleasures:
+Good music, good art, and good jokes,
+But humans struggle to realize those.
+The others are a puzzle of logistics and culture,
+Though a solution always lies within cleverness.
+(You insisted in good faith, though I protested:
+How can you know?
+What if the disturbance exceeds your skillful puzzling
+And swallows you in a tide of changes you can't prevent?
+You insisted in good faith:
+Come what may.
+A solution always lies within cleverness!)
+So when you said you would return without me,
+To likely never see me again,
+Hidden as you were in the sacred cloisters --
 I didn't know a heart could break like that.
-You found me in the wild green,
-And I found you naked, body and soul.
-You invited me in, and we opened flowers
-Like you opened my mind.
 By the end of seven days, I was someone different.
 The unkempt grasses of my homeland
 Now pricked the feet you had washed so soft.
 So you said, go to the people.
-Love is a promise that lives in you.
-Through all of us, we give it form.
+Love is a promise that lives in you,
+Not me or my touch or my memory.
+Through each of us, in a new way every time,
+We together give it form.
 
 ## The Three of Wands
 
