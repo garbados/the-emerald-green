@@ -67,36 +67,77 @@ Let's see what fate has for me!
 
 ## The Two of Cups
 
-Who now do I find?
-What an offer -- what a trade.
-I look at the thundering clouds,
-The forest bending before the gale,
-And think the same words they say to me:
-"We can only get through this together."
-So we do. We make it through.
-What an offer. What a trade.
+The hunter approaches me over the leopard's corpse.
+I had twisted its neck to stop its yowling
+While it bled from the hunter's shoddy trap,
+Crude and heavy iron digging into furred flesh.
+I look upon my neighbors, the corpse and the other,
+And wonder who more belongs in the cycle of decay.
+He sees my wary glare, and does a neighborly thing:
+He offers me his flask,
+Then sets about to dressing his kill with a short knife.
+The waterskin contains no water but a strong wine
+Whose alcohol smells like poison.
+Still, is it not unneighborly to reject a gift?
+I swallow from the flask, and the wine's layers challenge me,
+Sweet and sickly and sour and strange.
+I spit what I don't swallow, and the stranger laughs.
+He doesn't laugh when I offer my own strong wine,
+Pissing into the vessel.
+Take my own strong wine, interloper.
+May it make you strong like what you cowardly kill.
+He takes my gift, but does not imbibe it.
+With a look of revulsion, he pours it out,
+And I honor the dead by laughing in his face.
 
 ## The Two of Pentacles
 
-My two cents? Balance in all things.
-Accounts balance, loves balance,
-And everything that falls apart
-Is just finding a new balance.
-It's deft to dance in the midst,
-Because the balance you try to hold
-Differs from decay's indifference.
+Nomads trade in coin sometimes, shiny and round,
+The sort that clever birds prize.
+Are the nomads and hunter and shepherds bird-like?
+They flit and gather and disperse from the green,
+Spending but a moon or two in my realm
+Before packing up and leaving only careless trash.
+In the dirt of their camp's remains, I find a purse lost.
+Maybe my friends the birds will appreciate their shine,
+But first I choose to play with them myself,
+Mimicking the wanderers, alone in the wood.
+May I have that cloth, my peer? It must be worm-silk.
+Aye, my peer, for umpteen pence it may be yours.
+What a steal! But, of course, I steal no thing;
+Have my coin, and give me the good thing.
+Aye, my peer, for coin, we can be equals.
+But, coin in hand, what do I do with them?
+Here in the wild green's thick embrace,
+These metals with faces etched have no meaning.
+Their crude smirks mock me.
+They wonder: where might I matter?
+They challenge me: where do you matter?
 
 ## The Magician
 
-Look at all the little things
-Scurrying, loving, breeding, dying.
-I remember those things, distantly.
-I don't miss the mud and blood and shit
-And I wonder why they treasure them.
-Let me show you something greater, mortal.
-Open those extra eyes
-That nobody told you about
-And see all that choice can offer.
+Look upon the wild thing, grunting like a boar.
+What parent has lost their child in the savage green,
+Who has so strong become of the milk of beasts?
+I wish of him to see the light of my City,
+The City of my covenant, of my loving promise!
+He will not understand, at first.
+It will of crude artifice seem,
+Beside the elegance of predator and prey,
+But he is so beautiful, no?
+His raw might, of such honed grace.
+I wish of him to walk the City's brick streets,
+To dwell in its houses under lacquered shingles,
+To regard what my faithful have there painted:
+Sweeping grand murals of myths -- of me.
+Go forth, my priestess, and grant my invitation.
+Teach him of the civilized, to put in him such a way.
+Call me sentimental, and I admit you won't be wrong.
+I remember so distantly when I was beastly like him.
+Beside the City that honors my pact in cultured kinship --
+Whose way is my love, whose peace is my triumph --
+I do not miss the reeking wood.
+I wonder if he will.
 
 ## The High Priestess
 
