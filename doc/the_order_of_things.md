@@ -11,8 +11,8 @@ When I choose to make a noise.
 I have grown of their milk,
 And grown strong upon it,
 As strong as the wild green
-That surrounds me, that made me,
-That wells up within me.
+Which surrounds me, which made me,
+Which wells up within me.
 The nomads call me the wildman,
 Dirty and different and dire.
 The name's just a noise they utter in fear.
@@ -203,43 +203,91 @@ We together give it form.
 
 ## The Three of Wands
 
-Look far, little one.
-The cliffside dwarfs your tall stature,
-But the borrowed height grants such sight
-Over such far reaches, and all it teaches
-Gives you pause with the weight of the cause.
-A journey of a thousand steps starts with one
-So set off while you can, in the daylight at dawn
-And maybe you'll arive while you're still alive.
+She left me a book full of things called maps.
+She taught me to read their legends,
+To discern north and roadways,
+To find water for drinking and water for bathing.
+She celebrated the hot doomed solstice
+With a gift of good walking shoes,
+And a walking stick with spares.
+I could keep my feet soft in good wraps,
+And tread the far side of the wild green,
+The one you can see from the City.
+It's days and days to go, and the beasts stare at me all the way.
+"Why do you look so odd?" asks the boar, trundling snout-deep in truffles;
+"What feathers have you grown?" twitters the coinbird colony in the olive branches;
+"You reek for miles of outsiderly things," howls the gibbon, making a tree a part of a map
+With the pungent traces of their cultured filth.
+It makes sense, on the inside.
+Now I can hardly understand my siblings when they call.
+You are you, in the wild; a thing that fits or dies.
+When you choose another way, to live despite the fit,
+(To dictate a new fit!)
+You have to make room for you.
+The wild green won't.
+You fit, or you die.
+In the City, I'm told,
+One may select a new fit each day.
+They call it a wardrobe.
 
 ## The Three of Cups
 
-They call it guestright, and it starts at the gates.
-Hungry, stranger? Feast from the harvest, kept in the stores!
-Thirsty, my dear? Slake thy parch with the river's bounty.
-A sort of journey ends when we meet,
-And in our joy glows our reprieve.
-Step beyond the threshold of mirth,
-Step into our City of Civilized Delights.
-I sing with you when you sing with me,
-And together our harmony deepens.
+Did you see the wildling at the gates?
+His accent -- his accent! His mouth is unaccustomed.
+Do you know what it has spent a lifetime learning, instead?
+He came to the temple gardens, looking for you,
+But I told him you were in ritual.
+Here, take this for the hangover. There's a soup for everything.
+We served him the strong wine, the skin-contact kind,
+And he had the audacity to burp!
+We taught him guestright, and how to ask in the refined way,
+And the many ways to say no.
+He flopped in a towel through the bathhouse,
+Making friends with clumsy kindness and drole candor.
+He takes a cot at a hostel, in the farthest, lowest district,
+And an architect has already favored him for muraling.
+Those hands, she thinks they'd be deft with a chisel.
+I think I know what else they're deft with.
+Oh, of course he's handsome -- like the emperor himself!
+But lover, you say it yourself:
+They're fuckboys. Him and the emperor both.
+And that wild man had never done a lye scrub before?
+Ew!
 
 ## The Three of Pentacles
 
+This boss taught me to speak with the stone.
+She presented me with a great smooth rock, expertly hewn,
+And bade me make it a face.
+I've dabbled in wet clay and stacking stones,
+Like ants do with labyrinths, but
+Failure is the hallmark of the apprentice's first contact with craft.
+Still, even after she kicks apart my attempt,
+She sets another rock before me.
+She demands: again!
+Until I've made a scowl like hers.
+When I do, it makes her smile.
+She barks for who's to command me next,
+To manage how I paint your gods on your walls.
+Our walls. Our gods. That's the way they say it.
 Civilization takes work, they say. But whose?
 Everyone's, they say. But who's that?
 They see my strength and they give me a chisel,
 But they don't trust my wits, so they watch.
 Together we're smarter than we are alone, they say.
 I like when that's true,
-But it's only my hands that grow calluses.
+But their hands aren't growing callous.
 
 ## The Empress
 
+You're the one to depict us? A rising star, this outsider.
+You must not know who I am, to regard me so casually.
+You live beneath me. I stock your life. Let me explain.
 We call it the Duarchy, and I'm just one half.
 My syndicates tame rivers and leash mountains,
-So the green grows where we tell it to,
-And beasts know we hold power over their death.
+So the green, our green, it grows where we tell it to.
+Predators move warily near the neighborhoods,
+Knowing across generations how we hold power over their death.
 I preside with my partner, and our love is empire.
 Creation creates the creator; to parent necessitates progeny.
 They call me fertile, but all I raise is possibility.
