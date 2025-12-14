@@ -251,6 +251,20 @@ We just have to be clever to find it.
 
 ## The Three of Pentacles
 
+This boss taught me to speak with the stone.
+She presented me with a great smooth rock, expertly hewn,
+And bade me make it a face.
+I've dabbled in wet clay and stacking stones,
+Like ants do with labyrinths, but
+Failure is the hallmark of the apprentice's first contact with craft.
+Still, even after she kicks apart my attempt,
+She sets another rock before me.
+She demands: again!
+Until I've made a scowl like hers.
+When I do, it makes her smile.
+She barks for who's to command me next,
+To manage how I paint your gods on your walls.
+Our walls. Our gods. That's the way they say it.
 Civilization takes work, they say. But whose?
 Everyone's, they say. But who's that?
 They see my strength and they give me a chisel,
