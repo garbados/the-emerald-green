@@ -251,20 +251,6 @@ We just have to be clever to find it.
 
 ## The Three of Pentacles
 
-This boss taught me to speak with the stone.
-She presented me with a great smooth rock, expertly hewn,
-And bade me make it a face.
-I've dabbled in wet clay and stacking stones,
-Like ants do with labyrinths, but
-Failure is the hallmark of the apprentice's first contact with craft.
-Still, even after she kicks apart my attempt,
-She sets another rock before me.
-She demands: again!
-Until I've made a scowl like hers.
-When I do, it makes her smile.
-She barks for who's to command me next,
-To manage how I paint your gods on your walls.
-Our walls. Our gods. That's the way they say it.
 Civilization takes work, they say. But whose?
 Everyone's, they say. But who's that?
 They see my strength and they give me a chisel,
@@ -273,9 +259,9 @@ Together we're smarter than we are alone, they say.
 I like when that's true,
 But it's only my hands that grow calluses.
 The veteran carver's leather hands have had time
-For the oils of the well-washed to render his
+For the oils of the well-washed to render her calluses
 Into silky pads, earned by the body; distant to the mind.
-His page, the architect, has never touched a chisel
+Her page, the architect, has never touched a chisel
 But her ziggurats rise over numerous boulevards,
 And I admit they are beautiful.
 Maybe I can help them make beautiful things.
