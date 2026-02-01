@@ -3,29 +3,65 @@
 ## The Fool
 
 I begin each day,
-But neither is sunset an end.
-My arrivals compound everywhere I go,
+But neither is dusk an end.
+My arrivals compound wherever I go,
 And I go where I damn please.
-No door can stay the intrepid;
-No lock, the curious.
-The wild green lives in me,
-And it blossoms with every dream.
+My footfalls alert the beasts,
+When I choose to make a noise.
+I have grown of their milk,
+And grown strong upon it,
+As strong as the Wild Green!
+It surrounds me.
+It made me,
+It wells up within me!
+The nomads call me the Wildman,
+Dirty and different and dire.
+The name's just a noise they utter in fear.
+I am their shadow in the deep,
+Every ounce their equal and opposite.
+I am their unkempt stranger, rippling
+With a power they tremble to comprehend.
 
 ## The Two of Swords
 
 Intuition pulls like the moon sometimes, doesn't it?
-It tugs on your guts like a new kind of north.
-You have to stay steady not just to stay the course,
-But to listen to the earth under you, inside of you,
-To hear what moves ahead.
-Strange barriers may cleave you
-From the things you find you want.
+In my dreams, a woman awaits at a gate between worlds,
+Between the heaving ocean and the firm dry loam.
+The beasts tell me we used to be fish, a long time ago
+Before we came to land and made our home above.
+The guardian of this watery gate challenges my return,
+But why would I want to be a fish again?
+I have hands for clutching and lungs for singing,
+While the fish the river offers just blink and gape.
+But, in the dream, I want to return. Why? To what?
+She does not appraise me with eyes.
+She does not threaten me with teeth.
+She says only, do you want what I can give you?
+And in the dream, my lips move without me,
+Uttering a word in a tongue of no beast:
+*Yes.*
+When I awaken in the night, I question the moon.
+Who have you sent to vex me?
+When will I meet her?
 
 ## The Two of Wands
 
-You already have so much, you think to yourself sometimes.
-Why want more?
-My goodness -- why not?
+I already have so much, I think to myself.
+Fruits grow aplenty in the right season,
+And I sleep through the lean winters,
+Full on the cornucopias of fecund summers.
+I'm not as hairy as my brother the boar,
+But the nomads I do cross seem nigh naked,
+Protected from wind and rain only by cloth and leather,
+Those strange results of careful weaving and indifferent skinning.
+Why do humans do so many queer things?
+I wonder, what would it be like, to be like them?
+To wear clothes, or eat bread and cheese
+Rather than berries and flesh?
+The wind carries their scent across the meadows,
+Long before I see them (and they rarely see me)
+I catch their whiff, like bright oil and sweet flowers.
+What would it be like, to reek of pleasant things?
 There's so much out there to see and feel and touch and be!
 I could be anyone, eventually. Anything.
 Why not go a-looking, then?
@@ -33,36 +69,78 @@ Let's see what fate has for me!
 
 ## The Two of Cups
 
-Who now do I find?
-What an offer -- what a trade.
-I look at the thundering clouds,
-The forest bending before the gale,
-And think the same words they say to me:
-"We can only get through this together."
-So we do. We make it through.
-What an offer. What a trade.
+The hunter approaches me over the leopard's corpse.
+I had twisted its neck to stop its yowling
+While it bled from the hunter's shoddy trap,
+Crude and heavy iron digging into furred flesh.
+I look upon my neighbors, the corpse and the other,
+And wonder who more belongs in the cycle of decay.
+He sees my wary glare, and does a neighborly thing:
+He offers me his flask,
+Then sets about to dressing his kill with a short knife.
+The waterskin contains no water but a strong wine
+Whose alcohol smells like poison.
+Still, is it not unneighborly to reject a gift?
+I swallow from the flask, and the wine's layers challenge me,
+Sweet and sickly and sour and strange.
+I spit what I don't swallow, and the stranger laughs.
+He doesn't laugh when I offer my own strong wine,
+Pissing into the vessel.
+Take the swill of *my* people, interloper.
+May it make you strong like what you cowardly kill.
+He takes my gift, but does not imbibe it.
+With a look of revulsion, he pours it out,
+And I honor the dead by laughing in his face.
 
 ## The Two of Pentacles
 
-My two cents? Balance in all things.
-Accounts balance, loves balance,
-And everything that falls apart
-Is just finding a new balance.
-It's deft to dance in the midst,
-Because the balance you try to hold
-Differs from decay's indifference.
+Nomads trade in coin sometimes, shiny and round,
+The sort that clever birds prize.
+Are the nomads and hunter and shepherds bird-like?
+They flit and gather and disperse from the Green,
+Spending but a moon or two in my realm
+Before packing up and leaving only careless trash.
+In the dirt of their camp's remains, I find a purse lost.
+Maybe my friends the birds will appreciate their shine,
+But first I choose to play with them myself,
+Mimicking the wanderers, parroting alone in the wood:
+May I have that cloth, my peer? It must be worm-silk.
+Aye, my peer, for umpteen pence it may be yours.
+What a steal! But, of course, I steal no thing;
+Have my coin, and give me the good thing.
+Aye, my peer, for coin, we can be equals!
+But, lonesome in the dappled meadow, coin in hand,
+I wonder: what do *I* do with them?
+Here in the Wild Green's thick embrace,
+These metals with faces etched have no meaning.
+Their crude smirks mock me.
+They wonder: where might I matter?
+They challenge me: where *do* you matter?
 
 ## The Magician
 
-Look at all the little things
-Scurrying, loving, breeding, dying.
-I remember those things, distantly.
-I don't miss the mud and blood and shit
-And I wonder why they treasure them.
-Let me show you something greater, mortal.
-Open those extra eyes
-That nobody told you about
-And see all that choice can offer.
+Look upon this wild thing, grunting like a boar.
+What parent has lost their child in the savage Green,
+Who has so strong become of the milk of beasts?
+I wish of him to see the light of my City,
+The City of my covenant, of my loving promise!
+He will not understand, at first.
+It will of crude artifice seem,
+Beside the elegance of predator and prey,
+But he is so beautiful, no?
+His raw might, of such honed grace.
+I wish of him to walk the City's brick streets,
+To dwell in its houses under lacquered shingles,
+To regard what my faithful have there painted:
+Sweeping grand murals of myths -- of me.
+Go forth, my priestess, and grant my invitation.
+Teach him of the civilized, and put in him such a way.
+Call me sentimental, and I admit you won't be wrong.
+I remember so distantly when I was fleshly like him.
+Embodied in the City that honors my pact in cultured kinship --
+Whose way is my love, whose peace is my triumph --
+I do not miss the reeking wood.
+I wonder if he will.
 
 ## The High Priestess
 
@@ -73,47 +151,103 @@ I just nod and note, asking calmly,
 What is the path between? Howling.
 What is the truth beyond life? Roaring.
 But there's plenty the heavens don't know.
-When I ask, how to enlighten my peers
+When I ask, "How do I enlighten my peers?"
 The line goes quiet.
 It's always up to us mortals
 To fill in the details.
+My heavens are not just true but a truth
+Which I practice in good faith.
+When I am called to share it,
+It is an honor to teach.
 
 ## The Three of Swords
 
+I loved you. I didn't know what it was, before.
+The three essential pleasures, you instructed:
+Good hygiene, to ward disease and please the senses;
+Good food, to sate the body and please the senses;
+And good sex, to delight the spirit and please the senses.
+I did not resist your careful touch, and I followed your example
+There in the shallow pools of a river's eddies.
+You bathed me, and I bathed me, oiled and cut and clean.
+You fed me, of sweet umami jams spread over spongy bread,
+Rippling with honey to bewitch the bear,
+Laced with salt to delight the deer,
+But there on the shore, it was to please me.
+When you had taught me to please you,
+I took such pleasure in it,
+And it was nothing but a pleasure.
+You shared, in the breathless after
+That there are three more essential pleasures:
+Good music, good art, and good jokes,
+But humans struggle to realize those.
+The others are a puzzle of logistics and culture,
+Though a solution always lies within cleverness.
+(I protested:
+How can you know?
+What if some disturbance exceeds your skillful puzzling
+And swallows you in a tide of changes you can't prevent?
+You insisted in good faith:
+Come what may.
+A solution always lies within cleverness!)
+So when you said you would return without me,
+To likely never see me again,
+Hidden as you were in the sacred cloisters --
 I didn't know a heart could break like that.
-You found me in the wild green,
-And I found you naked, body and soul.
-You invited me in, and we opened flowers
-Like you opened my mind.
 By the end of seven days, I was someone different.
 The unkempt grasses of my homeland
 Now pricked the feet you had washed so soft.
 So you said, go to the people.
-Love is a promise that lives in you.
-Through all of us, we give it form.
+Love is a promise that lives in you,
+Not me or my touch or my memory.
+Through each of us, in a new way every time,
+We together give it form.
 
 ## The Three of Wands
 
-Look far, little one.
-The cliffside dwarfs your tall stature,
-But the borrowed height grants such sight
-Over such far reaches, and all it teaches
-Gives you pause with the weight of the cause.
-A journey of a thousand steps starts with one
-So set off while you can, in the daylight at dawn
-And maybe you'll arive while you're still alive.
+There, along the horizon, that gleaming --
+That is what I seek.
+Stone spires peek over the farthest range,
+As I peek from the highest mount.
+I approach a band of nomads, and there is the trapper
+Who refused the gift of my strong wine.
+With the words the priestess taught me,
+I ask for company on the journey.
+The trapper laughs with his friends, perhaps at my accent.
+He says to me:
+Of course, wildman-stranger. Walk with us,
+Our donkeys and carts and goods and tools,
+Our keepsakes that jangle when a wheel greets a rude stone.
+In the City, Goddessday comes! She was born on that day,
+Or so the story goes.
+You'll like the festival, streamers and flying lamps,
+Dumplings and flashpowder and acrobats.
+Nothing like it in the woods, never all at once.
+And, the way called guestright will enlighten you
+To why the well-washed choose the City over the Green.
+But first, it's neighborly, no? To share a drink.
+Here, take my flask.
+I heard from a reeking fellow
+This is how you wildmen drink.
 
 ## The Three of Cups
 
 They call it guestright, and it starts at the gates.
 Hungry, stranger? Feast from the harvest, kept in the stores!
-Thirsty, my dear? Slake thy parch with the river's bounty.
+Thirsty, my dear? Slake thy parch with the wells in every square.
 A sort of journey ends when we meet,
-And in our joy glows our reprieve.
+And in our joy glows this reprieve.
 Step beyond the threshold of mirth,
 Step into our City of Civilized Delights.
 I sing with you when you sing with me,
-And together our harmony deepens.
+And together our melody deepens.
+I dance with you when you dance with me,
+And together our harmony blossoms.
+I eat with you when you eat with me,
+And together our bodies heal.
+Walk with me, let's get you a place.
+Everyone has a place, as everyone deserves a place.
+We just have to be clever to find it.
 
 ## The Three of Pentacles
 
@@ -124,12 +258,25 @@ But they don't trust my wits, so they watch.
 Together we're smarter than we are alone, they say.
 I like when that's true,
 But it's only my hands that grow calluses.
+The veteran carver's leather hands have had time
+For the oils of the well-washed to render her calluses
+Into silky pads, earned by the body; distant to the mind.
+Her page, the architect, has never touched a chisel
+But her ziggurats rise over numerous boulevards,
+And I admit they are beautiful.
+Maybe I can help them make beautiful things.
+Maybe they are helping me.
 
 ## The Empress
 
+This is the carver? This Wildman?
+You will render my visage? So be it.
+In this Hall, gazing down from all around you,
+The reigning couples of all the City's history
+Look on from stone.
 We call it the Duarchy, and I'm just one half.
 My syndicates tame rivers and leash mountains,
-So the green grows where we tell it to,
+So the Green grows where we tell it to,
 And beasts know we hold power over their death.
 I preside with my partner, and our love is empire.
 Creation creates the creator; to parent necessitates progeny.
@@ -145,16 +292,26 @@ Not the weather, not the seasons, not the stars or seas,
 But the foolhardy violence of my peers and cousins.
 The slaver's hand can be turned
 Even when it means breaking the arm,
-And once you hear that bone snap enough times,
+But once you hear that bone snap enough times,
 You stop feeling like there's a person around it.
 We raise walls to stay the hordes,
 But who's a horde is just a matter of allegiance.
+So are you allied to us, Wildman-stranger?
+Do you enjoy our bread and wine and cheese and dance?
+It's bought with time and wisdom
+That my kind protect.
 
 ## The Four of Swords
 
+The people of the City move so fast,
+As if all time could exist in their little lives.
+They flit and twitter like coinbirds, talking and meaning nothing.
+But if you are quiet, and patient, then even nothing will talk.
+I sit with a duarch past, and listen to his tomb.
+He rasps from behind crypt walls:
 The pact of mortality is death.
 Many things that never live will never die,
-But we have the privilege to perish.
+But I had the privilege to perish.
 All our struggles leave us lying still in state,
 Their consequences to be considered by our survivors alone.
 Mind what you sacrifice, stranger; mind what you give to empire.
@@ -163,25 +320,38 @@ But you won't survive to appreciate it.
 
 ## The Four of Wands
 
-Welcome, stranger. Welcome home.
+Welcome, stranger. Welcome home! --
+Oh, no, your home is three blocks south.
+One just says "welcome home!" on Goddessday,
+As all the City is the home of all of us,
+But this is my home, and you can't sleep here.
+Still, it seems you need a guide. Let me show you ours ways.
 We dance in the daylight and we drink into the night.
-Poetry flows from loose lips; in vino veritas.
+Poetry flows from loose lips; in wine, the truth!
 We dine on cornucopia and thank by name its gatherers.
 We frolic on stones laid by the work of neighbors.
 Now whose eye do you catch? In what pupil do you sparkle?
+This might be a maskday, but I know that regal chin.
 Even royalty can fall in love; decorum cannot prevent attraction.
+Hear how he says to you, "welcome home,"
+As though he says:
 Let our joy sanctify compassion.
 Let our mirth reach the stars.
+Dance with him. Go on! He invites.
+Go on, if you want it.
 
 ## The Four of Cups
 
 I have it good, or good enough, I think.
 It's not perfect, not by a long shot,
 But guestright is alright, here in the City.
-I'm housed and fed, and a healer's never far.
-I don't know how to feel when that handsome one looks my way.
+I'm housed and fed, the public baths are clean and flowery,
+And neither a banquet nor a well nor a healer's ever far.
+Still, I am the stranger here, aren't I? They call me so.
+I don't know how to feel when that handsome one looks my way,
+As he's kept doing, ever since Goddessday.
 I don't know what to think of everything that separates us.
-The wild cultivated courage in me,
+The Green cultivated courage in me,
 But in his gaze my bashfulness feels like cowardice.
 What do I turn away from
 When my blush draws my eyes to the ground?
@@ -192,13 +362,16 @@ Authority requires control. It is control.
 Our enemies march. They covet our City.
 Through shrewd brutality, they can be cowed,
 But what spirit do I nurture through war?
-The wildman covets nothing, is nothing but himself,
+The Wildman covets nothing, is nothing but himself,
 While for the sake of peace, I am little but the mask
 Of decorum, of empire, of a violent unity
 Whose pax is broken deviants.
 Is it I that is shrewd now, as I wield brutality?
 Or something alien that moves through me
 Which cares nothing for the love we claim to protect?
+I'll need to raise the army.
+I hope he will join us.
+I pray we both survive.
 
 ## The Hierophant
 
@@ -230,6 +403,8 @@ Then maybe it deserves to crumble.
 
 ## The Five of Swords
 
+The kingdom-cult of the one true God-King
+Has killed our traders, and assaulted our walls.
 When we scatter their legions,
 The survivors walk to our gates
 And become our latest citizens.
@@ -245,8 +420,10 @@ But mercy doesn't keep you safe.
 
 ## The Five of Wands
 
-They present me with a weapon,
-Long and sharp and borne of killing dreams.
+The Emperor asks me to come with him.
+I said, anywhere. So, he sent me to the arms-general.
+They presented me with a weapon,
+Long and sharp and born of killing dreams.
 You will need this, they say.
 You will need to know how to use it.
 I ask, but why?
@@ -262,10 +439,10 @@ What have I lost in the City?
 I made a friend of a bailiff,
 Who died on a rival people's spear-point.
 My neighbors know me by name now,
-But that name is always: stranger.
+But that name is always *stranger*.
 I carved the walls of the newest temple,
 But only the priests get the credit.
-I may have some things of unalloyed good,
+I may have some joys of unalloyed good,
 But even the love that makes me glow
 Is a secret to his court.
 What have I lost in the City?
@@ -284,21 +461,21 @@ But empire can imagine nothing for them,
 Nothing more compassionate
 Than another pained and shallow breath.
 What kindness can it not conceive?
-What compassion escapes its rigid order?
+What compassion escapes its open doors?
 
 ## The Chariot
 
 We ride!
-Our foes gather like wasps;
-I go to scatter them. Will you attend me?
-You have seen them assault the gates.
+Today is the day, my love. Will you attend me?
+I have seen you with a sword, graceful and adroit.
+You have seen the God-King's faithful assault the gates.
 You have seen how they covet the City.
 I need your strong arm and wild wits
 Like my armies need my governance
 For together, we are unstoppable.
 Triumph is summoned, not destined;
 The ritual of effort evokes victory.
-Fight with me, my strange lover,
+Fight with me, my stranger, my lover,
 And I promise I will see you again.
 
 ## The Six of Swords
@@ -306,7 +483,7 @@ And I promise I will see you again.
 Hush now, if you know what matters.
 The times, they are a-changing
 By the hands of courageous rivals --
-our hands, your Lady.
+Our hands, your Lady.
 You may not want to go,
 Nor to take your most cherished away,
 But this is how we hate each other.
@@ -332,7 +509,8 @@ Because a sycophant can never be trusted.
 When we stand together,
 No one falls.
 But, if someone has to,
-How could I do less than volunteer?
+What example would it set
+If I did less than volunteer?
 
 ## The Six of Cups
 
@@ -343,13 +521,16 @@ You were there, an itching youth like me,
 And we dug in the mud for fun,
 Thinking someday we'd dig aqueducts.
 Lover, what is an aqueduct?
-In the wild, I drink from the good streams,
-And the City has its sacred fountains --
-Is that how they work?
+In the Green, I would drink from the watering holes,
+Though the City has its sacred fountains --
+How do they work?
 Maybe I might have known that,
 If I had been born somehow different.
-Imagine if we had known each other
-Longer.
+But if I'd been born any different,
+Would we be together now?
+I only imagine, like tasting a sweet pie,
+What if we could know each other
+Longer?
 
 ## The Six of Pentacles
 
@@ -362,6 +543,9 @@ So maybe I fill your hands,
 And you stand down and divulge,
 And when then is all over,
 We call it square.
+Unless, you'd rather we not be square,
+But I notice you few are all that's left,
+And there's quite a few left of us.
 Now I ask you again:
 Where is she?
 
@@ -376,39 +560,45 @@ And we City-folk, we solve problems.
 The bards will say it was destiny, like the weather,
 But the truth is more like the cleverness of a crow.
 The opportunistic leap, the scavenger's creativity --
-Step into the vacuum that floats like a wave
-Sucked between the systems of time and space
-And the systems of communal human effect
-Like a rip-tide.
+Step into the vacuum that floats like a wave,
+Swim out between the currents of communal consequence;
+Paddle skillfully in their rip-tide.
 Unready, you might drown,
-But the boat-buoyed sailor floats to sea
-While my navy navigates home.
+But a boat-buoyed sailor floats to sea,
+And my navy navigates home.
 
 ## The Seven of Swords
 
-You can fight without weapons, I realize,
-And by virtue of your eminent skill, you'll still win.
-But you can't fight where you aren't,
-And you can't fight while you sleep.
-You'll hate the gift of the wine,
-And the truth in its tannins will prove too much.
+You'll think I just raided the armory,
+And that's what I want you to think.
+I did take these swords, after all.
+I'll melt them down, sell them to a trader,
+And they'll be forged in your furnaces
+Into horseshoes and clasps,
+Hopefully by the God-King's own smiths.
+You'll be thinking about the armory tomorrow night,
+When your army rests while the river's too high to ford.
+You won't be thinking about the wine bottle,
+So indistinguishable that you'll never think
+You've never seen it before.
 The tragedy of hierarchy is always the heart,
 That it beats alone, central and essential.
 When it stops, the show stops,
-And your government falls.
-Heirs, advisors, and courtiers may quibble for the remains,
-And the name of your realm will be passed on tattered
-Like the chew toy of a dozen hungry dogs.
+And your government shatters
+Into the hands of a thousand jealous courtiers and courtesans.
+My singular Deity will set them right with focus and vision,
+Which you will not live to enjoy.
 But, only if you're the one that drinks the wine...
 
 ## The Seven of Wands
 
 They came while you were away, my monarchs.
 We stood our ground, but couldn't hold it.
-Their unfathomable ambitions produced devices
-Hurling rock and burning oil.
-Falling masonry, screams of the burning dead --
-It won't go away, my monarchs. It's been days.
+Their armies, diminished but honed with the unthinkable:
+Immense devices, on many great wheels that each crush ground,
+Hurling boulders, and burning oil that water only angers.
+Falling masonry, screams of the searing dead --
+It won't go away, my duarchs. It's been days.
 It's been days since they occupied the City.
 They took apart their artillery to patch the walls.
 We can still win, of course. Can't we?
@@ -421,7 +611,6 @@ There isn't just one future, of course.
 We summon our destiny with our deeds,
 And the spirit only acts by choice.
 But what choices are these?
-I have been faithful. How can you vex me so?
 To trade my most loyal for my own home?
 Or to give it up, and return to nomad ways?
 There's no shame in being the wandering shepherd.
@@ -433,7 +622,7 @@ Only a few generations back.
 Six or seven, maybe.
 What am I thinking? I've never known
 But fountains and bread and books,
-And I don't intend to soon.
+And I don't intend to forget them soon.
 I'd rather cut off my own head
 Than trade of my herd in their bazaar.
 But,
@@ -458,14 +647,15 @@ And lift back to life everything we made.
 
 ## The Hermit
 
+How can you ask me to do this dangerous thing?
 It isn't my city, is it?
 It's the City. I just used to live there.
 You can't ask me to give of myself like this.
-I'm not from here. Your peers call me outsider.
+I'm not from here. Your peers call me stranger -- outsider!
 What home can I have, even in your arms?
 Your embrace returns to her, obligated,
 But with what passion? Passion like ours?
-I don't want to gamble in your sewers
+I don't want to gamble in your forgotten sewers
 For a chance to whimper in your shadow.
 I want to lay with you now, while she's away,
 While the candles burn and the pillows have feathers.
@@ -508,12 +698,13 @@ And it sufficed to take it in blood.
 ## The Eight of Wands
 
 The campaign comes to a close.
-The heroes get medals. The maimed get pensions.
+The God-King prophesies victory as mere metaphor now.
+Our heroes get medals. Our maimed get pensions.
 The survivors go home. The banished go away.
 There's still so much to do --
 Just look at how they've defaced our temples --
 But at least we're home now.
-At least I can send the wildman a proper doctor,
+At least I can send the Wildman a proper doctor,
 Something for the pain,
 Something for the anguish.
 In his old home, he'd already be dead.
@@ -534,6 +725,7 @@ Everything we had is empty now.
 Nothing is forever, not even in a life.
 I'm sorry we had so little.
 I'm sorry I didn't have more.
+I'm sorry. I have to go.
 
 ## The Eight of Pentacles
 
@@ -550,7 +742,7 @@ A wiser Duarchy wouldn't have faced such a trap,
 As the wise artisans conceive the proper tool
 While their lessers toil primitively.
 No work does not require skill,
-So the unskilled suffer from ignorance.
+So the unskilled suffer in every effort.
 We don't need ignorance here. We have skill.
 The Student nods, chiseling away.
 They have no reply, but the message settles
@@ -561,7 +753,7 @@ Just as it was spoken.
 ## Justice
 
 I am sorry. I owed you my love in the daylight.
-I proclaim it so: a plaza of your name,
+I proclaim it so: a plaza of your name, my Wildman.
 To honor your kindness, curiosity, and sacrifice.
 It will be cold comfort when you are gone,
 But in the springs to come,
@@ -587,15 +779,14 @@ I've never liked caves, not the ones that go so deep.
 Things live there, lover. Things like birds with hands
 That clutch at the moss and clay, and devour,
 Hungry for such a bare crop. Hungry forever.
-Listen, lover. It's where I'm going.
-Find me, if you can.
+Listen, lover. It's where I'm going. Sooner now than later.
 I wandered the dim halls, glowing with ghostlight.
 Etched glyphs faded to soft depressions;
 If I wrote them, could you read them?
 I can't read, lover. I still can't.
 I saw this one on the forehead
 Of a too-long obsidian woman, garbed in jade and emerald.
-She sneered from her black throne -- at me, lover.
+She sneered from her lightless throne -- at me, lover.
 "Who are you?" she demanded. She stood so tall.
 Her presence swept away the light like night.
 I had no lips with which to answer. The dead have no bodies.
